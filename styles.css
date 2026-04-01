@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0D1117;
+        color: #E6EDF3;
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    code, pre {
+        font-family: 'JetBrains Mono', monospace;
+    }
+}
+
+@layer components {
+    .bento-card {
+        @apply relative rounded-2xl bg-[#161B22] border border-[#30363D] overflow-hidden transition-all duration-300;
+    }
+
+    .bento-card:hover {
+        @apply border-kotlin-purple/50 shadow-[0_0_20px_rgba(127,82,255,0.15)] transform -translate-y-1;
+    }
+
+    .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-kotlin-purple to-kotlin-orange;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-kotlin-purple to-kotlin-orange hover:opacity-90 transition-opacity;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-[#E6EDF3] bg-[#21262D] border border-[#30363D] hover:bg-[#30363D] transition-colors;
+    }
+    
+    .tech-pill {
+        @apply px-3 py-1 text-xs font-mono rounded-full bg-[#21262D] text-[#8B949E] border border-[#30363D];
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0D1117; 
+}
+::-webkit-scrollbar-thumb {
+    background: #30363D; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #484F58; 
+}

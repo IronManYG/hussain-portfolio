@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoJournal | Android Developer Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kotlin-purple': '#7F52FF',
+                        'kotlin-orange': '#E7624F',
+                        'ide-bg': '#0D1117',
+                        'ide-surface': '#161B22',
+                        'ide-border': '#30363D'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ide-bg text-[#E6EDF3] antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-[#8B949E] hover:text-white transition-colors">
+                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-16 fade-section">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill">Community Challenge</span>
+                <span class="tech-pill">Native Android</span>
+                <span class="tech-pill">Material 3</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">EchoJournal <span class="gradient-text">Audio Logger</span></h1>
+            <p class="text-xl text-[#8B949E] font-light">An elegant, Media-SDK powered audio journaling app engineered to seamlessly capture and categorize voice memos using Material Design 3 paradigms.</p>
+        </header>
+
+        <!-- The Overview -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <div class="prose prose-invert max-w-none text-[#8B949E] leading-relaxed">
+                <p>EchoJournal was constructed as part of the <em>Pl Mobile Dev Campus</em> community challenge. It goes beyond simple audio recording by allowing users to construct a rich, filterable timeline composed of their voice logs, tagged heavily with metadata layers indicating varying mood states and semantic topics, potentially backed by AI transcription.</p>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-4 text-white">The Challenge</h2>
+            <p class="text-[#8B949E] leading-relaxed mb-4">
+                Managing media recording state across the Android lifecycle is notoriously tricky. If the app is sent to the background or if standard hardware configuration changes occur, the underlying `MediaRecorder` pipeline can leak resources, corrupt the output buffer, or misalign the UI's real-time audio-level visualizers.
+            </p>
+            <p class="text-[#8B949E] leading-relaxed">
+                Furthermore, developing an MVP that is tightly cohesive yet open for immediate "Multi-Module Integration" refactoring meant balancing quick iteration speed against hard architectural boundaries.
+            </p>
+        </section>
+
+        <!-- The Solution & Architecture -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <div class="space-y-6 text-[#8B949E] leading-relaxed">
+                <p>I structured EchoJournal initially as a pure <strong>Single-Module MVP</strong> backed entirely by an <em>MVI (Model-View-Intent)</em> architecture. The UI sends strictly typed Intents downward, ensuring the complex state machine governing `PREPARING`, `RECORDING`, `PAUSED`, or `IDLE` never drifts out of sync with the Compose UI view layer.</p>
+                
+                <h3 class="text-xl font-semibold text-white mt-6">Handling Media Layers</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Safely Managing The SDK:</strong> Implemented tight coroutine scopes bound by Lifecycle-Aware components. The `MediaPlayer` and `MediaRecorder` instances are carefully released avoiding memory starvation.</li>
+                    <li><strong>Reactive Journaling:</strong> The history grouping mechanism is entirely reactively bound via Room and Flow. Users filter by 'Topic' or 'Mood' strings natively. Changes in DB records instantly invalidate and update Jetpack Compose constraints seamlessly inline.</li>
+                    <li><strong>Future-Proof Structure:</strong> Designed packages (`domain`, `data`, `presentation`) so that promoting AI translation features into isolated Gradle feature modules doesn't require rewriting business logic.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">UI Framework</span>
+                    <span class="font-mono text-white text-sm">Jetpack Compose</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Architecture</span>
+                    <span class="font-mono text-white text-sm">Clean MVI MVP</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">State Mgmt</span>
+                    <span class="font-mono text-white text-sm">StateFlow</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Persistence</span>
+                    <span class="font-mono text-white text-sm">Room Database</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Media Recording</span>
+                    <span class="font-mono text-white text-sm">MediaRecorder</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Media Playback</span>
+                    <span class="font-mono text-white text-sm">MediaPlayer</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Design System</span>
+                    <span class="font-mono text-white text-sm">Material Design 3</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-[#8B949E] text-sm font-mono">
+        &copy; 2025 Hussain Gaddal.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

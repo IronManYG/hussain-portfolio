@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScribbleDash | Android Developer Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kotlin-purple': '#7F52FF',
+                        'kotlin-orange': '#E7624F',
+                        'ide-bg': '#0D1117',
+                        'ide-surface': '#161B22',
+                        'ide-border': '#30363D'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ide-bg text-[#E6EDF3] antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-[#8B949E] hover:text-white transition-colors">
+                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-16 fade-section">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill">Community Challenge</span>
+                <span class="tech-pill">Compose Canvas</span>
+                <span class="tech-pill">Koin</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">ScribbleDash <span class="gradient-text">Drawing Engine</span></h1>
+            <p class="text-xl text-[#8B949E] font-light">An interactive Android application probing the performance edge cases of Jetpack Compose’s Canvas API via a playful drawing challenge environment.</p>
+        </header>
+
+        <!-- The Overview -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <div class="prose prose-invert max-w-none text-[#8B949E] leading-relaxed">
+                <p>ScribbleDash demonstrates expertise in manipulating Android's drawing APIs natively integrated via Compose constraints. Through game modes like "One Round Wonder", it challenges users with varied difficulty canvases, implementing real-time gesture extraction, history state arrays (Undo/Redo), and smooth vector stroke rendering.</p>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-4 text-white">The Challenge</h2>
+            <p class="text-[#8B949E] leading-relaxed mb-4">
+                Creating an interactive drawing app on Compose means continuously recalculating Bezier paths across high-frequency pointer capture events. Without optimized rendering strategies, the draw loop stutters unacceptably. 
+            </p>
+            <p class="text-[#8B949E] leading-relaxed">
+                Further complexity arises when needing to persistently track drawing paths in memory for an "Undo/Redo" stack of custom brush strokes without inducing out-of-memory exceptions over long usage periods, while integrating the entire structure cleanly around a domain-driven architectural package.
+            </p>
+        </section>
+
+        <!-- The Solution & Architecture -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <div class="space-y-6 text-[#8B949E] leading-relaxed">
+                <p>To provide high-fidelity drawing execution, I utilized native Jetpack Compose `Canvas` layouts wrapped entirely inside an optimized multi-package layered architecture.</p>
+                
+                <h3 class="text-xl font-semibold text-white mt-6">Optimized Path Execution</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Path Traversal:</strong> Rather than reconstructing the entire canvas every frame, individual paint strokes are cached as `Path` matrices, preventing deep recomposition triggers until absolutely necessary. State arrays maintain the last 5 vectors for robust Undo/Redo cycles.</li>
+                    <li><strong>Pseudo-Modular Folder Structuring:</strong> Although single-module natively, packages (`features/gamemodes/`, `features/draw/`) are completely horizontally segregated. Game modes can be hot-swapped or expanded massively without bleeding business logic into unrelated domains.</li>
+                    <li><strong>Dependency Tracking:</strong> The DI framework handles injecting specific game mode states entirely decoupled from the base Compose UI layouts.</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Canvas Core</span>
+                    <span class="font-mono text-white text-sm">Compose Canvas API</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Vector Math</span>
+                    <span class="font-mono text-white text-sm">Compose Paths</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Architecture</span>
+                    <span class="font-mono text-white text-sm">Component Separation</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Nav Strategy</span>
+                    <span class="font-mono text-white text-sm">Navigation Compose</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-[#8B949E] text-sm font-mono">
+        &copy; 2025 Hussain Gaddal.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

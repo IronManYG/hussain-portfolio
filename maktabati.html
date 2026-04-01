@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktabati | Android Developer Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kotlin-purple': '#7F52FF',
+                        'kotlin-orange': '#E7624F',
+                        'ide-bg': '#0D1117',
+                        'ide-surface': '#161B22',
+                        'ide-border': '#30363D'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ide-bg text-[#E6EDF3] antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-[#8B949E] hover:text-white transition-colors">
+                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-16 fade-section">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill">Professional Production App</span>
+                <span class="tech-pill">Native Android</span>
+                <span class="tech-pill">Kay Technology</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Maktabati <span class="gradient-text">Institution Hub</span></h1>
+            <p class="text-xl text-[#8B949E] font-light">A proprietary, modular digital library designed specifically for enterprise and academic researchers, focusing on secure high-volume PDF orchestration.</p>
+        </header>
+
+        <!-- The Overview -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <div class="prose prose-invert max-w-none text-[#8B949E] leading-relaxed">
+                <p>Engineered internally at Kay Technology, Maktabati acts as a large-scale enterprise entry point for researchers needing unhindered access to securely managed digital archives. It goes far beyond a UI wrapper, serving as a powerful offline-capable document manager prioritizing low memory overhead during heavy PDF view operations.</p>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-4 text-white">The Challenge</h2>
+            <p class="text-[#8B949E] leading-relaxed mb-4">
+                Most digital archive applications fail when facing high-resolution, 1000+ page institutional PDFs. The Android memory model natively struggles to cache large bitmap streams without firing OOM (Out Of Memory) exceptions. 
+            </p>
+            <p class="text-[#8B949E] leading-relaxed">
+                Simultaneously, an architecture was required that allowed separate internal agency teams to parallel-develop isolated segments of the app (Authentication vs. PDF engine vs. Downloads manager) without inducing code-merge collisions.
+            </p>
+        </section>
+
+        <!-- The Solution & Architecture -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <div class="space-y-6 text-[#8B949E] leading-relaxed">
+                <p>The solution necessitated strict adherence to multi-module Clean Architecture, enforcing hard physical boundaries between components.</p>
+                
+                <h3 class="text-xl font-semibold text-white mt-6">Enterprise Modularity</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Strict Feature Isolation:</strong> Features (Auth, Library, Viewer, Settings) act as standalone endpoints. Downward dependency on the <code class="font-mono text-xs text-kotlin-orange bg-[#0D1117] p-1 rounded border border-ide-border">core-domain</code> and <code class="font-mono text-xs text-kotlin-orange bg-[#0D1117] p-1 rounded border border-ide-border">core-data</code> prevents circular dependencies and heavily cuts incremental build compilation durations.</li>
+                    <li><strong>Robust Memory Management:</strong> By integrating <em>Barteksc PDF Viewer</em> alongside custom background caching handled heavily by WorkManager, we load dense graphical PDF pages lazily. This isolates UI scrolling threads via Jetpack Compose from the main data-mapping logic.</li>
+                    <li><strong>Download Resilience:</strong> The <em>DownloadX</em> framework combined with Room ensures that 10GB+ library synchronizations can resume flawlessly post-disconnection, securely persisting to encrypted storage partitions inside the app hierarchy.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6">Development Impact</h3>
+                <p>The modular separation led to pristine LeakCanary audits, allowed QA teams to test business-logic flows without bootstrapping UI constraints, and paved a direct pathway toward dynamic feature delivery payloads on the Google Play Console.</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Architecture</span>
+                    <span class="font-mono text-white text-sm">Clean MVI (6+ Modules)</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Threading</span>
+                    <span class="font-mono text-white text-sm">WorkManager</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">PDF Engine</span>
+                    <span class="font-mono text-white text-sm">Afreakelf / Barteksc</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">UI Graphics</span>
+                    <span class="font-mono text-white text-sm">Compose & Lottie</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Data Layer</span>
+                    <span class="font-mono text-white text-sm">Ktor / Room</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Profiler</span>
+                    <span class="font-mono text-white text-sm">LeakCanary</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-[#8B949E] text-sm font-mono">
+        &copy; 2025 Hussain Gaddal.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

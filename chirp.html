@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp | Android Developer Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kotlin-purple': '#7F52FF',
+                        'kotlin-orange': '#E7624F',
+                        'ide-bg': '#0D1117',
+                        'ide-surface': '#161B22',
+                        'ide-border': '#30363D'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ide-bg text-[#E6EDF3] antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-[#8B949E] hover:text-white transition-colors">
+                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+            <a href="https://github.com/IronManYG/Chirp" target="_blank" class="btn-primary text-sm px-4 py-2 flex items-center">
+                <i class="ph ph-github-logo mr-2 text-lg"></i> View Source
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-16 fade-section">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill">Kotlin Multiplatform</span>
+                <span class="tech-pill">Compose Multiplatform</span>
+                <span class="tech-pill">Ktor</span>
+                <span class="tech-pill">Course Challenge</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Chirp <span class="gradient-text">Messaging Client</span></h1>
+            <p class="text-xl text-[#8B949E] font-light">A synchronized, real-time messaging application targeting Android, iOS, and Desktop with 100% shared business logic.</p>
+        </header>
+
+        <!-- The Overview -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <div class="prose prose-invert max-w-none text-[#8B949E] leading-relaxed">
+                <p>Chirp is a comprehensive enterprise-grade messaging solution designed to demonstrate mastery over modern cross-platform development. Built entirely in Kotlin, it leverages Kotlin Multiplatform (KMP) for shared state management and Compose Multiplatform (CMP) for unified UI rendering across mobile and desktop platforms.</p>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-4 text-white">The Challenge</h2>
+            <p class="text-[#8B949E] leading-relaxed mb-4">
+                Developing a messaging application requires handling highly asynchronous data flows, managing unstable network connections, and ensuring a buttery-smooth user pipeline across distinct operating systems. 
+            </p>
+            <p class="text-[#8B949E] leading-relaxed">
+                The primary engineering challenge was to eliminate platform silo code—achieving maximum code reuse without compromising on native-like performance. This meant standardizing WebSockets, local SQLite persistence (Offline-first), and UI components from a single codebase while respecting platform-specific APIs for notifications and file systems.
+            </p>
+        </section>
+
+        <!-- The Solution & Architecture -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <div class="space-y-6 text-[#8B949E] leading-relaxed">
+                <p>To overcome these challenges, Chirp was built on a <strong>Multi-Module Clean Architecture</strong> foundation. The application enforces a strict Unidirectional Data Flow (UDF), pushing state downwards and propagating events upwards.</p>
+                
+                <h3 class="text-xl font-semibold text-white mt-6">Structural Breakdown</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Feature Encapsulation:</strong> Modules are split into strict layers (e.g., <code>feature:auth</code>, <code>feature:chat</code>), isolating domain business logic from the UI layer.</li>
+                    <li><strong>Offline-First Synchronization:</strong> A robust implementation using Room/SQLite bundles ensures messages are cached locally, allowing full app usage and background queueing during network dropouts.</li>
+                    <li><strong>Real-Time Duplexing:</strong> Ktor Client powers the networking layer, managing seamless REST calls and WebSocket streams for instant message delivery without polling overhead.</li>
+                    <li><strong>Dependency Injection:</strong> Built using <em>Koin</em> to securely provide multiplatform dependencies natively to Android, iOS, and desktop targets.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6">Platform Consistency</h3>
+                <p>To ensure pixel-perfect fidelity and smooth animations, I utilized Compose Multiplatform (CMP). The dynamic typography and RTL support (Arabic/English) are gracefully handled using centralized <code>expect/actual</code> bindings connected to a core design system module.</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Language</span>
+                    <span class="font-mono text-white text-sm">Kotlin 2.2</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Architecture</span>
+                    <span class="font-mono text-white text-sm">Clean MVI</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Networking</span>
+                    <span class="font-mono text-white text-sm">Ktor WebSockets</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">UI Framework</span>
+                    <span class="font-mono text-white text-sm">Compose MP</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Persistence</span>
+                    <span class="font-mono text-white text-sm">Room DB</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">DI Framework</span>
+                    <span class="font-mono text-white text-sm">Koin</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Push Delivery</span>
+                    <span class="font-mono text-white text-sm">Firebase Cloud</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Async</span>
+                    <span class="font-mono text-white text-sm">Coroutines/Flow</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-[#8B949E] text-sm font-mono">
+        &copy; 2025 Hussain Gaddal.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

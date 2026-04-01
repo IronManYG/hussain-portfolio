@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runique | Android Developer Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kotlin-purple': '#7F52FF',
+                        'kotlin-orange': '#E7624F',
+                        'ide-bg': '#0D1117',
+                        'ide-surface': '#161B22',
+                        'ide-border': '#30363D'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ide-bg text-[#E6EDF3] antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-[#8B949E] hover:text-white transition-colors">
+                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-16 fade-section">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="tech-pill">Native Android</span>
+                <span class="tech-pill">Wear OS</span>
+                <span class="tech-pill">Google Maps SDK</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Runique <span class="gradient-text">Fitness Tracker</span></h1>
+            <p class="text-xl text-[#8B949E] font-light">A synchronized Wear OS & Mobile application that delivers high-fidelity health tracking and analytics via offline-first architecture.</p>
+        </header>
+
+        <!-- The Overview -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <div class="prose prose-invert max-w-none text-[#8B949E] leading-relaxed">
+                <p>Runique bridges the gap between companion app management and native smartwatch health integration. Tracking live runs across complex terrains demands continuous stream synchronization between an active Wear OS device and its host smartphone. This project highlights my capability to handle real-time geospatial data, map rendering, and Android's complex Health Services APIs securely.</p>
+            </div>
+        </section>
+
+        <!-- The Challenge -->
+        <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-4 text-white">The Challenge</h2>
+            <p class="text-[#8B949E] leading-relaxed mb-4">
+                Creating a fitness application requires absolute precision. Drops in network latency, battery optimization (Doze mode) killing background processes, and asynchronous data streaming between a phone and a Wear OS watch usually yield massive syncing issues.
+            </p>
+            <p class="text-[#8B949E] leading-relaxed">
+                The objective was to maintain a continuous, live representation of GPS data on a Google Map while capturing sensitive health biometrics from a smartwatch—without draining the battery or halting if the user runs into a cellular dead-zone.
+            </p>
+        </section>
+
+        <!-- The Solution & Architecture -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <div class="space-y-6 text-[#8B949E] leading-relaxed">
+                <p>To establish an impeccable data flow, Runique is heavily modularized (App, Auth, Run, Analytics, Wear) under a Clean Architecture approach.</p>
+                
+                <h3 class="text-xl font-semibold text-white mt-6">Optimizing The Sync Pipeline</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Dynamic Feature Modules:</strong> Leveraged Custom Gradle Convention plugins to encapsulate features, enhancing build speeds and runtime delivery options.</li>
+                    <li><strong>Offline-First Resilience:</strong> Built a primary source of truth locally via Room. Biometrics from the Wear OS Health Services API flush into local DB buffers before Ktor batches them reliably toward the backend server.</li>
+                    <li><strong>Turbine & Coroutines:</strong> Due to the extreme frequency of GPS location emissions, heavy reliance was put on Kotlin Flow operators. <em>Turbine</em> was utilized within the test modules to ensure complex asynchronous UI state assertions wouldn't flake during CI pipelines.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-6">Shared Code vs Platform Scope</h3>
+                <p>Rather than duplicating logic, Core domain and data layers handle both phone and Wear targets, while specialized Presentation modules inject unique Design Systems for phone (Material 3) and Wear OS via Koin.</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="mb-16 fade-section">
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">UI Toolkit</span>
+                    <span class="font-mono text-white text-sm">Jetpack Compose</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Architecture</span>
+                    <span class="font-mono text-white text-sm">Multi-Module</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Testing</span>
+                    <span class="font-mono text-white text-sm">JUnit 5 / MockK / Turbine</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Biometrics</span>
+                    <span class="font-mono text-white text-sm">Wear OS Health API</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Build Setup</span>
+                    <span class="font-mono text-white text-sm">Convention Plugins</span>
+                </div>
+                <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                    <span class="block text-sm text-[#8B949E] mb-1">Mapping</span>
+                    <span class="font-mono text-white text-sm">Google Maps SDK</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-[#8B949E] text-sm font-mono">
+        &copy; 2025 Hussain Gaddal.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

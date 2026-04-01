@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussain Gaddal | Senior Android Developer</title>
+    
+    <!-- Tailwind CSS (CDN Configured for Custom Colors) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kotlin-purple': '#7F52FF',
+                        'kotlin-orange': '#E7624F',
+                        'ide-bg': '#0D1117',
+                        'ide-surface': '#161B22',
+                        'ide-border': '#30363D'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ide-bg text-[#E6EDF3] antialiased selection:bg-kotlin-purple/30 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
+                <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
+            </a>
+            <div class="space-x-8 text-sm font-medium text-[#8B949E] hidden md:block">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#expertise" class="hover:text-white transition-colors">Expertise</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <a href="https://github.com/IronManYG" target="_blank" class="text-2xl text-[#8B949E] hover:text-white transition-colors">
+                <i class="ph ph-github-logo"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-[#8B949E] mb-6 hero-animate">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span>Available for new opportunities</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 hero-animate">
+                Architecting <br/>
+                <span class="gradient-text">Scalable Mobile</span>
+                Experiences.
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-[#8B949E] mb-10 leading-relaxed font-light hero-animate">
+                I'm <strong class="text-white font-semibold">Hussain Gaddal</strong>. A Senior Android Developer specializing in Kotlin, Jetpack Compose, and cross-platform architecture with 4+ years of professional impact.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 hero-animate">
+                <a href="#projects" class="btn-primary">
+                    View My Work <i class="ph ph-arrow-right ml-2 text-lg"></i>
+                </a>
+                <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-[#0a0d11]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="fade-section">
+                <h2 class="text-sm uppercase tracking-widest text-[#8B949E] font-semibold mb-3">About Me</h2>
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">The Intersection of <span class="text-kotlin-purple">Engineering</span> and <span class="text-kotlin-orange">UX</span>.</h3>
+                <div class="space-y-4 text-[#8B949E] leading-relaxed">
+                    <p>Based in Riyadh at <strong>Kay Technology</strong>, I orchestrate the development of large-scale, multi-module Android applications. My methodology roots itself in Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and rigorous testing.</p>
+                    <p>My current focus is heavily invested in pushing the boundaries of <strong>Compose Multiplatform (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, bridging the gap between full-stack capability and native mobile performance.</p>
+                    <p>Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and continuously refining my software craftsmanship.</p>
+                </div>
+            </div>
+            <div class="fade-section relative">
+                <!-- Abstract Code Decoration -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-kotlin-purple/20 to-transparent blur-3xl rounded-full"></div>
+                <div class="relative bg-ide-surface border border-ide-border rounded-2xl p-6 font-mono text-sm overflow-hidden shadow-2xl">
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <pre class="text-[#8B949E]"><code class="language-kotlin"><span class="text-kotlin-orange">class</span> <span class="text-kotlin-purple">HussainGaddal</span> : <span class="text-white">SeniorAndroidDeveloper</span>() {
+    <span class="text-kotlin-orange">val</span> <span class="text-[#79C0FF]">location</span> = <span class="text-[#A5D6FF]">"Riyadh, SA"</span>
+    <span class="text-kotlin-orange">val</span> <span class="text-[#79C0FF]">experience</span> = <span class="text-[#A5D6FF]">4</span>
+
+    <span class="text-kotlin-orange">fun</span> <span class="text-[#D2A8FF]">techStack</span>() = listOf(
+        <span class="text-[#A5D6FF]">"Kotlin"</span>, 
+        <span class="text-[#A5D6FF]">"Jetpack Compose"</span>,
+        <span class="text-[#A5D6FF]">"Kotlin Multiplatform"</span>,
+        <span class="text-[#A5D6FF]">"Clean Architecture"</span>
+    )
+
+    <span class="text-kotlin-orange">fun</span> <span class="text-[#D2A8FF]">buildFeatures</span>() {
+        <span class="text-[#8B949E]">/* Deploy scalable code */</span>
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects (Bento Box Grid) -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-sm uppercase tracking-widest text-[#8B949E] font-semibold mb-3">Case Studies</h2>
+        <h3 class="text-3xl md:text-4xl font-bold mb-12">Featured Architecture</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
+            
+            <!-- Chirp (Feature Large) -->
+            <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
+                <!-- Placeholder Image (Assume a dark tech bg) -->
+                <div class="absolute inset-0 bg-[#21262D] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="relative z-20">
+                    <div class="flex gap-2 mb-3">
+                        <span class="tech-pill">CMP</span>
+                        <span class="tech-pill">KMP</span>
+                        <span class="tech-pill">Ktor</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-kotlin-purple transition-colors">Chirp <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-[#8B949E] font-light max-w-xl">A full-stack, cross-platform messaging client targeting Android, iOS, and Desktop built entirely with Kotlin Multiplatform.</p>
+                </div>
+            </a>
+
+            <!-- Runique (Feature Small) -->
+            <a href="runique.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-[#21262D] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="relative z-20">
+                    <div class="flex gap-2 mb-3">
+                        <span class="tech-pill">Wear OS</span>
+                        <span class="tech-pill">Room</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-kotlin-orange transition-colors">Runique <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-[#8B949E] text-sm font-light">Advanced running tracker syncing mobile and smartwatch.</p>
+                </div>
+            </a>
+
+            <!-- Maktabati (Feature Medium) -->
+            <a href="maktabati.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-[#21262D] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="relative z-20">
+                    <div class="flex gap-2 mb-3">
+                        <span class="tech-pill">Clean Arch</span>
+                        <span class="tech-pill">PDF SDK</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">Maktabati <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-[#8B949E] text-sm font-light">Digital library platform with robust PDF management for institutions.</p>
+                </div>
+            </a>
+
+            <!-- EchoJournal (Feature Medium) -->
+            <a href="echojournal.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-[#21262D] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="relative z-20">
+                    <div class="flex gap-2 mb-3">
+                        <span class="tech-pill">MVI</span>
+                        <span class="tech-pill">Media SDK</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">EchoJournal <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-[#8B949E] text-sm font-light">Material Design 3 audio journaling app with mood tagging.</p>
+                </div>
+            </a>
+
+            <!-- Qodem (Feature Medium) -->
+            <a href="qodem.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-[#21262D] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="relative z-20">
+                    <div class="flex gap-2 mb-3">
+                        <span class="tech-pill">Firestore</span>
+                        <span class="tech-pill">Maps</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">Qodem <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-[#8B949E] text-sm font-light">Streamlined blood donation coordination and bank locator.</p>
+                </div>
+            </a>
+
+            <!-- ScribbleDash (Row Spanner) -->
+            <a href="scribbledash.html" class="bento-card md:col-span-12 flex flex-col md:flex-row justify-between md:items-center p-8 group bento-animate">
+                <div class="relative z-20 max-w-xl">
+                    <div class="flex gap-2 mb-3">
+                        <span class="tech-pill">Compose UI</span>
+                        <span class="tech-pill">Canvas API</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-white transition-colors">ScribbleDash <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <p class="text-[#8B949E] font-light">A highly interactive digital canvas drawing app exploring raw Android UI drawing performance in Jetpack Compose.</p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <span class="text-sm font-mono text-kotlin-purple border border-kotlin-purple/30 px-4 py-2 rounded-lg bg-kotlin-purple/10">View Challenge Project</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-24 border-t border-ide-border bg-ide-bg text-center">
+        <div class="max-w-2xl mx-auto px-6 fade-section">
+            <h2 class="text-3xl font-bold mb-4">Let's build something extraordinary.</h2>
+            <p class="text-[#8B949E] mb-8">Looking for an experienced engineer to scale your mobile infrastructure? Let's connect.</p>
+            <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary text-lg px-8 py-4 mb-12">
+                Say Hello <i class="ph ph-envelope-simple ml-2"></i>
+            </a>
+            
+            <div class="flex justify-center space-x-6 text-[#8B949E]">
+                <a href="https://github.com/IronManYG" class="hover:text-white transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
+                <!-- Link to LinkedIn/Twitter if available -->
+            </div>
+            
+            <p class="mt-12 text-sm text-[#484F58] font-mono">
+                &copy; 2025 Hussain Gaddal. Architected with raw HTML, Tailwind & GSAP.
+            </p>
+        </div>
+    </footer>
+
+    <!-- GSAP & Main JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
