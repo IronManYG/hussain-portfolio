@@ -1,21 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+    :root {
+        --color-ide-bg: 248 250 252;
+        --color-ide-bg-darker: 241 245 249;
+        --color-ide-surface: 255 255 255;
+        --color-ide-surface-hover: 226 232 240;
+        --color-ide-border: 203 213 225;
+        --color-text-main: 51 65 85;
+        --color-text-muted: 100 116 139;
+        --color-text-dim: 148 163 184;
+        --color-text-strong: 15 23 42;
+    }
+    .dark {
+        --color-ide-bg: 13 17 23;
+        --color-ide-bg-darker: 10 13 17;
+        --color-ide-surface: 22 27 34;
+        --color-ide-surface-hover: 33 38 45;
+        --color-ide-border: 48 54 61;
+        --color-text-main: 230 237 243;
+        --color-text-muted: 139 148 158;
+        --color-text-dim: 72 79 88;
+        --color-text-strong: 255 255 255;
+    }
+
     body {
-        font-family: 'Inter', sans-serif;
-        background-color: #0D1117;
-        color: #E6EDF3;
+        font-family: 'Inter', 'Cairo', sans-serif;
+        background-color: rgb(var(--color-ide-bg));
+        color: rgb(var(--color-text-main));
         overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    html[dir="rtl"] body {
+        font-family: 'Cairo', 'Inter', sans-serif;
     }
     
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', 'Cairo', sans-serif;
         font-weight: 700;
         letter-spacing: -0.02em;
+    }
+
+    html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] h4, html[dir="rtl"] h5, html[dir="rtl"] h6 {
+        letter-spacing: normal;
     }
 
     code, pre {
@@ -25,7 +57,7 @@
 
 @layer components {
     .bento-card {
-        @apply relative rounded-2xl bg-[#161B22] border border-[#30363D] overflow-hidden transition-all duration-300;
+        @apply relative rounded-2xl bg-ide-surface border border-ide-border overflow-hidden transition-all duration-300;
     }
 
     .bento-card:hover {
@@ -41,25 +73,25 @@
     }
 
     .btn-secondary {
-        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-[#E6EDF3] bg-[#21262D] border border-[#30363D] hover:bg-[#30363D] transition-colors;
+        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-ide-text-main bg-ide-surface border border-ide-border hover:bg-ide-surface-hover transition-colors;
     }
     
     .tech-pill {
-        @apply px-3 py-1 text-xs font-mono rounded-full bg-[#21262D] text-[#8B949E] border border-[#30363D];
+        @apply px-3 py-1 text-xs font-mono rounded-full bg-ide-surface-hover text-ide-text-muted border border-ide-border;
     }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #0D1117; 
+    background: transparent; 
 }
 ::-webkit-scrollbar-thumb {
-    background: #30363D; 
+    background: rgb(var(--color-ide-border)); 
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #484F58; 
+    background: rgb(var(--color-text-muted)); 
 }
