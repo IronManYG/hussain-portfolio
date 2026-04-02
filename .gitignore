@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (future use)
+node_modules/
+dist/
+
+# Build scripts (kept in scripts/ but not needed for deployment)
+scripts/
