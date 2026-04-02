@@ -4,7 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hussain Gaddal | Senior Android Developer</title>
+    <title>حسين قدال | مطور أندرويد أول</title>
+    <meta name="description" content="حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع. خبير في Clean Architecture و KMP/CMP والخلفيات بـ Kotlin.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="حسين قدال | مطور أندرويد أول">
+    <meta property="og:description" content="4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- Tailwind Config & CDN -->
     <script src="../tailwind-config.js"></script>
@@ -12,7 +22,6 @@
 
     <!-- Theme Initializer -->
     <script>
-        // Set theme immediately to avoid flash of wrong colors
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -37,32 +46,64 @@
                 class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
                 <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
             </a>
-            <div class="space-x-8 text-sm font-medium text-ide-text-muted hidden md:block">
-                <a href="#about" class="hover:text-ide-text-strong transition-colors">نبذة عني</a>
-                <a href="#experience" class="hover:text-ide-text-strong transition-colors">الخبرات</a>
-                <a href="#projects" class="hover:text-ide-text-strong transition-colors">المشاريع</a>
-                <a href="#expertise" class="hover:text-ide-text-strong transition-colors">الكفاءات</a>
-                <a href="#certifications" class="hover:text-ide-text-strong transition-colors">الشهادات</a>
-                <a href="#contact" class="hover:text-ide-text-strong transition-colors">تواصل معي</a>
+            <div class="space-x-8 text-sm font-medium text-ide-text-muted hidden md:flex">
+                <a href="#about" class="nav-link hover:text-ide-text-strong transition-colors">نبذة عني</a>
+                <a href="#experience" class="nav-link hover:text-ide-text-strong transition-colors">الخبرات</a>
+                <a href="#projects" class="nav-link hover:text-ide-text-strong transition-colors">المشاريع</a>
+                <a href="#expertise" class="nav-link hover:text-ide-text-strong transition-colors">الكفاءات</a>
+                <a href="#certifications" class="nav-link hover:text-ide-text-strong transition-colors">الشهادات</a>
+                <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">تواصل معي</a>
             </div>
             <div
                 class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
+                <button id="mobile-menu-btn" class="text-2xl hover:text-ide-text-strong transition-colors p-1 md:hidden"
+                    aria-label="فتح قائمة التنقل">
+                    <i class="ph ph-list"></i>
+                </button>
                 <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1"
-                    aria-label="Toggle Dark Mode">
+                    aria-label="تبديل الوضع الداكن">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
                 <a href="../index.html" id="lang-toggle"
                     class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded"
-                    aria-label="Toggle Language Arabic/English">
-                    EN
-                </a>
+                    aria-label="تبديل اللغة">EN</a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank"
+                    class="text-2xl hover:text-[#79C0FF] transition-colors hidden md:inline-block"
+                    aria-label="ملف LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
                 <a href="https://github.com/IronManYG" target="_blank"
-                    class="text-2xl hover:text-ide-text-strong transition-colors">
-                    <i class="ph ph-github-logo"></i>
-                </a>
+                    class="text-2xl hover:text-ide-text-strong transition-colors"
+                    aria-label="ملف GitHub"><i class="ph ph-github-logo"></i></a>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <div class="mobile-menu-panel">
+            <div class="flex justify-between items-center mb-8">
+                <span class="text-xl font-bold font-mono tracking-tighter">
+                    <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
+                </span>
+                <button id="mobile-menu-close" class="text-2xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1"
+                    aria-label="إغلاق القائمة">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6 text-lg font-medium">
+                <a href="#about" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">نبذة عني</a>
+                <a href="#experience" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">الخبرات</a>
+                <a href="#projects" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">المشاريع</a>
+                <a href="#expertise" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">الكفاءات</a>
+                <a href="#certifications" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">الشهادات</a>
+                <a href="#contact" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">تواصل معي</a>
+            </div>
+            <div class="mt-8 pt-6 border-t border-ide-border flex items-center space-x-6 text-ide-text-muted">
+                <a href="https://github.com/IronManYG" target="_blank" class="text-2xl hover:text-ide-text-strong transition-colors" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" class="text-2xl hover:text-[#79C0FF] transition-colors" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="mailto:hussain.yg2010@gmail.com" class="text-2xl hover:text-kotlin-orange transition-colors" aria-label="البريد الإلكتروني"><i class="ph ph-envelope-simple"></i></a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <header class="pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
@@ -88,6 +129,9 @@
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 hero-animate">
                 <a href="#projects" class="btn-primary">
                     شاهد أعمالي <i class="ph ph-arrow-right ml-2 text-lg"></i>
+                </a>
+                <a href="../cv/Hussain_Gaddal_CV.pdf" target="_blank" class="btn-secondary">
+                    <i class="ph ph-file-pdf mr-2 text-lg"></i> تحميل السيرة الذاتية
                 </a>
                 <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary">
                     تواصل معي
@@ -157,30 +201,41 @@
         </div>
 
         <div class="relative border-r-2 border-ide-border pr-8 space-y-12 mr-4">
-            <!-- Timeline Item -->
+            <!-- Timeline Item: Kay Technology -->
             <div class="relative fade-section">
-                <!-- Node marker -->
                 <div
                     class="absolute -right-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-ide-bg bg-[#79C0FF] ring-4 ring-[#79C0FF]/20">
                 </div>
-
                 <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
                     <h3 class="text-2xl font-bold text-ide-text-strong">مطور أندرويد (Android Developer)</h3>
                     <span class="text-kotlin-orange font-mono text-sm" dir="ltr">@ Kay Technology</span>
                 </div>
                 <div class="text-sm text-ide-text-muted font-mono mb-4">مارس 2022 - الحاضر | الرياض، السعودية</div>
-
                 <ul class="list-disc pr-5 space-y-3 text-ide-text-muted leading-relaxed">
                     <li>توليت <strong class="text-ide-text-strong">المسؤولية التقنية الكاملة</strong> لتطبيقات الأندرويد
                         الخاصة بالشركة، وقُدت عملية انتقال تطبيق قديم مبني بـ Java/XML إلى بيئة حديثة متكاملة بـ Kotlin
                         و Jetpack Compose.</li>
                     <li>طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة
                         التحميل لتسريع عمليات البناء.</li>
+                    <li>صممت واجهات مستخدم جذابة باستخدام <strong class="text-ide-text-strong">Material 3 Compose</strong> و Coil و Lottie animations.</li>
                     <li>أسست معايير برمجية صارمة (مثل Clean Architecture و MVI) بجانب بناء خطوط أتمتة الإختبار ورفع
                         التطبيقات <strong class="text-ide-text-strong">(Bitrise CI/CD)</strong> لضمان سرعة واستقرار
                         الإنتاج.</li>
                     <li>قمت ببرمجة وصيانة خدمات خلفية مصغرة عبر Ktor لمعالجة المصادقة وإيصال البيانات.</li>
                 </ul>
+            </div>
+
+            <!-- Timeline Item: Education -->
+            <div class="relative fade-section">
+                <div
+                    class="absolute -right-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-ide-bg bg-kotlin-purple ring-4 ring-kotlin-purple/20">
+                </div>
+                <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
+                    <h3 class="text-2xl font-bold text-ide-text-strong">بكالوريوس (مع مرتبة الشرف) في الهندسة الكهربائية</h3>
+                    <span class="text-kotlin-purple font-mono text-sm">@ أكاديمية العلوم الهندسية</span>
+                </div>
+                <div class="text-sm text-ide-text-muted font-mono mb-4">2011 - 2016</div>
+                <p class="text-ide-text-muted leading-relaxed">أتممت برنامجاً هندسياً شاملاً بنى أساساً قوياً في التفكير المنهجي وحل المشكلات والمهارات التحليلية التي تنعكس مباشرة على بناء أنظمة برمجية متينة.</p>
             </div>
         </div>
     </section>
@@ -195,11 +250,8 @@
 
             <!-- Chirp (Feature Large) -->
             <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-                <i class="ph ph-chats-teardrop absolute -left-4 -bottom-4 text-[12rem] text-kotlin-purple opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
-                <!-- Placeholder Image (Assume a dark tech bg) -->
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
+                <img src="../assets/img/projects/chirp-preview.png" alt="Chirp app" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500">
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">CMP</span>
@@ -254,9 +306,8 @@
             <!-- EchoJournal (Feature Medium) -->
             <a href="echojournal.html"
                 class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <i class="ph ph-waveform absolute -left-4 -bottom-4 text-[10rem] text-[#A3E635] opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
-                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
+                <img src="../assets/img/projects/echojournal-preview.png" alt="EchoJournal app" class="absolute inset-0 w-full h-full object-cover object-top opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500">
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">MVI</span>
@@ -386,7 +437,6 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section id="certifications"
         class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker" dir="rtl">
         <div class="max-w-7xl mx-auto">
@@ -422,6 +472,24 @@
                     </div>
                 </div>
                 <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-purple/50 transition-colors flex items-start gap-4">
+                    <i class="ph ph-code text-3xl text-kotlin-purple"></i>
+                    <div>
+                        <h4 class="font-bold text-ide-text-strong text-lg">أساسيات تطوير أندرويد المتقدم</h4>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">تدريب شامل على أنماط تطوير الأندرويد الاحترافية بما في ذلك المعمارية متعددة الوحدات و CI/CD.</p>
+                        <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2024</p>
+                    </div>
+                </div>
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#79C0FF]/50 transition-colors flex items-start gap-4">
+                    <i class="ph ph-watch text-3xl text-kotlin-orange"></i>
+                    <div>
+                        <h4 class="font-bold text-ide-text-strong text-lg">بناء تطبيقات Wear OS المتقدمة</h4>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">تطوير متقدم لنظام Wear OS يشمل Health Services API والمزامنة عبر الأجهزة.</p>
+                        <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2024</p>
+                    </div>
+                </div>
+                <div
                     class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#79C0FF]/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-test-tube text-3xl text-kotlin-purple"></i>
                     <div>
@@ -430,6 +498,15 @@
                         <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">مهارات شاملة في بناء وفصل الإختبارات
                             المعقدة للخدمات الهيكلية المتعددة باستخدام JUnit و MockK.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2024</p>
+                    </div>
+                </div>
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
+                    <i class="ph ph-git-branch text-3xl text-[#79C0FF]"></i>
+                    <div>
+                        <h4 class="font-bold text-ide-text-strong text-lg">تطوير تطبيقات احترافية مع CI/CD</h4>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">أتمتة البناء والاختبار والنشر عبر Bitrise للتكامل والتسليم المستمر.</p>
+                        <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2022</p>
                     </div>
                 </div>
                 <div
@@ -451,29 +528,42 @@
     <footer id="contact" class="py-24 border-t border-ide-border bg-ide-bg text-center">
         <div class="max-w-2xl mx-auto px-6 fade-section">
             <h2 class="text-3xl font-bold mb-4">دعنا نبني شيئاً استثنائياً.</h2>
-            <p class="text-ide-text-muted mb-8">هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك؟
+            <p class="text-ide-text-muted mb-8">هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك?
                 دعنا نتواصل.</p>
             <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary inline-block text-lg px-8 py-4 mb-8">
                 قل مرحباً <i class="ph ph-envelope-simple mr-2"></i>
             </a>
 
-            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-8">
+            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-2">
                 <i class="ph ph-map-pin text-lg text-kotlin-orange"></i>
                 الرياض، المملكة العربية السعودية
+            </div>
+            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-8">
+                <i class="ph ph-phone text-lg text-kotlin-purple"></i>
+                +966 53 851 7374
             </div>
 
             <div class="flex justify-center space-x-6 text-ide-text-muted">
                 <a href="https://github.com/IronManYG" target="_blank"
-                    class="hover:text-ide-text-strong transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
+                    class="hover:text-ide-text-strong transition-colors" aria-label="GitHub"><i class="ph ph-github-logo text-2xl"></i></a>
                 <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank"
-                    class="hover:text-[#79C0FF] transition-colors"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+                    class="hover:text-[#79C0FF] transition-colors" aria-label="LinkedIn"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+                <a href="mailto:hussain.yg2010@gmail.com"
+                    class="hover:text-kotlin-orange transition-colors" aria-label="البريد"><i class="ph ph-envelope-simple text-2xl"></i></a>
             </div>
 
             <p class="mt-12 text-sm text-ide-text-dim font-mono">
-                &copy; 2025 Hussain Gaddal.
+                &copy; <span id="copyright-year">2026</span> Hussain Gaddal.
             </p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-kotlin-purple text-white shadow-lg shadow-kotlin-purple/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-kotlin-orange hover:shadow-kotlin-orange/30 hover:-translate-y-1"
+        aria-label="العودة للأعلى">
+        <i class="ph ph-arrow-up text-xl"></i>
+    </button>
 
     <!-- GSAP & Main JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
