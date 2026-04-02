@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussain Yahya - Android Developer CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a2e; font-size: 11px; line-height: 1.5; padding: 40px; max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+        h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #7F52FF; padding-bottom: 4px; margin: 16px 0 8px; color: #7F52FF; }
+        h3 { font-size: 12px; font-weight: 600; }
+        .contact { font-size: 10px; color: #555; margin-bottom: 12px; }
+        .contact a { color: #7F52FF; text-decoration: none; }
+        .summary { margin-bottom: 8px; color: #333; }
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+        .skill-cat { font-weight: 600; color: #7F52FF; }
+        .job { margin-bottom: 12px; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+        .job-title { font-weight: 600; font-size: 12px; }
+        .job-date { font-size: 10px; color: #666; }
+        .job ul { padding-left: 16px; }
+        .job li { margin-bottom: 2px; }
+        .project { margin-bottom: 8px; }
+        .project-header { display: flex; justify-content: space-between; }
+        .project-name { font-weight: 600; }
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
+        .cert { font-size: 10px; }
+        .footer { margin-top: 16px; text-align: center; font-size: 9px; color: #999; }
+        @media print {
+            body { padding: 20px; font-size: 10px; }
+            h2 { margin: 12px 0 6px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>HUSSAIN YAHYA</h1>
+    <p style="font-size: 13px; color: #7F52FF; font-weight: 500; margin-bottom: 4px;">Android Developer</p>
+    <p class="contact">
+        Riyadh, Saudi Arabia | +966 53 851 7374 | 
+        <a href="mailto:hussain.yg2010@gmail.com">hussain.yg2010@gmail.com</a> | 
+        <a href="https://www.linkedin.com/in/hussaingaddal/">LinkedIn</a> | 
+        <a href="https://github.com/IronManYG">GitHub</a>
+    </p>
+
+    <h2>Professional Summary</h2>
+    <p class="summary"><strong>4+ years of professional Android development</strong> with a track record of delivering stable, user-centric mobile applications. <strong>Built 10+ applications</strong> — including 1 production launch (Maktabati), a complex cross-platform Chat app (Chirp), and 8+ personal/course prototypes. <strong>Working knowledge of KMP/CMP and lightweight Ktor back-ends (approx. 1 year hands-on)</strong>, including shipping to Desktop and iOS. <strong>Recent focus on Server-side Kotlin:</strong> Gained practical experience with <strong>Spring Boot</strong> and PostgreSQL through industry-level coursework and projects. <strong>Lifelong Learner:</strong> Completed 8+ advanced tracks, including Udacity Nanodegree and official <strong>JetBrains-collaborated courses</strong>. Experienced with <strong>Bitrise</strong> for automated testing, deployment, and reliable releases.</p>
+
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div><span class="skill-cat">Mobile & Desktop:</span> Android SDK, Jetpack Compose, Kotlin Multiplatform/Compose Multiplatform, Offline-First Architecture</div>
+        <div><span class="skill-cat">Backend:</span> Spring Boot (Kotlin), Ktor, PostgreSQL, Redis</div>
+        <div><span class="skill-cat">Architecture:</span> Clean Architecture, Multi-Module, MVVM, MVI</div>
+        <div><span class="skill-cat">Languages:</span> Kotlin (Expert), Java (Legacy)</div>
+        <div><span class="skill-cat">Tools & DevOps:</span> Git, GitHub, Bitrise CI/CD, Postman, Gradle (Version Catalogs)</div>
+        <div><span class="skill-cat">Libraries:</span> Koin, Hilt, Room, Retrofit, Coil, Coroutines & Flow</div>
+    </div>
+
+    <h2>Work Experience</h2>
+    <div class="job">
+        <div class="job-header">
+            <span class="job-title">Android Developer — Kay Technology</span>
+            <span class="job-date">Mar 2022 – Present | Riyadh, Saudi Arabia</span>
+        </div>
+        <ul>
+            <li>Assumed <strong>Full Technical Ownership</strong> of the Android product, driving the migration of a legacy Java/XML codebase to modern Kotlin + Jetpack Compose architecture (API 25+).</li>
+            <li>Developed reusable Internal SDKs and core modules for authentication, search, and download management, streamlining feature integration and code maintainability.</li>
+            <li>Designed engaging UIs with Material 3 Compose, Coil, and Lottie animations.</li>
+            <li>Established strict architectural standards (Clean Architecture, MVI) and a Bitrise CI/CD pipeline (JUnit, Espresso) to ensure a scalable, testable, and maintainable codebase.</li>
+            <li>Built and maintained lightweight Ktor micro-services for authentication and content delivery.</li>
+        </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="job-header">
+        <span class="job-title">Bachelor (Honors) of Electrical Engineering — Academy of Engineering Sciences</span>
+        <span class="job-date">2011 – 2016</span>
+    </div>
+
+    <h2>Featured Projects</h2>
+    <div class="project">
+        <div class="project-header"><span class="project-name">Maktabati | Kay Technology | Mar 2022 – Present</span></div>
+        <p>Full rebuild of company's PDF viewer into a feature-rich research library. Implemented digital library, advanced PDF viewing, search, offline caching, sign-in, and download resumption. <em>Tech: Kotlin, Compose, Room, Ktor</em></p>
+    </div>
+    <div class="project">
+        <div class="project-header"><span class="project-name">Chirp | Pl-Coding | Nov – Dec 2025</span></div>
+        <p>Cross-platform messaging app (Android, iOS, Desktop) with 100% code sharing, offline-first sync via Ktor WebSockets, and secure auth. <em>Tech: KMP, CMP, Koin, Ktor, Room, FCM</em></p>
+    </div>
+    <div class="project">
+        <div class="project-header"><span class="project-name">Runique | Pl-Coding | Apr – Nov 2024</span></div>
+        <p>Multi-module running tracker with Wear OS sync, real-time GPS tracking, and OAuth auth. <em>Tech: Kotlin, Compose, Koin, Room, Ktor, Maps SDK, Wear OS</em></p>
+    </div>
+    <div class="project">
+        <div class="project-header"><span class="project-name">EchoJournal | Pl Campus | Jan – Feb 2025</span></div>
+        <p>Audio journaling app with mood/topic tagging, search, and filtering. <em>Tech: Kotlin, Compose, MVI, Room, MediaRecorder</em></p>
+    </div>
+    <div class="project">
+        <div class="project-header"><span class="project-name">ScribbleDash | Pl Campus | Apr 2025</span></div>
+        <p>Drawing app with 1:1 canvas, undo/redo, clean architecture. <em>Tech: Kotlin, Compose, MVI, Koin, Material 3</em></p>
+    </div>
+    <div class="project">
+        <div class="project-header"><span class="project-name">Translator KMM | Pl-Coding | Feb – Apr 2023</span></div>
+        <p>Cross-platform translation app (28 languages) with shared KMM business logic. <em>Tech: KMM, CMP, Ktor, SQLDelight</em></p>
+    </div>
+
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+        <div class="cert">• Building Industry-Level CMP Desktop Apps (Pl-Coding, 2025) — <em>JetBrains</em></div>
+        <div class="cert">• Building Industry-Level CMP Android & iOS (Pl-Coding, 2025) — <em>JetBrains</em></div>
+        <div class="cert">• Kotlin Backends With Spring Boot (Pl-Coding, 2025) — <em>JetBrains</em></div>
+        <div class="cert">• Essentials of Industry-Level Android Dev (Pl-Coding, 2024)</div>
+        <div class="cert">• Building Industry-Level Wear OS Apps (Pl-Coding, 2024)</div>
+        <div class="cert">• Testing Large-Scale Multi-Module Apps (Pl-Coding, 2024)</div>
+        <div class="cert">• Professional App Development with CI/CD (Pl-Coding, 2022)</div>
+        <div class="cert">• Android Kotlin Developer Nanodegree (Udacity, 2022)</div>
+    </div>
+
+    <h2>Languages</h2>
+    <p>Arabic (Native) | English (Very good command)</p>
+
+    <p class="footer">CV Version 4.1 | For latest version: hussain-gaddal.notion.site</p>
+</body>
+</html>
