@@ -86,4 +86,97 @@ document.addEventListener("DOMContentLoaded", (event) => {
             updateThemeIcon();
         });
     }
+
+    // ── Mobile Menu Toggle ─────────────────────────────────
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const openMobileMenu = () => {
+        if (mobileMenu) {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    const closeMobileMenu = () => {
+        if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+    
+    // Close on overlay click (outside panel)
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) closeMobileMenu();
+        });
+    }
+
+    // Close on nav link click
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // ── Active Nav Link Highlighting ───────────────────────
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = ['about', 'experience', 'projects', 'expertise', 'certifications', 'contact'];
+    
+    sections.forEach(sectionId => {
+        const sectionEl = document.getElementById(sectionId);
+        if (!sectionEl) return;
+        
+        ScrollTrigger.create({
+            trigger: sectionEl,
+            start: "top 40%",
+            end: "bottom 40%",
+            onEnter: () => setActiveNav(sectionId),
+            onEnterBack: () => setActiveNav(sectionId),
+        });
+    });
+
+    function setActiveNav(activeId) {
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${activeId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        // Also highlight mobile nav
+        mobileNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === `#${activeId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // ── Back to Top Button ─────────────────────────────────
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        ScrollTrigger.create({
+            trigger: "body",
+            start: "500px top",
+            onEnter: () => backToTopBtn.classList.add('visible'),
+            onLeaveBack: () => backToTopBtn.classList.remove('visible'),
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ── Dynamic Copyright Year ─────────────────────────────
+    const yearEl = document.getElementById('copyright-year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 });
