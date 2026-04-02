@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hussain Gaddal | Senior Android Developer</title>
-    
+
     <!-- Tailwind Config & CDN -->
     <script src="../tailwind-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Theme Initializer -->
     <script>
         // Set theme immediately to avoid flash of wrong colors
@@ -19,37 +20,44 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body class="bg-ide-bg text-ide-text-main antialiased selection:bg-kotlin-purple/30 selection:text-ide-text-strong">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
+            <a href="index.html"
+                class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
                 <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
             </a>
             <div class="space-x-8 text-sm font-medium text-ide-text-muted hidden md:block">
                 <a href="#about" class="hover:text-ide-text-strong transition-colors">نبذة عني</a>
-                <a href="#expertise" class="hover:text-ide-text-strong transition-colors">الكفاءات</a>
                 <a href="#experience" class="hover:text-ide-text-strong transition-colors">الخبرات</a>
                 <a href="#projects" class="hover:text-ide-text-strong transition-colors">المشاريع</a>
+                <a href="#expertise" class="hover:text-ide-text-strong transition-colors">الكفاءات</a>
                 <a href="#certifications" class="hover:text-ide-text-strong transition-colors">الشهادات</a>
                 <a href="#contact" class="hover:text-ide-text-strong transition-colors">تواصل معي</a>
             </div>
-            <div class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
-                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+            <div
+                class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
+                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1"
+                    aria-label="Toggle Dark Mode">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
-                <a href="../index.html" id="lang-toggle" class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded" aria-label="Toggle Language Arabic/English">
+                <a href="../index.html" id="lang-toggle"
+                    class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded"
+                    aria-label="Toggle Language Arabic/English">
                     EN
                 </a>
-                <a href="https://github.com/IronManYG" target="_blank" class="text-2xl hover:text-ide-text-strong transition-colors">
+                <a href="https://github.com/IronManYG" target="_blank"
+                    class="text-2xl hover:text-ide-text-strong transition-colors">
                     <i class="ph ph-github-logo"></i>
                 </a>
             </div>
@@ -59,22 +67,24 @@
     <!-- Hero Section -->
     <header class="pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
         <div class="max-w-3xl">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate">
+            <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                 <span>متاح لفرص عمل جديدة</span>
             </div>
-            
+
             <p class="text-xl md:text-2xl text-ide-text-strong font-semibold mb-2 hero-animate">
                 I'm Hussain Gaddal.
             </p>
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 hero-animate">
                 مطور تطبيقات <span class="gradient-text">أندرويد</span> أول.
             </h1>
-            
+
             <p class="text-xl md:text-2xl text-ide-text-muted mb-10 leading-relaxed font-light hero-animate">
-                أقوم بهندسة تطبيقات محمولة مرنة وقابلة للتطوير، وأسد الفجوة بين البنية التحتية الخلفية الشاملة وواجهة المستخدم الأصلية المثالية باستخدام تقنية Kotlin Multiplatform.
+                أقوم بهندسة تطبيقات محمولة مرنة وقابلة للتطوير، وأسد الفجوة بين البنية التحتية الخلفية الشاملة وواجهة
+                المستخدم الأصلية المثالية باستخدام تقنية Kotlin Multiplatform.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 hero-animate">
                 <a href="#projects" class="btn-primary">
                     شاهد أعمالي <i class="ph ph-arrow-right ml-2 text-lg"></i>
@@ -91,17 +101,26 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div class="fade-section">
                 <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">نبذة عني</h2>
-                <h3 class="text-3xl md:text-4xl font-bold mb-6">نقطة التقاء <span class="text-kotlin-purple">الهندسة البرمجية</span> مع <span class="text-kotlin-orange">تجربة المستخدم</span>.</h3>
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">نقطة التقاء <span class="text-kotlin-purple">الهندسة
+                        البرمجية</span> مع <span class="text-kotlin-orange">تجربة المستخدم</span>.</h3>
                 <div class="space-y-4 text-ide-text-muted leading-relaxed">
-                    <p>مقيم في الرياض وأعمل في شركة <strong>Kay Technology</strong>، حيث أقود تطوير تطبيقات أندرويد واسعة النطاق ومتعددة الوحدات. ترتكز منهجيتي في العمل على البنية النظيفة (Clean Architecture)، والتدفق أحادي الاتجاه للبيانات (MVI/MVVM)، والاختبارات الدقيقة.</p>
-                    <p>ينصب تركيزي الحالي بشكل كبير على توسيع آفاق وتقنيات <strong>(CMP) Compose Multiplatform</strong> وبناء خدمات خلفية مرنة باستخدام <strong>Ktor</strong>، مما يسد الفجوة بين قدرات الخوادم الشاملة وأداء الأجهزة المحمولة الأصلي.</p>
-                    <p>بعيداً عن بيئة التطوير، أقضي وقتي في استكشاف الطباعة ثلاثية الأبعاد، والاستماع للبودكاست التقني، وتحسين مهاراتي البرمجية باستمرار.</p>
+                    <p>مقيم في الرياض وأعمل في شركة <strong>Kay Technology</strong>، حيث أقود تطوير تطبيقات أندرويد
+                        واسعة النطاق ومتعددة الوحدات. ترتكز منهجيتي في العمل على البنية النظيفة (Clean Architecture)،
+                        والتدفق أحادي الاتجاه للبيانات (MVI/MVVM)، والاختبارات الدقيقة.</p>
+                    <p>ينصب تركيزي الحالي بشكل كبير على توسيع آفاق وتقنيات <strong>(CMP) Compose Multiplatform</strong>
+                        وبناء خدمات خلفية مرنة باستخدام <strong>Ktor</strong>، مما يسد الفجوة بين قدرات الخوادم الشاملة
+                        وأداء الأجهزة المحمولة الأصلي.</p>
+                    <p>بعيداً عن بيئة التطوير، أقضي وقتي في استكشاف الطباعة ثلاثية الأبعاد، والاستماع للبودكاست التقني،
+                        وتحسين مهاراتي البرمجية باستمرار.</p>
                 </div>
             </div>
             <div class="fade-section relative">
                 <!-- Abstract Code Decoration -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-kotlin-purple/20 to-transparent blur-3xl rounded-full"></div>
-                <div class="relative bg-ide-surface border border-ide-border rounded-2xl p-6 font-mono text-sm overflow-hidden shadow-2xl">
+                <div
+                    class="absolute inset-0 bg-gradient-to-tr from-kotlin-purple/20 to-transparent blur-3xl rounded-full">
+                </div>
+                <div
+                    class="relative bg-ide-surface border border-ide-border rounded-2xl p-6 font-mono text-sm overflow-hidden shadow-2xl">
                     <div class="flex space-x-2 mb-4">
                         <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
@@ -130,26 +149,36 @@
     <!-- Work Experience Section -->
     <section id="experience" class="py-24 px-6 border-t border-ide-border bg-ide-bg-darker max-w-7xl mx-auto" dir="rtl">
         <div class="mb-16 fade-section">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono" dir="ltr"><span class="text-kotlin-orange">val</span> <span class="text-ide-text-strong">experience</span> = <span class="text-[#79C0FF]">Timeline()</span></h2>
-            <p class="text-ide-text-muted text-lg max-w-2xl">مسيرة مهنية مبنية على شغف بناء تطبيقات هواتف ذكية متينة وقابلة للتوسع.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono" dir="ltr"><span
+                    class="text-kotlin-orange">val</span> <span class="text-ide-text-strong">experience</span> = <span
+                    class="text-[#79C0FF]">Timeline()</span></h2>
+            <p class="text-ide-text-muted text-lg max-w-2xl">مسيرة مهنية مبنية على شغف بناء تطبيقات هواتف ذكية متينة
+                وقابلة للتوسع.</p>
         </div>
-        
+
         <div class="relative border-r-2 border-ide-border pr-8 space-y-12 mr-4">
             <!-- Timeline Item -->
             <div class="relative fade-section">
                 <!-- Node marker -->
-                <div class="absolute -right-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-ide-bg bg-[#79C0FF] ring-4 ring-[#79C0FF]/20"></div>
-                
+                <div
+                    class="absolute -right-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-ide-bg bg-[#79C0FF] ring-4 ring-[#79C0FF]/20">
+                </div>
+
                 <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
                     <h3 class="text-2xl font-bold text-ide-text-strong">مطور أندرويد (Android Developer)</h3>
                     <span class="text-kotlin-orange font-mono text-sm" dir="ltr">@ Kay Technology</span>
                 </div>
                 <div class="text-sm text-ide-text-muted font-mono mb-4">مارس 2022 - الحاضر | الرياض، السعودية</div>
-                
+
                 <ul class="list-disc pr-5 space-y-3 text-ide-text-muted leading-relaxed">
-                    <li>توليت <strong class="text-ide-text-strong">المسؤولية التقنية الكاملة</strong> لتطبيقات الأندرويد الخاصة بالشركة، وقُدت عملية انتقال تطبيق قديم مبني بـ Java/XML إلى بيئة حديثة متكاملة بـ Kotlin و Jetpack Compose.</li>
-                    <li>طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة التحميل لتسريع عمليات البناء.</li>
-                    <li>أسست معايير برمجية صارمة (مثل Clean Architecture و MVI) بجانب بناء خطوط أتمتة الإختبار ورفع التطبيقات <strong class="text-ide-text-strong">(Bitrise CI/CD)</strong> لضمان سرعة واستقرار الإنتاج.</li>
+                    <li>توليت <strong class="text-ide-text-strong">المسؤولية التقنية الكاملة</strong> لتطبيقات الأندرويد
+                        الخاصة بالشركة، وقُدت عملية انتقال تطبيق قديم مبني بـ Java/XML إلى بيئة حديثة متكاملة بـ Kotlin
+                        و Jetpack Compose.</li>
+                    <li>طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة
+                        التحميل لتسريع عمليات البناء.</li>
+                    <li>أسست معايير برمجية صارمة (مثل Clean Architecture و MVI) بجانب بناء خطوط أتمتة الإختبار ورفع
+                        التطبيقات <strong class="text-ide-text-strong">(Bitrise CI/CD)</strong> لضمان سرعة واستقرار
+                        الإنتاج.</li>
                     <li>قمت ببرمجة وصيانة خدمات خلفية مصغرة عبر Ktor لمعالجة المصادقة وإيصال البيانات.</li>
                 </ul>
             </div>
@@ -161,90 +190,117 @@
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">دراسات حالة</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-12">أبرز الهيكليات المعمارية</h3>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
-            
+
             <!-- Chirp (Feature Large) -->
             <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
                 <!-- Placeholder Image (Assume a dark tech bg) -->
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">CMP</span>
                         <span class="tech-pill">KMP</span>
                         <span class="tech-pill">Ktor</span>
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 group-hover:text-kotlin-purple transition-colors">Chirp <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted font-light max-w-xl">تطبيق مراسلة متكامل وعابر للمنصات يستهدف أنظمة Android و iOS وسطح المكتب، مُبنى بالكامل باستخدام Kotlin Multiplatform.</p>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-kotlin-purple transition-colors">Chirp <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted font-light max-w-xl">تطبيق مراسلة متكامل وعابر للمنصات يستهدف أنظمة
+                        Android و iOS وسطح المكتب، مُبنى بالكامل باستخدام Kotlin Multiplatform.</p>
                 </div>
             </a>
 
             <!-- Runique (Feature Small) -->
             <a href="runique.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Wear OS</span>
                         <span class="tech-pill">Room</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 group-hover:text-kotlin-orange transition-colors">Runique <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">متتبع ركض متطور يُزامن البيانات بين الهاتف الذكي والساعة الذكية.</p>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-kotlin-orange transition-colors">Runique <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">متتبع ركض متطور يُزامن البيانات بين الهاتف الذكي
+                        والساعة الذكية.</p>
                 </div>
             </a>
 
             <!-- Maktabati (Feature Medium) -->
             <a href="maktabati.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Clean Arch</span>
                         <span class="tech-pill">PDF SDK</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">Maktabati <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">منصة مكتبة رقمية مزودة بإدارة متقدمة لملفات PDF للمؤسسات.</p>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">Maktabati <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">منصة مكتبة رقمية مزودة بإدارة متقدمة لملفات PDF
+                        للمؤسسات.</p>
                 </div>
             </a>
 
             <!-- EchoJournal (Feature Medium) -->
-            <a href="echojournal.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+            <a href="echojournal.html"
+                class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">MVI</span>
                         <span class="tech-pill">Media SDK</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">EchoJournal <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">تطبيق لتدوين المذكرات الصوتية بتصميم Material Design 3 مع ميزة تتبع الحالات المزاجية.</p>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">EchoJournal <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">تطبيق لتدوين المذكرات الصوتية بتصميم Material
+                        Design 3 مع ميزة تتبع الحالات المزاجية.</p>
                 </div>
             </a>
 
             <!-- Qodem (Feature Medium) -->
             <a href="qodem.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Firestore</span>
                         <span class="tech-pill">Maps</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">Qodem <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">Qodem <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
                     <p class="text-ide-text-muted text-sm font-light">تنسيق مبسط للتبرع بالدم ومحدد مواقع بنوك الدم.</p>
                 </div>
             </a>
 
             <!-- ScribbleDash (Row Spanner) -->
-            <a href="scribbledash.html" class="bento-card md:col-span-12 flex flex-col md:flex-row justify-between md:items-center p-8 group bento-animate">
+            <a href="scribbledash.html"
+                class="bento-card md:col-span-12 flex flex-col md:flex-row justify-between md:items-center p-8 group bento-animate">
                 <div class="relative z-20 max-w-xl">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Compose UI</span>
                         <span class="tech-pill">Canvas API</span>
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">ScribbleDash <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted font-light">تطبيق رسم رقمي عالي التفاعل يركز على استكشاف الأداء الخام لرسم واجهات أندرويد باستخدام Jetpack Compose.</p>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">ScribbleDash
+                        <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted font-light">تطبيق رسم رقمي عالي التفاعل يركز على استكشاف الأداء الخام
+                        لرسم واجهات أندرويد باستخدام Jetpack Compose.</p>
                 </div>
                 <div class="mt-6 md:mt-0">
-                    <span class="text-sm font-mono text-kotlin-purple border border-kotlin-purple/30 px-4 py-2 rounded-lg bg-kotlin-purple/10">شاهد مسابقة المشروع</span>
+                    <span
+                        class="text-sm font-mono text-kotlin-purple border border-kotlin-purple/30 px-4 py-2 rounded-lg bg-kotlin-purple/10">شاهد
+                        مسابقة المشروع</span>
                 </div>
             </a>
 
@@ -255,52 +311,69 @@
     <section id="expertise" class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg-darker to-ide-bg">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-section">
-                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">الكفاءات الأساسية</h2>
+                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">الكفاءات الأساسية
+                </h2>
                 <h3 class="text-3xl md:text-4xl font-bold">الخبرات التقنية</h3>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Skill 1 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
                     <i class="ph ph-android-logo text-4xl text-kotlin-purple mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">أندرويد SDK وواجهات المستخدم</h4>
-                    <p class="text-ide-text-muted font-light">خبرة عميقة في تطوير تطبيقات أندرويد الحديثة، مع التخصص في Jetpack Compose لبناء واجهات مستخدم تفاعلية وعالية الأداء.</p>
+                    <p class="text-ide-text-muted font-light">خبرة عميقة في تطوير تطبيقات أندرويد الحديثة، مع التخصص في
+                        Jetpack Compose لبناء واجهات مستخدم تفاعلية وعالية الأداء.</p>
                 </div>
 
                 <!-- Skill 2 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
                     <i class="ph ph-cube text-4xl text-kotlin-orange mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">هيكلية الأنظمة</h4>
-                    <p class="text-ide-text-muted font-light">تصميم وبناء تطبيقات قابلة للتطوير باستخدام مبادئ هندسة البرمجيات النظيفة (Clean Architecture)، MVI/MVVM، والتقسيم الذكي للمشروع. سجل حافل بالنجاح في تحويل وترقية أكواد Java القديمة إلى معمارية Kotlin الحديثة.</p>
+                    <p class="text-ide-text-muted font-light">تصميم وبناء تطبيقات قابلة للتطوير باستخدام مبادئ هندسة
+                        البرمجيات النظيفة (Clean Architecture)، MVI/MVVM، والتقسيم الذكي للمشروع. سجل حافل بالنجاح في
+                        تحويل وترقية أكواد Java القديمة إلى معمارية Kotlin الحديثة.</p>
                 </div>
 
                 <!-- Skill 3 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
                     <i class="ph ph-tree-structure text-4xl text-[#79C0FF] mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">المنصات المتعددة (CMP/KMP)</h4>
-                    <p class="text-ide-text-muted font-light">توسيع الآفاق باستخدام Compose Multiplatform و Kotlin Multiplatform لزيادة مشاركة الكود بين منصات Android و iOS وسطح المكتب دون التضحية بالأداء الأصلي.</p>
+                    <p class="text-ide-text-muted font-light">توسيع الآفاق باستخدام Compose Multiplatform و Kotlin
+                        Multiplatform لزيادة مشاركة الكود بين منصات Android و iOS وسطح المكتب دون التضحية بالأداء
+                        الأصلي.</p>
                 </div>
 
                 <!-- Skill 4 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
                     <i class="ph ph-database text-4xl text-kotlin-purple mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">البيانات والتخزين</h4>
-                    <p class="text-ide-text-muted font-light">إتقان طبقات البيانات المحلية وعن بُعد بما في ذلك قواعد بيانات Room والمزامنة في التوقيت الفعلي مع Firestore وتقنيات الترقيم المتقدمة.</p>
+                    <p class="text-ide-text-muted font-light">إتقان طبقات البيانات المحلية وعن بُعد بما في ذلك قواعد
+                        بيانات Room والمزامنة في التوقيت الفعلي مع Firestore وتقنيات الترقيم المتقدمة.</p>
                 </div>
 
                 <!-- Skill 5 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
                     <i class="ph ph-activity text-4xl text-kotlin-orange mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">موثوقية التطبيقات والأدوات</h4>
-                    <p class="text-ide-text-muted font-light">ضمان استقرار التطبيقات عبر الفحص الشامل لتسريبات الذاكرة، وخاصية العمل دون اتصال، وحقن الاعتماديات (Koin)، وأتمتة خطوط البيئة والإنتاج باستخدام Bitrise CI/CD.</p>
+                    <p class="text-ide-text-muted font-light">ضمان استقرار التطبيقات عبر الفحص الشامل لتسريبات الذاكرة،
+                        وخاصية العمل دون اتصال، وحقن الاعتماديات (Koin)، وأتمتة خطوط البيئة والإنتاج باستخدام Bitrise
+                        CI/CD.</p>
                 </div>
 
                 <!-- Skill 6 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
                     <i class="ph ph-leaf text-4xl text-[#A3E635] mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">تقنيات الواجهة الخلفية (Backend)</h4>
                     <p class="text-ide-text-muted font-light">
-                        حوالي عام من الخبرة العملية في بناء تطبيقات الخوادم باستخدام Kotlin. يتركز العمل الحالي على Spring Boot مع قواعد بيانات PostgreSQL و Redis، إلى جانب بناء و صيانة خدمات Ktor المصغرة وإدارة اتصالات WebSockets للمزامنة الفورية.
+                        حوالي عام من الخبرة العملية في بناء تطبيقات الخوادم باستخدام Kotlin. يتركز العمل الحالي على
+                        Spring Boot مع قواعد بيانات PostgreSQL و Redis، إلى جانب بناء و صيانة خدمات Ktor المصغرة وإدارة
+                        اتصالات WebSockets للمزامنة الفورية.
                     </p>
                 </div>
             </div>
@@ -308,43 +381,58 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker" dir="rtl">
+    <section id="certifications"
+        class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker" dir="rtl">
         <div class="max-w-7xl mx-auto">
             <div class="mb-16 fade-section text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono" dir="ltr"><span class="text-kotlin-orange">import</span> <span class="text-[#79C0FF]">Certifications.*</span></h2>
-                <p class="text-ide-text-muted text-lg">التعلم المستمر وتطوير المهارات هو أقوى طريق للإبداع وبناء حلول فعالة.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono" dir="ltr"><span
+                        class="text-kotlin-orange">import</span> <span class="text-[#79C0FF]">Certifications.*</span>
+                </h2>
+                <p class="text-ide-text-muted text-lg">التعلم المستمر وتطوير المهارات هو أقوى طريق للإبداع وبناء حلول
+                    فعالة.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto fade-section">
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-certificate text-3xl text-kotlin-orange"></i>
                     <div>
                         <h4 class="font-bold text-ide-text-strong text-lg">دورات متقدمة في Compose Multiplatform</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">اجتياز برامج تدريبية متقدمة لتطوير تطبيقات المكتب، الأندرويد، والـ iOS (بمشاركة رسمية وتصميم من <strong>JetBrains</strong>).</p>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">اجتياز برامج تدريبية متقدمة لتطوير
+                            تطبيقات المكتب، الأندرويد، والـ iOS (بمشاركة رسمية وتصميم من <strong>JetBrains</strong>).
+                        </p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2025</p>
                     </div>
                 </div>
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-shield-check text-3xl text-[#79C0FF]"></i>
                     <div>
-                        <h4 class="font-bold text-ide-text-strong text-lg">الواجهات الخلفية لـ Kotlin بإستخدام Spring Boot</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">شهادة معتمدة بالشراكة مع <strong>JetBrains</strong> في بناء وهندسة الخوادم وقواعد البيانات الإحترافية.</p>
+                        <h4 class="font-bold text-ide-text-strong text-lg">الواجهات الخلفية لـ Kotlin بإستخدام Spring
+                            Boot</h4>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">شهادة معتمدة بالشراكة مع
+                            <strong>JetBrains</strong> في بناء وهندسة الخوادم وقواعد البيانات الإحترافية.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2025</p>
                     </div>
                 </div>
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#79C0FF]/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#79C0FF]/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-test-tube text-3xl text-kotlin-purple"></i>
                     <div>
-                        <h4 class="font-bold text-ide-text-strong text-lg">اختبار الأنظمة كبيرة الحجم (Multi-Module Apps)</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">مهارات شاملة في بناء وفصل الإختبارات المعقدة للخدمات الهيكلية المتعددة باستخدام JUnit و MockK.</p>
+                        <h4 class="font-bold text-ide-text-strong text-lg">اختبار الأنظمة كبيرة الحجم (Multi-Module
+                            Apps)</h4>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">مهارات شاملة في بناء وفصل الإختبارات
+                            المعقدة للخدمات الهيكلية المتعددة باستخدام JUnit و MockK.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2024</p>
                     </div>
                 </div>
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#A3E635]/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#A3E635]/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-android-logo text-3xl text-[#A3E635]"></i>
                     <div>
                         <h4 class="font-bold text-ide-text-strong text-lg">Nanodegree لمطور الأندرويد بـ Kotlin</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">منحة وبرنامج تأسيسي عميق في قواعد وهندسة بناء وصيانة تطبيقات الأندرويد.</p>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">منحة وبرنامج تأسيسي عميق في قواعد
+                            وهندسة بناء وصيانة تطبيقات الأندرويد.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Udacity | 2022</p>
                     </div>
                 </div>
@@ -357,18 +445,26 @@
     <footer id="contact" class="py-24 border-t border-ide-border bg-ide-bg text-center">
         <div class="max-w-2xl mx-auto px-6 fade-section">
             <h2 class="text-3xl font-bold mb-4">دعنا نبني شيئاً استثنائياً.</h2>
-            <p class="text-ide-text-muted mb-8">هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك؟ دعنا نتواصل.</p>
-            <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary text-lg px-8 py-4 mb-12">
-                قل مرحباً <i class="ph ph-envelope-simple ml-2"></i>
+            <p class="text-ide-text-muted mb-8">هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك؟
+                دعنا نتواصل.</p>
+            <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary inline-block text-lg px-8 py-4 mb-8">
+                قل مرحباً <i class="ph ph-envelope-simple mr-2"></i>
             </a>
-            
-            <div class="flex justify-center space-x-6 text-ide-text-muted">
-                <a href="https://github.com/IronManYG" target="_blank" class="hover:text-ide-text-strong transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" class="hover:text-[#79C0FF] transition-colors"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+
+            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-8">
+                <i class="ph ph-map-pin text-lg text-kotlin-orange"></i>
+                الرياض، المملكة العربية السعودية
             </div>
-            
+
+            <div class="flex justify-center space-x-6 text-ide-text-muted">
+                <a href="https://github.com/IronManYG" target="_blank"
+                    class="hover:text-ide-text-strong transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank"
+                    class="hover:text-[#79C0FF] transition-colors"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+            </div>
+
             <p class="mt-12 text-sm text-ide-text-dim font-mono">
-                &copy; 2025 Hussain Gaddal. تم بناؤه باستخدام تقنيات HTML و Tailwind و GSAP.
+                &copy; 2025 Hussain Gaddal.
             </p>
         </div>
     </footer>
@@ -378,4 +474,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="../main.js"></script>
 </body>
+
 </html>

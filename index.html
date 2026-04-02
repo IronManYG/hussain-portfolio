@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hussain Gaddal | Senior Android Developer</title>
-    
+
     <!-- Tailwind Config & CDN -->
     <script src="tailwind-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Theme Initializer -->
     <script>
         // Set theme immediately to avoid flash of wrong colors
@@ -19,37 +20,44 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bg-ide-bg text-ide-text-main antialiased selection:bg-kotlin-purple/30 selection:text-ide-text-strong">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
+            <a href="index.html"
+                class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
                 <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
             </a>
             <div class="space-x-8 text-sm font-medium text-ide-text-muted hidden md:block">
                 <a href="#about" class="hover:text-ide-text-strong transition-colors">About</a>
-                <a href="#expertise" class="hover:text-ide-text-strong transition-colors">Expertise</a>
                 <a href="#experience" class="hover:text-ide-text-strong transition-colors">Experience</a>
                 <a href="#projects" class="hover:text-ide-text-strong transition-colors">Projects</a>
+                <a href="#expertise" class="hover:text-ide-text-strong transition-colors">Expertise</a>
                 <a href="#certifications" class="hover:text-ide-text-strong transition-colors">Certifications</a>
                 <a href="#contact" class="hover:text-ide-text-strong transition-colors">Contact</a>
             </div>
-            <div class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
-                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+            <div
+                class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
+                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1"
+                    aria-label="Toggle Dark Mode">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
-                <a href="ar/index.html" id="lang-toggle" class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded" aria-label="Toggle Language Arabic/English">
+                <a href="ar/index.html" id="lang-toggle"
+                    class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded"
+                    aria-label="Toggle Language Arabic/English">
                     ع
                 </a>
-                <a href="https://github.com/IronManYG" target="_blank" class="text-2xl hover:text-ide-text-strong transition-colors">
+                <a href="https://github.com/IronManYG" target="_blank"
+                    class="text-2xl hover:text-ide-text-strong transition-colors">
                     <i class="ph ph-github-logo"></i>
                 </a>
             </div>
@@ -59,22 +67,24 @@
     <!-- Hero Section -->
     <header class="pt-40 pb-20 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
         <div class="max-w-3xl">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate">
+            <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                 <span>Available for new opportunities</span>
             </div>
-            
+
             <p class="text-xl md:text-2xl text-ide-text-strong font-semibold mb-2 hero-animate">
                 I'm Hussain Gaddal.
             </p>
             <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 hero-animate">
                 Senior <span class="gradient-text">Android Developer</span>.
             </h1>
-            
+
             <p class="text-xl md:text-2xl text-ide-text-muted mb-10 leading-relaxed font-light hero-animate">
-                I engineer resilient, scalable mobile applications, bridging the gap between comprehensive backend architecture and pixel-perfect native UI with Kotlin Multiplatform.
+                I engineer resilient, scalable mobile applications, bridging the gap between comprehensive backend
+                architecture and pixel-perfect native UI with Kotlin Multiplatform.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row sm:items-center gap-4 hero-animate">
                 <a href="#projects" class="btn-primary">
                     View My Work <i class="ph ph-arrow-right ml-2 text-lg"></i>
@@ -91,17 +101,27 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div class="fade-section">
                 <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">About Me</h2>
-                <h3 class="text-3xl md:text-4xl font-bold mb-6">The Intersection of <span class="text-kotlin-purple">Engineering</span> and <span class="text-kotlin-orange">UX</span>.</h3>
+                <h3 class="text-3xl md:text-4xl font-bold mb-6">The Intersection of <span
+                        class="text-kotlin-purple">Engineering</span> and <span class="text-kotlin-orange">UX</span>.
+                </h3>
                 <div class="space-y-4 text-ide-text-muted leading-relaxed">
-                    <p>Based in Riyadh at <strong>Kay Technology</strong>, I orchestrate the development of large-scale, multi-module Android applications. My methodology roots itself in Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and rigorous testing.</p>
-                    <p>My current focus is heavily invested in pushing the boundaries of <strong>Compose Multiplatform (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, bridging the gap between full-stack capability and native mobile performance.</p>
-                    <p>Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and continuously refining my software craftsmanship.</p>
+                    <p>Based in Riyadh at <strong>Kay Technology</strong>, I orchestrate the development of large-scale,
+                        multi-module Android applications. My methodology roots itself in Clean Architecture,
+                        Unidirectional Data Flow (MVI/MVVM), and rigorous testing.</p>
+                    <p>My current focus is heavily invested in pushing the boundaries of <strong>Compose Multiplatform
+                            (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, bridging
+                        the gap between full-stack capability and native mobile performance.</p>
+                    <p>Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and
+                        continuously refining my software craftsmanship.</p>
                 </div>
             </div>
             <div class="fade-section relative">
                 <!-- Abstract Code Decoration -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-kotlin-purple/20 to-transparent blur-3xl rounded-full"></div>
-                <div class="relative bg-ide-surface border border-ide-border rounded-2xl p-6 font-mono text-sm overflow-hidden shadow-2xl">
+                <div
+                    class="absolute inset-0 bg-gradient-to-tr from-kotlin-purple/20 to-transparent blur-3xl rounded-full">
+                </div>
+                <div
+                    class="relative bg-ide-surface border border-ide-border rounded-2xl p-6 font-mono text-sm overflow-hidden shadow-2xl">
                     <div class="flex space-x-2 mb-4">
                         <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
@@ -130,27 +150,37 @@
     <!-- Work Experience Section -->
     <section id="experience" class="py-24 px-6 border-t border-ide-border bg-ide-bg-darker max-w-7xl mx-auto">
         <div class="mb-16 fade-section">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono"><span class="text-kotlin-orange">val</span> <span class="text-ide-text-strong">experience</span> = <span class="text-[#79C0FF]">Timeline()</span></h2>
-            <p class="text-ide-text-muted text-lg max-w-2xl">A professional journey focused on building scalable mobile solutions.</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono"><span class="text-kotlin-orange">val</span> <span
+                    class="text-ide-text-strong">experience</span> = <span class="text-[#79C0FF]">Timeline()</span></h2>
+            <p class="text-ide-text-muted text-lg max-w-2xl">A professional journey focused on building scalable mobile
+                solutions.</p>
         </div>
-        
+
         <div class="relative border-l-2 border-ide-border pl-8 space-y-12 ml-4">
             <!-- Timeline Item -->
             <div class="relative fade-section">
                 <!-- Node marker -->
-                <div class="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-ide-bg bg-[#79C0FF] ring-4 ring-[#79C0FF]/20"></div>
-                
+                <div
+                    class="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-2 border-ide-bg bg-[#79C0FF] ring-4 ring-[#79C0FF]/20">
+                </div>
+
                 <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
                     <h3 class="text-2xl font-bold text-ide-text-strong">Android Developer</h3>
                     <span class="text-kotlin-orange font-mono text-sm">@ Kay Technology</span>
                 </div>
                 <div class="text-sm text-ide-text-muted font-mono mb-4">Mar 2022 - Present | Riyadh, Saudi Arabia</div>
-                
+
                 <ul class="list-disc pl-5 space-y-3 text-ide-text-muted leading-relaxed">
-                    <li>Assumed <strong class="text-ide-text-strong">Full Technical Ownership</strong> of the Android product, driving the migration of a legacy Java/XML codebase to a modern Kotlin + Jetpack Compose architecture (API 25+).</li>
-                    <li>Developed reusable Internal SDKs and core modules for authentication, search, and download management.</li>
-                    <li>Established strict architectural standards (Clean Architecture, MVI) and a <strong class="text-ide-text-strong">Bitrise CI/CD pipeline</strong> (JUnit, Espresso) to ensure a scalable, testable codebase.</li>
-                    <li>Built and maintained lightweight Ktor micro-services for authentication and content delivery.</li>
+                    <li>Assumed <strong class="text-ide-text-strong">Full Technical Ownership</strong> of the Android
+                        product, driving the migration of a legacy Java/XML codebase to a modern Kotlin + Jetpack
+                        Compose architecture (API 25+).</li>
+                    <li>Developed reusable Internal SDKs and core modules for authentication, search, and download
+                        management.</li>
+                    <li>Established strict architectural standards (Clean Architecture, MVI) and a <strong
+                            class="text-ide-text-strong">Bitrise CI/CD pipeline</strong> (JUnit, Espresso) to ensure a
+                        scalable, testable codebase.</li>
+                    <li>Built and maintained lightweight Ktor micro-services for authentication and content delivery.
+                    </li>
                 </ul>
             </div>
         </div>
@@ -161,90 +191,118 @@
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
         <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Case Studies</h2>
         <h3 class="text-3xl md:text-4xl font-bold mb-12">Featured Architecture</h3>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
-            
+
             <!-- Chirp (Feature Large) -->
             <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
                 <!-- Placeholder Image (Assume a dark tech bg) -->
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">CMP</span>
                         <span class="tech-pill">KMP</span>
                         <span class="tech-pill">Ktor</span>
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 group-hover:text-kotlin-purple transition-colors">Chirp <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted font-light max-w-xl">A full-stack, cross-platform messaging client targeting Android, iOS, and Desktop built entirely with Kotlin Multiplatform.</p>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-kotlin-purple transition-colors">Chirp <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted font-light max-w-xl">A full-stack, cross-platform messaging client
+                        targeting Android, iOS, and Desktop built entirely with Kotlin Multiplatform.</p>
                 </div>
             </a>
 
             <!-- Runique (Feature Small) -->
             <a href="runique.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Wear OS</span>
                         <span class="tech-pill">Room</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 group-hover:text-kotlin-orange transition-colors">Runique <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">Advanced running tracker syncing mobile and smartwatch.</p>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-kotlin-orange transition-colors">Runique <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">Advanced running tracker syncing mobile and
+                        smartwatch.</p>
                 </div>
             </a>
 
             <!-- Maktabati (Feature Medium) -->
             <a href="maktabati.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Clean Arch</span>
                         <span class="tech-pill">PDF SDK</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">Maktabati <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">Digital library platform with robust PDF management for institutions.</p>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">Maktabati <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">Digital library platform with robust PDF
+                        management for institutions.</p>
                 </div>
             </a>
 
             <!-- EchoJournal (Feature Medium) -->
-            <a href="echojournal.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+            <a href="echojournal.html"
+                class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">MVI</span>
                         <span class="tech-pill">Media SDK</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">EchoJournal <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">Material Design 3 audio journaling app with mood tagging.</p>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">EchoJournal <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">Material Design 3 audio journaling app with mood
+                        tagging.</p>
                 </div>
             </a>
 
             <!-- Qodem (Feature Medium) -->
             <a href="qodem.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
+                </div>
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Firestore</span>
                         <span class="tech-pill">Maps</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">Qodem <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted text-sm font-light">Streamlined blood donation coordination and bank locator.</p>
+                    <h4 class="text-xl font-bold mb-2 transition-colors">Qodem <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted text-sm font-light">Streamlined blood donation coordination and bank
+                        locator.</p>
                 </div>
             </a>
 
             <!-- ScribbleDash (Row Spanner) -->
-            <a href="scribbledash.html" class="bento-card md:col-span-12 flex flex-col md:flex-row justify-between md:items-center p-8 group bento-animate">
+            <a href="scribbledash.html"
+                class="bento-card md:col-span-12 flex flex-col md:flex-row justify-between md:items-center p-8 group bento-animate">
                 <div class="relative z-20 max-w-xl">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">Compose UI</span>
                         <span class="tech-pill">Canvas API</span>
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">ScribbleDash <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                    <p class="text-ide-text-muted font-light">A highly interactive digital canvas drawing app exploring raw Android UI drawing performance in Jetpack Compose.</p>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">ScribbleDash
+                        <i
+                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </h4>
+                    <p class="text-ide-text-muted font-light">A highly interactive digital canvas drawing app exploring
+                        raw Android UI drawing performance in Jetpack Compose.</p>
                 </div>
                 <div class="mt-6 md:mt-0">
-                    <span class="text-sm font-mono text-kotlin-purple border border-kotlin-purple/30 px-4 py-2 rounded-lg bg-kotlin-purple/10">View Challenge Project</span>
+                    <span
+                        class="text-sm font-mono text-kotlin-purple border border-kotlin-purple/30 px-4 py-2 rounded-lg bg-kotlin-purple/10">View
+                        Challenge Project</span>
                 </div>
             </a>
 
@@ -255,52 +313,71 @@
     <section id="expertise" class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg-darker to-ide-bg">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-section">
-                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Core Competencies</h2>
+                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Core Competencies
+                </h2>
                 <h3 class="text-3xl md:text-4xl font-bold">Technical Expertise</h3>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Skill 1 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
                     <i class="ph ph-android-logo text-4xl text-kotlin-purple mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">Android SDK & UI</h4>
-                    <p class="text-ide-text-muted font-light">Deep expertise in modern Android development, specializing in Jetpack Compose to build declarative, highly-performant, and pixel-perfect native user interfaces.</p>
+                    <p class="text-ide-text-muted font-light">Deep expertise in modern Android development, specializing
+                        in Jetpack Compose to build declarative, highly-performant, and pixel-perfect native user
+                        interfaces.</p>
                 </div>
 
                 <!-- Skill 2 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
                     <i class="ph ph-cube text-4xl text-kotlin-orange mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">System Architecture</h4>
-                    <p class="text-ide-text-muted font-light">Architecting scalable apps utilizing Clean Architecture, MVI/MVVM, and Multi-Module structuring. Proven track record of successfully migrating legacy Java codebases to modern Kotlin paradigms.</p>
+                    <p class="text-ide-text-muted font-light">Architecting scalable apps utilizing Clean Architecture,
+                        MVI/MVVM, and Multi-Module structuring. Proven track record of successfully migrating legacy
+                        Java codebases to modern Kotlin paradigms.</p>
                 </div>
 
                 <!-- Skill 3 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
                     <i class="ph ph-tree-structure text-4xl text-[#79C0FF] mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">Cross-Platform (CMP/KMP)</h4>
-                    <p class="text-ide-text-muted font-light">Pushing boundaries with Compose Multiplatform and Kotlin Multiplatform to maximize code-sharing across Android, iOS, and Desktop without sacrificing native performance.</p>
+                    <p class="text-ide-text-muted font-light">Pushing boundaries with Compose Multiplatform and Kotlin
+                        Multiplatform to maximize code-sharing across Android, iOS, and Desktop without sacrificing
+                        native performance.</p>
                 </div>
 
                 <!-- Skill 4 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
                     <i class="ph ph-database text-4xl text-kotlin-purple mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">Data & Persistence</h4>
-                    <p class="text-ide-text-muted font-light">Mastery of local and remote data layers including Room databases, complex nested historical views, real-time Firestore syncs, and advanced pagination techniques.</p>
+                    <p class="text-ide-text-muted font-light">Mastery of local and remote data layers including Room
+                        databases, complex nested historical views, real-time Firestore syncs, and advanced pagination
+                        techniques.</p>
                 </div>
 
                 <!-- Skill 5 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
                     <i class="ph ph-activity text-4xl text-kotlin-orange mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">App Resilience & Tooling</h4>
-                    <p class="text-ide-text-muted font-light">Ensuring stability through extensive memory-leak auditing, offline-first syncing, secure DI via Koin, and automating safe release pipelines using Bitrise CI/CD.</p>
+                    <p class="text-ide-text-muted font-light">Ensuring stability through extensive memory-leak auditing,
+                        offline-first syncing, secure DI via Koin, and automating safe release pipelines using Bitrise
+                        CI/CD.</p>
                 </div>
 
                 <!-- Skill 6 -->
-                <div class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
+                <div
+                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
                     <i class="ph ph-leaf text-4xl text-[#A3E635] mb-4"></i>
                     <h4 class="text-xl font-bold mb-3 text-ide-text-strong">Backend Technologies</h4>
                     <p class="text-ide-text-muted font-light">
-                        Around 1 year of hands-on experience building Server-side Kotlin applications. Currently focused on Spring Boot with PostgreSQL & Redis, while maintaining lightweight Ktor microservices and handling duplex WebSockets for real-time synchronization.
+                        Around 1 year of hands-on experience building Server-side Kotlin applications. Currently focused
+                        on Spring Boot with PostgreSQL & Redis, while maintaining lightweight Ktor microservices and
+                        handling duplex WebSockets for real-time synchronization.
                     </p>
                 </div>
             </div>
@@ -308,43 +385,55 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker">
+    <section id="certifications"
+        class="py-24 px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker">
         <div class="max-w-7xl mx-auto">
             <div class="mb-16 fade-section text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono"><span class="text-kotlin-orange">import</span> <span class="text-[#79C0FF]">Certifications.*</span></h2>
-                <p class="text-ide-text-muted text-lg">Continuous learning is my primary tool for solving complex problems.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-mono"><span class="text-kotlin-orange">import</span>
+                    <span class="text-[#79C0FF]">Certifications.*</span></h2>
+                <p class="text-ide-text-muted text-lg">Continuous learning is my primary tool for solving complex
+                    problems.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto fade-section">
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-certificate text-3xl text-kotlin-orange"></i>
                     <div>
                         <h4 class="font-bold text-ide-text-strong text-lg">Compose Multiplatform Masterclasses</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Completed advanced industry-level tracks for Desktop, Android, & iOS created in official collaboration with <strong>JetBrains</strong>.</p>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Completed advanced industry-level
+                            tracks for Desktop, Android, & iOS created in official collaboration with
+                            <strong>JetBrains</strong>.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2025</p>
                     </div>
                 </div>
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-kotlin-orange/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-shield-check text-3xl text-[#79C0FF]"></i>
                     <div>
                         <h4 class="font-bold text-ide-text-strong text-lg">Kotlin Backends With Spring Boot</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Official JetBrains partnered course on scalable server-side Kotlin architecture and database management.</p>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Official JetBrains partnered course
+                            on scalable server-side Kotlin architecture and database management.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2025</p>
                     </div>
                 </div>
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#79C0FF]/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#79C0FF]/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-test-tube text-3xl text-kotlin-purple"></i>
                     <div>
                         <h4 class="font-bold text-ide-text-strong text-lg">Testing Large-Scale Multi-Module Apps</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Mastered testing strategies across decoupled module layers using JUnit, MockK, and robust assertion frameworks.</p>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Mastered testing strategies across
+                            decoupled module layers using JUnit, MockK, and robust assertion frameworks.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Pl-Coding | 2024</p>
                     </div>
                 </div>
-                <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#A3E635]/50 transition-colors flex items-start gap-4">
+                <div
+                    class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl hover:border-[#A3E635]/50 transition-colors flex items-start gap-4">
                     <i class="ph ph-android-logo text-3xl text-[#A3E635]"></i>
                     <div>
                         <h4 class="font-bold text-ide-text-strong text-lg">Android Kotlin Developer Nanodegree</h4>
-                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Comprehensive program cementing core Android SDK principles, lifecycle management, and foundational design patterns.</p>
+                        <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">Comprehensive program cementing core
+                            Android SDK principles, lifecycle management, and foundational design patterns.</p>
                         <p class="text-xs text-ide-text-muted mt-2 font-mono">Udacity | 2022</p>
                     </div>
                 </div>
@@ -357,18 +446,26 @@
     <footer id="contact" class="py-24 border-t border-ide-border bg-ide-bg text-center">
         <div class="max-w-2xl mx-auto px-6 fade-section">
             <h2 class="text-3xl font-bold mb-4">Let's build something extraordinary.</h2>
-            <p class="text-ide-text-muted mb-8">Looking for an experienced engineer to scale your mobile infrastructure? Let's connect.</p>
-            <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary text-lg px-8 py-4 mb-12">
+            <p class="text-ide-text-muted mb-8">Looking for an experienced engineer to scale your mobile infrastructure?
+                Let's connect.</p>
+            <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary inline-block text-lg px-8 py-4 mb-8">
                 Say Hello <i class="ph ph-envelope-simple ml-2"></i>
             </a>
-            
-            <div class="flex justify-center space-x-6 text-ide-text-muted">
-                <a href="https://github.com/IronManYG" target="_blank" class="hover:text-ide-text-strong transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" class="hover:text-[#79C0FF] transition-colors"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+
+            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-8">
+                <i class="ph ph-map-pin text-lg text-kotlin-orange"></i>
+                Riyadh, Saudi Arabia
             </div>
-            
+
+            <div class="flex justify-center space-x-6 text-ide-text-muted">
+                <a href="https://github.com/IronManYG" target="_blank"
+                    class="hover:text-ide-text-strong transition-colors"><i class="ph ph-github-logo text-2xl"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank"
+                    class="hover:text-[#79C0FF] transition-colors"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+            </div>
+
             <p class="mt-12 text-sm text-ide-text-dim font-mono">
-                &copy; 2025 Hussain Gaddal. Architected with raw HTML, Tailwind & GSAP.
+                &copy; 2025 Hussain Gaddal.
             </p>
         </div>
     </footer>
@@ -378,4 +475,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
