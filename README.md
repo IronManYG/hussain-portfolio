@@ -7,14 +7,6 @@
 
 ---
 
-## 📸 Preview
-
-| Desktop | Mobile |
-|---------|--------|
-| ![Desktop View](https://IronManYG.github.io/hussain-portfolio/assets/img/projects/chirp-preview.png) | ![Mobile View](https://IronManYG.github.io/hussain-portfolio/assets/img/projects/chirp-mobile.png) |
-
----
-
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
