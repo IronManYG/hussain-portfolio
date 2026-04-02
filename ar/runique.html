@@ -6,33 +6,42 @@
     <title>Runique | Android Developer Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../tailwind-config.js"></script>
+    
+
+    <!-- Theme Initializer -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'kotlin-purple': '#7F52FF',
-                        'kotlin-orange': '#E7624F',
-                        'ide-bg': '#0D1117',
-                        'ide-surface': '#161B22',
-                        'ide-border': '#30363D'
-                    }
-                }
-            }
+        // Set theme immediately to avoid flash of wrong colors
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
-    
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-ide-bg text-ide-text-main antialiased">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+                <i class="ph ph-arrow-right ml-2"></i> العودة للمحفظة
             </a>
+            
+            <div class="flex items-center gap-4 sm:gap-6">
+                
+                <div class="flex items-center gap-4 pr-4 border-r border-ide-border">
+                    <button id="theme-toggle" class="text-xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+                        <i class="ph ph-moon" id="theme-icon"></i>
+                    </button>
+                    <a href="../runique.html" class="text-sm font-semibold text-ide-text-muted hover:text-ide-text-strong transition-colors" aria-label="Switch to English">
+                        EN
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -45,14 +54,14 @@
                 <span class="tech-pill">Google Maps SDK</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Runique <span class="gradient-text">Fitness Tracker</span></h1>
-            <p class="text-xl text-ide-text-muted font-light">A synchronized Wear OS & Mobile application that delivers high-fidelity health tracking and analytics via offline-first architecture.</p>
+            <p class="text-xl text-ide-text-muted font-light">تطبيق صحي متزامن لأجهزة Android الذكية و Wear OS، يقدم متابعة رياضية دقيقة وعالية الجودة من خلال نظام تخزين بيانات يعمل حتى دون إنترنت.</p>
         </header>
 
-        <!-- The Overview -->
+        <!-- نظرة عامة -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">نظرة عامة</h2>
             <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
-                <p>Runique bridges the gap between companion app management and native smartwatch health integration. Tracking live runs across complex terrains demands continuous stream synchronization between an active Wear OS device and its host smartphone. This project highlights my capability to handle real-time geospatial data, map rendering, and Android's complex Health Services APIs securely.</p>
+                <p>Runique هو همزة الوصل لتطوير تطبيقات متزامنة ذكية عبر ربط تطبيقات الأجهزة الذكية القابلة للارتداء ومساعد أجهزة الاتصالات بآليات متكاملة لمقاييس الصحة المعقدة. المشروع يوضح كفائة الاستشعار الرقمية المكانية والأنظمة الحيوية لخرائط Google و Health Services بشكل مستقر على Android.</p>
             </div>
         </section>
 
@@ -60,44 +69,44 @@
         <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">التحدي</h2>
             <p class="text-ide-text-muted leading-relaxed mb-4">
-                Creating a fitness application requires absolute precision. Drops in network latency, battery optimization (Doze mode) killing background processes, and asynchronous data streaming between a phone and a Wear OS watch usually yield massive syncing issues.
+                إنشاء تطبيقات للياقة البدنية يتطلب دقة مطلقة؛ حيث أن تأثيرات إخفاق أو إنقطاعات الشبكة المفاجئة مع مشكلات تحسينات استهلاك البطارية (Doze Mode) غالبا ما تؤثر بوضوح على معالجات تدفق البيانات ومشاكل المزامنة بين الأجهزة والهواتف المدمجة.
             </p>
             <p class="text-ide-text-muted leading-relaxed">
-                The objective was to maintain a continuous, live representation of GPS data on a Google Map while capturing sensitive health biometrics from a smartwatch—without draining the battery or halting if the user runs into a cellular dead-zone.
+                يهدف البرنامج إلى ضمان تجربة استشعار فعلية لخرائط نظام تحديد المواقع (GPS) بينما تتم تغذية قواعد الحفظ المحلية بالمقاييس البيومترية المعقدة في نطاقات الانقطاع الكلي للإتصالات بالشبكة بشكل متسق بدون أي استنزاف لا مبرر له لاستهلاك البطاريات.
             </p>
         </section>
 
         <!-- The Solution & Architecture -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">الهيكلية المعمارية والقرارات التقنية</h2>
             <div class="space-y-6 text-ide-text-muted leading-relaxed">
-                <p>To establish an impeccable data flow, Runique is heavily modularized (App, Auth, Run, Analytics, Wear) under a Clean Architecture approach.</p>
+                <p>لضمان تدفق ممتاز للبيانات، تم تنظيم مشروع Runique وفقاً لوحدات منفصلة (المصادقة، الجري، التحليلات الرياضية، الساعات الذكية)، جميعها مهيكلة بناءً على أسلوب "العمارة النظيفة" (Clean Architecture).</p>
                 
-                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">Optimizing The Sync Pipeline</h3>
-                <ul class="list-disc pl-5 space-y-2">
-                    <li><strong>Dynamic Feature Modules:</strong> Leveraged Custom Gradle Convention plugins to encapsulate features, enhancing build speeds and runtime delivery options.</li>
-                    <li><strong>Offline-First Resilience:</strong> Built a primary source of truth locally via Room. Biometrics from the Wear OS Health Services API flush into local DB buffers before Ktor batches them reliably toward the backend server.</li>
-                    <li><strong>Turbine & Coroutines:</strong> Due to the extreme frequency of GPS location emissions, heavy reliance was put on Kotlin Flow operators. <em>Turbine</em> was utilized within the test modules to ensure complex asynchronous UI state assertions wouldn't flake during CI pipelines.</li>
+                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">تفعيل وتحسين مسار التدوير والمزامنة</h3>
+                <ul class="list-disc pr-5 space-y-2">
+                    <li><strong>وحدات مبرمجة لميزات متكررة ديناميكيا:</strong> تم الاعتماد على مقاييس أدوات الـ Gradle لتعزيز تقسيم الموارد وأداء عمليات التجميع والبناء والتسليم التقني للمنصات الرقمية المختلفه.</li>
+                    <li><strong>نظام الـ Offline-First القوي:</strong> إنشاء آلية للتخزين كمرجع للبيانات من قراءآت المقاييس البيومترية باستخدام الـ Wear OS Health API وتسجيل الدخول لقواعد البيانات لتقنين الضغط عن الشبكات بشكل استغلالي مدرك وتلقائي.</li>
+                    <li><strong>استغلال Turbine و Coroutines:</strong> مع ارتفاع التردد الدائم للموقع المكانية، عملت دوال Flow و Turbine لاختبار تدفق التغييرات المتكررة للواجهة كشكل من أشكال معالجة الأعطال بشكل وقائي من خلال الأنابيب الآلية التقنية.</li>
                 </ul>
 
-                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">Shared Code vs Platform Scope</h3>
-                <p>Rather than duplicating logic, Core domain and data layers handle both phone and Wear targets, while specialized Presentation modules inject unique Design Systems for phone (Material 3) and Wear OS via Koin.</p>
+                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">مقاربة البناء وتنوع بيئة المنصات</h3>
+                <p>وبدلاً عن التطوير المنفصل والمجزأ للمنصات المنفردة وتوريث الدلالات الرياضية والتسويقية على الأطر المختلفه، قمنا بتنظيم أدوات التصميم وربطها (Material 3) للاجهزه الذكيه في مقابل أدوات مراجعات Wear OS.</p>
             </div>
         </section>
 
         <!-- Impact & Results -->
         <section class="mb-16 fade-section bg-kotlin-purple/5 border border-kotlin-purple/20 rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">التأثير والنتائج</h2>
-            <ul class="list-disc pl-5 space-y-2 text-ide-text-muted">
-                <li><strong>Seamless State Syncing</strong> achieved between smartwatch and smartphone, maintaining sub-second accuracy across real-time Wear OS health metrics.</li>
-                <li><strong>Resilient Architecture</strong> ensured continuous GPS map trajectory recording even during deep cellular network drops or Doze mode cycles.</li>
-                <li><strong>Rapid Deployment Pipeline</strong> enabled through strict Dynamic Feature Modularization and Custom Gradle Convention Plugins.</li>
+            <ul class="list-disc pr-5 space-y-2 text-ide-text-muted">
+                <li>تم تحقيق <strong>تزامن وموثوقية حالة الاستقرار (Seamless State Syncing)</strong> بصورة مبهرة لآداء استثنائي بأقل من ثانية وبدقّة وتناغم مثالي.</li>
+                <li>ضمان موثوق <strong>هيكلي صلب وقوي</strong> عبر العمليات المعقدة لأنظمة تتبع مسار نظام تحديد المواقع العالمي (GPS) واستبعاد المشكلات التشغيلية (Doze mode) لأجهزة الإنقطاعات العالية.</li>
+                <li>تم تمكين <strong>مجاري النشر والتحديث السريع</strong> من خلال إنشاء وقياس الأدوات النمطية المبتكرة لمهندسي البرمجيات وتقنين أدوات Gradle لمراجعتها آليا وتأمين الموثوقية.</li>
             </ul>
         </section>
 
         <!-- Tech Stack -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">التقنيات المستخدمة</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
                     <span class="block text-sm text-ide-text-muted mb-1">UI Toolkit</span>

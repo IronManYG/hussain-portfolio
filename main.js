@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
     });
     
-    // Parallax effect for header
-    const header = document.querySelector('header');
+    // Parallax effect for main index header only (avoid clashing with fade-section on project pages)
+    const header = document.querySelector('header:not(.fade-section)');
     if(header) {
         gsap.to(header, {
             scrollTrigger: {
@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             y: 50,
             opacity: 0.5
         });
+    }
+
     // Theme Toggle Logic
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');

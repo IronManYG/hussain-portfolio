@@ -6,36 +6,44 @@
     <title>Chirp | Android Developer Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
+    
+
+    <!-- Theme Initializer -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'kotlin-purple': '#7F52FF',
-                        'kotlin-orange': '#E7624F',
-                        'ide-bg': '#0D1117',
-                        'ide-surface': '#161B22',
-                        'ide-border': '#30363D'
-                    }
-                }
-            }
+        // Set theme immediately to avoid flash of wrong colors
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
-    
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-ide-bg text-ide-text-main antialiased">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center text-ide-text-muted hover:text-ide-text-strong transition-colors">
                 <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
             </a>
-            <a href="https://github.com/IronManYG/Chirp" target="_blank" class="btn-primary text-sm px-4 py-2 flex items-center">
+            
+            <div class="flex items-center gap-4 sm:gap-6">
+                <a href="https://github.com/IronManYG/Chirp" target="_blank" class="btn-primary text-sm px-4 py-2 flex items-center">
                 <i class="ph ph-github-logo mr-2 text-lg"></i> View Source
             </a>
+                <div class="flex items-center gap-4 pl-4 border-l border-ide-border">
+                    <button id="theme-toggle" class="text-xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+                        <i class="ph ph-moon" id="theme-icon"></i>
+                    </button>
+                    <a href="ar/chirp.html" class="text-sm font-semibold text-ide-text-muted hover:text-ide-text-strong transition-colors" aria-label="Switch to Arabic">
+                        ع
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 

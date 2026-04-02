@@ -6,33 +6,42 @@
     <title>Qodem | Android Developer Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../tailwind-config.js"></script>
+    
+
+    <!-- Theme Initializer -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'kotlin-purple': '#7F52FF',
-                        'kotlin-orange': '#E7624F',
-                        'ide-bg': '#0D1117',
-                        'ide-surface': '#161B22',
-                        'ide-border': '#30363D'
-                    }
-                }
-            }
+        // Set theme immediately to avoid flash of wrong colors
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
-    
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-ide-bg text-ide-text-main antialiased">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+                <i class="ph ph-arrow-right ml-2"></i> العودة للمحفظة
             </a>
+            
+            <div class="flex items-center gap-4 sm:gap-6">
+                
+                <div class="flex items-center gap-4 pr-4 border-r border-ide-border">
+                    <button id="theme-toggle" class="text-xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+                        <i class="ph ph-moon" id="theme-icon"></i>
+                    </button>
+                    <a href="../qodem.html" class="text-sm font-semibold text-ide-text-muted hover:text-ide-text-strong transition-colors" aria-label="Switch to English">
+                        EN
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -45,14 +54,14 @@
                 <span class="tech-pill">Google Maps</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Qodem <span class="gradient-text">Donation Logistics</span></h1>
-            <p class="text-xl text-ide-text-muted font-light">An essential health logistics application streamlining blood donation through centralized booking, dynamic pre-screening, and geographical routing.</p>
+            <p class="text-xl text-ide-text-muted font-light">تطبيق محوري لخدمات الصحة الرقمية يقوم بتنظيم عمليات التبرع بالدم من خلال أنظمة الحجز المركزية والتوجيه الجغرافي.</p>
         </header>
 
-        <!-- The Overview -->
+        <!-- نظرة عامة -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">نظرة عامة</h2>
             <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
-                <p>Qodem fundamentally reduces the friction surrounding voluntary blood donation. It decentralizes the booking process, pulling clinic mapping data dynamically for users to locate nearby donation centers. In parallel, it verifies blood donations through secure, generated QR codes acting as digital receipts.</p>
+                <p>يعمل تطبيق Qodem على تسهيل رحلة التبرع الطوعي بالدم من خلال لا مركزية عمليات الحجز، مستخدماً خرائط تفاعلية لإرشاد المستخدمين لأقرب مراكز التبرع. إضافة إلى التحقق من عمليات التبرع عبر أكواد إستجابة سريعة (QR) آمنة.</p>
             </div>
         </section>
 
@@ -60,24 +69,24 @@
         <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">التحدي</h2>
             <p class="text-ide-text-muted leading-relaxed mb-4">
-                Managing personal medical logistics requires absolute backend reliability. Handshaking Google Maps location APIs with realtime database sockets for instantaneous booking confirmation demands tightly coupled networking code that must not block the main thread.
+                إدارة الخدمات اللوجستية الطبية تتطلب موثوقية تامة، لذا فإن ربط واجهات برمجة تطبيقات خرائط Google مع قواعد البيانات الفورية يتطلب هندسة برمجية عالية الأداء لضمان عدم تأثر سلاسة التطبيق.
             </p>
             <p class="text-ide-text-muted leading-relaxed">
-                Furthermore, transitioning safely between secure login sessions meant heavily refining the local caching mechanisms: signing out completely purges cached user parameters and DB instances before replacing them cleanly with new session constraints.
+                وضماناً للخصوصية، تم تحسين آليات التخزين المؤقت المحلي بحيث يؤدي تسجيل الخروج إلى تفريغ جميع البيانات الحساسة والجلسات تماماً لضمان الأمان.
             </p>
         </section>
 
         <!-- The Solution & Architecture -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">الهيكلية المعمارية والقرارات التقنية</h2>
             <div class="space-y-6 text-ide-text-muted leading-relaxed">
-                <p>I structured Qodem heavily atop Firebase's Cloud Firestore to offload complex REST setup, trusting their SDKs to maintain WebSocket connections robustly during appointment scheduling streams.</p>
+                <p>تم تصميم Qodem استناداً على بنية Firebase Cloud Firestore المتقدمة لدعم اتصالات WebSocket الفورية أثناء عمليات جدولة المواعيد بشكل موثوق لضمان الأداء السلس.</p>
                 
-                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">Firebase Integration</h3>
-                <ul class="list-disc pl-5 space-y-2">
-                    <li><strong>Authentication Pipelines:</strong> SMS-driven verification loops using Firebase Auth guarantee a baseline of user traceability while allowing rapid tester deployments without hardcoded backdoors.</li>
-                    <li><strong>Maps Interoperability:</strong> Geographic data models from Firestore map cleanly against the Google Maps API layer to populate nearby clinic markers, factoring in device origin for immediate routing.</li>
-                    <li><strong>QR Encoding:</strong> Validated appointments generate unique cryptographic strings serialized directly into QR formats natively, reducing backend strain and providing offline validation at physical clinic thresholds.</li>
+                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">تكامل Firebase</h3>
+                <ul class="list-disc pr-5 space-y-2">
+                    <li><strong>مسارات المصادقة:</strong> استخدام التحقق عبر الرسائل النصية القصيرة لضمان موثوقية المستحدمين بطرق مرنة وآمنة.</li>
+                    <li><strong>تكامل الخرائط:</strong> توافق فائق لبيانات الخرائط مع واجهات رسوم Google Maps لوضع مسارات ديناميكية إلى أقرب العيادات للمستخدم.</li>
+                    <li><strong>تشفير و ترميز QR:</strong> تكوين رموز استجابة سريعة مشفرة وآمنة لإنشاء إثباتات عمليات التبرع وتقليل الضغط على الخوادم المركزية وتوفير دلالات تحقق أسرع.</li>
                 </ul>
             </div>
         </section>
@@ -85,16 +94,16 @@
         <!-- Impact & Results -->
         <section class="mb-16 fade-section bg-kotlin-purple/5 border border-kotlin-purple/20 rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">التأثير والنتائج</h2>
-            <ul class="list-disc pl-5 space-y-2 text-ide-text-muted">
-                <li><strong>Frictionless User Onboarding</strong> accomplished using dynamic SMS-Authentication, maximizing potential donor engagement and app retentiveness.</li>
-                <li><strong>Instantaneous Clinic Discovery</strong> enabled through optimized bi-directional binding of Firebase realtime sockets to local Google Map instance geometries.</li>
-                <li><strong>Zero-Setup Hardware Verification</strong> secured by shifting physical clinic tracking exclusively to offline-compatible digital device QR encoding.</li>
+            <ul class="list-disc pr-5 space-y-2 text-ide-text-muted">
+                <li>تعزيز <strong>تجربة إعداد المستخدم</strong> عبر المصادقة الرقمية لتوسعة القبول وزيادة مستويات تفاعل المتبرعين وثباتهم كمستخدمين للتطبيق.</li>
+                <li><strong>الاستكشاف الفوري لأقرب العيادات</strong> أصبح ممكنا بتكامل متقن بين الخرائط المكانية وبيانات Firebase السحابية.</li>
+                <li>الحصول على <strong>تحقق آلي بدون تدخل بشري</strong> عبر استخدام رموز QR المشفرة المتميزة بالتوافق الكامل مع قراء الأجهزة الرقمية.</li>
             </ul>
         </section>
 
         <!-- Tech Stack -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">التقنيات المستخدمة</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
                     <span class="block text-sm text-ide-text-muted mb-1">Backend</span>

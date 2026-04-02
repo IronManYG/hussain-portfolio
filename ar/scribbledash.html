@@ -6,33 +6,42 @@
     <title>ScribbleDash | Android Developer Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../tailwind-config.js"></script>
+    
+
+    <!-- Theme Initializer -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'kotlin-purple': '#7F52FF',
-                        'kotlin-orange': '#E7624F',
-                        'ide-bg': '#0D1117',
-                        'ide-surface': '#161B22',
-                        'ide-border': '#30363D'
-                    }
-                }
-            }
+        // Set theme immediately to avoid flash of wrong colors
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
         }
     </script>
-    
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="bg-ide-bg text-ide-text-main antialiased">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
+        <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+                <i class="ph ph-arrow-right ml-2"></i> العودة للمحفظة
             </a>
+            
+            <div class="flex items-center gap-4 sm:gap-6">
+                
+                <div class="flex items-center gap-4 pr-4 border-r border-ide-border">
+                    <button id="theme-toggle" class="text-xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+                        <i class="ph ph-moon" id="theme-icon"></i>
+                    </button>
+                    <a href="../scribbledash.html" class="text-sm font-semibold text-ide-text-muted hover:text-ide-text-strong transition-colors" aria-label="Switch to English">
+                        EN
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -45,14 +54,14 @@
                 <span class="tech-pill">Koin</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-4">ScribbleDash <span class="gradient-text">Drawing Engine</span></h1>
-            <p class="text-xl text-ide-text-muted font-light">An interactive Android application probing the performance edge cases of Jetpack Compose’s Canvas API via a playful drawing challenge environment.</p>
+            <p class="text-xl text-ide-text-muted font-light">تطبيق تفاعلي لنظام Android يستكشف أداء واجهة Canvas API في Jetpack Compose من خلال بيئة تحدي رسم مرحة.</p>
         </header>
 
-        <!-- The Overview -->
+        <!-- نظرة عامة -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">نظرة عامة</h2>
             <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
-                <p>ScribbleDash demonstrates expertise in manipulating Android's drawing APIs natively integrated via Compose constraints. Through game modes like "One Round Wonder", it challenges users with varied difficulty canvases, implementing real-time gesture extraction, history state arrays (Undo/Redo), and smooth vector stroke rendering.</p>
+                <p>يُظهر ScribbleDash الخبرة في التعامل مع واجهات الرسوم في Android المدمجة أصلاً عبر قيود Compose. من خلال أطوار اللعب، فإنه يتحدى المستخدمين بلوحات رسم متفاوتة الصعوبة، مطبقاً استخراج الإيماءات في الوقت الفعلي ومصفوفات حالة السجل للرسم بسلاسة متناهية.</p>
             </div>
         </section>
 
@@ -60,24 +69,24 @@
         <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">التحدي</h2>
             <p class="text-ide-text-muted leading-relaxed mb-4">
-                Creating an interactive drawing app on Compose means continuously recalculating Bezier paths across high-frequency pointer capture events. Without optimized rendering strategies, the draw loop stutters unacceptably. 
+                إنشاء تطبيق رسم تفاعلي على Compose يعني إعادة الحساب المستمر لمسارات Bezier عبر أحداث المؤشر المرتفعة التردد. بدون استراتيجيات متقدمة، ستتعثر حلقة الرسم بشكل غير مقبول. 
             </p>
             <p class="text-ide-text-muted leading-relaxed">
-                Further complexity arises when needing to persistently track drawing paths in memory for an "Undo/Redo" stack of custom brush strokes without inducing out-of-memory exceptions over long usage periods, while integrating the entire structure cleanly around a domain-driven architectural package.
+                تظهر التعقيدات الإضافية عند الحاجة لتعقب مسارات الرسم في الذاكرة لتطبيق ميزات التراجع والإعادة لضربات الفرشاة دون التسبب باستنفاذ الذاكرة على المدى الطويل، كل ذلك أثناء دمج الهيكل بأكمله بشكل نظيف وفقاً لهيكلية مدفوعة بالمجال (DDD).
             </p>
         </section>
 
         <!-- The Solution & Architecture -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">الهيكلية المعمارية والقرارات التقنية</h2>
             <div class="space-y-6 text-ide-text-muted leading-relaxed">
-                <p>To provide high-fidelity drawing execution, I utilized native Jetpack Compose `Canvas` layouts wrapped entirely inside an optimized multi-package layered architecture.</p>
+                <p>لتوفير تنفيذ رسم عالي الدقة، استخدمت تخطيطات Jetpack Compose `Canvas` الأصلية المدمجة بأكملها داخل هيكلية متعددة الحزم محسنة ومقسمة إلى طبقات.</p>
                 
-                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">Optimized Path Execution</h3>
-                <ul class="list-disc pl-5 space-y-2">
-                    <li><strong>Path Traversal:</strong> Rather than reconstructing the entire canvas every frame, individual paint strokes are cached as `Path` matrices, preventing deep recomposition triggers until absolutely necessary. State arrays maintain the last 5 vectors for robust Undo/Redo cycles.</li>
-                    <li><strong>Pseudo-Modular Folder Structuring:</strong> Although single-module natively, packages (`features/gamemodes/`, `features/draw/`) are completely horizontally segregated. Game modes can be hot-swapped or expanded massively without bleeding business logic into unrelated domains.</li>
-                    <li><strong>Dependency Tracking:</strong> The DI framework handles injecting specific game mode states entirely decoupled from the base Compose UI layouts.</li>
+                <h3 class="text-xl font-semibold text-ide-text-strong mt-6">التنفيذ الأمثل للمسارات</h3>
+                <ul class="list-disc pr-5 space-y-2">
+                    <li><strong>اجتياز المسارات:</strong> بدلاً من إعادة بناء كامل اللوحة في كل إطار، يتم تخزين ضربات الفرشاة الفردية كمصفوفات `Path` مؤقتة، مما يمنع إعادة التكوين المعقدة إلا عند الضرورة.</li>
+                    <li><strong>هيكلة المجلدات الشبيهة بالوحدات:</strong> بالرغم من أن التطبيق يعتمد على وحدة واحدة مبدئياً، تم فصل حزم الميزات أفقياً بالكامل للتمكين من إضافة أطوار لعب جديدة بسلاسة.</li>
+                    <li><strong>تتبع التبعية:</strong> يتعامل إطار الـ DI مع حقن حالات أطوار اللعب بأسلوب منفصل تماماً عن تخطيطات الواجهة الأساسية بأداة Compose.</li>
                 </ul>
 
             </div>
@@ -86,16 +95,16 @@
         <!-- Impact & Results -->
         <section class="mb-16 fade-section bg-kotlin-purple/5 border border-kotlin-purple/20 rounded-xl p-8">
             <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">التأثير والنتائج</h2>
-            <ul class="list-disc pl-5 space-y-2 text-ide-text-muted">
-                <li><strong>Consistent 60FPS Draw Rate</strong> achieved natively under intense computational pointer capture loops by limiting wide tree recompositions.</li>
-                <li><strong>Robust Undo/Redo Engine</strong> maintained without triggering extreme heap allocations or stack overflows over extensive play sessions.</li>
-                <li><strong>Scalable Game State Navigation</strong> powered by Koin to inject independent UI experiences dynamically per isolated package directory.</li>
+            <ul class="list-disc pr-5 space-y-2 text-ide-text-muted">
+                <li>تم تحقيق معدل رسم <strong>60 إطاراً في الثانية (60FPS)</strong> بسلاسة تحت حلقات الإدخال المكثفة للمؤشر عن طريق الحد من إعادة تكوين الشجرة الواسعة.</li>
+                <li>محرك <strong>تراجع وإعادة</strong> موثوق ومتسق تم الحفاظ عليه دون التسبب بحمل زائد في تخصيصات الذاكرة خلال جلسات اللعب الطويلة.</li>
+                <li><strong>ملاحة قابلة للتطوير</strong> مدعومة بواسطة Koin لحقن تجارب واجهة المستخدم المستقلة ديناميكياً لكل دليل حزم معزول.</li>
             </ul>
         </section>
 
         <!-- Tech Stack -->
         <section class="mb-16 fade-section">
-            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+            <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">التقنيات المستخدمة</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
                     <span class="block text-sm text-ide-text-muted mb-1">Canvas Core</span>
