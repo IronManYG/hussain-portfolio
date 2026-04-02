@@ -1,86 +1,122 @@
 # Hussain Gaddal — Portfolio
 
-> Personal portfolio website for **Hussain Gaddal**, Senior Android Developer.
+> Personal portfolio website for **Hussain Gaddal**, Senior Android Developer with 4+ years of experience building production-grade mobile applications.
 
-🌐 **English Live Site:** [ironmanyg.github.io/hussain-portfolio/](https://IronManYG.github.io/hussain-portfolio/)
-🇸🇦 **Arabic Live Site:** [ironmanyg.github.io/hussain-portfolio/ar/](https://IronManYG.github.io/hussain-portfolio/ar/)
+🌐 **English:** [ironmanyg.github.io/hussain-portfolio](https://IronManYG.github.io/hussain-portfolio/)
+🇸🇦 **العربية:** [ironmanyg.github.io/hussain-portfolio/ar](https://IronManYG.github.io/hussain-portfolio/ar/)
 
 ---
 
 ## 📸 Preview
 
-![Portfolio Hero Section](https://IronManYG.github.io/hussain-portfolio/assets/img/projects/chirp-preview.png)
+| Desktop | Mobile |
+|---------|--------|
+| ![Desktop View](https://IronManYG.github.io/hussain-portfolio/assets/img/projects/chirp-preview.png) | ![Mobile View](https://IronManYG.github.io/hussain-portfolio/assets/img/projects/chirp-mobile.png) |
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|-------|-----------|
-| **Logic** | Kotlin (Strategy) · JavaScript (Frontend) |
+|-------|------------|
 | **Markup** | HTML5 + Semantic Elements |
 | **Styling** | Tailwind CSS (CDN) + Custom CSS Variables |
+| **Logic** | Vanilla JavaScript (ES6+) |
 | **Animation** | GSAP + ScrollTrigger |
 | **Icons** | Phosphor Icons |
 | **Fonts** | Inter · Cairo · JetBrains Mono |
 
 ## 📁 Project Structure
 
-```bash
+```
 hussain-portfolio/
-├── index.html              # English homepage
-├── main.js                 # UI Logic (Animations, Mobile Menu, Active Nav)
-├── styles.css              # Custom Component Styles + Tailwind Layers
-├── tailwind-config.js      # Tailwind Theme (Custom Colors & Fonts)
-├── favicon.svg             # Custom Site Icon
-├── ar/                     # Arabic Section (Full RTL support)
-│   ├── index.html
-│   └── ...project pages
-├── assets/                 # Visual Assets
-│   └── img/projects/       # High-res App Screenshots
-├── cv/                     # Career Documents
-│   ├── Hussain_Gaddal_CV.html   # Professional Web CV
-│   └── Hussain_Gaddal_CV.pdf    # Downloadable PDF
-├── scripts/                # Development & Automation Scripts
-│   ├── translate_content.py
-│   └── inject_cv.py
-├── README.md               # Documentation
-└── .gitignore              # Ignored files (OS files, Scripts, etc.)
+├── index.html                  # English homepage
+├── main.js                     # UI logic (animations, mobile menu, active nav)
+├── styles.css                  # Custom component styles + Tailwind layers
+├── tailwind-config.js          # Tailwind theme (custom colors & fonts)
+├── favicon.svg                 # Custom site icon
+│
+├── chirp.html                  # ─┐
+├── runique.html                #  │
+├── echojournal.html            #  │ Project detail pages (English)
+├── scribbledash.html           #  │
+├── maktabati.html              #  │
+├── qodem.html                  # ─┘
+│
+├── ar/                         # Arabic version (full RTL support)
+│   ├── index.html              #   Arabic homepage
+│   ├── chirp.html              #   ─┐
+│   ├── runique.html            #    │ Project detail pages (Arabic)
+│   ├── echojournal.html        #    │
+│   ├── scribbledash.html       #    │
+│   ├── maktabati.html          #    │
+│   └── qodem.html              #   ─┘
+│
+├── assets/
+│   └── img/projects/           # High-res app screenshots
+│
+├── cv/
+│   ├── Hussain_Gaddal_CV.html  # Professional web CV
+│   └── Hussain_Gaddal_CV.pdf   # Downloadable PDF
+│
+├── scripts/                    # Development & automation scripts
+│   ├── translate_content.py    #   English → Arabic content translation
+│   ├── inject_cv.py            #   CV data injection into portfolio
+│   ├── fix_projects.py         #   Project page fixes
+│   └── fix_structure_nav.py    #   Navigation structure fixes
+│
+├── README.md
+└── .gitignore
 ```
 
 ## ✨ Features
 
-- **🌗 Adaptive Theme**: Automatic detection of system preference (Light/Dark mode) with a manual toggle.
-- **📱 Touch-First Design**: Fully responsive hamburger menu with slide-in panel and scroll lock for mobile devices.
-- **🌍 Bilingual Architecture**: Seamless English-to-Arabic transition with specialized RTL (Right-to-Left) layouts.
-- **🏗️ Bento Grid Showcase**: High-impact project cards featuring real app screenshots and hover interactions.
-- **🎯 Intelligent Navigation**: ScrollTrigger detection highlights your current location in the navbar while scrolling.
-- **📄 Pro CV Integration**: Dedicated career section with an optimized, downloadable PDF version of your V4.1 CV.
-- **⬆️ Scroll Experience**: Dynamic "Back to Top" button and smooth easing for section jumps.
-- **🔍 SEO & Social**: Pre-configured with Open Graph and Twitter Card metadata for professional social sharing.
+- **🌗 Adaptive Theme** — Automatic detection of system preference (Light / Dark) with a manual toggle.
+- **📱 Touch-First Design** — Fully responsive hamburger menu with slide-in panel and scroll lock.
+- **🌍 Bilingual Architecture** — Seamless English ↔ Arabic transition with dedicated RTL layouts.
+- **🏗️ Bento Grid Showcase** — High-impact project cards with real app screenshots and hover interactions.
+- **🎯 Intelligent Navigation** — ScrollTrigger-powered active section highlighting while scrolling.
+- **📄 CV Integration** — Dedicated career section with an optimized, downloadable PDF CV.
+- **⬆️ Smooth Scroll** — Dynamic "Back to Top" button and smooth easing for section jumps.
+- **🔍 SEO & Social** — Open Graph and Twitter Card metadata for professional social sharing.
 
-## 🚀 How to Maintenance
+## 🧭 Site Sections
 
-### Local Development
-To preview changes locally:
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | **About** | Introduction and professional summary |
+| 2 | **Experience** | Work history and career timeline |
+| 3 | **Projects** | Bento grid showcase of Android apps |
+| 4 | **Expertise** | Technical skills and competencies |
+| 5 | **Certifications** | Professional certifications and courses |
+| 6 | **Contact** | Footer with contact links and social profiles |
+
+## 🚀 Development
+
+### Local Preview
+
 ```bash
 # Start a local server
 python3 -m http.server 8080
 
-# View in browser
-# http://localhost:8080
+# Open in browser
+open http://localhost:8080
 ```
 
-### Deploying Changes
-This project is configured for **GitHub Pages**. To update the live site:
+### Deploying to GitHub Pages
+
+This project is configured for **GitHub Pages** (deploys from `main` branch). To update the live site:
+
 ```bash
 git add .
-git commit -m "Update: [your message]"
+git commit -m "feat: description of changes"
 git push origin main
 ```
+
+Changes go live within ~1 minute.
 
 ---
 
 ## 📝 License
 
-&copy; 2026 Hussain Gaddal. Developed with focus on architecture and clean code.
+&copy; 2026 Hussain Gaddal. All rights reserved.
