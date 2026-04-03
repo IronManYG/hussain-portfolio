@@ -11,9 +11,10 @@
 
 | Layer | Technology |
 |-------|------------|
-| **Markup** | HTML5 + Semantic Elements |
-| **Styling** | Tailwind CSS (CDN) + Custom CSS Variables |
-| **Logic** | Vanilla JavaScript (ES6+) |
+| **SSG** | Eleventy (11ty) |
+| **Templating** | Nunjucks (`.njk`) |
+| **Styling** | Tailwind CSS (v3) + Custom CSS Variables |
+| **Logic** | Vanilla JavaScript (ES Module Architecture) |
 | **Animation** | GSAP + ScrollTrigger |
 | **Icons** | Phosphor Icons |
 | **Fonts** | Inter · Cairo · JetBrains Mono |
@@ -22,90 +23,76 @@
 
 ```
 hussain-portfolio/
-├── index.html                  # English homepage
-├── main.js                     # UI logic (animations, mobile menu, active nav)
-├── styles.css                  # Custom component styles + Tailwind layers
-├── tailwind-config.js          # Tailwind theme (custom colors & fonts)
-├── favicon.svg                 # Custom site icon
+├── src/
+│   ├── _includes/              # Nunjucks Layouts (DRY architecture)
+│   │   ├── base.njk            #   English global layout (Head/Nav/Footer)
+│   │   └── ar_base.njk         #   Arabic global layout (Head/Nav/Footer)
+│   │
+│   ├── css/                    # Styles
+│   │   └── styles.css          #   Tailwind base & custom CSS
+│   │
+│   ├── js/                     # Modular JavaScript
+│   │   ├── main.js             #   Entry orchestrator
+│   │   ├── theme.js            #   Dark Mode logic
+│   │   ├── menu.js             #   Mobile menu logic
+│   │   ├── animations.js       #   GSAP & Scroll logic
+│   │   └── radar.js            #   Radar chart generation
+│   │
+│   ├── assets/                 # High-res app screenshots & avatars
+│   ├── cv/                     # Professional web & PDF CV
+│   │
+│   ├── *.njk                   # English Pages (index, chirp, runique, etc.)
+│   └── ar/
+│       └── *.njk               # Arabic Pages (index, chirp, runique, etc.)
 │
-├── chirp.html                  # ─┐
-├── runique.html                #  │
-├── echojournal.html            #  │ Project detail pages (English)
-├── scribbledash.html           #  │
-├── maktabati.html              #  │
-├── qodem.html                  # ─┘
-│
-├── ar/                         # Arabic version (full RTL support)
-│   ├── index.html              #   Arabic homepage
-│   ├── chirp.html              #   ─┐
-│   ├── runique.html            #    │ Project detail pages (Arabic)
-│   ├── echojournal.html        #    │
-│   ├── scribbledash.html       #    │
-│   ├── maktabati.html          #    │
-│   └── qodem.html              #   ─┘
-│
-├── assets/
-│   └── img/projects/           # High-res app screenshots
-│
-├── cv/
-│   ├── Hussain_Gaddal_CV.html  # Professional web CV
-│   └── Hussain_Gaddal_CV.pdf   # Downloadable PDF
-│
-├── scripts/                    # Development & automation scripts
-│   ├── translate_content.py    #   English → Arabic content translation
-│   ├── inject_cv.py            #   CV data injection into portfolio
-│   ├── fix_projects.py         #   Project page fixes
-│   └── fix_structure_nav.py    #   Navigation structure fixes
-│
-├── README.md
-└── .gitignore
+├── _site/                      # Compiled production build (Gitignored)
+├── .github/workflows/          # GitHub Actions deployment pipelines
+├── .eleventy.js                # Eleventy configuration
+├── tailwind.config.js          # Tailwind theme configuration
+├── package.json                # Build scripts & dependencies
+└── README.md
 ```
 
 ## ✨ Features
 
+- **⚡ Blazing Fast Build** — Built with Eleventy and Tailwind CSS for an incredibly optimized static site.
 - **🌗 Adaptive Theme** — Automatic detection of system preference (Light / Dark) with a manual toggle.
 - **📱 Touch-First Design** — Fully responsive hamburger menu with slide-in panel and scroll lock.
-- **🌍 Bilingual Architecture** — Seamless English ↔ Arabic transition with dedicated RTL layouts.
+- **🌍 Bilingual Architecture** — Seamless English ↔ Arabic transition with dedicated RTL layouts leveraging scalable Nunjucks templates.
 - **🏗️ Bento Grid Showcase** — High-impact project cards with real app screenshots and hover interactions.
 - **🎯 Intelligent Navigation** — ScrollTrigger-powered active section highlighting while scrolling.
 - **📄 CV Integration** — Dedicated career section with an optimized, downloadable PDF CV.
 - **⬆️ Smooth Scroll** — Dynamic "Back to Top" button and smooth easing for section jumps.
-- **🔍 SEO & Social** — Open Graph and Twitter Card metadata for professional social sharing.
-
-## 🧭 Site Sections
-
-| # | Section | Description |
-|---|---------|-------------|
-| 1 | **About** | Introduction and professional summary |
-| 2 | **Experience** | Work history and career timeline |
-| 3 | **Projects** | Bento grid showcase of Android apps |
-| 4 | **Expertise** | Technical skills and competencies |
-| 5 | **Certifications** | Professional certifications and courses |
-| 6 | **Contact** | Footer with contact links and social profiles |
+- **🤖 Automated CI/CD** — Zero-touch deployments to GitHub Pages driven by GitHub Actions.
 
 ## 🚀 Development
 
-### Local Preview
+### Local Setup & Preview
+
+Make sure you have [Node.js](https://nodejs.org/) installed, then run:
 
 ```bash
-# Start a local server
-python3 -m http.server 8080
+# Install dependencies
+npm install
 
-# Open in browser
-open http://localhost:8080
+# Start the local development server (Tailwind & Eleventy Hot-Reloading)
+npm start
 ```
+The site will be available instantly at `http://localhost:8080/`.
 
-### Deploying to GitHub Pages
+### Deployment
 
-This project is configured for **GitHub Pages** (deploys from `main` branch). To update the live site:
+This project uses **GitHub Actions** to automate deployments. 
+
+To deploy changes to the live site, simply push your commits to the `main` branch:
 
 ```bash
 git add .
-git commit -m "feat: description of changes"
+git commit -m "feat: your description"
 git push origin main
 ```
 
-Changes go live within ~1 minute.
+The GitHub Actions workflow `.github/workflows/deploy.yml` will automatically build the `_site/` directory and publish it to GitHub Pages within a minute.
 
 ---
 
