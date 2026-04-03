@@ -1,69 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chirp | Android Developer Portfolio</title>
-    <meta name="description" content="Chirp - A Kotlin Multiplatform real-time messaging client for Android, iOS, and Desktop with 100% shared business logic.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind-config.js"></script>
-    
-
-    <!-- Theme Initializer -->
-    <script>
-        // Set theme immediately to avoid flash of wrong colors
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.documentElement.classList.remove('dark');
-        } else {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Chirp | Android Developer Portfolio">
-    <meta property="og:description" content="Chirp - A Kotlin Multiplatform real-time messaging client for Android, iOS, and Desktop with 100% shared business logic.">
-    <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio/chirp.html">
-    <meta property="og:image" content="https://ironmanyg.github.io/hussain-portfolio/assets/img/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chirp | Android Developer Portfolio">
-    <meta name="twitter:description" content="Chirp - A Kotlin Multiplatform real-time messaging client for Android, iOS, and Desktop with 100% shared business logic.">
-    <meta name="twitter:image" content="https://ironmanyg.github.io/hussain-portfolio/assets/img/og-image.png">
-</head>
-<body class="bg-ide-bg text-ide-text-main antialiased">
-
-    <!-- Navbar -->
-        <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
-            </a>
-            
-            <div class="flex items-center gap-4 sm:gap-6">
-                <a href="https://github.com/IronManYG/Chirp" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm px-4 py-2 flex items-center">
-                <i class="ph ph-github-logo mr-2 text-lg"></i> View Source
-            </a>
-                <div class="flex items-center gap-4 pl-4 border-l border-ide-border">
-                    <button id="theme-toggle" class="text-xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
-                        <i class="ph ph-moon" id="theme-icon"></i>
-                    </button>
-                    <a href="ar/chirp.html" class="text-sm font-semibold text-ide-text-muted hover:text-ide-text-strong transition-colors" aria-label="Switch to Arabic">
-                        ع
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto">
+---
+layout: base.njk
+title: "Chirp | Android Developer Portfolio"
+description: "Chirp - A Kotlin Multiplatform real-time messaging client for Android, iOS, and Desktop with 100% shared business logic."
+---
+<main class="pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto">
         <!-- Header -->
         <header class="mb-16 fade-section">
             <div class="flex flex-wrap gap-2 mb-6">
@@ -170,12 +110,4 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-ide-text-muted text-sm font-mono">
-        &copy; 2025 Hussain Gaddal.
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="main.js"></script>
-</body>
-</html>
+    

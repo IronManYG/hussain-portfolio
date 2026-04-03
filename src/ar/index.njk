@@ -1,121 +1,9 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حسين قدال | مطور أندرويد أول</title>
-    <meta name="description" content="حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="حسين قدال | مطور أندرويد أول">
-    <meta property="og:description" content="حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Tailwind Config & CDN -->
-    <script src="../tailwind-config.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Theme Initializer -->
-    <script>
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.documentElement.classList.remove('dark');
-        } else {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="../styles.css">
-    <meta property="og:image" content="https://ironmanyg.github.io/hussain-portfolio/assets/img/og-image.png">
-
-    <!-- PWA -->
-    <link rel="manifest" href="../manifest.json">
-    <meta name="theme-color" content="#0D1117">
-</head>
-
-<body class="bg-ide-bg text-ide-text-main antialiased selection:bg-kotlin-purple/30 selection:text-ide-text-strong">
-
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 top-0 border-b border-ide-border bg-ide-bg/80 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html"
-                class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
-                <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
-            </a>
-            <div class="space-x-8 text-sm font-medium text-ide-text-muted hidden md:flex">
-                <a href="#about" class="nav-link hover:text-ide-text-strong transition-colors">نبذة عني</a>
-                <a href="#experience" class="nav-link hover:text-ide-text-strong transition-colors">الخبرات</a>
-                <a href="#projects" class="nav-link hover:text-ide-text-strong transition-colors">المشاريع</a>
-                <a href="#expertise" class="nav-link hover:text-ide-text-strong transition-colors">الكفاءات</a>
-                <a href="#certifications" class="nav-link hover:text-ide-text-strong transition-colors">الشهادات</a>
-                <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">تواصل معي</a>
-            </div>
-            <div
-                class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
-                <button id="mobile-menu-btn" class="text-2xl hover:text-ide-text-strong transition-colors p-1 md:hidden"
-                    aria-label="فتح قائمة التنقل">
-                    <i class="ph ph-list"></i>
-                </button>
-                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1"
-                    aria-label="تبديل الوضع الداكن">
-                    <i class="ph ph-moon" id="theme-icon"></i>
-                </button>
-                <a href="../index.html" id="lang-toggle"
-                    class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded"
-                    aria-label="تبديل اللغة">EN</a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer"
-                    class="text-2xl hover:text-[#79C0FF] transition-colors hidden md:inline-block"
-                    aria-label="ملف LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer"
-                    class="text-2xl hover:text-ide-text-strong transition-colors"
-                    aria-label="ملف GitHub"><i class="ph ph-github-logo"></i></a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="mobile-menu-overlay">
-        <div class="mobile-menu-panel">
-            <div class="flex justify-between items-center mb-8">
-                <span class="text-xl font-bold font-mono tracking-tighter">
-                    <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
-                </span>
-                <button id="mobile-menu-close" class="text-2xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1"
-                    aria-label="إغلاق القائمة">
-                    <i class="ph ph-x"></i>
-                </button>
-            </div>
-            <div class="flex flex-col space-y-6 text-lg font-medium">
-                <a href="#about" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">نبذة عني</a>
-                <a href="#experience" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">الخبرات</a>
-                <a href="#projects" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">المشاريع</a>
-                <a href="#expertise" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">الكفاءات</a>
-                <a href="#certifications" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">الشهادات</a>
-                <a href="#contact" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">تواصل معي</a>
-            </div>
-            <div class="mt-8 pt-6 border-t border-ide-border flex items-center space-x-6 text-ide-text-muted">
-                <a href="https://github.com/IronManYG" target="_blank" class="text-2xl hover:text-ide-text-strong transition-colors" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" class="text-2xl hover:text-[#79C0FF] transition-colors" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="mailto:hussain.yg2010@gmail.com" class="text-2xl hover:text-kotlin-orange transition-colors" aria-label="البريد الإلكتروني"><i class="ph ph-envelope-simple"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
+---
+layout: ar_base.njk
+title: "حسين قدال | مطور أندرويد أول"
+description: "حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع."
+---
+<!-- Hero Section -->
     <header class="pt-40 pb-20 px-4 sm:px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="max-w-3xl">
@@ -274,7 +162,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
 
             <!-- Chirp (Feature Large) -->
-            <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate glow-blue">
+            <a href="/ar/chirp/" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate glow-blue">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
                 <img src="../assets/img/projects/chirp-preview.png" alt="مشروع تشيرب - تطبيق مراسلة" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500">
                 <div class="relative z-20">
@@ -292,7 +180,7 @@
             </a>
 
             <!-- Runique (Feature Small) -->
-            <a href="runique.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate glow-orange">
+            <a href="/ar/runique/" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate glow-orange">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
                 <i class="ph ph-activity absolute -left-4 -bottom-4 text-[10rem] text-kotlin-orange opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
                 <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
@@ -311,7 +199,7 @@
             </a>
 
             <!-- Maktabati (Feature Medium) -->
-            <a href="maktabati.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+            <a href="/ar/maktabati/" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
                 <i class="ph ph-book-open absolute -left-4 -bottom-4 text-[10rem] text-[#79C0FF] opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
                 <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
                 </div>
@@ -329,7 +217,7 @@
             </a>
 
             <!-- EchoJournal (Feature Medium) -->
-            <a href="echojournal.html" class="bento-card md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-blue">
+            <a href="/ar/echojournal/" class="bento-card md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-blue">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
                 <img src="../assets/img/projects/echojournal-preview.png" alt="مشروع إيكو جورنال - مذكرات صوتية" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500">
                 <div class="relative z-20">
@@ -346,7 +234,7 @@
             </a>
 
             <!-- Qodem (Feature Medium) -->
-            <a href="qodem.html" class="bento-card md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-red">
+            <a href="/ar/qodem/" class="bento-card md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-red">
                 <i class="ph ph-drop absolute -left-4 -bottom-4 text-[10rem] text-red-500 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
                 <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
                 </div>
@@ -363,7 +251,7 @@
             </a>
 
             <!-- ScribbleDash (Feature Bottom) -->
-            <a href="scribbledash.html" class="bento-card md:col-span-12 flex flex-col justify-end p-8 group bento-animate glow-orange">
+            <a href="/ar/scribbledash/" class="bento-card md:col-span-12 flex flex-col justify-end p-8 group bento-animate glow-orange">
                 <i class="ph ph-palette absolute left-12 -bottom-12 text-[16rem] text-ide-text-strong opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform -rotate-12"></i>
                 <div class="relative z-20 max-w-xl">
                     <div class="flex gap-2 mb-3">
@@ -579,60 +467,4 @@
 
 
     <!-- Footer / Contact -->
-    <footer id="contact" class="py-24 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker text-center overflow-hidden relative">
-        <!-- Background Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-kotlin-purple/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 fade-section relative z-10" dir="rtl">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">دعنا نبني شيئاً <span class="gradient-text">استثنائياً</span>.</h2>
-            <p class="text-ide-text-muted text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك أو سد الفجوة باستخدام حلول Cross-Platform؟ دعنا نتواصل.
-            </p>
-            
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
-                <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary text-lg px-10 py-5 shadow-kotlin-glow w-full md:w-auto">
-                    قل مرحباً <i class="ph ph-paper-plane-tilt mr-2 text-xl transform scale-x-[-1]"></i>
-                </a>
-                <a href="tel:+966538517374" class="btn-secondary text-lg px-10 py-5 w-full md:w-auto flex items-center justify-center font-mono" dir="ltr">
-                    <i class="ph ph-phone mr-2 text-xl"></i> +966 53 851 7374
-                </a>
-            </div>
-
-            <div class="flex flex-wrap justify-center items-center gap-8 text-ide-text-muted mb-16">
-                <div class="flex items-center gap-2 font-mono text-sm">
-                    <i class="ph ph-map-pin text-xl text-kotlin-orange"></i>
-                    الرياض، المملكة العربية السعودية
-                </div>
-                <div class="h-1 w-1 rounded-full bg-ide-border hidden md:block"></div>
-                <div class="flex items-center gap-6">
-                    <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer"
-                        class="text-3xl hover:text-ide-text-strong transition-all hover:-translate-y-1" aria-label="GitHub Profile">
-                        <i class="ph ph-github-logo"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer"
-                        class="text-3xl hover:text-[#79C0FF] transition-all hover:-translate-y-1" aria-label="LinkedIn Profile">
-                        <i class="ph ph-linkedin-logo"></i>
-                    </a>
-                </div>
-            </div>
-
-            <p class="text-sm text-ide-text-dim font-mono border-t border-ide-border/50 pt-12">
-                &copy; <span id="copyright-year">2026</span> حسين قدال. <span class="mx-2 text-kotlin-purple font-bold">//</span> بني مع التركيز على قابلية التوسع.
-            </p>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top"
-        class="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-kotlin-purple text-white shadow-lg shadow-kotlin-purple/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-kotlin-orange hover:shadow-kotlin-orange/30 hover:-translate-y-1"
-        aria-label="العودة للأعلى">
-        <i class="ph ph-arrow-up text-xl"></i>
-    </button>
-
-    <!-- GSAP & Main JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-    <script src="../main.js" defer></script>
-</body>
-
-</html>
+    
