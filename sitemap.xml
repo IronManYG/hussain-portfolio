@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Pages -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/index.html"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/index.html"/>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Chirp -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/chirp.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/chirp.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/chirp.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/chirp.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/chirp.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/chirp.html"/>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- EchoJournal -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/echojournal.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/echojournal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/echojournal.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/echojournal.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/echojournal.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/echojournal.html"/>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Runique -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/runique.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/runique.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/runique.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/runique.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/runique.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/runique.html"/>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Qodem -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/qodem.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/qodem.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/qodem.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/qodem.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/qodem.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/qodem.html"/>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ScribbleDash -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/scribbledash.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/scribbledash.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/scribbledash.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/scribbledash.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/scribbledash.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/scribbledash.html"/>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Maktabati -->
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/maktabati.html</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/maktabati.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/maktabati.html"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ironmanyg.github.io/hussain-portfolio/ar/maktabati.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ironmanyg.github.io/hussain-portfolio/maktabati.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ironmanyg.github.io/hussain-portfolio/ar/maktabati.html"/>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

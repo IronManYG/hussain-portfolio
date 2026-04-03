@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حسين قدال | مطور أندرويد أول</title>
-    <meta name="description" content="حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع. خبير في Clean Architecture و KMP/CMP والخلفيات بـ Kotlin.">
+    <meta name="description" content="حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -13,7 +13,7 @@
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="حسين قدال | مطور أندرويد أول">
-    <meta property="og:description" content="4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.">
+    <meta property="og:description" content="حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Tailwind Config & CDN -->
@@ -30,11 +30,21 @@
         }
     </script>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="../styles.css">
+    <meta property="og:image" content="https://ironmanyg.github.io/hussain-portfolio/assets/img/og-image.png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0D1117">
 </head>
 
 <body class="bg-ide-bg text-ide-text-main antialiased selection:bg-kotlin-purple/30 selection:text-ide-text-strong">
@@ -67,10 +77,10 @@
                 <a href="../index.html" id="lang-toggle"
                     class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded"
                     aria-label="تبديل اللغة">EN</a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank"
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer"
                     class="text-2xl hover:text-[#79C0FF] transition-colors hidden md:inline-block"
                     aria-label="ملف LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="https://github.com/IronManYG" target="_blank"
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer"
                     class="text-2xl hover:text-ide-text-strong transition-colors"
                     aria-label="ملف GitHub"><i class="ph ph-github-logo"></i></a>
             </div>
@@ -107,38 +117,54 @@
 
     <!-- Hero Section -->
     <header class="pt-40 pb-20 px-4 sm:px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
-        <div class="max-w-3xl">
-            <div
-                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                <span>متاح لفرص عمل جديدة</span>
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="max-w-3xl">
+                <div
+                    class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span>متاح لفرص عمل جديدة</span>
+                </div>
+
+                <p class="text-xl md:text-2xl text-ide-text-strong font-semibold mb-2 hero-animate">
+                    أنا حسين قدال.
+                </p>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 hero-animate">
+                    مطور تطبيقات <span class="gradient-text">أندوريد</span> أول.
+                </h1>
+
+                <p class="text-xl md:text-2xl text-ide-text-muted mb-10 leading-relaxed font-light hero-animate">
+                    أقوم بهندسة تطبيقات محمولة مرنة وقابلة للتطوير، وأسد الفجوة بين البنية التحتية الخلفية الشاملة وواجهة
+                    المستخدم الأصلية المثالية باستخدام تقنية Kotlin Multiplatform.
+                </p>
+
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 hero-animate">
+                    <div class="magnetic-wrap">
+                        <a href="#projects" class="btn-primary shadow-kotlin-glow mt-0">
+                            شاهد أعمالي <i class="ph ph-arrow-left ml-2 text-lg"></i>
+                        </a>
+                    </div>
+                    <div class="magnetic-wrap">
+                        <a href="../cv/Hussain_Gaddal_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-0">
+                            <i class="ph ph-file-pdf mr-2 text-lg"></i> تحميل السيرة الذاتية
+                        </a>
+                    </div>
+                    <div class="magnetic-wrap">
+                        <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary mt-0">
+                            تواصل معي
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <p class="text-xl md:text-2xl text-ide-text-strong font-semibold mb-2 hero-animate">
-                I'm Hussain Gaddal.
-            </p>
-            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 hero-animate">
-                مطور تطبيقات <span class="gradient-text">أندرويد</span> أول.
-            </h1>
-
-            <p class="text-xl md:text-2xl text-ide-text-muted mb-10 leading-relaxed font-light hero-animate">
-                أقوم بهندسة تطبيقات محمولة مرنة وقابلة للتطوير، وأسد الفجوة بين البنية التحتية الخلفية الشاملة وواجهة
-                المستخدم الأصلية المثالية باستخدام تقنية Kotlin Multiplatform.
-            </p>
-
-            <div class="flex flex-col sm:flex-row sm:items-center gap-4 hero-animate">
-                <a href="#projects" class="btn-primary">
-                    شاهد أعمالي <i class="ph ph-arrow-right ml-2 text-lg"></i>
-                </a>
-                <a href="../cv/Hussain_Gaddal_CV.pdf" target="_blank" class="btn-secondary">
-                    <i class="ph ph-file-pdf mr-2 text-lg"></i> تحميل السيرة الذاتية
-                </a>
-                <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary">
-                    تواصل معي
-                </a>
+            <!-- Profile Picture -->
+            <div class="hidden lg:flex justify-center items-center hero-animate animate-float">
+                <div class="hero-avatar-container">
+                    <img src="../assets/img/hussain.JPG" alt="حسين قدال" class="hero-avatar">
+                </div>
             </div>
         </div>
     </header>
+
 
     <!-- About Section -->
     <section id="about" class="py-24 px-4 sm:px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker overflow-hidden">
@@ -214,14 +240,13 @@
                 <ul class="list-disc pr-5 space-y-3 text-ide-text-muted leading-relaxed">
                     <li>توليت <strong class="text-ide-text-strong">المسؤولية التقنية الكاملة</strong> لتطبيقات الأندرويد
                         الخاصة بالشركة، وقُدت عملية انتقال تطبيق قديم مبني بـ Java/XML إلى بيئة حديثة متكاملة بـ Kotlin
-                        و Jetpack Compose.</li>
+                        و Jetpack Compose، مما أدى إلى <strong class="text-ide-text-strong">تقليل معدلات الانهيار بنسبة 40%</strong>.</li>
                     <li>طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة
-                        التحميل لتسريع عمليات البناء.</li>
-                    <li>صممت واجهات مستخدم جذابة باستخدام <strong class="text-ide-text-strong">Material 3 Compose</strong> و Coil و Lottie animations.</li>
-                    <li>أسست معايير برمجية صارمة (مثل Clean Architecture و MVI) بجانب بناء خطوط أتمتة الإختبار ورفع
-                        التطبيقات <strong class="text-ide-text-strong">(Bitrise CI/CD)</strong> لضمان سرعة واستقرار
-                        الإنتاج.</li>
-                    <li>قمت ببرمجة وصيانة خدمات خلفية مصغرة عبر Ktor لمعالجة المصادقة وإيصال البيانات.</li>
+                        التحميل، مما أدى إلى <strong class="text-ide-text-strong">تعزيز سرعة تسليم الفريق بنسبة 25%</strong>.</li>
+                    <li>صممت واجهات مستخدم ممتعة وتفاعلية بـ <strong class="text-ide-text-strong">Material 3 Compose</strong> و Coil و Lottie، مما أدى إلى <strong class="text-ide-text-strong">زيادة مدة جلسة المستخدم بنسبة 15%</strong>.</li>
+                    <li>وضعت معايير هيكلية صارمة (Architecture Clean, MVI) وأعددت مسار <strong
+                            class="text-ide-text-strong">Bitrise CI/CD</strong>، مما أدى إلى <strong class="text-ide-text-strong">تقليل وقت توجيه المطورين الجدد بنسبة 50%</strong>.</li>
+                    <li>بنيت وحافظت على خدمات ميكرو Ktor خفيفة الوزن للمصادقة وتوصيل المحتوى، مما أدى إلى <strong class="text-ide-text-strong">تحسين أوقات استجابة واجهة البرمجيات بنسبة 30%</strong>.</li>
                 </ul>
             </div>
 
@@ -249,9 +274,9 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
 
             <!-- Chirp (Feature Large) -->
-            <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate">
+            <a href="chirp.html" class="bento-card md:col-span-8 flex flex-col justify-end p-8 group bento-animate glow-blue">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
-                <img src="../assets/img/projects/chirp-preview.png" alt="Chirp app" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500">
+                <img src="../assets/img/projects/chirp-preview.png" alt="مشروع تشيرب - تطبيق مراسلة" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500">
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">CMP</span>
@@ -267,7 +292,7 @@
             </a>
 
             <!-- Runique (Feature Small) -->
-            <a href="runique.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+            <a href="runique.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate glow-orange">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
                 <i class="ph ph-activity absolute -left-4 -bottom-4 text-[10rem] text-kotlin-orange opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
                 <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
@@ -304,10 +329,9 @@
             </a>
 
             <!-- EchoJournal (Feature Medium) -->
-            <a href="echojournal.html"
-                class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+            <a href="echojournal.html" class="bento-card md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-blue">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
-                <img src="../assets/img/projects/echojournal-preview.png" alt="EchoJournal app" class="absolute inset-0 w-full h-full object-cover object-top opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500">
+                <img src="../assets/img/projects/echojournal-preview.png" alt="مشروع إيكو جورنال - مذكرات صوتية" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-500">
                 <div class="relative z-20">
                     <div class="flex gap-2 mb-3">
                         <span class="tech-pill">MVI</span>
@@ -322,7 +346,7 @@
             </a>
 
             <!-- Qodem (Feature Medium) -->
-            <a href="qodem.html" class="bento-card md:col-span-4 flex flex-col justify-end p-8 group bento-animate">
+            <a href="qodem.html" class="bento-card md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-red">
                 <i class="ph ph-drop absolute -left-4 -bottom-4 text-[10rem] text-red-500 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
                 <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
                 </div>
@@ -338,9 +362,8 @@
                 </div>
             </a>
 
-            <!-- ScribbleDash (Row Spanner) -->
-            <a href="scribbledash.html"
-                class="bento-card md:col-span-12 flex flex-col md:flex-row justify-between md:items-center p-8 group bento-animate">
+            <!-- ScribbleDash (Feature Bottom) -->
+            <a href="scribbledash.html" class="bento-card md:col-span-12 flex flex-col justify-end p-8 group bento-animate glow-orange">
                 <i class="ph ph-palette absolute left-12 -bottom-12 text-[16rem] text-ide-text-strong opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform -rotate-12"></i>
                 <div class="relative z-20 max-w-xl">
                     <div class="flex gap-2 mb-3">
@@ -373,65 +396,96 @@
                 <h3 class="text-3xl md:text-4xl font-bold">الخبرات التقنية</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Skill 1 -->
-                <div
-                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
-                    <i class="ph ph-android-logo text-4xl text-kotlin-purple mb-4"></i>
-                    <h4 class="text-xl font-bold mb-3 text-ide-text-strong">أندرويد SDK وواجهات المستخدم</h4>
-                    <p class="text-ide-text-muted font-light">خبرة عميقة في تطوير تطبيقات أندرويد الحديثة، مع التخصص في
-                        Jetpack Compose لبناء واجهات مستخدم تفاعلية وعالية الأداء.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Radar Chart Container -->
+                <div class="lg:col-span-5 flex justify-center fade-section">
+                    <div id="radar-chart-container" class="w-full max-w-[400px] aspect-square flex items-center justify-center bg-ide-surface/30 rounded-3xl border border-ide-border/50 glass-noise">
+                        <!-- SVG Radar injected via main.js -->
+                        <div class="animate-pulse text-ide-text-dim font-mono text-sm">جاري تحميل مهارات حسين...</div>
+                    </div>
                 </div>
 
-                <!-- Skill 2 -->
-                <div
-                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
-                    <i class="ph ph-cube text-4xl text-kotlin-orange mb-4"></i>
-                    <h4 class="text-xl font-bold mb-3 text-ide-text-strong">هيكلية الأنظمة</h4>
-                    <p class="text-ide-text-muted font-light">تصميم وبناء تطبيقات قابلة للتطوير باستخدام مبادئ هندسة
-                        البرمجيات النظيفة (Clean Architecture)، MVI/MVVM، والتقسيم الذكي للمشروع. سجل حافل بالنجاح في
-                        تحويل وترقية أكواد Java القديمة إلى معمارية Kotlin الحديثة.</p>
-                </div>
+                <!-- Expertise Grid -->
+                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Languages -->
+                    <div class="expertise-card p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-purple/50 transition-all duration-300 bento-animate">
+                        <div class="w-12 h-12 rounded-xl bg-kotlin-purple/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-purple/20 transition-colors">
+                            <i class="ph ph-code text-2xl text-kotlin-purple"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">اللغات</h4>
+                        <p class="text-ide-text-muted text-sm leading-relaxed mb-4">إتقان لغة <strong class="text-ide-text-strong">Kotlin</strong> للتطبيقات عالية الأداء و Java للأنظمة القديمة.</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-progress" data-progress="95%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-ide-text-dim uppercase tracking-widest font-mono">الكفاءة</span>
+                            <span class="text-[10px] text-kotlin-purple font-mono font-bold">95%</span>
+                        </div>
+                    </div>
 
-                <!-- Skill 3 -->
-                <div
-                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
-                    <i class="ph ph-tree-structure text-4xl text-[#79C0FF] mb-4"></i>
-                    <h4 class="text-xl font-bold mb-3 text-ide-text-strong">المنصات المتعددة (CMP/KMP)</h4>
-                    <p class="text-ide-text-muted font-light">توسيع الآفاق باستخدام Compose Multiplatform و Kotlin
-                        Multiplatform لزيادة مشاركة الكود بين منصات Android و iOS وسطح المكتب دون التضحية بالأداء
-                        الأصلي.</p>
-                </div>
+                    <!-- UI Architecture -->
+                    <div class="expertise-card p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-orange/50 transition-all duration-300 bento-animate">
+                        <div class="w-12 h-12 rounded-xl bg-kotlin-orange/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-orange/20 transition-colors">
+                            <i class="ph ph-layout text-2xl text-kotlin-orange"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">معمارية الواجهات</h4>
+                        <p class="text-ide-text-muted text-sm leading-relaxed mb-4">بناء واجهات تفاعلية باستخدام <strong class="text-ide-text-strong">Jetpack Compose</strong> و Material 3.</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-progress" data-progress="90%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-ide-text-dim uppercase tracking-widest font-mono">الكفاءة</span>
+                            <span class="text-[10px] text-kotlin-orange font-mono font-bold">90%</span>
+                        </div>
+                    </div>
 
-                <!-- Skill 4 -->
-                <div
-                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-purple/50 transition-colors">
-                    <i class="ph ph-database text-4xl text-kotlin-purple mb-4"></i>
-                    <h4 class="text-xl font-bold mb-3 text-ide-text-strong">البيانات والتخزين</h4>
-                    <p class="text-ide-text-muted font-light">إتقان طبقات البيانات المحلية وعن بُعد بما في ذلك قواعد
-                        بيانات Room والمزامنة في التوقيت الفعلي مع Firestore وتقنيات الترقيم المتقدمة.</p>
-                </div>
+                    <!-- The Core -->
+                    <div class="expertise-card p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-purple/50 transition-all duration-300 bento-animate">
+                        <div class="w-12 h-12 rounded-xl bg-kotlin-purple/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-purple/20 transition-colors">
+                            <i class="ph ph-stack text-2xl text-kotlin-purple"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">الجوهر التقني</h4>
+                        <p class="text-ide-text-muted text-sm leading-relaxed mb-4">Clean Architecture، MVI/MVVM، <strong class="text-ide-text-strong">KMP</strong>، Hilt، و Coroutines.</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-progress" data-progress="92%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-ide-text-dim uppercase tracking-widest font-mono">الكفاءة</span>
+                            <span class="text-[10px] text-kotlin-purple font-mono font-bold">92%</span>
+                        </div>
+                    </div>
 
-                <!-- Skill 5 -->
-                <div
-                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-kotlin-orange/50 transition-colors">
-                    <i class="ph ph-activity text-4xl text-kotlin-orange mb-4"></i>
-                    <h4 class="text-xl font-bold mb-3 text-ide-text-strong">موثوقية التطبيقات والأدوات</h4>
-                    <p class="text-ide-text-muted font-light">ضمان استقرار التطبيقات عبر الفحص الشامل لتسريبات الذاكرة،
-                        وخاصية العمل دون اتصال، وحقن الاعتماديات (Koin)، وأتمتة خطوط البيئة والإنتاج باستخدام Bitrise
-                        CI/CD.</p>
-                </div>
+                    <!-- Data & APIs -->
+                    <div class="expertise-card p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-orange/50 transition-all duration-300 bento-animate">
+                        <div class="w-12 h-12 rounded-xl bg-kotlin-orange/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-orange/20 transition-colors">
+                            <i class="ph ph-database text-2xl text-kotlin-orange"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">البيانات والبرمجيات الوسيطة</h4>
+                        <p class="text-ide-text-muted text-sm leading-relaxed mb-4">تطبيقات (Offline-first) باستخدام Room، <strong class="text-ide-text-strong">Ktor</strong>، و GraphQL.</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-progress" data-progress="88%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-ide-text-dim uppercase tracking-widest font-mono">الكفاءة</span>
+                            <span class="text-[10px] text-kotlin-orange font-mono font-bold">88%</span>
+                        </div>
+                    </div>
 
-                <!-- Skill 6 -->
-                <div
-                    class="bg-ide-surface/50 border border-ide-border p-8 rounded-2xl bento-animate hover:border-[#79C0FF]/50 transition-colors">
-                    <i class="ph ph-leaf text-4xl text-[#A3E635] mb-4"></i>
-                    <h4 class="text-xl font-bold mb-3 text-ide-text-strong">تقنيات الواجهة الخلفية (Backend)</h4>
-                    <p class="text-ide-text-muted font-light">
-                        حوالي عام من الخبرة العملية في بناء تطبيقات الخوادم باستخدام Kotlin. يتركز العمل الحالي على
-                        Spring Boot مع قواعد بيانات PostgreSQL و Redis، إلى جانب بناء و صيانة خدمات Ktor المصغرة وإدارة
-                        اتصالات WebSockets للمزامنة الفورية.
-                    </p>
+                    <!-- Backend -->
+                    <div class="expertise-card p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-purple/50 transition-all duration-300 bento-animate">
+                        <div class="w-12 h-12 rounded-xl bg-kotlin-purple/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-purple/20 transition-colors">
+                            <i class="ph ph-hard-drive text-2xl text-kotlin-purple"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">الخوادم والسحابة</h4>
+                        <p class="text-ide-text-muted text-sm leading-relaxed mb-4">Spring Boot، PostgreSQL، و WebSockets للمزامنة الفورية.</p>
+                        <div class="skill-bar-container">
+                            <div class="skill-progress" data-progress="75%"></div>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-ide-text-dim uppercase tracking-widest font-mono">الكفاءة</span>
+                            <span class="text-[10px] text-kotlin-purple font-mono font-bold">75%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -525,35 +579,45 @@
 
 
     <!-- Footer / Contact -->
-    <footer id="contact" class="py-24 border-t border-ide-border bg-ide-bg text-center">
-        <div class="max-w-2xl mx-auto px-4 sm:px-6 fade-section">
-            <h2 class="text-3xl font-bold mb-4">دعنا نبني شيئاً استثنائياً.</h2>
-            <p class="text-ide-text-muted mb-8">هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك?
-                دعنا نتواصل.</p>
-            <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary inline-block text-lg px-8 py-4 mb-8">
-                قل مرحباً <i class="ph ph-envelope-simple mr-2"></i>
-            </a>
+    <footer id="contact" class="py-24 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker text-center overflow-hidden relative">
+        <!-- Background Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-kotlin-purple/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-2">
-                <i class="ph ph-map-pin text-lg text-kotlin-orange"></i>
-                الرياض، المملكة العربية السعودية
-            </div>
-            <div class="flex justify-center items-center gap-2 text-ide-text-dim font-mono text-sm mb-8">
-                <i class="ph ph-phone text-lg text-kotlin-purple"></i>
-                +966 53 851 7374
-            </div>
-
-            <div class="flex justify-center space-x-6 text-ide-text-muted">
-                <a href="https://github.com/IronManYG" target="_blank"
-                    class="hover:text-ide-text-strong transition-colors" aria-label="GitHub"><i class="ph ph-github-logo text-2xl"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank"
-                    class="hover:text-[#79C0FF] transition-colors" aria-label="LinkedIn"><i class="ph ph-linkedin-logo text-2xl"></i></a>
-                <a href="mailto:hussain.yg2010@gmail.com"
-                    class="hover:text-kotlin-orange transition-colors" aria-label="البريد"><i class="ph ph-envelope-simple text-2xl"></i></a>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 fade-section relative z-10" dir="rtl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">دعنا نبني شيئاً <span class="gradient-text">استثنائياً</span>.</h2>
+            <p class="text-ide-text-muted text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                هل تبحث عن مهندس متمرس لتوسيع البنية التحتية لتطبيقات المحمول الخاصة بك أو سد الفجوة باستخدام حلول Cross-Platform؟ دعنا نتواصل.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary text-lg px-10 py-5 shadow-kotlin-glow w-full md:w-auto">
+                    قل مرحباً <i class="ph ph-paper-plane-tilt mr-2 text-xl transform scale-x-[-1]"></i>
+                </a>
+                <a href="tel:+966538517374" class="btn-secondary text-lg px-10 py-5 w-full md:w-auto flex items-center justify-center font-mono" dir="ltr">
+                    <i class="ph ph-phone mr-2 text-xl"></i> +966 53 851 7374
+                </a>
             </div>
 
-            <p class="mt-12 text-sm text-ide-text-dim font-mono">
-                &copy; <span id="copyright-year">2026</span> Hussain Gaddal.
+            <div class="flex flex-wrap justify-center items-center gap-8 text-ide-text-muted mb-16">
+                <div class="flex items-center gap-2 font-mono text-sm">
+                    <i class="ph ph-map-pin text-xl text-kotlin-orange"></i>
+                    الرياض، المملكة العربية السعودية
+                </div>
+                <div class="h-1 w-1 rounded-full bg-ide-border hidden md:block"></div>
+                <div class="flex items-center gap-6">
+                    <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer"
+                        class="text-3xl hover:text-ide-text-strong transition-all hover:-translate-y-1" aria-label="GitHub Profile">
+                        <i class="ph ph-github-logo"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer"
+                        class="text-3xl hover:text-[#79C0FF] transition-all hover:-translate-y-1" aria-label="LinkedIn Profile">
+                        <i class="ph ph-linkedin-logo"></i>
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-sm text-ide-text-dim font-mono border-t border-ide-border/50 pt-12">
+                &copy; <span id="copyright-year">2026</span> حسين قدال. <span class="mx-2 text-kotlin-purple font-bold">//</span> بني مع التركيز على قابلية التوسع.
             </p>
         </div>
     </footer>
@@ -566,9 +630,9 @@
     </button>
 
     <!-- GSAP & Main JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="../main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="../main.js" defer></script>
 </body>
 
 </html>

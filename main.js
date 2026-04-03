@@ -2,34 +2,46 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Register ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initial Hero Animation
+    // Initial Hero Animation - Upgraded for Elite feel
     const heroElements = document.querySelectorAll('.hero-animate');
     if (heroElements.length > 0) {
         gsap.from(heroElements, {
-            y: 30,
+            y: 40,
             opacity: 0,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power3.out",
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "expo.out",
             delay: 0.2
         });
+        
+        // Split-text like effect for the main H1
+        const heroTitle = document.querySelector('h1.hero-animate');
+        if (heroTitle) {
+            gsap.from(heroTitle, {
+                scale: 0.95,
+                duration: 1.5,
+                ease: "elastic.out(1, 0.5)",
+                delay: 0.4
+            });
+        }
     }
 
-    // Bento Grid Animation
+    // Bento Grid Animation - Trigger individually for better scroll reliability
     const bentoCards = document.querySelectorAll('.bento-animate');
-    if (bentoCards.length > 0) {
-        gsap.from(bentoCards, {
+    bentoCards.forEach((card, index) => {
+        gsap.from(card, {
             scrollTrigger: {
-                trigger: "#projects",
-                start: "top 80%",
+                trigger: card,
+                start: "top 90%",
+                toggleActions: "play none none none"
             },
             y: 50,
             opacity: 0,
             duration: 0.8,
-            stagger: 0.1,
-            ease: "power2.out"
+            ease: "power2.out",
+            delay: (index % 3) * 0.1 // Subtle stagger effect across rows
         });
-    }
+    });
 
     // Section Fade Ins (For Project Pages)
     const fadeSections = document.querySelectorAll('.fade-section');
@@ -174,9 +186,140 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 
+    // ── Accessibility: ESC to close Mobile Menu ─────────────────
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    // ── Skill Bar Animations ─────────────────────────────────
+    const skillProgressBars = document.querySelectorAll('.skill-progress');
+    if (skillProgressBars.length > 0) {
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const targetWidth = bar.getAttribute('data-progress') || '0%';
+                    bar.style.width = targetWidth;
+                    skillObserver.unobserve(bar);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillProgressBars.forEach(bar => skillObserver.observe(bar));
+    }
+
     // ── Dynamic Copyright Year ─────────────────────────────
     const yearEl = document.getElementById('copyright-year');
     if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
+    }
+
+    // ── Magnetic Buttons ──────────────────────────────────
+    const magneticWraps = document.querySelectorAll('.magnetic-wrap');
+    magneticWraps.forEach(wrap => {
+        wrap.addEventListener('mousemove', (e) => {
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            gsap.to(wrap, {
+                x: x * 0.3,
+                y: y * 0.3,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        });
+        
+        wrap.addEventListener('mouseleave', () => {
+            gsap.to(wrap, {
+                x: 0,
+                y: 0,
+                duration: 0.6,
+                ease: "elastic.out(1, 0.3)"
+            });
+        });
+    });
+
+    // ── Advanced Radar Chart ──────────────────────────────
+    const radarContainer = document.getElementById('radar-chart-container');
+    if (radarContainer) {
+        const skills = [
+            { label: "Kotlin", value: 95 },
+            { label: "Compose", value: 90 },
+            { label: "Architecture", value: 92 },
+            { label: "Backend", value: 75 },
+            { label: "KMP/CMP", value: 85 },
+            { label: "Testing", value: 88 }
+        ];
+
+        const size = 300;
+        const center = size / 2;
+        const radius = size * 0.4;
+        const angleStep = (Math.PI * 2) / skills.length;
+
+        let svgHtml = `<svg viewBox="0 0 ${size} ${size}" class="radar-chart">`;
+        
+        // Draw Grid (Hexagon/Polygon)
+        for (let i = 1; i <= 4; i++) {
+            const r = (radius / 4) * i;
+            let points = "";
+            for (let j = 0; j < skills.length; j++) {
+                const x = center + r * Math.cos(j * angleStep - Math.PI / 2);
+                const y = center + r * Math.sin(j * angleStep - Math.PI / 2);
+                points += `${x},${y} `;
+            }
+            svgHtml += `<polygon points="${points}" class="radar-grid" />`;
+        }
+
+        // Draw Axes & Labels
+        skills.forEach((skill, i) => {
+            const x = center + radius * Math.cos(i * angleStep - Math.PI / 2);
+            const y = center + radius * Math.sin(i * angleStep - Math.PI / 2);
+            svgHtml += `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" class="radar-axis" />`;
+            
+            // Label positioning
+            const labelR = radius + 25;
+            const lx = center + labelR * Math.cos(i * angleStep - Math.PI / 2);
+            const ly = center + labelR * Math.sin(i * angleStep - Math.PI / 2);
+            svgHtml += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" class="radar-label">${skill.label}</text>`;
+        });
+
+        // Draw Polygons Area (Initially empty for animation)
+        svgHtml += `<polygon points="" class="radar-area" id="radar-polygon" />`;
+        svgHtml += `</svg>`;
+        
+        radarContainer.innerHTML = svgHtml;
+
+        // Animate Radar Area on Scroll
+        ScrollTrigger.create({
+            trigger: radarContainer,
+            start: "top 80%",
+            onEnter: () => {
+                const polygon = document.getElementById('radar-polygon');
+                const points = skills.map((skill, i) => {
+                    const r = (radius * skill.value) / 100;
+                    const x = center + r * Math.cos(i * angleStep - Math.PI / 2);
+                    const y = center + r * Math.sin(i * angleStep - Math.PI / 2);
+                    return `${x},${y}`;
+                }).join(" ");
+                
+                polygon.setAttribute('points', points);
+                gsap.from(polygon, {
+                    scale: 0,
+                    transformOrigin: "center center",
+                    duration: 1.5,
+                    ease: "expo.out"
+                });
+            }
+        });
+    }
+
+    // ── PWA Service Worker ────────────────────────────────
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('SW Registered', reg))
+                .catch(err => console.log('SW Failed', err));
+        });
     }
 });
