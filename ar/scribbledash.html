@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScribbleDash | Android Developer Portfolio</title>
+    <meta name="description" content="سكريبل داش - تطبيق رسم ولوحة فنية عالي الأداء للأندرويد مع معالجة رسومية مخصصة.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../tailwind-config.js"></script>
@@ -19,8 +20,23 @@
             document.documentElement.classList.add('dark');
         }
     </script>
+        <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="../styles.css">
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="سكريبل داش | معرض أعمال مطور أندرويد">
+    <meta property="og:description" content="سكريبل داش - تطبيق رسم ولوحة فنية عالي الأداء للأندرويد مع معالجة رسومية مخصصة.">
+    <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio/ar/scribbledash.html">
+    <meta property="og:image" content="https://ironmanyg.github.io/hussain-portfolio/assets/img/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="سكريبل داش | معرض أعمال مطور أندرويد">
+    <meta name="twitter:description" content="سكريبل داش - تطبيق رسم ولوحة فنية عالي الأداء للأندرويد مع معالجة رسومية مخصصة.">
+    <meta name="twitter:image" content="https://ironmanyg.github.io/hussain-portfolio/assets/img/og-image.png">
 </head>
 <body class="bg-ide-bg text-ide-text-main antialiased">
 
@@ -56,6 +72,11 @@
             <h1 class="text-4xl md:text-5xl font-bold mb-4">ScribbleDash <span class="gradient-text">Drawing Engine</span></h1>
             <p class="text-xl text-ide-text-muted font-light">تطبيق تفاعلي لنظام Android يستكشف أداء واجهة Canvas API في Jetpack Compose من خلال بيئة تحدي رسم مرحة.</p>
         </header>
+
+        <!-- العرض البصري للمشروع -->
+        <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate">
+            <img src="../assets/img/projects/scribbledash-hero.png" alt="نموذج تطبيق ScribbleDash" class="w-full h-auto object-cover">
+        </div>
 
         <!-- نظرة عامة -->
         <section class="mb-16 fade-section">
@@ -131,8 +152,8 @@
         &copy; 2025 Hussain Gaddal.
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script src="../main.js"></script>
 </body>
 </html>
