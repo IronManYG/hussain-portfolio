@@ -7,18 +7,19 @@ export function initRadarChart() {
         { label: "Compose", value: 90 },
         { label: "Architecture", value: 92 },
         { label: "Backend", value: 75 },
-        { label: "KMP/CMP", value: 85 },
+        { label: "KMP / CMP", value: 85 },
         { label: "Testing", value: 88 }
     ];
 
-    const size = 300;
+    // Larger viewBox so labels are never clipped
+    const size = 380;
     const center = size / 2;
-    const radius = size * 0.4;
+    const radius = size * 0.33;   // polygon radius (tighter to center)
     const angleStep = (Math.PI * 2) / skills.length;
 
     let svgHtml = `<svg viewBox="0 0 ${size} ${size}" class="radar-chart">`;
     
-    // Draw Grid (Hexagon/Polygon)
+    // Draw Grid
     for (let i = 1; i <= 4; i++) {
         const r = (radius / 4) * i;
         let points = "";
@@ -36,20 +37,31 @@ export function initRadarChart() {
         const y = center + radius * Math.sin(i * angleStep - Math.PI / 2);
         svgHtml += `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" class="radar-axis" />`;
         
-        // Label positioning
-        const labelR = radius + 25;
+        // Label positioning — 42px outside the polygon edge
+        const labelR = radius + 42;
         const lx = center + labelR * Math.cos(i * angleStep - Math.PI / 2);
         const ly = center + labelR * Math.sin(i * angleStep - Math.PI / 2);
-        svgHtml += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" class="radar-label">${skill.label}</text>`;
+
+        // Split label on ' / ' or space if >10 chars for two-line rendering
+        const words = skill.label.split(' / ');
+        if (words.length > 1) {
+            // Two-line label (e.g. "KMP / CMP")
+            svgHtml += `<text x="${lx}" text-anchor="middle" class="radar-label">
+                <tspan x="${lx}" dy="-0.6em" dominant-baseline="middle">${words[0]}</tspan>
+                <tspan x="${lx}" dy="1.4em" dominant-baseline="middle">${words[1]}</tspan>
+            </text>`;
+        } else {
+            svgHtml += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" class="radar-label">${skill.label}</text>`;
+        }
     });
 
-    // Draw Polygons Area (Initially empty for animation)
+    // Draw Polygon Area
     svgHtml += `<polygon points="" class="radar-area" id="radar-polygon" />`;
     svgHtml += `</svg>`;
     
     radarContainer.innerHTML = svgHtml;
 
-    // Animate Radar Area on Scroll
+    // Animate on scroll
     ScrollTrigger.create({
         trigger: radarContainer,
         start: "top 80%",

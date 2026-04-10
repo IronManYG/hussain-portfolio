@@ -1,7 +1,8 @@
 ---
 layout: base.njk
 title: "ScribbleDash | Android Developer Portfolio"
-description: "ScribbleDash - A high-performance drawing and canvas application for Android with custom rendering and state management."
+description: "ScribbleDash - A playful drawing app exploring Jetpack Compose Canvas API with game modes, brush tools, and undo/redo."
+repoUrl: "https://github.com/IronManYG/ScribbleDash"
 ---
 <main class="pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto">
         <!-- Header -->
@@ -12,12 +13,12 @@ description: "ScribbleDash - A high-performance drawing and canvas application f
                 <span class="tech-pill">Koin</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-4">ScribbleDash <span class="gradient-text">Drawing Engine</span></h1>
-            <p class="text-xl text-ide-text-muted font-light">An interactive Android application probing the performance edge cases of Jetpack Compose’s Canvas API via a playful drawing challenge environment.</p>
+            <p class="text-xl text-ide-text-muted font-light mb-6">A playful drawing app that lets you unleash creativity on a virtual canvas — experimenting with brushes, game modes, and real-time stroke rendering.</p>
         </header>
 
         <!-- Project Hero Visual -->
         <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate">
-            <img src="assets/img/projects/scribbledash-hero.png" alt="ScribbleDash App Mockup" class="w-full h-auto object-cover">
+            <img src="{{ '/assets/img/projects/scribbledash-hero.png' | url }}" alt="ScribbleDash App Mockup" class="w-full h-auto object-cover">
         </div>
 
         <!-- The Overview -->

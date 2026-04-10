@@ -38,7 +38,7 @@
             <a href="{{ '/' | url }}" class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
                 <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
             </a>
-            <div class="space-x-8 text-sm font-medium text-ide-text-muted hidden md:flex">
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ide-text-muted">
                 <a href="#about" class="nav-link hover:text-ide-text-strong transition-colors">About</a>
                 <a href="{{ '/about/' | url }}" class="nav-link hover:text-ide-text-strong transition-colors">Experience / CV</a>
                 <a href="#projects" class="nav-link hover:text-ide-text-strong transition-colors">Projects</a>
@@ -46,28 +46,18 @@
                 <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">Contact</a>
             </div>
             {% else %}
-            <a href="{{ '/' | url }}" class="flex items-center text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left mr-2"></i> Back to Portfolio
+            <a href="{{ '/' | url }}" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
+                <i class="ph ph-arrow-left"></i> <span>Back to Portfolio</span>
             </a>
             {% endif %}
             
-            <div class="flex items-center space-x-4 flex-row-reverse space-x-reverse md:flex-row md:space-x-4 text-ide-text-muted">
-                {% if page.url == '/' %}
-                <button id="mobile-menu-btn" class="text-2xl hover:text-ide-text-strong transition-colors p-1 md:hidden" aria-label="Open Navigation Menu">
-                    <i class="ph ph-list"></i>
-                </button>
-                {% endif %}
+            <div class="flex items-center gap-4 text-ide-text-muted">
                 {% if repoUrl %}
                 <a href="{{ repoUrl }}" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm px-4 py-2 flex items-center">
-                    <i class="ph ph-github-logo mr-2 text-lg"></i> View Source
+                    <i class="ph ph-github-logo mr-1.5 text-lg"></i> View Code
                 </a>
                 {% endif %}
-                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
-                    <i class="ph ph-moon" id="theme-icon"></i>
-                </button>
-                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded" aria-label="Toggle Language Arabic/English">
-                    ع
-                </a>
+                
                 {% if page.url == '/' %}
                 <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-[#79C0FF] transition-colors hidden md:inline-block" aria-label="LinkedIn Profile">
                     <i class="ph ph-linkedin-logo"></i>
@@ -75,6 +65,19 @@
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-ide-text-strong transition-colors" aria-label="GitHub Profile">
                     <i class="ph ph-github-logo"></i>
                 </a>
+                {% endif %}
+
+                <button id="theme-toggle" class="text-xl hover:text-ide-text-strong transition-colors p-1" aria-label="Toggle Dark Mode">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="text-sm font-bold hover:text-ide-text-strong transition-colors border border-ide-border px-2 py-0.5 rounded" aria-label="Toggle Language Arabic/English">
+                    ع
+                </a>
+                
+                {% if page.url == '/' %}
+                <button id="mobile-menu-btn" class="text-2xl hover:text-ide-text-strong transition-colors p-1 md:hidden" aria-label="Open Navigation Menu">
+                    <i class="ph ph-list"></i>
+                </button>
                 {% endif %}
             </div>
         </div>
@@ -148,13 +151,13 @@
                 </div>
             </div>
             <p class="text-sm text-ide-text-dim font-mono border-t border-ide-border/50 pt-12">
-                &copy; <span id="copyright-year">2026</span> Hussain Gaddal. <span class="mx-2 text-kotlin-purple font-bold">//</span> Built with Scalability in Mind.
+                &copy; <span id="copyright-year"></span> Hussain Gaddal.
             </p>
         </div>
     </footer>
     {% else %}
     <footer class="py-12 border-t border-ide-border bg-ide-bg text-center text-ide-text-muted text-sm font-mono">
-        &copy; 2025-2026 Hussain Gaddal.
+        &copy; <span id="copyright-year-sub"></span> Hussain Gaddal.
     </footer>
     {% endif %}
 
@@ -166,5 +169,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
     <script type="module" src="{{ '/js/main.js' | url }}" defer></script>
+    <script>
+        // Dynamic copyright year
+        const yr = new Date().getFullYear();
+        const mainYr = document.getElementById('copyright-year');
+        if (mainYr) mainYr.textContent = yr;
+        const subYr = document.getElementById('copyright-year-sub');
+        if (subYr) subYr.textContent = yr;
+    </script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 ---
 layout: base.njk
 title: "Qodem | Android Developer Portfolio"
-description: "Qodem - A secure blood donation and supply chain management app for healthcare institutions built with modern Android practices."
+description: "Qodem - A blood donation coordination app with Firebase Firestore, Google Maps, and real-time clinic locating."
+repoUrl: "https://github.com/IronManYG/Qodem-v1"
 ---
 <main class="pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto">
         <!-- Header -->
@@ -12,12 +13,12 @@ description: "Qodem - A secure blood donation and supply chain management app fo
                 <span class="tech-pill">Google Maps</span>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold mb-4">Qodem <span class="gradient-text">Donation Logistics</span></h1>
-            <p class="text-xl text-ide-text-muted font-light">An essential health logistics application streamlining blood donation through centralized booking, dynamic pre-screening, and geographical routing.</p>
+            <p class="text-xl text-ide-text-muted font-light mb-6">A personal project helping streamline blood donation — find nearby clinics, book appointments, and verify donations with a QR code.</p>
         </header>
 
         <!-- Project Hero Visual -->
         <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate">
-            <img src="assets/img/projects/qodem-hero.png" alt="Qodem App Mockup" class="w-full h-auto object-cover">
+            <img src="{{ '/assets/img/projects/qodem-hero.png' | url }}" alt="Qodem App Mockup" class="w-full h-auto object-cover">
         </div>
 
         <!-- The Overview -->
