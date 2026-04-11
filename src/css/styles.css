@@ -394,3 +394,15 @@ pre {
 .dark .radar-area {
     fill: rgba(127, 82, 255, 0.3);
 }
+
+/* Hero Canvas Background */
+.particles-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
