@@ -1,8 +1,9 @@
 export function initAnimations() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    // Initial Hero Animation - Upgraded for Elite feel
-    const heroElements = document.querySelectorAll('.hero-animate');
+    // Initial Hero Animation - GSAP handles avatar only; text/CTAs are handled by Anime.js
+    // We only run GSAP on hero-animate elements that are NOT targeted by Anime.js
+    const heroElements = document.querySelectorAll('.hero-animate:not(.hero-headline):not(.hero-badge-anime):not(.hero-sub-anime):not(.hero-ctas-anime)');
     if (heroElements.length > 0) {
         gsap.from(heroElements, {
             y: 40,
@@ -12,50 +13,32 @@ export function initAnimations() {
             ease: "expo.out",
             delay: 0.2
         });
-        
-        // Split-text like effect for the main H1
-        const heroTitle = document.querySelector('h1.hero-animate');
-        if (heroTitle) {
-            gsap.from(heroTitle, {
-                scale: 0.95,
-                duration: 1.5,
-                ease: "elastic.out(1, 0.5)",
-                delay: 0.4
-            });
-        }
     }
 
-    // Bento Grid Animation - Trigger individually for better scroll reliability
-    const bentoCards = document.querySelectorAll('.bento-animate');
-    bentoCards.forEach((card, index) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: "top 90%",
-                toggleActions: "play none none none"
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            delay: (index % 3) * 0.1 // Subtle stagger effect across rows
-        });
-    });
+    // Bento Grid Animation — handled exclusively by Anime.js (anime-animations.js)
+    // GSAP was removed here to prevent dual-animation conflict causing card overlap.
 
-    // Section Fade Ins (For Project Pages)
-    const fadeSections = document.querySelectorAll('.fade-section');
-    fadeSections.forEach((section) => {
-        gsap.from(section, {
-            scrollTrigger: {
-                trigger: section,
-                start: "top 85%",
-            },
-            y: 20,
-            opacity: 0,
-            duration: 0.8,
-            ease: "power2.out"
+
+
+    // Section Fade Ins — only on main index page.
+    // Subpages are handled exclusively by Anime.js (initSubpageFadeSections)
+    // to avoid double-animation on the CV / project detail pages.
+    const isMainPage = !!document.querySelector('.hero-headline');
+    if (isMainPage) {
+        const fadeSections = document.querySelectorAll('.fade-section');
+        fadeSections.forEach((section) => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                },
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
         });
-    });
+    }
     
     // Parallax effect for main index header only 
     const header = document.querySelector('header:not(.fade-section)');

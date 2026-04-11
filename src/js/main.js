@@ -1,6 +1,7 @@
 import { initTheme } from './theme.js';
 import { initMenu } from './menu.js';
 import { initAnimations } from './animations.js';
+import { initAnimeAnimations } from './anime-animations.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Initialize Theme
@@ -20,10 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.registerPlugin(ScrollTrigger);
     }
 
-    // 5. Initialize Animations
+    // 5. Initialize GSAP Animations
     initAnimations();
 
-    // 6. PWA Service Worker
+    // 6. Initialize Anime.js Animations
+    // One rAF gives the deferred CDN scripts (gsap, anime.min.js) time to
+    // execute before our module runs. anime.set() inside initAnimeAnimations
+    // handles the initial invisible state entirely in JS.
+    requestAnimationFrame(() => {
+        initAnimeAnimations();
+    });
+
+
+    // 7. PWA Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
