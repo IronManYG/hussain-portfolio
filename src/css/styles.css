@@ -28,7 +28,7 @@
     }
 
     body {
-        font-family: 'Inter', 'Cairo', sans-serif;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
         background-color: rgb(var(--color-ide-bg));
         color: rgb(var(--color-text-main));
         overflow-x: hidden;
@@ -55,11 +55,11 @@
     }
     
     html[dir="rtl"] body {
-        font-family: 'Cairo', 'Inter', sans-serif;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
     }
     
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Inter', 'Cairo', sans-serif;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
         font-weight: 700;
         letter-spacing: -0.02em;
     }
