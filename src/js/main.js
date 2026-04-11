@@ -1,7 +1,6 @@
 import { initTheme } from './theme.js';
 import { initMenu } from './menu.js';
 import { initAnimations } from './animations.js';
-import { initRadarChart } from './radar.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Initialize Theme
@@ -24,10 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 5. Initialize Animations
     initAnimations();
 
-    // 6. Initialize Radar Chart
-    initRadarChart();
-
-    // 7. PWA Service Worker
+    // 6. PWA Service Worker
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')

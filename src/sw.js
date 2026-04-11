@@ -7,7 +7,6 @@ const ASSETS_TO_CACHE = [
     '/js/theme.js',
     '/js/animations.js',
     '/js/menu.js',
-    '/js/radar.js',
     '/favicon.svg',
     '/assets/img/hussain.webp',
     '/manifest.json'
