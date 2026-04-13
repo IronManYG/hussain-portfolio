@@ -94,7 +94,7 @@
   "ar": {
     "hero": {
       "title": "نبذة <span class=\"gradient-text\">عني</span>",
-      "subtitle": "أنا مطور تطبيقات أندرويد أول، أهتم بعمق بطريقة بناء البرمجيات. قضيت السنوات الأربع الماضية في شركة <strong>كيه لتقنية المعلومات</strong> أبني تطبيقات إنتاجية — أدير تحول الكود الموروث، أصمم هياكل متعددة الوحدات، وأشحن ميزات صممت للصمود على النطاق."
+      "subtitle": "أنا مطور أندرويد (Senior)، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة <strong>كيه لتقنية المعلومات</strong> في بناء تطبيقات مخصصة للإنتاج الفعلي — انتقالاً من الأكواد القديمة (Legacy Codebases) إلى بيئات حديثة، وتصميم معماريات متعددة الوحدات (Multi-module)، وإطلاق ميزات برمجية قادرة على العمل بكفاءة وموثوقية على النطاق الواسع (At Scale)."
     },
     "experience": {
       "section_label": "experience",
@@ -108,11 +108,11 @@
           "date_location": "مارس 2022 - الحاضر | الرياض، السعودية",
           "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
           "details": [
-            "توليت <strong class=\"text-ide-text-strong\">القيادة التقنية الكاملة</strong> لتطبيقات الأندرويد، وانتقلت بتطبيق قديم مبني بـ Java/XML إلى بيئة حديثة بـ Kotlin و Jetpack Compose، مما أدى إلى <strong class=\"text-ide-text-strong\">انخفاض معدلات الانهيار بنسبة 40%</strong>.",
-            "طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة التحميل، مما أدى إلى <strong class=\"text-ide-text-strong\">تسريع تسليم الفريق بنسبة 25%</strong>.",
-            "صممت واجهات مستخدم متميزة بـ <strong class=\"text-ide-text-strong\">Material 3 Compose</strong> و Coil و Lottie، مما أدى إلى <strong class=\"text-ide-text-strong\">زيادة مدة بقاء المستخدم بنسبة 15%</strong>.",
-            "وضعت معايير هيكلية واضحة (Clean Architecture, MVI) وأعددت مسار <strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong> كأتمتة، مما أسفر عن <strong class=\"text-ide-text-strong\">تقليل وقت توجيه المطورين الجدد بنسبة 50%</strong>.",
-            "بنيت وحافظت على خدمات خلفية مصغرة (Micro-services) سريعة الاستجابة للمصادقة وتوصيل المحتوى باستخدام Ktor، مما ساهم في <strong class=\"text-ide-text-strong\">تحسين أوقات استجابة واجهة برمجة التطبيقات بنسبة 30%</strong>."
+            "توليت <strong class=\"text-ide-text-strong\">القيادة التقنية الكاملة</strong> لمنتج الأندرويد. أدرت عملية الانتقال من بيئة عمل قديمة مبنية بـ Java/XML إلى معمارية حديثة باستخدام Kotlin و Jetpack Compose، مما أدى إلى <strong class=\"text-ide-text-strong\">انخفاض معدلات الانهيار بنسبة 40%</strong>.",
+            "بنيت حزماً برمجية داخلية (SDKs) ووحدات أساسية قابلة لإعادة الاستخدام لخدمات المصادقة، والبحث، وإدارة التنزيلات. مما سرّع من وتيرة إنجاز الفريق بنسبة <strong class=\"text-ide-text-strong\">25%</strong>.",
+            "صممت واجهات مستخدم تفاعلية وجذابة باستخدام <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>، بالإضافة إلى مكتبات Coil وتأثيرات Lottie الحركية، مما زاد من مدة جلسة المستخدم بنسبة <strong class=\"text-ide-text-strong\">15%</strong>.",
+            "وضعت معايير معمارية واضحة (Clean Architecture, MVI) وأسست مسار تكامل وتسليم مستمر (<strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong>)، مما قلص من وقت تأهيل المطورين الجدد بنسبة <strong class=\"text-ide-text-strong\">50%</strong>.",
+            "برمجت وأدرت خدمات مصغرة (Micro-services) خفيفة باستخدام Ktor للمصادقة وتوصيل المحتوى، مما أدى إلى تحسين سرعة استجابة الـ API بنسبة <strong class=\"text-ide-text-strong\">30%</strong>."
           ]
         },
         {
@@ -122,14 +122,14 @@
           "date_location": "2011 - 2016",
           "node_color": "bg-kotlin-purple ring-kotlin-purple/20 border-ide-bg",
           "details": [
-            "أتممت برنامجاً هندسياً شاملاً، والذي أرسى لدي أساساً متيناً في طرق التفكير الهيكلي وحل المشكلات المعقدة والمهارات التحليلية، وهي الأسس التي أستند إليها الآن في هندسة وبناء الأنظمة البرمجية الفعّالة."
+            "أتممت برنامجاً هندسياً شاملاً، والذي أرسى لدي أساساً متيناً في طرق التفكير الهيكلي، وحل المشكلات، والمهارات التحليلية، وهي الأسس التي أستند إليها الآن في هندسة وبناء الأنظمة البرمجية الموثوقة."
           ]
         }
       ]
     },
     "certifications": {
       "section_label": "Certifications.*",
-      "description": "هذه الدورات شكّلت مباشرةً طريقتي في التفكير بهندسة البرمجيات.",
+      "description": "أحرص دائماً على تطوير مهاراتي — هذه الدورات صقلت طريقتي في التفكير حول معمارية البرمجيات والتطوير متعدد المنصات (Cross-platform).",
       "items": [
         {
           "icon": "ph-certificate text-kotlin-orange",
@@ -142,7 +142,7 @@
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
           "title": "الواجهات الخلفية لـ Kotlin بإستخدام Spring Boot",
-          "description": "شهادة تدريبية معتمدة بالشراكة مع <strong>JetBrains</strong> تغطي بناء وهندسة الخوادم وقواعد البيانات الإحترافية.",
+          "description": "دورة معتمدة بالشراكة مع <strong>JetBrains</strong> تركز على بناء خوادم Kotlin قابلة للتوسع وإدارة قواعد البيانات.",
           "provider_year": "Pl-Coding | 2025"
         },
         {
@@ -177,7 +177,7 @@
           "icon": "ph-android-logo text-[#A3E635]",
           "borderHover": "hover:border-[#A3E635]/50",
           "title": "Nanodegree لمطور الأندرويد مع لغة Kotlin",
-          "description": "برنامج تدريبي شامل غطى أساسيات استخدام أدوات الأندرويد.",
+          "description": "برنامج متكامل يغطي المبادئ الأساسية لـ Android SDK، وإدارة دورة حياة التطبيق، وأنماط التصميم (Design Patterns).",
           "provider_year": "Udacity | 2022"
         }
       ]

@@ -82,25 +82,25 @@
   "ar": {
     "hero": {
       "badge": "متاح لفرص عمل جديدة",
-      "greeting": "أنا حسين قدال.",
-      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندوريد</span> أول.",
-      "subtitle": "أبني تطبيقات تعمل بثبات — واسعة النطاق، متعددة المنصات، ومصممة للصمود. أعمل على دمج هندسة النظام النظيفة بأداء المحمول الأصيل عبر Kotlin Multiplatform.",
+      "greeting": "أنا حسين قدّال.",
+      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span> أول.",
+      "subtitle": "أبني تطبيقات تعمل بكفاءة — واسعة النطاق، متعددة المنصات، ومصممة لتدوم. يتمحور عملي حول دمج معمارية الأنظمة النظيفة (Clean Architecture) مع الأداء الأصلي لتطبيقات الجوال باستخدام Kotlin Multiplatform.",
       "btn_work": "شاهد أعمالي",
       "btn_cv": "تحميل السيرة الذاتية",
       "btn_contact": "تواصل معي"
     },
     "about": {
       "section_label": "نبذة عني",
-      "title": "هندسة متكاملة بين <span class=\"text-kotlin-purple\">الأنظمة</span> و<span class=\"text-kotlin-orange\">تجربة المستخدم</span>.",
+      "title": "أبني حلقة الوصل بين <span class=\"text-kotlin-purple\">هندسة الأنظمة</span> و<span class=\"text-kotlin-orange\">تجربة المستخدم</span>.",
       "paragraphs": [
-        "أعمل من الرياض كقائد تطوير تطبيقات أندرويد في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات البنية التحتية لضمان جودة التطبيقات وموثوقيتها. أركز على الهيكلة النظيفة (Clean Architecture) والتدفق أحادي الاتجاه للبيانات (MVI/MVVM) والمعايير العالية للاختبارات.",
-        "تتمحور أعمالي الحالية حول استكشاف إمكانيات <strong>Compose Multiplatform (CMP)</strong>، وتصميم الواجهات الخلفية الموثوقة باستخدام <strong>Ktor</strong> لربط الأنظمة الشاملة بتطبيقات المحمول السريعة.",
-        "خارج نطاق العمل البرمجي، أستمتع بتعلم الطباعة ثلاثية الأبعاد وتحسين مهاراتي البرمجية."
+        "أعمل من الرياض كقائد تطوير لتطبيقات الأندرويد متعددة الوحدات (Multi-module) في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات المعمارية البرمجية وموثوقية المنتج. أرتكز في عملي على المعمارية النظيفة (Clean Architecture)، التدفق أحادي الاتجاه للبيانات (MVI/MVVM)، وتطبيق أعلى معايير الاختبار.",
+        "أركز حالياً على استكشاف الإمكانيات الواسعة لتقنية <strong>Compose Multiplatform (CMP)</strong> وبناء خدمات خلفية (Backend) موثوقة باستخدام <strong>Ktor</strong>، بهدف ربط الأنظمة المتكاملة بتطبيقات جوال سريعة وأصلية الأداء.",
+        "بعيداً عن بيئة التطوير (IDE)، أقضي وقتي في استكشاف عالم الطباعة ثلاثية الأبعاد، الاستماع للبودكاست التقني، والتطوير المستمر لمهاراتي البرمجية."
       ]
     },
     "featured_projects": {
       "section_label": "أبرز الأعمال",
-      "title": "المشاريع المميزة"
+      "title": "مشاريع مميزة"
     },
     "expertise": {
       "section_label": "الكفاءات الأساسية",
@@ -114,7 +114,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "لغات البرمجة",
-          "description": "إتقان متقدم للغة <strong class=\"text-ide-text-strong\">Kotlin</strong> لتطوير تطبيقات الهواتف والخوادم الكبيرة، مع خبرة سابقة بـ Java."
+          "description": "إتقان متقدم للغة <strong class=\"text-ide-text-strong\">Kotlin</strong> لتطوير تطبيقات الجوال الضخمة والخوادم، إلى جانب Java للتعامل مع الأنظمة الموروثة (Legacy Integrations)."
         },
         {
           "icon": "ph-layout",
@@ -124,7 +124,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "هندسة الواجهات",
-          "description": "كتابة وبناء واجهات مستخدم معقدة باستخدام <strong class=\"text-ide-text-strong\">Jetpack Compose</strong> وتصميم أنظمة Material 3."
+          "description": "بناء واجهات مستخدم تعريفية (Declarative UIs) باستخدام <strong class=\"text-ide-text-strong\">Jetpack Compose</strong> وتطبيق أنظمة تصميم Material 3."
         },
         {
           "icon": "ph-stack",
@@ -134,7 +134,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "تصميم الأنظمة",
-          "description": "Clean Architecture، MVI/MVVM، ومكتبات <strong class=\"text-ide-text-strong\">KMP</strong> مع حقن التبعيات (Hilt) والبرمجة التزامنية."
+          "description": "المعمارية النظيفة (Clean Architecture)، أنماط MVI/MVVM، ومكتبات <strong class=\"text-ide-text-strong\">KMP</strong>، بالإضافة إلى حقن التبعيات (Hilt) والبرمجة التزامنية (Coroutines)."
         },
         {
           "icon": "ph-database",
@@ -144,7 +144,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "تدفق البيانات",
-          "description": "هندسة متينة للبيانات بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-ide-text-strong\">Ktor Client</strong>، واجهات GraphQL."
+          "description": "تصميم معماريات بيانات متينة للعمل بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-ide-text-strong\">Ktor Client</strong>، و GraphQL."
         },
         {
           "icon": "ph-hard-drive",
@@ -154,7 +154,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "الخوادم والسحابة",
-          "description": "بناء خدمات مصغرة (Micro-services) مع <strong class=\"text-ide-text-strong\">Ktor</strong> و Spring Boot مع قواعد بيانات PostgreSQL."
+          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-ide-text-strong\">Ktor</strong> و Spring Boot، مع خبرة في تصميم قواعد بيانات PostgreSQL."
         }
       ]
     }
