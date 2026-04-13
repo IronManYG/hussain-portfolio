@@ -47,9 +47,22 @@
                 <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">Contact</a>
             </div>
             {% else %}
-            <a href="{{ '/' | url }}" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left"></i> <span>Back to Portfolio</span>
+            <a href="{{ '/' | url }}" onclick="if(document.referrer.includes(window.location.hostname)) { window.history.back(); return false; }" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
+                <i class="ph ph-arrow-left"></i> <span id="nav-back-text">Back to Portfolio</span>
             </a>
+            <script>
+                (function() {
+                    const ref = document.referrer;
+                    const btnText = document.getElementById('nav-back-text');
+                    if (ref && btnText && ref.includes(window.location.hostname)) {
+                        if (ref.includes('/projects')) {
+                            btnText.textContent = 'Back to Projects';
+                        } else {
+                            btnText.textContent = 'Back to Portfolio';
+                        }
+                    }
+                })();
+            </script>
             {% endif %}
             
             <div class="flex items-center gap-4 text-ide-text-muted">

@@ -1,0 +1,58 @@
+---
+layout: ar_base.njk
+title: "كل المشاريع | حسين قدال"
+description: "قائمة شاملة بكافة مشاريعي في نظام أندرويد، Kotlin Multiplatform، والخوادم."
+---
+<main class="pt-32 pb-24 px-4 sm:px-6 max-w-7xl mx-auto">
+    <header class="mb-12 text-center fade-section">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">كل <span class="gradient-text">المشاريع</span></h1>
+        <p class="text-xl text-ide-text-muted font-light max-w-2xl mx-auto">أرشيف كامل لأعمالي المهنية وتحديات المجتمع وتجاربي التقنية الشخصية.</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap justify-center gap-3 mb-16 fade-section" id="project-filters" dir="ltr">
+        <button class="filter-btn active px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="all">All</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="cmp">CMP</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="kmp">KMP</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="android">Android</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="wear os">Wear OS</button>
+        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="firebase">Firebase</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        {% for project in projects %}
+        <div class="project-card-wrapper fade-section" data-tags="{{ project.tags | join(',') | lower }}">
+            <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="bento-card block h-[380px] flex col flex-col justify-end p-8 group bento-animate {{ project.grid.glow }} glass-noise relative overflow-hidden rounded-3xl border border-ide-border">
+                {% if project.grid.image %}
+                <img src="{{ project.grid.image | url }}" alt="" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
+                {% else %}
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
+                <i class="ph {{ project.grid.icon }} absolute -left-4 -bottom-4 text-[10rem] {{ project.grid.iconColor }} opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                {% endif %}
+                
+                <div class="relative z-20">
+                    <div class="flex gap-2 mb-3 flex-wrap">
+                        {% for tag in project.tags.slice(0, 2) %}
+                        <span class="tech-pill text-xs shadow-none">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    <h4 class="text-xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">{{ project.title_ar }}</h4>
+                    <p class="text-ide-text-muted font-light text-sm line-clamp-3">{{ project.description_ar }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+<script src="{{ '/js/projects-filter.js' | url }}"></script>
+<style>
+    .filter-btn.active {
+        background: rgba(127, 82, 255, 0.1);
+        border-color: #7F52FF;
+        color: #fff;
+    }
+</style>

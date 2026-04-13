@@ -107,101 +107,49 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
 
     <!-- Projects (Bento Box Grid) -->
     <section id="projects" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto">
-        <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Selected Work</h2>
-        <h3 class="text-3xl md:text-4xl font-bold mb-12">What I've Built</h3>
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Selected Work</h2>
+                <h3 class="text-3xl md:text-4xl font-bold">Featured Projects</h3>
+            </div>
+            <a href="{{ '/projects/' | url }}" class="hidden sm:inline-flex items-center text-sm font-semibold text-kotlin-purple hover:text-kotlin-purple/80 transition-colors">
+                View All Projects <i class="ph ph-arrow-right ml-2"></i>
+            </a>
+        </div>
 
         <div class="bento-grid-anime grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
-
-            <!-- Chirp (Feature Large) -->
-            <a href="{{ '/chirp/' | url }}" class="bento-card glass-noise md:col-span-8 flex flex-col justify-end p-8 group bento-animate glow-blue">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
-                <img src="{{ '/assets/img/projects/chirp-hero.png' | url }}" alt="Chirp messaging app desktop UI" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-60 transition-opacity duration-500">
-                <div class="relative z-20">
-                    <div class="flex gap-2 mb-3">
-                        <span class="tech-pill">CMP</span>
-                        <span class="tech-pill">KMP</span>
-                        <span class="tech-pill">Ktor</span>
-                    </div>
-                    <h4 class="text-2xl font-bold mb-2 group-hover:text-kotlin-purple transition-colors">Chirp <i
-                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                    </h4>
-                    <p class="text-ide-text-muted font-light max-w-xl">A full-stack, cross-platform messaging client
-                        targeting Android, iOS, and Desktop built entirely with Kotlin Multiplatform.</p>
-                </div>
-            </a>
-
-            <!-- Runique (Feature Small) -->
-            <a href="{{ '/runique/' | url }}" class="bento-card glass-noise md:col-span-4 flex flex-col justify-end p-8 group bento-animate glow-orange">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-                <i class="ph ph-activity absolute -right-4 -bottom-4 text-[10rem] text-kotlin-orange opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform -rotate-6"></i>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
-                </div>
-                <div class="relative z-20">
-                    <div class="flex gap-2 mb-3">
-                        <span class="tech-pill">Wear OS</span>
-                        <span class="tech-pill">Room</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 group-hover:text-kotlin-orange transition-colors">Runique <i
-                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                    </h4>
-                    <p class="text-ide-text-muted text-sm font-light">Advanced running tracker syncing mobile and
-                        smartwatch.</p>
-                </div>
-            </a>
-
-            <!-- ScribbleDash (Feature Bottom) -->
-            <a href="{{ '/scribbledash/' | url }}" class="bento-card glass-noise md:col-span-12 flex flex-col justify-end p-8 group bento-animate glow-orange">
-                <img src="{{ '/assets/img/projects/scribbledash-hero.png' | url }}" alt="ScribbleDash drawing app" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500">
+            {% for project in projects %}
+            {% if project.featured %}
+            <a href="{{ ('/' + project.slug + '/') | url }}" class="bento-card glass-noise {{ project.grid.size }} flex flex-col justify-end p-8 group bento-animate {{ project.grid.glow }}">
+                {% if project.grid.image %}
+                <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }} Hero" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/60 to-transparent z-10"></div>
+                {% elif project.grid.icon %}
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
+                <i class="ph {{ project.grid.icon }} absolute -right-4 -bottom-4 text-[10rem] {{ project.grid.iconColor }} opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform -rotate-6"></i>
+                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
+                {% endif %}
+                
                 <div class="relative z-20">
-                    <div class="flex gap-2 mb-3">
-                        <span class="tech-pill">Compose UI</span>
-                        <span class="tech-pill">Canvas API</span>
+                    <div class="flex gap-2 mb-3 max-w-full overflow-hidden flex-wrap">
+                        {% for tag in project.tags.slice(0, 3) %}
+                        <span class="tech-pill">{{ tag }}</span>
+                        {% endfor %}
                     </div>
-                    <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">ScribbleDash
-                        <i
-                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">{{ project.title_en }}
+                        <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
                     </h4>
-                    <p class="text-ide-text-muted font-light">A highly interactive digital canvas drawing app exploring
-                        raw Android UI drawing performance in Jetpack Compose.</p>
+                    <p class="text-ide-text-muted font-light max-w-xl">{{ project.description_en }}</p>
                 </div>
             </a>
-
-            <!-- EchoJournal (Feature Medium) -->
-            <a href="{{ '/echojournal/' | url }}" class="bento-card glass-noise md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-blue">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
-                <img src="{{ '/assets/img/projects/echojournal-hero.png' | url }}" alt="EchoJournal audio journaling app" class="absolute inset-0 w-full h-full object-cover object-top opacity-40 group-hover:opacity-60 transition-opacity duration-500">
-                <div class="relative z-20">
-                    <div class="flex gap-2 mb-3">
-                        <span class="tech-pill">MVI</span>
-                        <span class="tech-pill">Media SDK</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">EchoJournal <i
-                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                    </h4>
-                    <p class="text-ide-text-muted text-sm font-light">Material Design 3 audio journaling app with mood
-                        tagging.</p>
-                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        
+        <div class="mt-12 text-center sm:hidden">
+            <a href="{{ '/projects/' | url }}" class="inline-flex items-center text-sm font-semibold text-kotlin-purple hover:text-kotlin-purple/80 transition-colors">
+                View All Projects <i class="ph ph-arrow-right ml-2"></i>
             </a>
-
-            <!-- Qodem (Feature Medium) -->
-            <a href="{{ '/qodem/' | url }}" class="bento-card glass-noise md:col-span-6 flex flex-col justify-end p-8 group bento-animate glow-red">
-                <i class="ph ph-drop absolute -right-4 -bottom-4 text-[10rem] text-red-500 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform -rotate-6"></i>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity">
-                </div>
-                <div class="relative z-20">
-                    <div class="flex gap-2 mb-3">
-                        <span class="tech-pill">Firestore</span>
-                        <span class="tech-pill">Maps</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-2 transition-colors">Qodem <i
-                            class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                    </h4>
-                    <p class="text-ide-text-muted text-sm font-light">Streamlined blood donation coordination and bank
-                        locator.</p>
-                </div>
-            </a>
-
         </div>
     </section>
 

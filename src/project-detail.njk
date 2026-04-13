@@ -1,0 +1,89 @@
+---
+layout: base.njk
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "{{ project.slug }}/index.html"
+eleventyComputed:
+  title: "{{ project.title_en }} | Android Developer Portfolio"
+  description: "{{ project.description_en }}"
+  repoUrl: "{{ project.repoUrl }}"
+---
+<main class="pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <header class="mb-16 fade-section">
+        <div class="flex flex-wrap gap-2 mb-6">
+            {% for tag in project.tags %}
+            <span class="tech-pill">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ project.title_en }}</h1>
+        <p class="text-xl text-ide-text-muted font-light mb-6">{{ project.description_en }}</p>
+    </header>
+
+    {% if project.grid.image %}
+    <!-- Project Hero Visual -->
+    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center bg-ide-bg-darker">
+        <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }} Mockup" class="w-full h-auto object-cover max-h-[500px]">
+    </div>
+    {% elif project.grid.icon %}
+    <!-- Project Hero Icon -->
+    <div class="mb-16 rounded-2xl h-[400px] border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
+        <i class="ph {{ project.grid.icon }} text-[12rem] {{ project.grid.iconColor }} opacity-[0.05] group-hover:opacity-[0.1] transition-opacity z-0 transform -rotate-6"></i>
+        <i class="ph {{ project.grid.icon }} text-8xl {{ project.grid.iconColor }} relative z-20"></i>
+    </div>
+    {% endif %}
+
+    {% if project.overview_en %}
+    <!-- The Overview -->
+    <section class="mb-16 fade-section">
+        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+        <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
+            {{ project.overview_en | safe }}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if project.challenge_en %}
+    <!-- The Challenge -->
+    <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">The Challenge</h2>
+        <div class="text-ide-text-muted leading-relaxed">
+            {{ project.challenge_en | safe }}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if project.architecture_en %}
+    <!-- The Solution & Architecture -->
+    <section class="mb-16 fade-section">
+        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+        {{ project.architecture_en | safe }}
+    </section>
+    {% endif %}
+
+    {% if project.impact_en %}
+    <!-- Impact & Results -->
+    <section class="mb-16 fade-section bg-kotlin-purple/5 border border-kotlin-purple/20 rounded-xl p-8">
+        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">Impact & Results</h2>
+        {{ project.impact_en | safe }}
+    </section>
+    {% endif %}
+
+    {% if project.tech_stack and project.tech_stack.length > 0 %}
+    <!-- Tech Stack -->
+    <section class="mb-16 fade-section">
+        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {% for tech in project.tech_stack %}
+            <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+                <span class="block text-sm text-ide-text-muted mb-1">{{ tech.label }}</span>
+                <span class="font-mono text-ide-text-strong text-sm">{{ tech.value }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+</main>

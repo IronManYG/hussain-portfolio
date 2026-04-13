@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     "./src/**/*.{html,js,njk,md}",
+    "./src/_data/**/*.json",
     "./.eleventy.js"
   ],
   darkMode: 'class',

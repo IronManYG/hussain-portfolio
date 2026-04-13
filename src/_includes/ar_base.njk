@@ -48,9 +48,22 @@
                 <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">تواصل معي</a>
             </div>
             {% else %}
-            <a href="{{ '/ar/' | url }}" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left transform scale-x-[-1]"></i> <span>العودة للمشاريع</span>
+            <a href="{{ '/ar/' | url }}" onclick="if(document.referrer.includes(window.location.hostname)) { window.history.back(); return false; }" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
+                <i class="ph ph-arrow-left transform scale-x-[-1]"></i> <span id="nav-back-text-ar">العودة للرئيسية</span>
             </a>
+            <script>
+                (function() {
+                    const ref = document.referrer;
+                    const btnText = document.getElementById('nav-back-text-ar');
+                    if (ref && btnText && ref.includes(window.location.hostname)) {
+                        if (ref.includes('/projects')) {
+                            btnText.textContent = 'العودة للمشاريع';
+                        } else {
+                            btnText.textContent = 'العودة للرئيسية';
+                        }
+                    }
+                })();
+            </script>
             {% endif %}
             
             <div class="flex items-center gap-4 text-ide-text-muted">
