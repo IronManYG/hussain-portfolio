@@ -40,25 +40,42 @@
                 <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
             </a>
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ide-text-muted">
-                <a href="#about" class="nav-link hover:text-ide-text-strong transition-colors">About</a>
-                <a href="{{ '/about/' | url }}" class="nav-link hover:text-ide-text-strong transition-colors">Experience / CV</a>
-                <a href="#projects" class="nav-link hover:text-ide-text-strong transition-colors">Projects</a>
-                <a href="#expertise" class="nav-link hover:text-ide-text-strong transition-colors">Expertise</a>
-                <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">Contact</a>
+                <a href="#about" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_about }}</a>
+                <a href="{{ '/about/' | url }}" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_experience }}</a>
+                <a href="#projects" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_projects }}</a>
+                <a href="#expertise" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_expertise }}</a>
+                <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_contact }}</a>
             </div>
             {% else %}
-            <a href="{{ '/' | url }}" onclick="if(document.referrer.includes(window.location.hostname)) { window.history.back(); return false; }" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
-                <i class="ph ph-arrow-left"></i> <span id="nav-back-text">Back to Portfolio</span>
+            <a href="{{ '/' | url }}" id="nav-back-btn" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
+                <i class="ph ph-arrow-left"></i> <span id="nav-back-text">{{ locales.en.back_portfolio }}</span>
             </a>
             <script>
                 (function() {
                     const ref = document.referrer;
+                    const btn = document.getElementById('nav-back-btn');
                     const btnText = document.getElementById('nav-back-text');
-                    if (ref && btnText && ref.includes(window.location.hostname)) {
-                        if (ref.includes('/projects')) {
-                            btnText.textContent = 'Back to Projects';
-                        } else {
-                            btnText.textContent = 'Back to Portfolio';
+                    
+                    if (ref && btn && btnText && ref.includes(window.location.hostname)) {
+                        let isLangSwitch = false;
+                        try {
+                            const refUrl = new URL(ref);
+                            const normalizePath = (p) => p.replace(/\/ar(\/|$)/, '/').replace(/\/+$/, '') || '/';
+                            if (normalizePath(window.location.pathname) === normalizePath(refUrl.pathname)) {
+                                isLangSwitch = true;
+                            }
+                        } catch(e) {}
+                        
+                        if (!isLangSwitch) {
+                            if (ref.includes('/projects')) {
+                                btnText.textContent = '{{ locales.en.back_projects }}';
+                            } else {
+                                btnText.textContent = '{{ locales.en.back_portfolio }}';
+                            }
+                            btn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                window.history.back();
+                            });
                         }
                     }
                 })();
@@ -68,7 +85,7 @@
             <div class="flex items-center gap-4 text-ide-text-muted">
                 {% if repoUrl %}
                 <a href="{{ repoUrl }}" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm px-4 py-2 flex items-center">
-                    <i class="ph ph-github-logo mr-1.5 text-lg"></i> View Code
+                    <i class="ph ph-github-logo mr-1.5 text-lg"></i> {{ locales.en.btn_view_code }}
                 </a>
                 {% endif %}
                 
@@ -110,11 +127,11 @@
                 </button>
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
-                <a href="#about" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">About</a>
-                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">Experience / CV</a>
-                <a href="#projects" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">Projects</a>
-                <a href="#expertise" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">Expertise</a>
-                <a href="#contact" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">Contact</a>
+                <a href="#about" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_about }}</a>
+                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_experience }}</a>
+                <a href="#projects" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_projects }}</a>
+                <a href="#expertise" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_expertise }}</a>
+                <a href="#contact" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_contact }}</a>
             </div>
             <div class="mt-8 pt-6 border-t border-ide-border flex items-center space-x-6 text-ide-text-muted">
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-ide-text-strong transition-colors" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
@@ -134,25 +151,25 @@
     <footer id="contact" class="py-24 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker text-center overflow-hidden relative">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-kotlin-purple/10 blur-[120px] rounded-full pointer-events-none"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 fade-section relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">Let's build something <span class="gradient-text">extraordinary</span>.</h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">{{ locales.en.footer_title | safe }}</h2>
             <p class="text-ide-text-muted text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                Looking for a senior engineer to scale your mobile infrastructure or bridge the gap with Cross-Platform solutions? Let's connect.
+                {{ locales.en.footer_desc }}
             </p>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
                 <div class="magnetic-wrap w-full md:w-auto">
                     <a href="mailto:hussain.yg2010@gmail.com" class="btn-primary text-lg px-10 py-5 shadow-kotlin-glow w-full">
-                        Say Hello <i class="ph ph-paper-plane-tilt ml-2 text-xl"></i>
+                        {{ locales.en.btn_say_hello }} <i class="ph ph-paper-plane-tilt ml-2 text-xl"></i>
                     </a>
                 </div>
                 <div class="magnetic-wrap w-full md:w-auto">
                     <a href="tel:+966538517374" class="btn-secondary text-lg px-10 py-5 w-full flex items-center justify-center">
-                        <i class="ph ph-phone mr-2 text-xl"></i> +966 53 851 7374
+                        <i class="ph ph-phone mr-2 text-xl"></i> {{ locales.en.btn_phone }}
                     </a>
                 </div>
             </div>
             <div class="flex flex-wrap justify-center items-center gap-8 text-ide-text-muted mb-16">
                 <div class="flex items-center gap-2 font-mono text-sm">
-                    <i class="ph ph-map-pin text-xl text-kotlin-orange"></i> Riyadh, Saudi Arabia
+                    <i class="ph ph-map-pin text-xl text-kotlin-orange"></i> {{ locales.en.location_sa }}
                 </div>
                 <div class="h-1 w-1 rounded-full bg-ide-border hidden md:block"></div>
                 <div class="flex items-center gap-6">

@@ -11,34 +11,34 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
                 <div
                     class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate hero-badge-anime shadow-sm">
                     <span class="available-dot w-2 h-2 rounded-full bg-green-500"></span>
-                    <span>Available for new opportunities</span>
+                    <span>{{ home.en.hero.badge }}</span>
                 </div>
 
                 <p class="text-xl md:text-2xl text-ide-text-strong font-semibold mb-2 hero-animate hero-sub-anime">
-                    I'm Hussain Gaddal.
+                    {{ home.en.hero.greeting }}
                 </p>
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 hero-animate hero-headline">
-                    Senior <span class="gradient-text">Android Developer</span>.
+                    {{ home.en.hero.headline | safe }}
                 </h1>
 
                 <p class="text-xl md:text-2xl text-ide-text-muted mb-10 leading-relaxed font-light hero-animate hero-sub-anime">
-                    I build apps that just work — large-scale, multi-platform, and built to last. My work bridges clean system architecture with native mobile performance using Kotlin Multiplatform.
+                    {{ home.en.hero.subtitle }}
                 </p>
 
                 <div class="flex flex-col sm:flex-row sm:items-center gap-4 hero-animate hero-ctas-anime">
                     <div class="magnetic-wrap">
-                        <a href="#projects" class="btn-primary shadow-kotlin-glow">
-                            View My Work <i class="ph ph-arrow-right ml-2 text-lg"></i>
+                        <a href="#projects" class="btn-primary shadow-kotlin-glow mt-0">
+                            {{ home.en.hero.btn_work }} <i class="ph ph-arrow-right ml-2 text-lg"></i>
                         </a>
                     </div>
                     <div class="magnetic-wrap">
-                        <a href="cv/Hussain_Gaddal_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                            <i class="ph ph-file-pdf mr-2 text-lg"></i> Download CV
+                        <a href="cv/Hussain_Gaddal_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-0">
+                            <i class="ph ph-file-pdf mr-2 text-lg"></i> {{ home.en.hero.btn_cv }}
                         </a>
                     </div>
                     <div class="magnetic-wrap">
-                        <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary">
-                            Contact Me
+                        <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary mt-0">
+                            {{ home.en.hero.btn_contact }}
                         </a>
                     </div>
                 </div>
@@ -58,19 +58,12 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
     <section id="about" class="py-24 px-4 sm:px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg to-ide-bg-darker overflow-hidden">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div class="fade-section min-w-0">
-                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">About Me</h2>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">Building the Intersection of <span
-                        class="text-kotlin-purple">Systems</span> and <span class="text-kotlin-orange">UX</span>.
-                </h3>
+                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">{{ home.en.about.section_label }}</h2>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">{{ home.en.about.title | safe }}</h3>
                 <div class="space-y-4 text-ide-text-muted leading-relaxed break-words overflow-wrap-anywhere">
-                    <p>Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large-scale,
-                        multi-module Android applications. I focus heavily on Clean Architecture,
-                        Unidirectional Data Flow (MVI/MVVM), and rigorous testing standards.</p>
-                    <p>My current work explores the boundaries of <strong>Compose Multiplatform
-                            (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, effectively
-                        bridging full-stack architecture with native mobile performance.</p>
-                    <p>Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and
-                        continuously refining my software craftsmanship.</p>
+                    {% for p in home.en.about.paragraphs %}
+                    <p>{{ p | safe }}</p>
+                    {% endfor %}
                 </div>
             </div>
             <div class="fade-section relative min-w-0">
@@ -109,11 +102,11 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
     <section id="projects" class="py-24 px-4 sm:px-6 max-w-7xl mx-auto">
         <div class="flex justify-between items-end mb-12">
             <div>
-                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Selected Work</h2>
-                <h3 class="text-3xl md:text-4xl font-bold">Featured Projects</h3>
+                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">{{ home.en.featured_projects.section_label }}</h2>
+                <h3 class="text-3xl md:text-4xl font-bold">{{ home.en.featured_projects.title }}</h3>
             </div>
             <a href="{{ '/projects/' | url }}" class="hidden sm:inline-flex items-center text-sm font-semibold text-kotlin-purple hover:text-kotlin-purple/80 transition-colors">
-                View All Projects <i class="ph ph-arrow-right ml-2"></i>
+                {{ locales.en.nav_all_projects }} <i class="ph ph-arrow-right ml-2"></i>
             </a>
         </div>
 
@@ -148,7 +141,7 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
         
         <div class="mt-12 text-center sm:hidden">
             <a href="{{ '/projects/' | url }}" class="inline-flex items-center text-sm font-semibold text-kotlin-purple hover:text-kotlin-purple/80 transition-colors">
-                View All Projects <i class="ph ph-arrow-right ml-2"></i>
+                {{ locales.en.nav_all_projects }} <i class="ph ph-arrow-right ml-2"></i>
             </a>
         </div>
     </section>
@@ -157,58 +150,22 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
     <section id="expertise" class="py-24 px-4 sm:px-6 border-t border-ide-border bg-gradient-to-b from-ide-bg-darker to-ide-bg">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 fade-section">
-                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">Core Competencies
-                </h2>
-                <h3 class="text-3xl md:text-4xl font-bold">Technical Expertise</h3>
+                <h2 class="text-sm uppercase tracking-widest text-ide-text-muted font-semibold mb-3">{{ home.en.expertise.section_label }}</h2>
+                <h3 class="text-3xl md:text-4xl font-bold">{{ home.en.expertise.title }}</h3>
             </div>
 
             <div class="fade-section">
                 <!-- Expertise Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Languages -->
-                    <div class="expertise-card expertise-card-anime p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-purple/50 transition-all duration-300 bento-animate md:col-span-2 lg:col-span-2">
-                        <div class="expertise-icon-anime w-12 h-12 rounded-xl bg-kotlin-purple/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-purple/20 transition-colors">
-                            <i class="ph ph-code text-2xl text-kotlin-purple"></i>
+                    {% for item in home.en.expertise.items %}
+                    <div class="expertise-card expertise-card-anime p-8 rounded-2xl bg-ide-surface border border-ide-border group {{ item.borderHover }} transition-all duration-300 bento-animate {{ item.gridCols }}">
+                        <div class="expertise-icon-anime w-12 h-12 rounded-xl {{ item.bgLight }} flex items-center justify-center mb-6 {{ item.bgHover }} transition-colors">
+                            <i class="ph {{ item.icon }} text-2xl {{ item.color }}"></i>
                         </div>
-                        <h4 class="expertise-title-anime text-xl font-bold mb-3">Languages</h4>
-                        <p class="expertise-body-anime text-ide-text-muted text-sm leading-relaxed mb-4">Mastering <strong class="text-ide-text-strong">Kotlin</strong> for scalable mobile systems and backend micro-services, alongside Java for legacy integrations.</p>
+                        <h4 class="expertise-title-anime text-xl font-bold mb-3">{{ item.title }}</h4>
+                        <p class="expertise-body-anime text-ide-text-muted text-sm leading-relaxed mb-4">{{ item.description | safe }}</p>
                     </div>
-
-                    <!-- UI Architecture -->
-                    <div class="expertise-card expertise-card-anime p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-orange/50 transition-all duration-300 bento-animate lg:col-span-1">
-                        <div class="expertise-icon-anime w-12 h-12 rounded-xl bg-kotlin-orange/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-orange/20 transition-colors">
-                            <i class="ph ph-layout text-2xl text-kotlin-orange"></i>
-                        </div>
-                        <h4 class="expertise-title-anime text-xl font-bold mb-3">UI Architecture</h4>
-                        <p class="expertise-body-anime text-ide-text-muted text-sm leading-relaxed mb-4">Building declarative UIs with <strong class="text-ide-text-strong">Jetpack Compose</strong> and applying Material 3 design systems.</p>
-                    </div>
-
-                    <!-- The Core -->
-                    <div class="expertise-card expertise-card-anime p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-purple/50 transition-all duration-300 bento-animate lg:col-span-1">
-                        <div class="expertise-icon-anime w-12 h-12 rounded-xl bg-kotlin-purple/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-purple/20 transition-colors">
-                            <i class="ph ph-stack text-2xl text-kotlin-purple"></i>
-                        </div>
-                        <h4 class="expertise-title-anime text-xl font-bold mb-3">System Design</h4>
-                        <p class="expertise-body-anime text-ide-text-muted text-sm leading-relaxed mb-4">Clean Architecture, MVI/MVVM, <strong class="text-ide-text-strong">KMP</strong>, Dependency Injection (Hilt), and Concurrency (Coroutines).</p>
-                    </div>
-
-                    <!-- Data & APIs -->
-                    <div class="expertise-card expertise-card-anime p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-orange/50 transition-all duration-300 bento-animate lg:col-span-1">
-                        <div class="expertise-icon-anime w-12 h-12 rounded-xl bg-kotlin-orange/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-orange/20 transition-colors">
-                            <i class="ph ph-database text-2xl text-kotlin-orange"></i>
-                        </div>
-                        <h4 class="expertise-title-anime text-xl font-bold mb-3">Data & Flow</h4>
-                        <p class="expertise-body-anime text-ide-text-muted text-sm leading-relaxed mb-4">Designing reliable offline-first architectures using Room, <strong class="text-ide-text-strong">Ktor Client</strong>, and GraphQL.</p>
-                    </div>
-
-                    <!-- Backend -->
-                    <div class="expertise-card expertise-card-anime p-8 rounded-2xl bg-ide-surface border border-ide-border group hover:border-kotlin-purple/50 transition-all duration-300 bento-animate lg:col-span-1">
-                        <div class="expertise-icon-anime w-12 h-12 rounded-xl bg-kotlin-purple/10 flex items-center justify-center mb-6 group-hover:bg-kotlin-purple/20 transition-colors">
-                            <i class="ph ph-hard-drive text-2xl text-kotlin-purple"></i>
-                        </div>
-                        <h4 class="expertise-title-anime text-xl font-bold mb-3">Backend & Cloud</h4>
-                        <p class="expertise-body-anime text-ide-text-muted text-sm leading-relaxed mb-4">Building micro-services with <strong class="text-ide-text-strong">Ktor</strong> and Spring Boot. Database design with PostgreSQL.</p>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

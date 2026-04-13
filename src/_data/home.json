@@ -1,0 +1,162 @@
+{
+  "en": {
+    "hero": {
+      "badge": "Available for new opportunities",
+      "greeting": "I'm Hussain Gaddal.",
+      "headline": "Senior <span class=\"gradient-text\">Android Developer</span>.",
+      "subtitle": "I build apps that just work — large-scale, multi-platform, and built to last. My work bridges clean system architecture with native mobile performance using Kotlin Multiplatform.",
+      "btn_work": "View My Work",
+      "btn_cv": "Download CV",
+      "btn_contact": "Contact Me"
+    },
+    "about": {
+      "section_label": "About Me",
+      "title": "Building the Intersection of <span class=\"text-kotlin-purple\">Systems</span> and <span class=\"text-kotlin-orange\">UX</span>.",
+      "paragraphs": [
+        "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large-scale, multi-module Android applications. I focus heavily on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and rigorous testing standards.",
+        "My current work explores the boundaries of <strong>Compose Multiplatform (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, effectively bridging full-stack architecture with native mobile performance.",
+        "Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and continuously refining my software craftsmanship."
+      ]
+    },
+    "featured_projects": {
+      "section_label": "Selected Work",
+      "title": "Featured Projects"
+    },
+    "expertise": {
+      "section_label": "Core Competencies",
+      "title": "Technical Expertise",
+      "items": [
+        {
+          "icon": "ph-code",
+          "color": "text-kotlin-purple",
+          "bgLight": "bg-kotlin-purple/10",
+          "bgHover": "group-hover:bg-kotlin-purple/20",
+          "borderHover": "hover:border-kotlin-purple/50",
+          "gridCols": "md:col-span-2 lg:col-span-2",
+          "title": "Languages",
+          "description": "Mastering <strong class=\"text-ide-text-strong\">Kotlin</strong> for scalable mobile systems and backend micro-services, alongside Java for legacy integrations."
+        },
+        {
+          "icon": "ph-layout",
+          "color": "text-kotlin-orange",
+          "bgLight": "bg-kotlin-orange/10",
+          "bgHover": "group-hover:bg-kotlin-orange/20",
+          "borderHover": "hover:border-kotlin-orange/50",
+          "gridCols": "lg:col-span-1",
+          "title": "UI Architecture",
+          "description": "Building declarative UIs with <strong class=\"text-ide-text-strong\">Jetpack Compose</strong> and applying Material 3 design systems."
+        },
+        {
+          "icon": "ph-stack",
+          "color": "text-kotlin-purple",
+          "bgLight": "bg-kotlin-purple/10",
+          "bgHover": "group-hover:bg-kotlin-purple/20",
+          "borderHover": "hover:border-kotlin-purple/50",
+          "gridCols": "lg:col-span-1",
+          "title": "System Design",
+          "description": "Clean Architecture, MVI/MVVM, <strong class=\"text-ide-text-strong\">KMP</strong>, Dependency Injection (Hilt), and Concurrency (Coroutines)."
+        },
+        {
+          "icon": "ph-database",
+          "color": "text-kotlin-orange",
+          "bgLight": "bg-kotlin-orange/10",
+          "bgHover": "group-hover:bg-kotlin-orange/20",
+          "borderHover": "hover:border-kotlin-orange/50",
+          "gridCols": "lg:col-span-1",
+          "title": "Data & Flow",
+          "description": "Designing reliable offline-first architectures using Room, <strong class=\"text-ide-text-strong\">Ktor Client</strong>, and GraphQL."
+        },
+        {
+          "icon": "ph-hard-drive",
+          "color": "text-kotlin-purple",
+          "bgLight": "bg-kotlin-purple/10",
+          "bgHover": "group-hover:bg-kotlin-purple/20",
+          "borderHover": "hover:border-kotlin-purple/50",
+          "gridCols": "lg:col-span-1",
+          "title": "Backend & Cloud",
+          "description": "Building micro-services with <strong class=\"text-ide-text-strong\">Ktor</strong> and Spring Boot. Database design with PostgreSQL."
+        }
+      ]
+    }
+  },
+  "ar": {
+    "hero": {
+      "badge": "متاح لفرص عمل جديدة",
+      "greeting": "أنا حسين قدال.",
+      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندوريد</span> أول.",
+      "subtitle": "أبني تطبيقات تعمل بثبات — واسعة النطاق، متعددة المنصات، ومصممة للصمود. أعمل على دمج هندسة النظام النظيفة بأداء المحمول الأصيل عبر Kotlin Multiplatform.",
+      "btn_work": "شاهد أعمالي",
+      "btn_cv": "تحميل السيرة الذاتية",
+      "btn_contact": "تواصل معي"
+    },
+    "about": {
+      "section_label": "نبذة عني",
+      "title": "هندسة متكاملة بين <span class=\"text-kotlin-purple\">الأنظمة</span> و<span class=\"text-kotlin-orange\">تجربة المستخدم</span>.",
+      "paragraphs": [
+        "أعمل من الرياض كقائد تطوير تطبيقات أندرويد في شركة <strong>كيه لتقنية المعلومات</strong>. ينصَبُّ تركيزي الشديد على الهيكلة النظيفة (Clean Architecture) والتدفق أحادي الاتجاه للبيانات (MVI/MVVM) وأفضل المعايير العالمية في الاختبارات المؤتمتة.",
+        "تتمحور أعمالي الحالية حول دفع حدود تطوير الواجهات المتعددة بـ <strong>Compose Multiplatform (CMP)</strong>، بالإضافة إلى تصميم الواجهات الخلفية (Backends) الموثوقة باستخدام <strong>Ktor</strong> لضمان الأداء الفائق والربط الكامل للتقنية.",
+        "خارج نطاق العمل البرمجي، أستمتع بتعلم تطبيقات الطباعة ثلاثية الأبعاد وصقل مهاراتي التقنية المستمرة."
+      ]
+    },
+    "featured_projects": {
+      "section_label": "أبرز الأعمال",
+      "title": "المشاريع المميزة"
+    },
+    "expertise": {
+      "section_label": "الكفاءات الأساسية",
+      "title": "الخبرات التقنية",
+      "items": [
+        {
+          "icon": "ph-code",
+          "color": "text-kotlin-purple",
+          "bgLight": "bg-kotlin-purple/10",
+          "bgHover": "group-hover:bg-kotlin-purple/20",
+          "borderHover": "hover:border-kotlin-purple/50",
+          "gridCols": "md:col-span-2 lg:col-span-2",
+          "title": "لغات البرمجة",
+          "description": "إتقان متقدم للغة <strong class=\"text-ide-text-strong\">Kotlin</strong> لهندسة البرمجيات والهواتف والخوادم القابلة للحجم، مع خبرة سابقة بـ Java."
+        },
+        {
+          "icon": "ph-layout",
+          "color": "text-kotlin-orange",
+          "bgLight": "bg-kotlin-orange/10",
+          "bgHover": "group-hover:bg-kotlin-orange/20",
+          "borderHover": "hover:border-kotlin-orange/50",
+          "gridCols": "lg:col-span-1",
+          "title": "هندسة الواجهات",
+          "description": "كتابة وبناء واجهات مستخدم معقدة باستخدام <strong class=\"text-ide-text-strong\">Jetpack Compose</strong> وتصميم أنظمة Material 3."
+        },
+        {
+          "icon": "ph-stack",
+          "color": "text-kotlin-purple",
+          "bgLight": "bg-kotlin-purple/10",
+          "bgHover": "group-hover:bg-kotlin-purple/20",
+          "borderHover": "hover:border-kotlin-purple/50",
+          "gridCols": "lg:col-span-1",
+          "title": "تصميم الأنظمة",
+          "description": "Clean Architecture، MVI/MVVM، ومكتبات <strong class=\"text-ide-text-strong\">KMP</strong> مع حقن التبعيات (Hilt) والبرمجة التزامنية."
+        },
+        {
+          "icon": "ph-database",
+          "color": "text-kotlin-orange",
+          "bgLight": "bg-kotlin-orange/10",
+          "bgHover": "group-hover:bg-kotlin-orange/20",
+          "borderHover": "hover:border-kotlin-orange/50",
+          "gridCols": "lg:col-span-1",
+          "title": "تدفق البيانات",
+          "description": "هندسة متينة للبيانات بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-ide-text-strong\">Ktor Client</strong>، واجهات GraphQL."
+        },
+        {
+          "icon": "ph-hard-drive",
+          "color": "text-kotlin-purple",
+          "bgLight": "bg-kotlin-purple/10",
+          "bgHover": "group-hover:bg-kotlin-purple/20",
+          "borderHover": "hover:border-kotlin-purple/50",
+          "gridCols": "lg:col-span-1",
+          "title": "الخوادم والسحابة",
+          "description": "بناء خدمات مصغرة (Micro-services) مع <strong class=\"text-ide-text-strong\">Ktor</strong> و Spring Boot مع قواعد بيانات PostgreSQL."
+        }
+      ]
+    }
+  }
+}

@@ -39,7 +39,7 @@ eleventyComputed:
     {% if project.overview_en %}
     <!-- The Overview -->
     <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Overview</h2>
+        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">{{ locales.en.project_overview }}</h2>
         <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
             {{ project.overview_en | safe }}
         </div>
@@ -49,7 +49,7 @@ eleventyComputed:
     {% if project.challenge_en %}
     <!-- The Challenge -->
     <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
-        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">The Challenge</h2>
+        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">{{ locales.en.project_challenge }}</h2>
         <div class="text-ide-text-muted leading-relaxed">
             {{ project.challenge_en | safe }}
         </div>
@@ -59,7 +59,7 @@ eleventyComputed:
     {% if project.architecture_en %}
     <!-- The Solution & Architecture -->
     <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">Architecture & Technical Decisions</h2>
+        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">{{ locales.en.project_architecture }}</h2>
         {{ project.architecture_en | safe }}
     </section>
     {% endif %}
@@ -67,7 +67,7 @@ eleventyComputed:
     {% if project.impact_en %}
     <!-- Impact & Results -->
     <section class="mb-16 fade-section bg-kotlin-purple/5 border border-kotlin-purple/20 rounded-xl p-8">
-        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">Impact & Results</h2>
+        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">{{ locales.en.project_impact }}</h2>
         {{ project.impact_en | safe }}
     </section>
     {% endif %}
@@ -75,7 +75,7 @@ eleventyComputed:
     {% if project.tech_stack and project.tech_stack.length > 0 %}
     <!-- Tech Stack -->
     <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">The Tech Stack</h2>
+        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">{{ locales.en.project_tech_stack }}</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {% for tech in project.tech_stack %}
             <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
