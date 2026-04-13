@@ -13,9 +13,9 @@
       "section_label": "About Me",
       "title": "Building the Intersection of <span class=\"text-kotlin-purple\">Systems</span> and <span class=\"text-kotlin-orange\">UX</span>.",
       "paragraphs": [
-        "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large-scale, multi-module Android applications, driving architecture improvements and production resilience. I focus heavily on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and rigorous testing standards.",
-        "My current work explores the boundaries of <strong>Compose Multiplatform (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, effectively bridging full-stack architecture with native mobile performance.",
-        "Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and continuously refining my software craftsmanship."
+        "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large, multi-module Android applications, driving architecture improvements and product reliability. I focus on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and high testing standards.",
+        "My current work explores the capabilities of <strong>Compose Multiplatform (CMP)</strong> and building reliable backend services using <strong>Ktor</strong>, connecting full-stack systems with fast native mobile apps.",
+        "Beyond the IDE, I spend my time exploring 3D Printing, listening to tech podcasts, and improving my programming skills."
       ]
     },
     "featured_projects": {
@@ -34,7 +34,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "Languages",
-          "description": "Mastering <strong class=\"text-ide-text-strong\">Kotlin</strong> for scalable mobile systems and backend micro-services, alongside Java for legacy integrations."
+          "description": "Mastering <strong class=\"text-ide-text-strong\">Kotlin</strong> for large mobile apps and backend, alongside Java for legacy integrations."
         },
         {
           "icon": "ph-layout",
@@ -93,9 +93,9 @@
       "section_label": "نبذة عني",
       "title": "هندسة متكاملة بين <span class=\"text-kotlin-purple\">الأنظمة</span> و<span class=\"text-kotlin-orange\">تجربة المستخدم</span>.",
       "paragraphs": [
-        "أعمل من الرياض كقائد تطوير تطبيقات أندرويد في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات البنية التحتية لضمان جودة وتوسع التطبيقات. ينصَبُّ تركيزي الشديد على الهيكلة النظيفة (Clean Architecture) والتدفق أحادي الاتجاه للبيانات (MVI/MVVM) وأفضل المعايير العالمية في الاختبارات.",
-        "تتمحور أعمالي الحالية حول دفع حدود تطوير الواجهات المتعددة بـ <strong>Compose Multiplatform (CMP)</strong>، بالإضافة إلى تصميم الواجهات الخلفية (Backends) الموثوقة باستخدام <strong>Ktor</strong> لضمان الأداء الفائق والربط الكامل للتقنية.",
-        "خارج نطاق العمل البرمجي، أستمتع بتعلم تطبيقات الطباعة ثلاثية الأبعاد وصقل مهاراتي التقنية المستمرة."
+        "أعمل من الرياض كقائد تطوير تطبيقات أندرويد في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات البنية التحتية لضمان جودة التطبيقات وموثوقيتها. أركز على الهيكلة النظيفة (Clean Architecture) والتدفق أحادي الاتجاه للبيانات (MVI/MVVM) والمعايير العالية للاختبارات.",
+        "تتمحور أعمالي الحالية حول استكشاف إمكانيات <strong>Compose Multiplatform (CMP)</strong>، وتصميم الواجهات الخلفية الموثوقة باستخدام <strong>Ktor</strong> لربط الأنظمة الشاملة بتطبيقات المحمول السريعة.",
+        "خارج نطاق العمل البرمجي، أستمتع بتعلم الطباعة ثلاثية الأبعاد وتحسين مهاراتي البرمجية."
       ]
     },
     "featured_projects": {
@@ -114,7 +114,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "لغات البرمجة",
-          "description": "إتقان متقدم للغة <strong class=\"text-ide-text-strong\">Kotlin</strong> لهندسة البرمجيات والهواتف والخوادم القابلة للحجم، مع خبرة سابقة بـ Java."
+          "description": "إتقان متقدم للغة <strong class=\"text-ide-text-strong\">Kotlin</strong> لتطوير تطبيقات الهواتف والخوادم الكبيرة، مع خبرة سابقة بـ Java."
         },
         {
           "icon": "ph-layout",

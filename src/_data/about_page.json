@@ -16,10 +16,10 @@
           "date_location": "Mar 2022 - Present | Riyadh, Saudi Arabia",
           "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
           "details": [
-            "Assumed <strong class=\"text-ide-text-strong\">Full Technical Ownership</strong> of the Android product, driving the migration of a legacy Java/XML codebase to a modern Kotlin + Jetpack Compose architecture, resulting in a <strong class=\"text-ide-text-strong\">40% reduction in crash rates</strong>.",
-            "Developed reusable Internal SDKs and core modules for authentication, search, and download management, boosting overall team delivery velocity by <strong class=\"text-ide-text-strong\">25%</strong>.",
+            "Took <strong class=\"text-ide-text-strong\">full technical ownership</strong> of the Android product. I led the migration from a legacy Java/XML codebase to a modern Kotlin and Jetpack Compose architecture, reducing crash rates by <strong class=\"text-ide-text-strong\">40%</strong>.",
+            "Built reusable internal SDKs and core modules for authentication, search, and download management. This sped up the team's delivery by <strong class=\"text-ide-text-strong\">25%</strong>.",
             "Designed engaging UIs with <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>, Coil, and Lottie animations, increasing user session duration by <strong class=\"text-ide-text-strong\">15%</strong>.",
-            "Established strict architectural standards (Clean Architecture, MVI) and a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, reducing developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
+            "Set clear architectural standards (Clean Architecture, MVI) and built a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, cutting developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
             "Built and maintained lightweight Ktor micro-services for authentication and content delivery, improving API response times by <strong class=\"text-ide-text-strong\">30%</strong>."
           ]
         },
@@ -30,14 +30,14 @@
           "date_location": "2011 - 2016",
           "node_color": "bg-kotlin-purple ring-kotlin-purple/20 border-ide-bg",
           "details": [
-            "Completed a comprehensive engineering program, building a strong foundation in systems thinking, problem-solving, and analytical skills that directly translates to architecting robust software systems."
+            "Finished an engineering program that built a strong foundation in systems thinking, problem-solving, and analytical skills, which helps me architect reliable software systems."
           ]
         }
       ]
     },
     "certifications": {
       "section_label": "Certifications.*",
-      "description": "I invest heavily in staying current — these courses directly shaped how I think about architecture and cross-platform development.",
+      "description": "I keep my skills current — these courses shaped how I think about architecture and cross-platform development.",
       "items": [
         {
           "icon": "ph-certificate text-kotlin-orange",
@@ -85,7 +85,7 @@
           "icon": "ph-android-logo text-[#A3E635]",
           "borderHover": "hover:border-[#A3E635]/50",
           "title": "Android Kotlin Developer Nanodegree",
-          "description": "Comprehensive program cementing core Android SDK principles, lifecycle management, and foundational design patterns.",
+          "description": "A complete program covering core Android SDK principles, lifecycle management, and design patterns.",
           "provider_year": "Udacity | 2022"
         }
       ]
@@ -108,10 +108,10 @@
           "date_location": "مارس 2022 - الحاضر | الرياض، السعودية",
           "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
           "details": [
-            "توليت <strong class=\"text-ide-text-strong\">القيادة التقنية الكاملة</strong> لتطبيقات الأندرويد الخاصة بالشركة، وقُدت عملية انتقال تطبيق قديم مبني بـ Java/XML إلى بيئة حديثة متكاملة بـ Kotlin و Jetpack Compose، مما أدى إلى <strong class=\"text-ide-text-strong\">انخفاض معدلات انهيار التطبيق بنسبة 40%</strong>.",
-            "طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة التحميل، مما أدى إلى <strong class=\"text-ide-text-strong\">تعزيز سرعة تسليم الفريق بنسبة 25%</strong>.",
+            "توليت <strong class=\"text-ide-text-strong\">القيادة التقنية الكاملة</strong> لتطبيقات الأندرويد، وانتقلت بتطبيق قديم مبني بـ Java/XML إلى بيئة حديثة بـ Kotlin و Jetpack Compose، مما أدى إلى <strong class=\"text-ide-text-strong\">انخفاض معدلات الانهيار بنسبة 40%</strong>.",
+            "طورت حزم برمجية داخلية (SDKs) قابلة لإعادة الاستخدام مثل أنظمة التسجيل، محركات البحث، وإدارة التحميل، مما أدى إلى <strong class=\"text-ide-text-strong\">تسريع تسليم الفريق بنسبة 25%</strong>.",
             "صممت واجهات مستخدم متميزة بـ <strong class=\"text-ide-text-strong\">Material 3 Compose</strong> و Coil و Lottie، مما أدى إلى <strong class=\"text-ide-text-strong\">زيادة مدة بقاء المستخدم بنسبة 15%</strong>.",
-            "وضعت معايير هيكلية صارمة (Clean Architecture, MVI) وأعددت مسار <strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong> كأتمتة، مما أسفر عن <strong class=\"text-ide-text-strong\">تقليل وقت توجيه المطورين الجدد بنسبة 50%</strong>.",
+            "وضعت معايير هيكلية واضحة (Clean Architecture, MVI) وأعددت مسار <strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong> كأتمتة، مما أسفر عن <strong class=\"text-ide-text-strong\">تقليل وقت توجيه المطورين الجدد بنسبة 50%</strong>.",
             "بنيت وحافظت على خدمات خلفية مصغرة (Micro-services) سريعة الاستجابة للمصادقة وتوصيل المحتوى باستخدام Ktor، مما ساهم في <strong class=\"text-ide-text-strong\">تحسين أوقات استجابة واجهة برمجة التطبيقات بنسبة 30%</strong>."
           ]
         },
@@ -177,7 +177,7 @@
           "icon": "ph-android-logo text-[#A3E635]",
           "borderHover": "hover:border-[#A3E635]/50",
           "title": "Nanodegree لمطور الأندرويد مع لغة Kotlin",
-          "description": "برنامج تدريبي عميق وضع حجر الأساس لقواعد استخدام أدوات واجهة تطبيقات الأندرويد بأسلوب معتمد وذو كفاءة.",
+          "description": "برنامج تدريبي شامل غطى أساسيات استخدام أدوات الأندرويد.",
           "provider_year": "Udacity | 2022"
         }
       ]
