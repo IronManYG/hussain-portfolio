@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title | default("Hussain Gaddal | Senior Android Developer") }}</title>
-    <meta name="description" content="{{ description | default('Hussain Gaddal — Senior Android Developer with 4+ years building scalable Kotlin & Jetpack Compose apps.') }}">
+    <title>{{ title | default("Hussain Gaddal | Senior Android Developer & Kotlin Expert") }}</title>
+    <meta name="description" content="{{ seo_description | default(description) | default('Hussain Gaddal — Senior Android Developer based in Riyadh, specializing in scalable Kotlin, Jetpack Compose, and KMP applications.') }}">
     <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | url }}">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ title | default('Hussain Gaddal | Senior Android Developer') }}">
-    <meta property="og:description" content="{{ description | default('Hussain Gaddal — Senior Android Developer with 4+ years building scalable Kotlin & Jetpack Compose apps.') }}">
+    <meta property="og:title" content="{{ title | default('Hussain Gaddal | Senior Android Developer & Kotlin Expert') }}">
+    <meta property="og:description" content="{{ seo_description | default(description) | default('Hussain Gaddal — Senior Android Developer based in Riyadh, specializing in scalable Kotlin, Jetpack Compose, and KMP applications.') }}">
     <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio{{ page.url | url }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://ironmanyg.github.io/hussain-portfolio{{ '/assets/img/og-image.png' | url }}">

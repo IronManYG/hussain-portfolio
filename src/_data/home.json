@@ -13,7 +13,7 @@
       "section_label": "About Me",
       "title": "Building the Intersection of <span class=\"text-kotlin-purple\">Systems</span> and <span class=\"text-kotlin-orange\">UX</span>.",
       "paragraphs": [
-        "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large-scale, multi-module Android applications. I focus heavily on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and rigorous testing standards.",
+        "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large-scale, multi-module Android applications, driving architecture improvements and production resilience. I focus heavily on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and rigorous testing standards.",
         "My current work explores the boundaries of <strong>Compose Multiplatform (CMP)</strong> and building resilient backend services using <strong>Ktor</strong>, effectively bridging full-stack architecture with native mobile performance.",
         "Beyond the IDE, I spend my time exploring 3D Printing, diving into tech-centric podcasts, and continuously refining my software craftsmanship."
       ]
@@ -93,7 +93,7 @@
       "section_label": "نبذة عني",
       "title": "هندسة متكاملة بين <span class=\"text-kotlin-purple\">الأنظمة</span> و<span class=\"text-kotlin-orange\">تجربة المستخدم</span>.",
       "paragraphs": [
-        "أعمل من الرياض كقائد تطوير تطبيقات أندرويد في شركة <strong>كيه لتقنية المعلومات</strong>. ينصَبُّ تركيزي الشديد على الهيكلة النظيفة (Clean Architecture) والتدفق أحادي الاتجاه للبيانات (MVI/MVVM) وأفضل المعايير العالمية في الاختبارات المؤتمتة.",
+        "أعمل من الرياض كقائد تطوير تطبيقات أندرويد في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات البنية التحتية لضمان جودة وتوسع التطبيقات. ينصَبُّ تركيزي الشديد على الهيكلة النظيفة (Clean Architecture) والتدفق أحادي الاتجاه للبيانات (MVI/MVVM) وأفضل المعايير العالمية في الاختبارات.",
         "تتمحور أعمالي الحالية حول دفع حدود تطوير الواجهات المتعددة بـ <strong>Compose Multiplatform (CMP)</strong>، بالإضافة إلى تصميم الواجهات الخلفية (Backends) الموثوقة باستخدام <strong>Ktor</strong> لضمان الأداء الفائق والربط الكامل للتقنية.",
         "خارج نطاق العمل البرمجي، أستمتع بتعلم تطبيقات الطباعة ثلاثية الأبعاد وصقل مهاراتي التقنية المستمرة."
       ]

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title | default("حسين قدال | مطور أندرويد أول") }}</title>
-    <meta name="description" content="{{ description | default('حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.') }}">
+    <title>{{ title | default("حسين قدال | مطور تطبيقات أندرويد أول وخبير Kotlin") }}</title>
+    <meta name="description" content="{{ seo_description | default(description) | default('حسين قدال — مطور تطبيقات أندرويد أول متخصص في تطبيقات Kotlin و Jetpack Compose القابلة للتوسع في الرياض.') }}">
     <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | url }}">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ title | default('حسين قدال | مطور أندرويد أول') }}">
-    <meta property="og:description" content="{{ description | default('حسين قدال — مطور أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع.') }}">
-    <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio{{ '/ar' | url }}{{ page.url | replace('/ar/', '/') }}">
+    <meta property="og:title" content="{{ title | default('حسين قدال | مطور تطبيقات أندرويد أول وخبير Kotlin') }}">
+    <meta property="og:description" content="{{ seo_description | default(description) | default('حسين قدال — مطور تطبيقات أندرويد أول متخصص في تطبيقات Kotlin و Jetpack Compose القابلة للتوسع في الرياض.') }}">
+    <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio{{ page.url | url }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://ironmanyg.github.io/hussain-portfolio{{ '/assets/img/og-image.png' | url }}">
     
