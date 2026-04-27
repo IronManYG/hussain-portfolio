@@ -57,29 +57,31 @@
                     const ref = document.referrer;
                     const btn = document.getElementById('nav-back-btn');
                     const btnText = document.getElementById('nav-back-text');
-                    
-                    if (ref && btn && btnText && ref.includes(window.location.hostname)) {
-                        let isLangSwitch = false;
-                        try {
-                            const refUrl = new URL(ref);
-                            const normalizePath = (p) => p.replace(/\/ar(\/|$)/, '/').replace(/\/+$/, '') || '/';
-                            if (normalizePath(window.location.pathname) === normalizePath(refUrl.pathname)) {
-                                isLangSwitch = true;
-                            }
-                        } catch(e) {}
-                        
-                        if (!isLangSwitch) {
-                            if (ref.includes('/projects')) {
-                                btnText.textContent = '{{ locales.en.back_projects }}';
-                            } else {
-                                btnText.textContent = '{{ locales.en.back_portfolio }}';
-                            }
-                            btn.addEventListener('click', function(e) {
-                                e.preventDefault();
-                                window.history.back();
-                            });
+                    if (!ref || !btn || !btnText) return;
+
+                    let refUrl;
+                    try { refUrl = new URL(ref); } catch(e) { return; }
+                    if (refUrl.host !== window.location.host) return;
+
+                    // Skip language-toggle round-trips so Back doesn't bounce
+                    // the user back to the same page in the other locale.
+                    const normalizePath = (p) => p.replace(/\/ar(\/|$)/, '/').replace(/\/+$/, '') || '/';
+                    if (normalizePath(window.location.pathname) === normalizePath(refUrl.pathname)) return;
+
+                    const refPath = refUrl.pathname.replace(/\/+$/, '');
+                    btnText.textContent = /\/projects$/.test(refPath)
+                        ? '{{ locales.en.back_projects }}'
+                        : '{{ locales.en.back_portfolio }}';
+
+                    // Set href as a fallback for cases where history.back()
+                    // can't navigate (e.g., page opened in a new tab).
+                    btn.href = ref;
+                    btn.addEventListener('click', function(e) {
+                        if (window.history.length > 1) {
+                            e.preventDefault();
+                            window.history.back();
                         }
-                    }
+                    });
                 })();
             </script>
             {% endif %}
