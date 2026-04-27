@@ -178,7 +178,13 @@ function initHeroCanvas() {
         H = canvas.height = container.offsetHeight;
     }
     resize();
-    window.addEventListener('resize', resize);
+
+    let resizeTimer = null;
+    const debouncedResize = () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { resize(); resetRain(); }, 150);
+    };
+    window.addEventListener('resize', debouncedResize);
 
     // Track mouse relative to the container
     const header = container.closest('header') || document.body;
@@ -198,7 +204,6 @@ function initHeroCanvas() {
         drops = Array.from({ length: cols }, () => Math.random() * -40);
     }
     resetRain();
-    window.addEventListener('resize', resetRain);
 
     // ─── LAYER 2: Constellation Network ───────────────────────────────────
     const DOT_COUNT = 55;
@@ -212,7 +217,35 @@ function initHeroCanvas() {
     }));
 
     let raf;
-    function draw() {
+    let visible = true;
+    let lowFps = (navigator.hardwareConcurrency || 8) <= 4;
+    let lastDraw = 0;
+    const minFrameMs = lowFps ? 33 : 0;
+
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(([entry]) => {
+            visible = entry.isIntersecting;
+            if (visible && !raf) raf = requestAnimationFrame(draw);
+        }, { threshold: 0 });
+        io.observe(container);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && raf) {
+            cancelAnimationFrame(raf);
+            raf = null;
+        } else if (!document.hidden && visible && !raf) {
+            raf = requestAnimationFrame(draw);
+        }
+    });
+
+    function draw(ts) {
+        if (!visible) { raf = null; return; }
+        if (minFrameMs && ts - lastDraw < minFrameMs) {
+            raf = requestAnimationFrame(draw);
+            return;
+        }
+        lastDraw = ts || 0;
         ctx.clearRect(0, 0, W, H);
         const isDark = document.documentElement.classList.contains('dark');
 

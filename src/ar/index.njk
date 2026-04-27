@@ -4,7 +4,7 @@ title: "حسين قدال | مطور تطبيقات أندرويد أول"
 description: "حسين قدال — مطور تطبيقات أندرويد أول بخبرة 4+ سنوات في بناء تطبيقات Kotlin و Jetpack Compose القابلة للتوسع. خبير في Clean Architecture و Kotlin Multiplatform وتطوير الخوادم."
 ---
 <!-- Hero Section -->
-    <header class="relative pt-40 pb-20 px-4 sm:px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
+    <header class="relative pt-24 sm:pt-32 lg:pt-40 pb-12 sm:pb-20 px-4 sm:px-6 max-w-7xl mx-auto min-h-[100svh] sm:min-h-[90vh] flex flex-col justify-center">
         <div class="particles-bg" id="particles-container"></div>
         <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             <div class="max-w-3xl">
@@ -70,7 +70,7 @@ description: "حسين قدال — مطور تطبيقات أندرويد أو�
                     class="absolute -inset-4 bg-gradient-to-tr from-kotlin-purple/20 to-transparent blur-3xl rounded-full pointer-events-none">
                 </div>
                 <div
-                    class="relative bg-ide-surface border border-ide-border rounded-2xl p-3 sm:p-6 font-mono text-[10px] sm:text-sm overflow-hidden shadow-2xl">
+                    class="relative bg-ide-surface border border-ide-border rounded-2xl p-3 sm:p-6 font-mono text-xs sm:text-sm overflow-hidden shadow-2xl">
                     <div class="flex space-x-2 mb-4">
                         <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
@@ -114,10 +114,10 @@ description: "حسين قدال — مطور تطبيقات أندرويد أو�
             <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="bento-card group flex flex-col overflow-hidden bento-animate {{ project.grid.glow }}">
                 <div class="relative aspect-video overflow-hidden bg-ide-bg-darker">
                     {% if project.grid.images %}
-                    <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }} Hero" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] dark:hidden">
-                    <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }} Hero" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] hidden dark:block">
+                    <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }} Hero" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] dark:hidden">
+                    <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }} Hero" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] hidden dark:block">
                     {% elif project.grid.image %}
-                    <img src="{{ project.grid.image | url }}" alt="{{ project.title_ar }} Hero" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]">
+                    <img src="{{ project.grid.image | url }}" alt="{{ project.title_ar }} Hero" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]">
                     {% elif project.grid.icon %}
                     <div class="w-full h-full flex items-center justify-center bg-ide-surface-hover">
                         <i class="ph {{ project.grid.icon }} text-7xl {{ project.grid.iconColor }} opacity-50 transition-transform duration-500 group-hover:scale-110"></i>
