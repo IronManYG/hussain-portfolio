@@ -20,7 +20,13 @@
     "project_challenge": "The Challenge",
     "project_architecture": "Architecture & Technical Decisions",
     "project_impact": "Impact & Results",
-    "project_tech_stack": "The Tech Stack"
+    "project_tech_stack": "The Tech Stack",
+    "filter_all": "All",
+    "filter_empty": "No projects match this filter.",
+    "breadcrumb_projects": "All projects",
+    "nav_prev_project": "Previous project",
+    "nav_next_project": "Next project",
+    "btn_view_repo": "View repository"
   },
   "ar": {
     "nav_about": "نبذة عني",
@@ -43,6 +49,12 @@
     "project_challenge": "التحدي",
     "project_architecture": "القرارات المعمارية والتقنية",
     "project_impact": "الأثر والنتائج",
-    "project_tech_stack": "التقنيات المستخدمة"
+    "project_tech_stack": "التقنيات المستخدمة",
+    "filter_all": "الكل",
+    "filter_empty": "لا توجد مشاريع تطابق هذا التصنيف.",
+    "breadcrumb_projects": "كافة المشاريع",
+    "nav_prev_project": "المشروع السابق",
+    "nav_next_project": "المشروع التالي",
+    "btn_view_repo": "عرض المستودع"
   }
 }
