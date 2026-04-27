@@ -39,12 +39,13 @@
             <a href="{{ '/' | url }}" class="text-xl font-bold font-mono tracking-tighter hover:text-kotlin-purple transition-colors">
                 <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-ide-text-muted">
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-ide-text-muted">
                 <a href="#about" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_about }}</a>
-                <a href="{{ '/about/' | url }}" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_experience }}</a>
                 <a href="#projects" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_projects }}</a>
                 <a href="#expertise" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_expertise }}</a>
                 <a href="#contact" class="nav-link hover:text-ide-text-strong transition-colors">{{ locales.en.nav_contact }}</a>
+                <span class="h-4 w-px bg-ide-border" aria-hidden="true"></span>
+                <a href="{{ '/about/' | url }}" class="nav-link inline-flex items-center gap-1 hover:text-ide-text-strong transition-colors">{{ locales.en.nav_experience }}<i class="ph ph-arrow-up-right text-xs"></i></a>
             </div>
             {% else %}
             <a href="{{ '/' | url }}" id="nav-back-btn" class="flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">
@@ -128,10 +129,11 @@
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
                 <a href="#about" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_about }}</a>
-                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_experience }}</a>
                 <a href="#projects" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_projects }}</a>
                 <a href="#expertise" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_expertise }}</a>
                 <a href="#contact" class="mobile-nav-link text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_contact }}</a>
+                <hr class="border-ide-border" aria-hidden="true">
+                <a href="{{ '/about/' | url }}" class="mobile-nav-link inline-flex items-center gap-2 text-ide-text-muted hover:text-ide-text-strong transition-colors">{{ locales.en.nav_experience }}<i class="ph ph-arrow-up-right text-base"></i></a>
             </div>
             <div class="mt-8 pt-6 border-t border-ide-border flex items-center space-x-6 text-ide-text-muted">
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-ide-text-strong transition-colors" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
