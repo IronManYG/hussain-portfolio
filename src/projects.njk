@@ -24,7 +24,11 @@ description: "A comprehensive list of all my Android, Kotlin Multiplatform, and 
         {% for project in projects %}
         <div class="project-card-wrapper fade-section" data-tags="{{ project.tags | join(',') | lower }}">
             <a href="{{ ('/' + project.slug + '/') | url }}" class="bento-card block h-[380px] flex col flex-col justify-end p-8 group bento-animate {{ project.grid.glow }} glass-noise relative overflow-hidden rounded-3xl border border-ide-border">
-                {% if project.grid.image %}
+                {% if project.grid.images %}
+                <img src="{{ project.grid.images.en.light | url }}" alt="" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500 dark:hidden">
+                <img src="{{ project.grid.images.en.dark | url }}" alt="" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500 hidden dark:block">
+                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
+                {% elif project.grid.image %}
                 <img src="{{ project.grid.image | url }}" alt="" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
                 {% else %}

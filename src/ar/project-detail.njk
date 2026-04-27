@@ -22,10 +22,16 @@ eleventyComputed:
         <p class="text-xl text-ide-text-muted font-light mb-6">{{ project.description_ar }}</p>
     </header>
 
-    {% if project.grid.image %}
+    {% if project.grid.images %}
     <!-- Project Hero Visual -->
     <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center bg-ide-bg-darker">
-        <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }} Mockup" class="w-full h-auto object-cover max-h-[500px]">
+        <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }} Mockup" class="w-full h-auto object-cover max-h-[500px] dark:hidden">
+        <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }} Mockup" class="w-full h-auto object-cover max-h-[500px] hidden dark:block">
+    </div>
+    {% elif project.grid.image %}
+    <!-- Project Hero Visual -->
+    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center bg-ide-bg-darker">
+        <img src="{{ project.grid.image | url }}" alt="{{ project.title_ar }} Mockup" class="w-full h-auto object-cover max-h-[500px]">
     </div>
     {% elif project.grid.icon %}
     <!-- Project Hero Icon -->

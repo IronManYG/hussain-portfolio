@@ -8,9 +8,19 @@
     "grid": {
       "size": "md:col-span-8",
       "glow": "glow-blue",
-      "image": "/assets/img/projects/chirp-hero.png",
+      "image": "",
       "icon": "",
-      "iconColor": ""
+      "iconColor": "",
+      "images": {
+        "en": {
+          "light": "/assets/img/projects/chirp-en-light.png",
+          "dark": "/assets/img/projects/chirp-en-dark.png"
+        },
+        "ar": {
+          "light": "/assets/img/projects/chirp-ar-light.png",
+          "dark": "/assets/img/projects/chirp-ar-dark.png"
+        }
+      }
     },
     "tags": [
       "Kotlin Multiplatform",
@@ -74,8 +84,18 @@
       "size": "md:col-span-4",
       "glow": "glow-orange",
       "image": "",
-      "icon": "ph-activity",
-      "iconColor": "text-kotlin-orange"
+      "icon": "",
+      "iconColor": "",
+      "images": {
+        "en": {
+          "light": "/assets/img/projects/runique-en-light.png",
+          "dark": "/assets/img/projects/runique-en-dark.png"
+        },
+        "ar": {
+          "light": "/assets/img/projects/runique-ar-light.png",
+          "dark": "/assets/img/projects/runique-ar-dark.png"
+        }
+      }
     },
     "tags": [
       "Wear OS",
@@ -121,9 +141,19 @@
     "grid": {
       "size": "md:col-span-12",
       "glow": "glow-orange",
-      "image": "/assets/img/projects/scribbledash-hero.png",
+      "image": "",
       "icon": "",
-      "iconColor": ""
+      "iconColor": "",
+      "images": {
+        "en": {
+          "light": "/assets/img/projects/scribbledash-en-light.png",
+          "dark": "/assets/img/projects/scribbledash-en-dark.png"
+        },
+        "ar": {
+          "light": "/assets/img/projects/scribbledash-ar-light.png",
+          "dark": "/assets/img/projects/scribbledash-ar-dark.png"
+        }
+      }
     },
     "tags": [
       "Compose UI",
@@ -173,9 +203,19 @@
     "grid": {
       "size": "md:col-span-6",
       "glow": "glow-blue",
-      "image": "/assets/img/projects/echojournal-hero.png",
+      "image": "",
       "icon": "",
-      "iconColor": ""
+      "iconColor": "",
+      "images": {
+        "en": {
+          "light": "/assets/img/projects/echojournal-en-light.png",
+          "dark": "/assets/img/projects/echojournal-en-dark.png"
+        },
+        "ar": {
+          "light": "/assets/img/projects/echojournal-ar-light.png",
+          "dark": "/assets/img/projects/echojournal-ar-dark.png"
+        }
+      }
     },
     "tags": [
       "MVI",
@@ -225,7 +265,7 @@
     "title_en": "Qodem Donation Logistics",
     "title_ar": "لوجستيات كودم للتبرع",
     "slug": "qodem",
-    "featured": true,
+    "featured": false,
     "grid": {
       "size": "md:col-span-6",
       "glow": "glow-red",
