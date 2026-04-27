@@ -107,8 +107,8 @@
                 </a>
                 
                 {% if page.url == '/' %}
-                <button id="mobile-menu-btn" class="text-2xl hover:text-ide-text-strong transition-colors p-1 md:hidden" aria-label="Open Navigation Menu">
-                    <i class="ph ph-list"></i>
+                <button id="mobile-menu-btn" class="text-2xl hover:text-ide-text-strong transition-colors p-1 md:hidden" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="ph ph-list" aria-hidden="true"></i>
                 </button>
                 {% endif %}
             </div>
@@ -117,14 +117,15 @@
 
     {% if page.url == '/' %}
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="mobile-menu-overlay">
+    <div id="mobile-menu" class="mobile-menu-overlay" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
         <div class="mobile-menu-panel">
+            <h2 id="mobile-menu-title" class="sr-only">Navigation Menu</h2>
             <div class="flex justify-between items-center mb-8">
-                <span class="text-xl font-bold font-mono tracking-tighter">
+                <span class="text-xl font-bold font-mono tracking-tighter" aria-hidden="true">
                     <span class="text-kotlin-orange">&lt;</span>HG<span class="text-kotlin-orange">/&gt;</span>
                 </span>
                 <button id="mobile-menu-close" class="text-2xl text-ide-text-muted hover:text-ide-text-strong transition-colors p-1" aria-label="Close Navigation Menu">
-                    <i class="ph ph-x"></i>
+                    <i class="ph ph-x" aria-hidden="true"></i>
                 </button>
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">

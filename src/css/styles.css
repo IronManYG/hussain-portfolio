@@ -22,8 +22,8 @@
         --color-ide-surface-hover: 33 38 45;
         --color-ide-border: 48 54 61;
         --color-text-main: 230 237 243;
-        --color-text-muted: 139 148 158;
-        --color-text-dim: 72 79 88;
+        --color-text-muted: 156 163 175;
+        --color-text-dim: 107 114 128;
         --color-text-strong: 255 255 255;
     }
 
@@ -70,6 +70,24 @@
 
     code, pre {
         font-family: 'JetBrains Mono', monospace;
+    }
+
+    :focus-visible {
+        outline: 2px solid #7F52FF;
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+    :focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
     }
 }
 

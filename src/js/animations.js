@@ -1,10 +1,12 @@
 export function initAnimations() {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Initial Hero Animation - GSAP handles avatar only; text/CTAs are handled by Anime.js
     // We only run GSAP on hero-animate elements that are NOT targeted by Anime.js
     const heroElements = document.querySelectorAll('.hero-animate:not(.hero-headline):not(.hero-badge-anime):not(.hero-sub-anime):not(.hero-ctas-anime)');
-    if (heroElements.length > 0) {
+    if (heroElements.length > 0 && !prefersReducedMotion) {
         gsap.from(heroElements, {
             y: 40,
             opacity: 0,
@@ -24,7 +26,7 @@ export function initAnimations() {
     // Subpages are handled exclusively by Anime.js (initSubpageFadeSections)
     // to avoid double-animation on the CV / project detail pages.
     const isMainPage = !!document.querySelector('.hero-headline');
-    if (isMainPage) {
+    if (isMainPage && !prefersReducedMotion) {
         const fadeSections = document.querySelectorAll('.fade-section');
         fadeSections.forEach((section) => {
             gsap.from(section, {
@@ -39,10 +41,10 @@ export function initAnimations() {
             });
         });
     }
-    
-    // Parallax effect for main index header only 
+
+    // Parallax effect for main index header only
     const header = document.querySelector('header:not(.fade-section)');
-    if(header) {
+    if (header && !prefersReducedMotion) {
         gsap.to(header, {
             scrollTrigger: {
                 trigger: "body",
@@ -103,7 +105,7 @@ export function initAnimations() {
         });
 
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
         });
     }
 
@@ -125,30 +127,32 @@ export function initAnimations() {
     }
 
     // Magnetic Buttons
-    const magneticWraps = document.querySelectorAll('.magnetic-wrap');
-    magneticWraps.forEach(wrap => {
-        wrap.addEventListener('mousemove', (e) => {
-            const rect = wrap.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            gsap.to(wrap, {
-                x: x * 0.3,
-                y: y * 0.3,
-                duration: 0.4,
-                ease: "power2.out"
+    if (!prefersReducedMotion) {
+        const magneticWraps = document.querySelectorAll('.magnetic-wrap');
+        magneticWraps.forEach(wrap => {
+            wrap.addEventListener('mousemove', (e) => {
+                const rect = wrap.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                gsap.to(wrap, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            });
+
+            wrap.addEventListener('mouseleave', () => {
+                gsap.to(wrap, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "elastic.out(1, 0.3)"
+                });
             });
         });
-        
-        wrap.addEventListener('mouseleave', () => {
-            gsap.to(wrap, {
-                x: 0,
-                y: 0,
-                duration: 0.6,
-                ease: "elastic.out(1, 0.3)"
-            });
-        });
-    });
+    }
 
     initHeroCanvas();
 }

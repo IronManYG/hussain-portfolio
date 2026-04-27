@@ -10,7 +10,7 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
             <div class="max-w-3xl">
                 <div
                     class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-ide-border bg-ide-surface text-xs font-mono text-ide-text-muted mb-6 hero-animate hero-badge-anime shadow-sm">
-                    <span class="available-dot w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="available-dot w-2 h-2 rounded-full bg-green-500" aria-hidden="true"></span>
                     <span>{{ home.en.hero.badge }}</span>
                 </div>
 
@@ -30,7 +30,7 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
                         </a>
                     </div>
                     <div class="magnetic-wrap">
-                        <a href="cv/Hussain_Gaddal_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-0">
+                        <a href="{{ '/cv/Hussain_Gaddal_CV.pdf' | url }}" target="_blank" rel="noopener noreferrer" class="btn-secondary mt-0">
                             <i class="ph ph-file-pdf mr-2 text-lg"></i> {{ home.en.hero.btn_cv }}
                         </a>
                     </div>
