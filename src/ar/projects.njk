@@ -3,6 +3,10 @@ layout: ar_base.njk
 title: "كل المشاريع | حسين قدال"
 description: "قائمة شاملة بكافة مشاريعي في نظام أندرويد، Kotlin Multiplatform، والخوادم."
 ---
+<style>
+    /* Scoped to this page only: free the outer main wrapper so cards can use full width */
+    body > main { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+</style>
 <main class="pt-32 pb-24 px-4 sm:px-6 max-w-7xl mx-auto">
     <header class="mb-12 text-center fade-section">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ locales.ar.page_projects_title | safe }}</h1>
@@ -11,43 +15,43 @@ description: "قائمة شاملة بكافة مشاريعي في نظام أن
 
     <!-- Filters -->
     <div class="flex flex-wrap justify-center gap-3 mb-16 fade-section" id="project-filters" role="toolbar" aria-label="تصنيفات المشاريع">
-        <button class="filter-btn active px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="all" aria-pressed="true">{{ locales.ar.filter_all }}</button>
-        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="cmp">CMP</button>
-        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="kmp">KMP</button>
-        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="android">أندرويد</button>
-        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="wear os">Wear OS</button>
-        <button class="filter-btn px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm hover:border-kotlin-purple transition-colors" data-filter="firebase">Firebase</button>
+        <button class="filter-btn active" data-filter="all" aria-pressed="true"><span>{{ locales.ar.filter_all }}</span><span class="filter-count" aria-hidden="true">0</span></button>
+        <button class="filter-btn" data-filter="kmp" aria-pressed="false"><span>KMP</span><span class="filter-count" aria-hidden="true">0</span></button>
+        <button class="filter-btn" data-filter="cmp" aria-pressed="false"><span>CMP</span><span class="filter-count" aria-hidden="true">0</span></button>
+        <button class="filter-btn" data-filter="android" aria-pressed="false"><span>أندرويد</span><span class="filter-count" aria-hidden="true">0</span></button>
+        <button class="filter-btn" data-filter="wear os" aria-pressed="false"><span>Wear OS</span><span class="filter-count" aria-hidden="true">0</span></button>
+        <button class="filter-btn" data-filter="firebase" aria-pressed="false"><span>Firebase</span><span class="filter-count" aria-hidden="true">0</span></button>
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="projects-grid">
         {% for project in projects %}
         <div class="project-card-wrapper fade-section" data-tags="{{ project.tags | join(',') | lower }}">
-            <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="bento-card block h-[320px] sm:h-[380px] flex col flex-col justify-end p-6 sm:p-8 group bento-animate {{ project.grid.glow }} glass-noise relative overflow-hidden rounded-3xl border border-ide-border">
-                {% if project.grid.images %}
-                <img src="{{ project.grid.images.ar.light | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500 dark:hidden">
-                <img src="{{ project.grid.images.ar.dark | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500 hidden dark:block">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
-                {% elif project.grid.image %}
-                <img src="{{ project.grid.image | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/80 to-transparent z-10"></div>
-                {% else %}
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-                <i class="ph {{ project.grid.icon }} absolute -left-4 -bottom-4 text-[10rem] {{ project.grid.iconColor }} opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform rotate-6"></i>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
-                {% endif %}
-                
-                <div class="relative z-20">
-                    <div class="flex gap-2 mb-3 flex-wrap">
-                        {% for tag in project.tags.slice(0, 2) %}
+            <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="bento-card project-card-split group bento-animate {{ project.grid.glow }} glass-noise relative overflow-hidden rounded-3xl border border-ide-border flex flex-col sm:flex-row min-h-full">
+                <div class="project-card-visual relative w-full sm:w-[45%] h-[200px] sm:h-auto sm:min-h-[220px] flex-shrink-0 overflow-hidden">
+                    {% if project.grid.images %}
+                    <img src="{{ project.grid.images.ar.light | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05] dark:hidden">
+                    <img src="{{ project.grid.images.ar.dark | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05] hidden dark:block">
+                    {% elif project.grid.image %}
+                    <img src="{{ project.grid.image | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05]">
+                    {% else %}
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="ph {{ project.grid.icon }} text-8xl {{ project.grid.iconColor }} relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" aria-hidden="true"></i>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="relative z-20 flex-1 flex flex-col justify-center gap-3 p-6 sm:p-7 bg-ide-surface min-w-0">
+                    <div class="flex gap-2 flex-wrap">
+                        {% for tag in project.tags.slice(0, 3) %}
                         <span class="tech-pill text-xs shadow-none">{{ tag }}</span>
                         {% endfor %}
-                        {% if project.tags.length > 2 %}
-                        <span class="tech-pill text-xs shadow-none">+{{ project.tags.length - 2 }}</span>
+                        {% if project.tags.length > 3 %}
+                        <span class="tech-pill text-xs shadow-none">+{{ project.tags.length - 3 }}</span>
                         {% endif %}
                     </div>
-                    <h4 class="text-lg sm:text-xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">{{ project.title_ar }}</h4>
-                    <p class="text-ide-text-muted font-light text-sm line-clamp-3">{{ project.description_ar }}</p>
+                    <h4 class="text-xl sm:text-2xl font-bold group-hover:text-ide-text-strong transition-colors">{{ project.title_ar }}</h4>
+                    <p class="text-ide-text-muted font-light text-sm sm:text-base leading-relaxed">{{ project.description_ar }}</p>
                 </div>
             </a>
         </div>
@@ -58,10 +62,3 @@ description: "قائمة شاملة بكافة مشاريعي في نظام أن
 </main>
 
 <script src="{{ '/js/projects-filter.js' | url }}"></script>
-<style>
-    .filter-btn.active {
-        background: rgba(127, 82, 255, 0.1);
-        border-color: #7F52FF;
-        color: #fff;
-    }
-</style>

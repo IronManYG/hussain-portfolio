@@ -26,38 +26,36 @@ eleventyComputed:
             {% endfor %}
         </div>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ project.title_ar }}</h1>
-        <p class="text-xl text-ide-text-muted font-light mb-6">{{ project.description_ar }}</p>
-        {% if project.repoUrl %}
-        <a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center text-sm">
-            <i class="ph ph-github-logo ml-2 text-lg" aria-hidden="true"></i> {{ locales.ar.btn_view_repo }}
-        </a>
-        {% endif %}
+        <p class="text-xl text-ide-text-muted font-light">{{ project.description_ar }}</p>
     </header>
 
     {% if project.grid.images %}
     <!-- Project Hero Visual -->
-    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center bg-ide-bg-darker">
-        <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }} Mockup" decoding="async" class="w-full h-auto object-cover max-h-[300px] sm:max-h-[500px] dark:hidden">
-        <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }} Mockup" decoding="async" class="w-full h-auto object-cover max-h-[300px] sm:max-h-[500px] hidden dark:block">
+    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border project-hero-glow shadow-[0_20px_60px_-20px_rgba(127,82,255,0.25)] bento-animate flex justify-center items-center p-4 sm:p-8">
+        <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }} Mockup" decoding="async" class="w-full h-auto object-contain max-h-[300px] sm:max-h-[500px] rounded-lg dark:hidden">
+        <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }} Mockup" decoding="async" class="w-full h-auto object-contain max-h-[300px] sm:max-h-[500px] rounded-lg hidden dark:block">
     </div>
     {% elif project.grid.image %}
     <!-- Project Hero Visual -->
-    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center bg-ide-bg-darker">
-        <img src="{{ project.grid.image | url }}" alt="{{ project.title_ar }} Mockup" decoding="async" class="w-full h-auto object-cover max-h-[300px] sm:max-h-[500px]">
+    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border project-hero-glow shadow-[0_20px_60px_-20px_rgba(127,82,255,0.25)] bento-animate flex justify-center items-center p-4 sm:p-8">
+        <img src="{{ project.grid.image | url }}" alt="{{ project.title_ar }} Mockup" decoding="async" class="w-full h-auto object-contain max-h-[300px] sm:max-h-[500px] rounded-lg">
     </div>
     {% elif project.grid.icon %}
     <!-- Project Hero Icon -->
-    <div class="mb-16 rounded-2xl h-[400px] border border-ide-border bg-ide-surface shadow-2xl bento-animate flex justify-center items-center relative overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-        <i class="ph {{ project.grid.icon }} text-[12rem] {{ project.grid.iconColor }} opacity-[0.05] group-hover:opacity-[0.1] transition-opacity z-0 transform rotate-6"></i>
-        <i class="ph {{ project.grid.icon }} text-8xl {{ project.grid.iconColor }} relative z-20"></i>
+    <div class="mb-16 rounded-2xl h-[400px] border border-ide-border project-hero-glow shadow-[0_20px_60px_-20px_rgba(127,82,255,0.25)] bento-animate flex justify-center items-center relative overflow-hidden">
+        <div class="p-8 rounded-full bg-gradient-to-br from-kotlin-purple/20 to-kotlin-orange/20 border border-kotlin-purple/30 relative z-20">
+            <i class="ph {{ project.grid.icon }} text-8xl sm:text-9xl {{ project.grid.iconColor }}" aria-hidden="true"></i>
+        </div>
     </div>
     {% endif %}
 
     {% if project.overview_ar %}
     <!-- The Overview -->
     <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">{{ locales.ar.project_overview }}</h2>
+        <h2 class="text-2xl font-bold mb-6 relative pb-3 inline-block">
+            {{ locales.ar.project_overview }}
+            <span class="block absolute bottom-0 right-0 w-12 h-[3px] bg-gradient-to-r from-kotlin-purple to-kotlin-orange rounded-full"></span>
+        </h2>
         <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
             {{ project.overview_ar | safe }}
         </div>
@@ -66,7 +64,7 @@ eleventyComputed:
 
     {% if project.challenge_ar %}
     <!-- The Challenge -->
-    <section class="mb-16 fade-section bg-ide-surface border border-ide-border rounded-xl p-8">
+    <section class="mb-16 fade-section bg-ide-surface/60 border-r-4 border-r-kotlin-orange/60 border-y border-l border-ide-border rounded-xl p-8">
         <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">{{ locales.ar.project_challenge }}</h2>
         <div class="text-ide-text-muted leading-relaxed">
             {{ project.challenge_ar | safe }}
@@ -77,15 +75,21 @@ eleventyComputed:
     {% if project.architecture_ar %}
     <!-- The Solution & Architecture -->
     <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">{{ locales.ar.project_architecture }}</h2>
+        <h2 class="text-2xl font-bold mb-6 relative pb-3 inline-block">
+            {{ locales.ar.project_architecture }}
+            <span class="block absolute bottom-0 right-0 w-12 h-[3px] bg-gradient-to-r from-kotlin-purple to-kotlin-orange rounded-full"></span>
+        </h2>
         {{ project.architecture_ar | safe }}
     </section>
     {% endif %}
 
     {% if project.impact_ar %}
     <!-- Impact & Results -->
-    <section class="mb-16 fade-section bg-kotlin-purple/5 border border-kotlin-purple/20 rounded-xl p-8">
-        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">{{ locales.ar.project_impact }}</h2>
+    <section class="mb-16 fade-section bg-gradient-to-br from-kotlin-purple/10 to-kotlin-orange/5 border border-kotlin-purple/30 rounded-xl p-8 shadow-[0_0_40px_-10px_rgba(127,82,255,0.2)]">
+        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong flex items-center gap-2">
+            <i class="ph ph-trophy text-kotlin-purple text-2xl" aria-hidden="true"></i>
+            {{ locales.ar.project_impact }}
+        </h2>
         {{ project.impact_ar | safe }}
     </section>
     {% endif %}
@@ -93,10 +97,13 @@ eleventyComputed:
     {% if project.tech_stack and project.tech_stack.length > 0 %}
     <!-- Tech Stack -->
     <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-4 border-b border-ide-border pb-2">{{ locales.ar.project_tech_stack }}</h2>
+        <h2 class="text-2xl font-bold mb-6 relative pb-3 inline-block">
+            {{ locales.ar.project_tech_stack }}
+            <span class="block absolute bottom-0 right-0 w-12 h-[3px] bg-gradient-to-r from-kotlin-purple to-kotlin-orange rounded-full"></span>
+        </h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {% for tech in project.tech_stack %}
-            <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center">
+            <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center hover:border-kotlin-purple/40 hover:bg-ide-surface-hover transition-colors">
                 <span class="block text-sm text-ide-text-muted mb-1">{{ tech.label }}</span>
                 <span class="font-mono text-ide-text-strong text-sm">{{ tech.value }}</span>
             </div>
@@ -106,25 +113,106 @@ eleventyComputed:
     {% endif %}
 
     <!-- Prev / Next project navigation -->
+    {% set prevProject = projects[pagination.pageNumber - 1] %}
+    {% set nextProject = projects[pagination.pageNumber + 1] %}
     <nav class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-between mt-16 pt-8 border-t border-ide-border" aria-label="تنقل بين المشاريع">
-        {% if pagination.previous %}
-        <a href="{{ ('/ar/' + pagination.previous.slug + '/') | url }}" class="group flex items-start gap-3 text-right max-w-sm" rel="prev">
+        {% if prevProject %}
+        <a href="{{ ('/ar/' + prevProject.slug + '/') | url }}" class="group flex items-start gap-3 text-right max-w-sm" rel="prev">
             <i class="ph ph-arrow-right text-xl mt-1 transition-transform group-hover:-translate-x-1" aria-hidden="true"></i>
             <span>
                 <span class="block text-xs text-ide-text-muted uppercase tracking-wider">{{ locales.ar.nav_prev_project }}</span>
-                <span class="block text-base font-semibold group-hover:text-ide-text-strong transition-colors">{{ pagination.previous.title_ar }}</span>
+                <span class="block text-base font-semibold group-hover:text-ide-text-strong transition-colors">{{ prevProject.title_ar }}</span>
             </span>
         </a>
         {% else %}<span></span>{% endif %}
 
-        {% if pagination.next %}
-        <a href="{{ ('/ar/' + pagination.next.slug + '/') | url }}" class="group flex items-start gap-3 text-left max-w-sm sm:mr-auto" rel="next">
+        {% if nextProject %}
+        <a href="{{ ('/ar/' + nextProject.slug + '/') | url }}" class="group flex items-start gap-3 text-left max-w-sm sm:mr-auto" rel="next">
             <span>
                 <span class="block text-xs text-ide-text-muted uppercase tracking-wider">{{ locales.ar.nav_next_project }}</span>
-                <span class="block text-base font-semibold group-hover:text-ide-text-strong transition-colors">{{ pagination.next.title_ar }}</span>
+                <span class="block text-base font-semibold group-hover:text-ide-text-strong transition-colors">{{ nextProject.title_ar }}</span>
             </span>
             <i class="ph ph-arrow-left text-xl mt-1 transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
         </a>
         {% endif %}
     </nav>
 </main>
+<script>
+(function() {
+    const ORIGIN_KEY = 'projectFlowOrigin';
+    const PREV_NEXT_KEY = 'projectPrevNextFlag';
+
+    // Decide whether this load should refresh the stored origin.
+    // - Prev/Next nav: keep the existing origin (user is still in the flow).
+    // - Reload / browser back-forward: keep, otherwise the referrer (which
+    //   after Prev/Next is the previous project) would clobber the real entry.
+    // - Anything else: treat as a fresh entry and record the current referrer.
+    const cameFromPrevNext = sessionStorage.getItem(PREV_NEXT_KEY) === '1';
+    sessionStorage.removeItem(PREV_NEXT_KEY);
+
+    let isReloadOrBackForward = false;
+    try {
+        const navEntry = performance.getEntriesByType('navigation')[0];
+        if (navEntry && (navEntry.type === 'reload' || navEntry.type === 'back_forward')) {
+            isReloadOrBackForward = true;
+        }
+    } catch(e) {}
+
+    if (!cameFromPrevNext && !isReloadOrBackForward) {
+        sessionStorage.setItem(ORIGIN_KEY, document.referrer || '');
+    }
+    const flowOrigin = sessionStorage.getItem(ORIGIN_KEY);
+
+    // Use location.replace on Prev/Next so history doesn't accumulate one
+    // entry per project — Back from any project returns to the entry point.
+    document.querySelectorAll('a[rel="prev"], a[rel="next"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+            e.preventDefault();
+            sessionStorage.setItem(PREV_NEXT_KEY, '1');
+            window.location.replace(link.href);
+        });
+    });
+
+    function parseSameSite(url) {
+        if (!url) return null;
+        try {
+            const u = new URL(url);
+            if (u.host !== window.location.host) return null;
+            const path = u.pathname.replace(/\/+$/, '');
+            return { url: url, isProjects: /\/projects$/.test(path) };
+        } catch(e) {
+            return null;
+        }
+    }
+
+    // Re-wire the navbar back button: the navbar inline script keys off
+    // document.referrer, which after Prev/Next points at the previous
+    // project rather than the original entry.
+    const origin = parseSameSite(flowOrigin);
+    const navBtn = document.getElementById('nav-back-btn-ar');
+    if (navBtn) {
+        const fresh = navBtn.cloneNode(true);
+        navBtn.parentNode.replaceChild(fresh, navBtn);
+        const freshText = fresh.querySelector('#nav-back-text-ar');
+
+        if (origin) {
+            freshText.textContent = origin.isProjects
+                ? '{{ locales.ar.back_projects }}'
+                : '{{ locales.ar.back_portfolio }}';
+            // Set href as a fallback for cases where history.back() can't
+            // navigate (project opened in a new tab and Prev/Next has already
+            // replaced the only history entry).
+            fresh.href = origin.url;
+            fresh.addEventListener('click', function(e) {
+                if (window.history.length > 1) {
+                    e.preventDefault();
+                    window.history.back();
+                }
+            });
+        } else {
+            freshText.textContent = '{{ locales.ar.back_portfolio }}';
+        }
+    }
+})();
+</script>
