@@ -262,8 +262,8 @@ function initHeroCanvas() {
         }
 
         // ── Constellation layer ──
-        const purple = isDark ? [127, 82, 255] : [127, 82, 255];
-        const orange = isDark ? [231, 98, 79]  : [231, 98, 79];
+        const purple = isDark ? [127, 82, 255] : [99, 60, 220];
+        const orange = isDark ? [231, 98, 79]  : [200, 70, 50];
         const CON_DIST = 0.18; // normalized distance threshold
 
         for (let d of dots) {

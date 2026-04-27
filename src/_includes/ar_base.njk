@@ -16,8 +16,9 @@
     
     <script>
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') { document.documentElement.classList.remove('dark'); }
-        else { document.documentElement.classList.add('dark'); }
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+        document.documentElement.classList.toggle('dark', useDark);
     </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">

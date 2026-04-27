@@ -194,6 +194,7 @@ function initAvailableBadge() {
     const rings = wrapper.querySelectorAll('.badge-ripple-ring');
 
     function pulseRipple() {
+        if (document.hidden) return;
         anime({
             targets: Array.from(rings),
             scale: [1, 3.5],
@@ -201,7 +202,9 @@ function initAvailableBadge() {
             easing: 'easeOutExpo',
             duration: 1800,
             delay: anime.stagger(500),
-            complete: pulseRipple,
+            complete: () => {
+                if (!document.hidden) pulseRipple();
+            },
         });
     }
 
@@ -215,6 +218,10 @@ function initAvailableBadge() {
 
     setTimeout(pulseRipple, 1000);
 
+    // Resume ripple when tab becomes visible again
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) pulseRipple();
+    });
 }
 
 
