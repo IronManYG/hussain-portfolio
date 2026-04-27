@@ -33,11 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // 7. PWA Service Worker
+    // 7. PWA Service Worker — derive path from manifest so it works under any pathPrefix
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('SW Registered', reg))
+            const manifestLink = document.querySelector('link[rel="manifest"]');
+            const swUrl = manifestLink
+                ? new URL('sw.js', manifestLink.href).pathname
+                : '/sw.js';
+            navigator.serviceWorker.register(swUrl)
+                .then(reg => console.log('SW Registered', reg.scope))
                 .catch(err => console.log('SW Failed', err));
         });
     }
