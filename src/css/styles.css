@@ -116,6 +116,72 @@
         @apply px-3 py-1 text-xs font-mono rounded-full bg-ide-surface-hover text-ide-text-muted border border-ide-border;
     }
 
+    .filter-btn {
+        @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm font-medium text-ide-text-muted hover:border-kotlin-purple/60 hover:text-ide-text-strong transition-all;
+    }
+    .filter-btn .filter-count {
+        @apply text-xs font-mono px-1.5 py-0.5 rounded-full bg-ide-surface-hover text-ide-text-dim min-w-[1.5rem] text-center transition-colors;
+    }
+    .filter-btn.active {
+        @apply border-kotlin-purple text-kotlin-purple bg-kotlin-purple/10 dark:text-white dark:bg-kotlin-purple/20;
+    }
+    .filter-btn.active .filter-count {
+        @apply bg-kotlin-purple/20 text-kotlin-purple dark:bg-kotlin-purple/30 dark:text-white;
+    }
+
+    .project-card-split .project-card-visual {
+        background:
+            radial-gradient(circle at 50% 30%, rgba(127,82,255,0.10), transparent 70%),
+            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
+    }
+    .dark .project-card-split .project-card-visual {
+        background:
+            radial-gradient(circle at 50% 30%, rgba(127,82,255,0.18), transparent 70%),
+            linear-gradient(135deg, #0a0d11, #161b22);
+    }
+    .project-card-split.glow-blue .project-card-visual {
+        background-image:
+            radial-gradient(circle at 50% 30%, rgba(121,192,255,0.20), transparent 70%),
+            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
+    }
+    .project-card-split.glow-orange .project-card-visual {
+        background-image:
+            radial-gradient(circle at 50% 30%, rgba(248,137,9,0.20), transparent 70%),
+            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
+    }
+    .project-card-split.glow-red .project-card-visual {
+        background-image:
+            radial-gradient(circle at 50% 30%, rgba(239,68,68,0.20), transparent 70%),
+            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
+    }
+    .project-card-split.glow-green .project-card-visual {
+        background-image:
+            radial-gradient(circle at 50% 30%, rgba(34,197,94,0.20), transparent 70%),
+            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
+    }
+    .project-card-split.glow-purple .project-card-visual {
+        background-image:
+            radial-gradient(circle at 50% 30%, rgba(127,82,255,0.20), transparent 70%),
+            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
+    }
+
+    .project-hero-glow {
+        position: relative;
+        background: radial-gradient(ellipse at top, rgba(127,82,255,0.10), transparent 60%), rgb(var(--color-ide-bg-darker));
+    }
+    .project-hero-glow::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(127,82,255,0.45), transparent 40%, rgba(231,98,79,0.35));
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+    }
+
     .glass-noise {
         position: relative;
     }
