@@ -108,20 +108,24 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
             </a>
         </div>
 
-        <div class="bento-grid-anime grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[320px]">
+        <div class="bento-grid-anime grid grid-cols-1 md:grid-cols-2 gap-6">
             {% for project in projects %}
             {% if project.featured %}
-            <a href="{{ ('/' + project.slug + '/') | url }}" class="bento-card glass-noise {{ project.grid.size }} flex flex-col justify-end p-8 group bento-animate {{ project.grid.glow }}">
-                {% if project.grid.image %}
-                <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }} Hero" class="absolute inset-0 w-full h-full object-cover object-top opacity-25 group-hover:opacity-40 transition-opacity duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg via-ide-bg/60 to-transparent z-10"></div>
-                {% elif project.grid.icon %}
-                <div class="absolute inset-0 bg-gradient-to-t from-ide-bg to-transparent z-10"></div>
-                <i class="ph {{ project.grid.icon }} absolute -right-4 -bottom-4 text-[10rem] {{ project.grid.iconColor }} opacity-[0.03] group-hover:opacity-[0.08] transition-opacity z-0 transform -rotate-6"></i>
-                <div class="absolute inset-0 bg-ide-surface-hover opacity-40 group-hover:opacity-60 transition-opacity"></div>
-                {% endif %}
-                
-                <div class="relative z-20">
+            <a href="{{ ('/' + project.slug + '/') | url }}" class="bento-card group flex flex-col overflow-hidden bento-animate {{ project.grid.glow }}">
+                <div class="relative aspect-video overflow-hidden bg-ide-bg-darker">
+                    {% if project.grid.images %}
+                    <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }} Hero" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] dark:hidden">
+                    <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }} Hero" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] hidden dark:block">
+                    {% elif project.grid.image %}
+                    <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }} Hero" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]">
+                    {% elif project.grid.icon %}
+                    <div class="w-full h-full flex items-center justify-center bg-ide-surface-hover">
+                        <i class="ph {{ project.grid.icon }} text-7xl {{ project.grid.iconColor }} opacity-50 transition-transform duration-500 group-hover:scale-110"></i>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="p-6 flex-1 flex flex-col">
                     <div class="flex gap-2 mb-3 max-w-full overflow-hidden flex-wrap">
                         {% for tag in project.tags.slice(0, 3) %}
                         <span class="tech-pill">{{ tag }}</span>
@@ -130,7 +134,7 @@ description: "Hussain Gaddal — Senior Android Developer with 4+ years building
                     <h4 class="text-2xl font-bold mb-2 group-hover:text-ide-text-strong transition-colors">{{ project.title_en }}
                         <i class="ph ph-arrow-up-right inline-block opacity-0 group-hover:opacity-100 transition-opacity"></i>
                     </h4>
-                    <p class="text-ide-text-muted font-light max-w-xl">{{ project.description_en }}</p>
+                    <p class="text-ide-text-muted font-light">{{ project.description_en }}</p>
                 </div>
             </a>
             {% endif %}
