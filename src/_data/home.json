@@ -5,7 +5,7 @@
       "greeting": "I'm Hussain Gaddal.",
       "headline": "Senior <span class=\"gradient-text\">Android Developer</span>.",
       "subtitle": "I build apps that just work — large-scale, multi-platform, and built to last. My work bridges clean system architecture with native mobile performance using Kotlin Multiplatform.",
-      "btn_work": "View My Work",
+      "btn_work": "View Featured Projects",
       "btn_cv": "Download CV",
       "btn_contact": "Contact Me"
     },
@@ -85,7 +85,7 @@
       "greeting": "أنا حسين قدّال.",
       "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span> أول.",
       "subtitle": "أبني تطبيقات تعمل بكفاءة — واسعة النطاق، متعددة المنصات، ومصممة لتدوم. يتمحور عملي حول دمج معمارية الأنظمة النظيفة (Clean Architecture) مع الأداء الأصلي لتطبيقات الجوال باستخدام Kotlin Multiplatform.",
-      "btn_work": "شاهد أعمالي",
+      "btn_work": "عرض المشاريع المميزة",
       "btn_cv": "تحميل السيرة الذاتية",
       "btn_contact": "تواصل معي"
     },

@@ -8,9 +8,17 @@ seo_description: "الخبرات المهنية، التعليم، والشها�
     <!-- Header -->
     <div class="mb-16 fade-section">
         <h1 class="text-4xl md:text-6xl font-bold mb-6">{{ about_page.ar.hero.title | safe }}</h1>
-        <p class="text-xl text-ide-text-muted max-w-3xl leading-relaxed">
+        <p class="text-xl text-ide-text-muted max-w-3xl leading-relaxed mb-8">
             {{ about_page.ar.hero.subtitle | safe }}
         </p>
+        <div class="flex flex-wrap gap-3">
+            <a href="{{ '/cv/Hussain_Gaddal_CV.pdf' | url }}" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center text-sm shadow-kotlin-glow">
+                <i class="ph ph-file-pdf ml-2 text-lg" aria-hidden="true"></i> تحميل السيرة الذاتية
+            </a>
+            <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary inline-flex items-center text-sm">
+                <i class="ph ph-envelope-simple ml-2 text-lg" aria-hidden="true"></i> تواصل معي
+            </a>
+        </div>
     </div>
 
     <!-- Work Experience Section -->
