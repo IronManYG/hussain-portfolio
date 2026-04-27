@@ -226,9 +226,12 @@
 }
 
 /* Code blocks always LTR, even in Arabic version */
-pre, code {
-    direction: ltr !important;
-    text-align: left !important;
+html[dir="rtl"] pre,
+html[dir="rtl"] code,
+pre[lang="en"],
+code[class*="language-"] {
+    direction: ltr;
+    text-align: left;
     unicode-bidi: plaintext;
 }
 
@@ -343,12 +346,6 @@ pre {
 /* Project-specific Hover Glows */
 .bento-card {
     transition: all 0.4s ease;
-}
-
-/* Default bento hover */
-.bento-card:hover {
-    border-color: rgba(127, 82, 255, 0.4);
-    box-shadow: 0 10px 30px -10px rgba(127, 82, 255, 0.2);
 }
 
 /* Specific glows per project */
