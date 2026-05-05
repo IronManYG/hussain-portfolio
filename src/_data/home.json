@@ -3,7 +3,7 @@
     "hero": {
       "badge": "Available for new opportunities",
       "greeting": "I'm Hussain Gaddal.",
-      "headline": "Senior <span class=\"gradient-text\">Android Developer</span>.",
+      "headline": "<span class=\"gradient-text\">Android Developer</span>.",
       "subtitle": "I build large-scale, multi-platform apps that hold up in production. My work pairs clean system architecture with native mobile performance using Kotlin Multiplatform.",
       "btn_work": "View Featured Projects",
       "btn_cv": "Download CV",
@@ -83,7 +83,7 @@
     "hero": {
       "badge": "متاح لفرص عمل جديدة",
       "greeting": "أنا حسين قدّال.",
-      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span> أول.",
+      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span>.",
       "subtitle": "أبني تطبيقات تعمل بكفاءة — واسعة النطاق، متعددة المنصات، ومصممة لتدوم. يتمحور عملي حول دمج معمارية الأنظمة النظيفة (Clean Architecture) مع الأداء الأصلي لتطبيقات الجوال باستخدام Kotlin Multiplatform.",
       "btn_work": "عرض المشاريع المميزة",
       "btn_cv": "تحميل السيرة الذاتية",

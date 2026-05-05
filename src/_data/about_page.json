@@ -2,7 +2,7 @@
   "en": {
     "hero": {
       "title": "About <span class=\"gradient-text\">Me</span>",
-      "subtitle": "I'm a Senior Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale."
+      "subtitle": "I'm an Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale."
     },
     "experience": {
       "section_label": "experience",
@@ -16,10 +16,10 @@
           "date_location": "Mar 2022 - Present | Riyadh, Saudi Arabia",
           "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
           "details": [
-            "Took <strong class=\"text-ide-text-strong\">full technical ownership</strong> of the Android product. I led the migration from a legacy Java/XML codebase to a modern Kotlin and Jetpack Compose architecture, reducing crash rates by <strong class=\"text-ide-text-strong\">40%</strong>.",
-            "Built reusable internal SDKs and core modules for authentication, search, and download management. This sped up the team's delivery by <strong class=\"text-ide-text-strong\">25%</strong>.",
-            "Designed engaging UIs with <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>, Coil, and Lottie animations, increasing user session duration by <strong class=\"text-ide-text-strong\">15%</strong>.",
-            "Set clear architectural standards (Clean Architecture, MVI) and built a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, cutting developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
+            "Took <strong class=\"text-ide-text-strong\">full technical ownership</strong> of the Android product. Led the migration from a legacy Java/XML codebase to Kotlin and Jetpack Compose, cutting crash rates by <strong class=\"text-ide-text-strong\">40%</strong>.",
+            "Built reusable internal SDKs and core modules for authentication, search, and download management, speeding up the team's delivery by <strong class=\"text-ide-text-strong\">25%</strong>.",
+            "Designed UIs with <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>, Coil, and Lottie animations, increasing user session duration by <strong class=\"text-ide-text-strong\">15%</strong>.",
+            "Set architectural standards (Clean Architecture, MVI) and built a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, cutting developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
             "Built and maintained lightweight Ktor micro-services for authentication and content delivery, improving API response times by <strong class=\"text-ide-text-strong\">30%</strong>."
           ]
         },
@@ -94,7 +94,7 @@
   "ar": {
     "hero": {
       "title": "نبذة <span class=\"gradient-text\">عني</span>",
-      "subtitle": "أنا مطور أندرويد (Senior)، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة <strong>كيه لتقنية المعلومات</strong> في بناء تطبيقات مخصصة للإنتاج الفعلي — انتقالاً من الأكواد القديمة (Legacy Codebases) إلى بيئات حديثة، وتصميم معماريات متعددة الوحدات (Multi-module)، وإطلاق ميزات برمجية قادرة على العمل بكفاءة وموثوقية على النطاق الواسع (At Scale)."
+      "subtitle": "أنا مطور أندرويد، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة <strong>كيه لتقنية المعلومات</strong> في بناء تطبيقات مخصصة للإنتاج الفعلي — انتقالاً من الأكواد القديمة (Legacy Codebases) إلى بيئات حديثة، وتصميم معماريات متعددة الوحدات (Multi-module)، وإطلاق ميزات برمجية قادرة على العمل بكفاءة وموثوقية على النطاق الواسع (At Scale)."
     },
     "experience": {
       "section_label": "experience",
