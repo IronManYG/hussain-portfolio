@@ -2,7 +2,7 @@
   "en": {
     "hero": {
       "title": "About <span class=\"gradient-text\">Me</span>",
-      "subtitle": "I'm a Senior Android Developer who cares deeply about how software is put together. I've spent the last 4+ years at Kay Technology building production apps — migrating legacy codebases, designing multi-module architectures, and shipping features that hold up at scale."
+      "subtitle": "I'm a Senior Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale."
     },
     "experience": {
       "section_label": "experience",
@@ -37,41 +37,41 @@
     },
     "certifications": {
       "section_label": "Certifications.*",
-      "description": "I keep my skills current — these courses shaped how I think about architecture and cross-platform development.",
+      "description": "These courses shaped how I think about architecture and cross-platform development.",
       "items": [
         {
           "icon": "ph-certificate text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
           "title": "Compose Multiplatform Masterclasses",
-          "description": "Completed advanced industry-level tracks for Desktop, Android, & iOS created in official collaboration with <strong>JetBrains</strong>.",
+          "description": "Advanced tracks for Desktop, Android, and iOS, created in collaboration with <strong>JetBrains</strong>.",
           "provider_year": "Pl-Coding | 2025"
         },
         {
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
           "title": "Kotlin Backends With Spring Boot",
-          "description": "Official JetBrains partnered course on scalable server-side Kotlin architecture and database management.",
+          "description": "JetBrains-partnered course on server-side Kotlin architecture, REST design, and database management.",
           "provider_year": "Pl-Coding | 2025"
         },
         {
           "icon": "ph-code text-kotlin-purple",
           "borderHover": "hover:border-kotlin-purple/50",
           "title": "Essentials of Industry-Level Android Dev",
-          "description": "Comprehensive training on production-grade Android development patterns including multi-module architecture and CI/CD.",
+          "description": "Production-grade Android patterns covering multi-module architecture, dependency injection, and CI/CD.",
           "provider_year": "Pl-Coding | 2024"
         },
         {
           "icon": "ph-watch text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
           "title": "Building Industry-Level Wear OS Apps",
-          "description": "Advanced Wear OS development including Health Services API, Tiles, and cross-device synchronization.",
+          "description": "Wear OS development with Health Services API, Tiles, and cross-device sync.",
           "provider_year": "Pl-Coding | 2024"
         },
         {
           "icon": "ph-test-tube text-kotlin-purple",
           "borderHover": "hover:border-kotlin-purple/50",
           "title": "Testing Large-Scale Multi-Module Apps",
-          "description": "Mastered testing strategies across decoupled module layers using JUnit, MockK, and robust assertion frameworks.",
+          "description": "Testing strategies across decoupled module layers using JUnit, MockK, and Turbine for Flow assertions.",
           "provider_year": "Pl-Coding | 2024"
         },
         {
@@ -85,7 +85,7 @@
           "icon": "ph-android-logo text-[#A3E635]",
           "borderHover": "hover:border-[#A3E635]/50",
           "title": "Android Kotlin Developer Nanodegree",
-          "description": "A complete program covering core Android SDK principles, lifecycle management, and design patterns.",
+          "description": "Program covering core Android SDK principles, lifecycle management, and common design patterns.",
           "provider_year": "Udacity | 2022"
         }
       ]
