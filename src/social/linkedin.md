@@ -175,11 +175,34 @@ After both roles are populated, the company block reads: **Kay Technology · 8 y
 
 ## 7. Projects — reorder + refresh
 
-LinkedIn currently has 13 project entries with `OOP` tagged on every one. Replace with the order below.
+LinkedIn currently has 13 project entries with `OOP` tagged on every one. Replace with the 12 entries below (Tier 1 = the 5 to showcase first, Tier 2 = 7 supporting entries).
 
-### Tier 1 — Featured (full descriptions, newest first)
+### Field guide for every project
 
-#### Chirp Messaging Client *(Nov–Dec 2025, Pl-Coding)*
+LinkedIn's project form has the same fields for both tiers. Per project:
+
+- **Project name** *(required, 255 char limit)* — copy block
+- **Description** *(2,000 char limit)* — copy block
+- **Skills** — pick the top 5 from the dropdown (skills must already be in your Skills section, or you can add them on the fly)
+- **Media** — click "Add media → Add link" and paste the Site URL block. LinkedIn renders a preview card under the project. You can also upload screenshots from `src/assets/img/projects/` if you want, but the live link is enough.
+- **Start date / End date** — month + year (listed inline per project)
+- **I am currently working on this project** — check for Maktabati and PlantPediaZ. Leave unchecked otherwise.
+- **Contributors** — leave blank unless a teammate worked with you on a specific project.
+- **Associated with** — pick from your Experience/Education entries. Recommended:
+  - **Maktabati** → `Kay Technology` (the only project done as Kay Tech work)
+  - **All Pl-Coding / Pl Campus / Udacity course projects + personal builds** → **leave blank**. These platforms aren't in your Experience or Education sections, so the picker won't show them. If you want to enable Associated with for course projects later, add Pl-Coding and Udacity as separate Education entries first.
+
+### Tier 1 — Featured (newest first)
+
+#### 1. Chirp Messaging Client
+
+**Project name**
+
+```text
+Chirp Messaging Client
+```
+
+**Description**
 
 ```text
 Cross-platform messaging app running on Android, iOS, and Desktop with 100% shared business logic via Compose Multiplatform. Offline-first sync, Spring Boot backend, secure auth, FCM push.
@@ -187,11 +210,24 @@ Cross-platform messaging app running on Android, iOS, and Desktop with 100% shar
 Stack: Kotlin Multiplatform, Compose Multiplatform, Koin, Spring Boot, Room, FCM
 ```
 
+**Media — Site URL**
+
 ```text
 https://ironmanyg.github.io/hussain-portfolio/chirp/
 ```
 
-#### ScribbleDash *(Apr 2025, Pl Campus)*
+**Skills (top 5):** Kotlin Multiplatform, Compose Multiplatform, Spring Boot, Koin, Room
+**Start:** November 2025 · **End:** December 2025 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 2. ScribbleDash
+
+**Project name**
+
+```text
+ScribbleDash
+```
+
+**Description**
 
 ```text
 Compose drawing app with a 1:1 canvas, undo/redo, and a Clean Architecture / MVI structure. Built end-to-end with Material 3.
@@ -199,11 +235,24 @@ Compose drawing app with a 1:1 canvas, undo/redo, and a Clean Architecture / MVI
 Stack: Kotlin, Jetpack Compose, MVI, Koin, Material 3
 ```
 
+**Media — Site URL**
+
 ```text
 https://ironmanyg.github.io/hussain-portfolio/scribbledash/
 ```
 
-#### EchoJournal *(Jan–Feb 2025, Pl Campus)*
+**Skills (top 5):** Kotlin, Jetpack Compose, Clean Architecture, Koin, Material Design
+**Start:** April 2025 · **End:** April 2025 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 3. EchoJournal
+
+**Project name**
+
+```text
+EchoJournal
+```
+
+**Description**
 
 ```text
 Audio journaling app for quick voice memos with mood and topic tagging, search, and filtering. Compose UI with MediaRecorder integration.
@@ -211,11 +260,24 @@ Audio journaling app for quick voice memos with mood and topic tagging, search, 
 Stack: Kotlin, Jetpack Compose, MVI, Room, MediaRecorder
 ```
 
+**Media — Site URL**
+
 ```text
 https://ironmanyg.github.io/hussain-portfolio/echojournal/
 ```
 
-#### Runique *(Apr–Nov 2024, Pl-Coding)*
+**Skills (top 5):** Kotlin, Jetpack Compose, Clean Architecture, Room, Android SDK
+**Start:** January 2025 · **End:** February 2025 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 4. Runique
+
+**Project name**
+
+```text
+Runique
+```
+
+**Description**
 
 ```text
 Multi-module running tracker with Wear OS sync, real-time GPS, and OAuth. Phone and watch share state via a layered architecture.
@@ -223,11 +285,24 @@ Multi-module running tracker with Wear OS sync, real-time GPS, and OAuth. Phone 
 Stack: Kotlin, Jetpack Compose, Koin, Room, Ktor, Maps SDK, Wear OS
 ```
 
+**Media — Site URL**
+
 ```text
 https://ironmanyg.github.io/hussain-portfolio/runique/
 ```
 
-#### Maktabati *(Mar 2022 – Present, Kay Technology)*
+**Skills (top 5):** Kotlin, Jetpack Compose, Wear OS, Ktor, Clean Architecture
+**Start:** April 2024 · **End:** November 2024 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 5. Maktabati
+
+**Project name**
+
+```text
+Maktabati
+```
+
+**Description**
 
 ```text
 Production research-library app. Full rebuild from a basic PDF viewer into a digital library: browse, read 1000+ page PDFs, search, offline caching, sign-in, resumable downloads.
@@ -235,39 +310,191 @@ Production research-library app. Full rebuild from a basic PDF viewer into a dig
 Stack: Kotlin, Jetpack Compose, Room, Ktor
 ```
 
+**Media — Site URL**
+
 ```text
 https://ironmanyg.github.io/hussain-portfolio/maktabati/
 ```
 
-### Tier 2 — Concise (1–2 lines each, newest first)
+**Skills (top 5):** Kotlin, Jetpack Compose, Room, Ktor, Android SDK
+**Start:** March 2022 · **End:** *(leave blank)* · **Currently working:** ✅ Yes · **Associated with:** Kay Technology
+
+### Tier 2 — Supporting entries (newest first)
+
+#### 6. PlantPediaZ
+
+**Project name**
 
 ```text
-PlantPediaZ (Sep 2024 – Present, Personal) — Compose guide app for plants and zombies in Plants vs. Zombies 2, fed by the PvZ2 API. Multi-module + MVVM/MVI.
+PlantPediaZ
 ```
 
-```text
-Translator KMM (Feb–Apr 2023, Pl-Coding) — Translation app for 28 languages on Android and iOS, sharing the maximum amount of Kotlin code via KMM. Stack: KMM, Ktor, SQLDelight.
-```
+**Description**
 
 ```text
-Material Calculator (Dec 2022) — Pixel-style calculator with unit and UI tests verified by a CI/CD pipeline.
+Compose guide app for plants and zombies in Plants vs. Zombies 2, fed by the PvZ2 API. Multi-module architecture with MVVM/MVI.
+
+Stack: Kotlin, Jetpack Compose, Multi-Module, MVVM, MVI, Retrofit
 ```
 
-```text
-Qodem (Nov 2021, Udacity) — Blood-donation appointment app: book appointments, pre-screen online, browse blood-bank locations.
-```
+**Media — Site URL**
 
 ```text
-Todo-Maps (Aug–Oct 2021, Udacity) — Location-based to-do list using Google Maps and geofencing to remind users at a specific place.
+https://ironmanyg.github.io/hussain-portfolio/plantpediaz/
 ```
 
-```text
-Asteroid Radar (Feb–Mar 2021, Udacity) — App showing near-Earth asteroids tracked by NASA's NEoWs API: size, velocity, distance, hazard flag.
-```
+**Skills (top 5):** Kotlin, Jetpack Compose, MVVM, Retrofit, Android SDK
+**Start:** September 2024 · **End:** *(leave blank)* · **Currently working:** ✅ Yes · **Associated with:** (leave blank)
+
+#### 7. Translator KMM
+
+**Project name**
 
 ```text
-ND940C3-Project (May–Jun 2021, Udacity) — Custom-button download app with motion-layout animations and a notification flow that lands on a detail screen.
+Translator KMM
 ```
+
+**Description**
+
+```text
+Translation app for 28 languages on Android and iOS, sharing the maximum amount of Kotlin code via Kotlin Multiplatform Mobile.
+
+Stack: KMM, Ktor, SQLDelight
+```
+
+**Media — Site URL**
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/translator-kmm/
+```
+
+**Skills (top 5):** Kotlin Multiplatform, Ktor, SQLDelight, iOS Development, Android SDK
+**Start:** February 2023 · **End:** April 2023 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 8. Material Calculator
+
+**Project name**
+
+```text
+Material Calculator
+```
+
+**Description**
+
+```text
+Pixel-style calculator with unit and UI tests verified by a CI/CD pipeline.
+
+Stack: Kotlin, Android SDK, JUnit, Espresso, CI/CD
+```
+
+**Media — Site URL**
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/material-calculator/
+```
+
+**Skills (top 5):** Kotlin, Android SDK, JUnit, Espresso, CI/CD
+**Start:** December 2022 · **End:** December 2022 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 9. Qodem
+
+**Project name**
+
+```text
+Qodem
+```
+
+**Description**
+
+```text
+Blood-donation appointment app: book appointments, pre-screen online, and browse blood-bank locations. Capstone project for the Udacity Android Kotlin Developer Nanodegree.
+
+Stack: Kotlin, Android SDK, MVVM, Firebase
+```
+
+**Media — Site URL**
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/qodem/
+```
+
+**Skills (top 5):** Kotlin, Android SDK, MVVM, Firebase, Material Design
+**Start:** November 2021 · **End:** November 2021 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 10. Todo-Maps
+
+**Project name**
+
+```text
+Todo-Maps
+```
+
+**Description**
+
+```text
+Location-based to-do list using Google Maps and geofencing to remind users at a specific place.
+
+Stack: Kotlin, Android SDK, Google Maps SDK, Geofencing
+```
+
+**Media — Site URL**
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/todo-maps/
+```
+
+**Skills (top 5):** Kotlin, Google Maps SDK, Geofencing, Android SDK, MVVM
+**Start:** August 2021 · **End:** October 2021 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 11. Asteroid Radar
+
+**Project name**
+
+```text
+Asteroid Radar
+```
+
+**Description**
+
+```text
+App showing near-Earth asteroids tracked by NASA's NEoWs API: size, velocity, distance, and hazard flag.
+
+Stack: Kotlin, Android SDK, MVVM, Retrofit, Room
+```
+
+**Media — Site URL**
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/asteroid-radar/
+```
+
+**Skills (top 5):** Kotlin, Android SDK, MVVM, Retrofit, Room
+**Start:** February 2021 · **End:** March 2021 · **Currently working:** No · **Associated with:** (leave blank)
+
+#### 12. ND940C3-Project
+
+**Project name**
+
+```text
+ND940C3-Project
+```
+
+**Description**
+
+```text
+Custom-button download app with motion-layout animations and a notification flow that lands on a detail screen.
+
+Stack: Kotlin, Android SDK, MotionLayout, Notifications
+```
+
+**Media — Site URL**
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/nd940c3/
+```
+
+**Skills (top 5):** Kotlin, Android SDK, Animations, Material Design, Notifications
+**Start:** May 2021 · **End:** June 2021 · **Currently working:** No · **Associated with:** (leave blank)
 
 ### Remove from LinkedIn
 
