@@ -2,7 +2,7 @@
   "en": {
     "hero": {
       "title": "About <span class=\"gradient-text\">Me</span>",
-      "subtitle": "I'm a Senior Android Developer who cares deeply about how software is put together. I've spent the last 4+ years at Kay Technology building production apps — migrating legacy codebases, designing multi-module architectures, and shipping features that hold up at scale."
+      "subtitle": "I'm an Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale."
     },
     "experience": {
       "section_label": "experience",
@@ -16,11 +16,23 @@
           "date_location": "Mar 2022 - Present | Riyadh, Saudi Arabia",
           "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
           "details": [
-            "Took <strong class=\"text-ide-text-strong\">full technical ownership</strong> of the Android product. I led the migration from a legacy Java/XML codebase to a modern Kotlin and Jetpack Compose architecture, reducing crash rates by <strong class=\"text-ide-text-strong\">40%</strong>.",
-            "Built reusable internal SDKs and core modules for authentication, search, and download management. This sped up the team's delivery by <strong class=\"text-ide-text-strong\">25%</strong>.",
-            "Designed engaging UIs with <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>, Coil, and Lottie animations, increasing user session duration by <strong class=\"text-ide-text-strong\">15%</strong>.",
-            "Set clear architectural standards (Clean Architecture, MVI) and built a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, cutting developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
+            "Took <strong class=\"text-ide-text-strong\">full technical ownership</strong> of the Android product. Led the migration from a legacy Java/XML codebase to Kotlin and Jetpack Compose, cutting crash rates by <strong class=\"text-ide-text-strong\">40%</strong>.",
+            "Built reusable internal SDKs and core modules for authentication, search, and download management, speeding up the team's delivery by <strong class=\"text-ide-text-strong\">25%</strong>.",
+            "Designed UIs with <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>, Coil, and Lottie animations, increasing user session duration by <strong class=\"text-ide-text-strong\">15%</strong>.",
+            "Set architectural standards (Clean Architecture, MVI) and built a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, cutting developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
             "Built and maintained lightweight Ktor micro-services for authentication and content delivery, improving API response times by <strong class=\"text-ide-text-strong\">30%</strong>."
+          ]
+        },
+        {
+          "role": "Researcher",
+          "company": "@ Kay Technology",
+          "color": "text-kotlin-orange",
+          "date_location": "Sep 2017 - Mar 2022 | Riyadh, Saudi Arabia",
+          "node_color": "bg-[#A3E635] ring-[#A3E635]/20 border-ide-bg",
+          "details": [
+            "Co-built <strong class=\"text-ide-text-strong\">Kay Scanner</strong>, a device that scans physical books without human page-flipping. Worked across hardware control, image capture, and software automation around the scan pipeline.",
+            "Helped deliver <strong class=\"text-ide-text-strong\">Kay Labs</strong>, a 3D-printing lab partnered with Imam Muhammad bin Saud University (College of Computer & Information Sciences), equipped with Ultimaker hardware so students could prototype their CS coursework projects.",
+            "Hands-on with Fusion 360, Ultimaker hardware, and Cura slicing. The prototyping work led into mobile engineering at Kay Tech in 2022."
           ]
         },
         {
@@ -37,55 +49,48 @@
     },
     "certifications": {
       "section_label": "Certifications.*",
-      "description": "I keep my skills current — these courses shaped how I think about architecture and cross-platform development.",
+      "description": "These courses shaped how I think about architecture and cross-platform development.",
       "items": [
         {
           "icon": "ph-certificate text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
-          "title": "Compose Multiplatform Masterclasses",
-          "description": "Completed advanced industry-level tracks for Desktop, Android, & iOS created in official collaboration with <strong>JetBrains</strong>.",
-          "provider_year": "Pl-Coding | 2025"
+          "title": "Building Industry-Level Compose Multiplatform Apps",
+          "description": "Advanced tracks for Desktop, Android, and iOS, created in collaboration with <strong>JetBrains</strong>.",
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "Kotlin Backends With Spring Boot",
-          "description": "Official JetBrains partnered course on scalable server-side Kotlin architecture and database management.",
-          "provider_year": "Pl-Coding | 2025"
+          "title": "Building Industry-Level Kotlin Backends With Spring Boot",
+          "description": "JetBrains-partnered course on server-side Kotlin architecture, REST design, and database management.",
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-code text-kotlin-purple",
           "borderHover": "hover:border-kotlin-purple/50",
-          "title": "Essentials of Industry-Level Android Dev",
-          "description": "Comprehensive training on production-grade Android development patterns including multi-module architecture and CI/CD.",
-          "provider_year": "Pl-Coding | 2024"
+          "title": "The Essentials of Industry-Level Android App Development",
+          "description": "Production-grade Android patterns covering multi-module architecture, dependency injection, and CI/CD.",
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-watch text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
           "title": "Building Industry-Level Wear OS Apps",
-          "description": "Advanced Wear OS development including Health Services API, Tiles, and cross-device synchronization.",
-          "provider_year": "Pl-Coding | 2024"
-        },
-        {
-          "icon": "ph-test-tube text-kotlin-purple",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "title": "Testing Large-Scale Multi-Module Apps",
-          "description": "Mastered testing strategies across decoupled module layers using JUnit, MockK, and robust assertion frameworks.",
-          "provider_year": "Pl-Coding | 2024"
+          "description": "Wear OS development with Health Services API, Tiles, and cross-device sync.",
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-git-branch text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "Professional App Dev with CI/CD",
+          "title": "Professional App Development With CI/CD",
           "description": "Automated build, test, and deployment pipelines with Bitrise for continuous integration and delivery.",
-          "provider_year": "Pl-Coding | 2022"
+          "provider_year": "PL Coding | 2022"
         },
         {
           "icon": "ph-android-logo text-[#A3E635]",
           "borderHover": "hover:border-[#A3E635]/50",
           "title": "Android Kotlin Developer Nanodegree",
-          "description": "A complete program covering core Android SDK principles, lifecycle management, and design patterns.",
+          "description": "Program covering core Android SDK principles, lifecycle management, and common design patterns.",
           "provider_year": "Udacity | 2022"
         }
       ]
@@ -94,7 +99,7 @@
   "ar": {
     "hero": {
       "title": "نبذة <span class=\"gradient-text\">عني</span>",
-      "subtitle": "أنا مطور أندرويد (Senior)، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة <strong>كيه لتقنية المعلومات</strong> في بناء تطبيقات مخصصة للإنتاج الفعلي — انتقالاً من الأكواد القديمة (Legacy Codebases) إلى بيئات حديثة، وتصميم معماريات متعددة الوحدات (Multi-module)، وإطلاق ميزات برمجية قادرة على العمل بكفاءة وموثوقية على النطاق الواسع (At Scale)."
+      "subtitle": "أنا مطور أندرويد، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة <strong>كيه لتقنية المعلومات</strong> في بناء تطبيقات مخصصة للإنتاج الفعلي — انتقالاً من الأكواد القديمة (Legacy Codebases) إلى بيئات حديثة، وتصميم معماريات متعددة الوحدات (Multi-module)، وإطلاق ميزات برمجية قادرة على العمل بكفاءة وموثوقية على النطاق الواسع (At Scale)."
     },
     "experience": {
       "section_label": "experience",
@@ -116,6 +121,18 @@
           ]
         },
         {
+          "role": "باحث (Researcher)",
+          "company": "@ كيه لتقنية المعلومات",
+          "color": "text-kotlin-orange",
+          "date_location": "سبتمبر 2017 - مارس 2022 | الرياض، السعودية",
+          "node_color": "bg-[#A3E635] ring-[#A3E635]/20 border-ide-bg",
+          "details": [
+            "شاركت في بناء <strong class=\"text-ide-text-strong\">Kay Scanner</strong>، جهاز يقوم بمسح الكتب الورقية ضوئياً دون الحاجة لتقليب الصفحات يدوياً. عملت على التحكم بالجهاز، والتقاط الصور، وأتمتة البرمجيات حول مسار المسح.",
+            "ساهمت في إطلاق <strong class=\"text-ide-text-strong\">Kay Labs</strong>، معمل للطباعة ثلاثية الأبعاد بالشراكة مع جامعة الإمام محمد بن سعود الإسلامية (كلية علوم الحاسب والمعلومات)، مُجهّز بأجهزة Ultimaker لتمكين الطلاب من بناء النماذج الأولية لمشاريعهم البرمجية.",
+            "عمل عملي بأدوات Fusion 360 و Ultimaker و Cura. مرحلة النماذج الأولية هذه كانت مدخلي إلى هندسة تطبيقات الجوال في كيه لتقنية المعلومات عام 2022."
+          ]
+        },
+        {
           "role": "بكالوريوس (مع مرتبة الشرف) في الهندسة الكهربائية",
           "company": "@ أكاديمية العلوم الهندسية",
           "color": "text-kotlin-purple",
@@ -134,44 +151,37 @@
         {
           "icon": "ph-certificate text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
-          "title": "دورات متقدمة في Compose Multiplatform",
+          "title": "بناء تطبيقات Compose Multiplatform بمستوى احترافي",
           "description": "اجتياز برامج تدريبية متقدمة لتطوير تطبيقات سطح المكتب، الأندرويد، والـ iOS (بمشاركة رسمية وتصميم من <strong>JetBrains</strong>).",
-          "provider_year": "Pl-Coding | 2025"
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "الواجهات الخلفية لـ Kotlin بإستخدام Spring Boot",
+          "title": "بناء واجهات خلفية لـ Kotlin بمستوى احترافي مع Spring Boot",
           "description": "دورة معتمدة بالشراكة مع <strong>JetBrains</strong> تركز على بناء خوادم Kotlin قابلة للتوسع وإدارة قواعد البيانات.",
-          "provider_year": "Pl-Coding | 2025"
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-code text-kotlin-purple",
           "borderHover": "hover:border-kotlin-purple/50",
-          "title": "أساسيات تطوير أندرويد المتقدمة للشركات",
+          "title": "أساسيات تطوير تطبيقات أندرويد بمستوى احترافي",
           "description": "تدريب شامل على أنماط تطوير تطبيقات الأندرويد الاحترافية الجاهزة للإنتاج، بما في ذلك المعمارية متعددة الوحدات وتطبيقات CI/CD.",
-          "provider_year": "Pl-Coding | 2024"
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-watch text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
-          "title": "بناء تطبيقات Wear OS المتقدمة",
+          "title": "بناء تطبيقات Wear OS بمستوى احترافي",
           "description": "تطوير متقدم ومترابط لنظام Wear OS يشمل Health Services API، والمزامنة السلسة عبر الأجهزة المختلفة.",
-          "provider_year": "Pl-Coding | 2024"
-        },
-        {
-          "icon": "ph-test-tube text-kotlin-purple",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "title": "اختبار الأنظمة المتعددة الوحدات (Multi-Module Apps)",
-          "description": "مهارات شاملة في صياغة استراتيجيات اختبار دقيقة ومعزولة للوحدات الهيكلية المتعددة باستخدام أدوات متقدمة مثل JUnit، و MockK.",
-          "provider_year": "Pl-Coding | 2024"
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-git-branch text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "تطوير تطبيقات احترافية متواصلة (CI/CD)",
+          "title": "التطوير الاحترافي للتطبيقات مع CI/CD",
           "description": "أتمتة شاملة لدورات البناء والاختبار والنشر عبر Bitrise لضمان التكامل والتسليم المستمر الموثوق.",
-          "provider_year": "Pl-Coding | 2022"
+          "provider_year": "PL Coding | 2022"
         },
         {
           "icon": "ph-android-logo text-[#A3E635]",

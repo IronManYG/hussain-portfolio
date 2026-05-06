@@ -1,0 +1,155 @@
+---
+pagination:
+  data: notion_redirects.items
+  size: 1
+  alias: r
+permalink: "notion/{{ r.slug }}/index.html"
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ r.title_en }} · Hussain Gaddal</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #004AAD;
+            --navy-dark: #003280;
+            --ink: #0A0A0A;
+            --muted: #4A5568;
+            --bg: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --border: #E2E8F0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+            color: var(--ink);
+            background: var(--bg-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            min-height: 100vh;
+        }
+        .card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 74, 173, 0.08);
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            max-width: 880px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .pane { padding: 40px 32px; display: flex; flex-direction: column; }
+        .pane-en { text-align: left; }
+        .pane-ar { text-align: right; direction: rtl; }
+        .divider { background: var(--border); }
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+        p {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 15px;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--navy);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.15s ease, transform 0.15s ease;
+            align-self: flex-start;
+        }
+        .pane-ar .btn { align-self: flex-end; }
+        .btn:hover { background: var(--navy-dark); transform: translateY(-1px); }
+        .btn-arrow { font-size: 16px; }
+        .footer {
+            grid-column: 1 / -1;
+            padding: 14px 32px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-soft);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .footer a { color: var(--navy); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Stack vertically on narrow screens (Notion embeds are usually narrow) */
+        @media (max-width: 720px) {
+            .card { grid-template-columns: 1fr; }
+            .divider { height: 1px; width: 100%; }
+            .pane { padding: 28px 24px; }
+            h1 { font-size: 20px; }
+            p { font-size: 14px; }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --ink: #F8FAFC;
+                --muted: #94A3B8;
+                --bg: #0F172A;
+                --bg-soft: #020617;
+                --border: #1E293B;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="main">
+        <section class="pane pane-en" aria-label="English">
+            <div class="eyebrow">Moved</div>
+            <h1>{{ r.title_en }}</h1>
+            <p>{{ r.body_en }}</p>
+            <a class="btn" href="https://ironmanyg.github.io/hussain-portfolio{{ r.target_en }}" target="_top" rel="noopener">
+                {{ r.button_en }} <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+        </section>
+        <div class="divider" aria-hidden="true"></div>
+        <section class="pane pane-ar" aria-label="Arabic" lang="ar" dir="rtl">
+            <div class="eyebrow">انتقلت الصفحة</div>
+            <h1>{{ r.title_ar }}</h1>
+            <p>{{ r.body_ar }}</p>
+            <a class="btn" href="https://ironmanyg.github.io/hussain-portfolio{{ r.target_ar }}" target="_top" rel="noopener">
+                <span class="btn-arrow" aria-hidden="true">←</span> {{ r.button_ar }}
+            </a>
+        </section>
+        <div class="footer">
+            <span>Hussain Gaddal · Android Developer</span>
+            <a href="https://ironmanyg.github.io/hussain-portfolio/" target="_top" rel="noopener">ironmanyg.github.io/hussain-portfolio</a>
+        </div>
+    </main>
+</body>
+</html>

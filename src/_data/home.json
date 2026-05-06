@@ -3,8 +3,8 @@
     "hero": {
       "badge": "Available for new opportunities",
       "greeting": "I'm Hussain Gaddal.",
-      "headline": "Senior <span class=\"gradient-text\">Android Developer</span>.",
-      "subtitle": "I build apps that just work — large-scale, multi-platform, and built to last. My work bridges clean system architecture with native mobile performance using Kotlin Multiplatform.",
+      "headline": "<span class=\"gradient-text\">Android Developer</span>.",
+      "subtitle": "I build large-scale, multi-platform apps that hold up in production. My work pairs clean system architecture with native mobile performance using Kotlin Multiplatform.",
       "btn_work": "View Featured Projects",
       "btn_cv": "Download CV",
       "btn_contact": "Contact Me"
@@ -74,7 +74,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "Backend & Cloud",
-          "description": "Building micro-services with <strong class=\"text-ide-text-strong\">Ktor</strong> and Spring Boot. Database design with PostgreSQL."
+          "description": "Building micro-services with <strong class=\"text-ide-text-strong\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
         }
       ]
     }
@@ -83,7 +83,7 @@
     "hero": {
       "badge": "متاح لفرص عمل جديدة",
       "greeting": "أنا حسين قدّال.",
-      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span> أول.",
+      "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span>.",
       "subtitle": "أبني تطبيقات تعمل بكفاءة — واسعة النطاق، متعددة المنصات، ومصممة لتدوم. يتمحور عملي حول دمج معمارية الأنظمة النظيفة (Clean Architecture) مع الأداء الأصلي لتطبيقات الجوال باستخدام Kotlin Multiplatform.",
       "btn_work": "عرض المشاريع المميزة",
       "btn_cv": "تحميل السيرة الذاتية",
@@ -154,7 +154,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "الخوادم والسحابة",
-          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-ide-text-strong\">Ktor</strong> و Spring Boot، مع خبرة في تصميم قواعد بيانات PostgreSQL."
+          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-ide-text-strong\">Spring Boot</strong> و Ktor، مع خبرة في تصميم قواعد بيانات PostgreSQL."
         }
       ]
     }

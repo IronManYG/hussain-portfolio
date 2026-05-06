@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "note": "Bilingual redirect pages embeddable inside Notion /embed blocks. Each entry generates one HTML page at /notion/<slug>/. The button uses target=_top so the click escapes the Notion iframe and opens the new portfolio in the user's main window.",
+  "items": [
+    {
+      "slug": "home",
+      "title_en": "Hussain Gaddal — Portfolio",
+      "title_ar": "حسين قدال — معرض الأعمال",
+      "body_en": "This page has moved. Same person, more projects, better writeups, in English and Arabic.",
+      "body_ar": "انتقلت هذه الصفحة. الشخص نفسه، مشاريع أكثر، شرح أوضح، بالعربية والإنجليزية.",
+      "button_en": "View portfolio",
+      "button_ar": "افتح معرض الأعمال",
+      "target_en": "/",
+      "target_ar": "/ar/"
+    },
+    {
+      "slug": "projects",
+      "title_en": "Projects",
+      "title_ar": "المشاريع",
+      "body_en": "Full project list (cross-platform apps, Wear OS, backends) lives on the new portfolio.",
+      "body_ar": "قائمة المشاريع الكاملة (تطبيقات عبر المنصات، Wear OS، الواجهات الخلفية) متاحة على المعرض الجديد.",
+      "button_en": "Browse projects",
+      "button_ar": "تصفح المشاريع",
+      "target_en": "/projects/",
+      "target_ar": "/ar/projects/"
+    },
+    {
+      "slug": "cv",
+      "title_en": "CV",
+      "title_ar": "السيرة الذاتية",
+      "body_en": "The latest CV is on the new portfolio. Open it in a new tab and download as PDF.",
+      "body_ar": "أحدث نسخة من السيرة الذاتية على المعرض الجديد. افتحها في تبويب جديد وحمّلها بصيغة PDF.",
+      "button_en": "View CV",
+      "button_ar": "افتح السيرة الذاتية",
+      "target_en": "/cv/Hussain_Gaddal_CV.html",
+      "target_ar": "/cv/Hussain_Gaddal_CV.html"
+    },
+    {
+      "slug": "about",
+      "title_en": "About",
+      "title_ar": "نبذة عني",
+      "body_en": "Bio, timeline, and certifications moved to the new portfolio's About page.",
+      "body_ar": "النبذة، والمسيرة المهنية، والشهادات على صفحة \"نبذة عني\" في المعرض الجديد.",
+      "button_en": "Read about me",
+      "button_ar": "اقرأ عني",
+      "target_en": "/about/",
+      "target_ar": "/ar/about/"
+    },
+    {
+      "slug": "experience",
+      "title_en": "Experience",
+      "title_ar": "الخبرات",
+      "body_en": "Work history at Kay Technology (8+ years across Researcher and Android Developer roles) is on the About page.",
+      "body_ar": "تاريخ العمل في كيه لتقنية المعلومات (8+ سنوات بين دور الباحث ومطور أندرويد) على صفحة \"نبذة عني\".",
+      "button_en": "View experience",
+      "button_ar": "اطلع على الخبرات",
+      "target_en": "/about/#experience",
+      "target_ar": "/ar/about/#experience"
+    },
+    {
+      "slug": "contact",
+      "title_en": "Contact",
+      "title_ar": "تواصل",
+      "body_en": "Reach me by email, phone, LinkedIn, or GitHub. Links are on the new portfolio.",
+      "body_ar": "تواصل بالبريد الإلكتروني، أو الهاتف، أو لينكدإن، أو GitHub. الروابط على المعرض الجديد.",
+      "button_en": "Get in touch",
+      "button_ar": "تواصل الآن",
+      "target_en": "/#contact",
+      "target_ar": "/ar/#contact"
+    }
+  ]
+}
