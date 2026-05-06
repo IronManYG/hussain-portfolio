@@ -17,3 +17,9 @@ scripts/
 node_modules/
 _site/
 .npm/
+
+# Personal LinkedIn working notes (private — captured profile data, raw HTML snapshots)
+linkedin/
+
+# Claude Code local settings (per-machine, not shared)
+.claude/
