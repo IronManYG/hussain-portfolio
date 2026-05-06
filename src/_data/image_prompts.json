@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "note": "Generator-agnostic prompts for missing brand visuals across LinkedIn, GitHub, the portfolio, and the Notion redirect pages. Project images are intentionally not in this list — they already exist in src/assets/img/projects/. After generating, save outputs to src/assets/img/branding/<id>.png so they're served at https://ironmanyg.github.io/hussain-portfolio/assets/img/branding/<id>.png.",
+  "brand": {
+    "primary": "#004AAD",
+    "primary_name": "Cobalt Navy",
+    "neutral_dark": "#0A0A0A",
+    "neutral_light": "#FFFFFF",
+    "accent_kotlin": "#7F52FF",
+    "fonts_for_in_image_text": ["IBM Plex Sans", "IBM Plex Mono"]
+  },
+  "images": [
+    {
+      "id": "linkedin_banner",
+      "use_case": "LinkedIn profile banner for an Android Developer specializing in Kotlin and KMP/CMP",
+      "dimensions": "1584x396",
+      "aspect_ratio": "4:1",
+      "safe_zone_note": "LinkedIn crops the bottom-left ~280x280 area behind the profile photo. Keep that region clean — no critical text or focal subject there.",
+      "style": "Clean, minimal, geometric. Subtle gradient backdrop. Tech-leaning but not cliché — no binary rain, no glowing circuits, no robot hands.",
+      "subject": "Abstract composition suggesting cross-platform mobile development: a soft cluster of overlapping device-shape silhouettes (phone + tablet + watch + desktop monitor) rendered as outlined geometric forms in light strokes, off-center to the right side of the banner. Empty negative space on the left where the LinkedIn profile photo sits.",
+      "color_palette": ["#004AAD", "#0A0A0A", "#FFFFFF", "subtle gradient from navy to deep navy"],
+      "mood": "calm, professional, confident",
+      "in_image_text": "none — text is added by LinkedIn (name, headline). Keep the banner pure visual.",
+      "negative_prompt": "no text, no logos, no faces, no people, no binary code, no glowing circuits, no neon, no AI-generated person stereotypes, no Anthropic/Google/Apple branding, no stock-photo skylines"
+    },
+    {
+      "id": "github_readme_hero",
+      "use_case": "Optional hero image at the top of the IronManYG/IronManYG profile README. Same visual family as the LinkedIn banner so the two profiles feel like one brand.",
+      "dimensions": "1280x320",
+      "aspect_ratio": "4:1",
+      "style": "Slightly more playful than LinkedIn — this surface tolerates more personality.",
+      "subject": "A horizontal composition: stylized waveform or signal pattern flowing left to right, rendered in two stroke widths (thin Cobalt Navy + thicker pure-black). Could be read as audio (EchoJournal nod) or as code rhythm. Off-center; leaves breathing room on both ends.",
+      "color_palette": ["#004AAD", "#0A0A0A", "#FFFFFF"],
+      "mood": "active, builder, signal-over-noise",
+      "in_image_text": "none",
+      "negative_prompt": "no text, no logos, no faces, no people, no binary code, no glowing circuits, no neon, no Anthropic/Google/Apple branding, no stock-photo skylines"
+    },
+    {
+      "id": "og_image",
+      "use_case": "Open Graph / Twitter card image for the portfolio. Renders when the site is shared on social or chat apps.",
+      "dimensions": "1200x630",
+      "aspect_ratio": "1.91:1",
+      "style": "More information-dense than the banners. Stands alone in a chat preview — needs to communicate identity in 2 seconds.",
+      "subject": "Centered card-style composition: name 'Hussain Gaddal' in IBM Plex Sans bold, tagline 'Android Developer · Kotlin · KMP/CMP' in IBM Plex Sans medium below it, a small Cobalt Navy geometric mark to the left of the name. Soft off-white background with a thin Cobalt Navy frame. Bottom-right corner: 'ironmanyg.github.io/hussain-portfolio' in IBM Plex Mono small.",
+      "color_palette": ["#004AAD", "#0A0A0A", "#F8F8F8", "#FFFFFF"],
+      "mood": "clean editorial, calm",
+      "in_image_text": "Yes — name + tagline + URL as described above. Use IBM Plex Sans / Mono. If the generator can't honor those fonts, use any clean geometric sans (no Comic Sans, no script fonts).",
+      "negative_prompt": "no stock photos of laptops, no abstract blobs, no AI-blurred backgrounds, no decorative emoji, no gradients other than what's specified"
+    },
+    {
+      "id": "notion_redirect_hero",
+      "use_case": "Optional small visual atop each Notion redirect page. Low priority — most redirect pages will look fine with no image.",
+      "dimensions": "800x200",
+      "aspect_ratio": "4:1",
+      "style": "Minimal — a single arrow-like or 'forwarding' visual motif in Cobalt Navy on white. Should look the same in EN-LTR and AR-RTL contexts (mirror-safe).",
+      "subject": "A double-arrow or chevron motif suggesting movement / forwarding. Centered. Lots of whitespace.",
+      "color_palette": ["#004AAD", "#FFFFFF"],
+      "mood": "neutral, transitional",
+      "in_image_text": "none",
+      "negative_prompt": "no text, no flags, no country symbols, no decorative borders"
+    }
+  ]
+}
