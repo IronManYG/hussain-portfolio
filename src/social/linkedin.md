@@ -471,36 +471,56 @@ https://ironmanyg.github.io/hussain-portfolio/asteroid-radar/
 **Skills (top 5):** Kotlin, Android SDK, MVVM, Retrofit, Room
 **Start:** February 2021 · **End:** March 2021 · **Currently working:** No · **Associated with:** (leave blank)
 
-#### 12. ND940C3-Project
+#### 12. Kay Scanner *(Researcher era)*
 
 **Project name**
 
 ```text
-ND940C3-Project
+Kay Scanner
 ```
 
 **Description**
 
 ```text
-Custom-button download app with motion-layout animations and a notification flow that lands on a detail screen.
+Hardware + software device that scans physical books without manual page-flipping. Co-built across hardware control, image capture, and software automation around the scan pipeline. Pre-Android research work at Kay Technology that became the entry point into mobile engineering.
 
-Stack: Kotlin, Android SDK, MotionLayout, Notifications
+Stack: Hardware prototyping, Image capture pipeline, Embedded systems
 ```
 
-**Media — Site URL**
+**Media — Site URL** (early prototype repo)
 
 ```text
-https://ironmanyg.github.io/hussain-portfolio/nd940c3/
+https://github.com/IronManYG/AutoMatic-Book-Scaneer
 ```
 
-**Skills (top 5):** Kotlin, Android SDK, Animations, Material Design, Notifications
-**Start:** May 2021 · **End:** June 2021 · **Currently working:** No · **Associated with:** (leave blank)
+**Skills (top 5):** Hardware Prototyping, Image Processing, Embedded Systems, Research, Problem Solving
+**Start:** September 2017 · **End:** March 2022 · **Currently working:** No · **Associated with:** Kay Technology
+
+#### 13. Kay Labs *(Researcher era)*
+
+**Project name**
+
+```text
+Kay Labs
+```
+
+**Description**
+
+```text
+A 3D-printing lab built in partnership with Imam Muhammad bin Saud University (College of Computer & Information Sciences). Equipped with Ultimaker hardware so students could prototype their CS coursework projects. Hands-on with Fusion 360 (CAD), Ultimaker hardware, and Cura slicing.
+
+Stack: Fusion 360, Ultimaker, Cura, 3D Printing
+```
+
+**Media** — no public repo or portfolio page. Leave Media blank, or upload a photo of the lab / an Ultimaker-printed prototype if you have one in `src/assets/img/branding/` or similar.
+
+**Skills (top 5):** 3D Printing, Fusion 360, CAD, Hardware Prototyping, Research
+**Start:** September 2017 · **End:** March 2022 · **Currently working:** No · **Associated with:** Kay Technology
 
 ### Remove from LinkedIn
 
 - **Shoe Store** — basic Udacity tutorial, low signal.
-- **Kay Scanner** — move into the Researcher role bullets above (it's not a standalone project, it's the deliverable of that role).
-- **Kay Labs** — same, belongs under Researcher.
+- **ND940C3-Project** — basic Udacity exercise (custom button + motion layout + notification). Lower signal than the Researcher-era projects that replace it in the showcase.
 
 ---
 
