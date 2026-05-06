@@ -3,55 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hussain Gaddal - Android Developer CV</title>
+    <title>Hussain Gaddal — Android Developer CV (Variant C)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'IBM Plex Sans Arabic', sans-serif; color: #1a1a2e; font-size: 11px; line-height: 1.5; padding: 40px; max-width: 800px; margin: 0 auto; }
-        h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-        h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid #004AAD; padding-bottom: 4px; margin: 16px 0 8px; color: #004AAD; }
-        h3 { font-size: 12px; font-weight: 600; }
-        .contact { font-size: 10px; color: #555; margin-bottom: 12px; }
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; color: #1a1a2e; font-size: 11px; line-height: 1.55; padding: 40px; max-width: 800px; margin: 0 auto; }
+        h1 { font-size: 30px; font-weight: 700; margin-bottom: 4px; letter-spacing: 0.3px; }
+        h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; border-bottom: 2px solid #004AAD; padding-bottom: 5px; margin: 18px 0 10px; color: #004AAD; }
+        .role-line { font-size: 13.5px; color: #004AAD; font-weight: 500; margin-bottom: 4px; }
+        .contact { font-size: 10.5px; color: #555; margin-bottom: 14px; }
         .contact a { color: #004AAD; text-decoration: none; }
-        .summary { margin-bottom: 8px; color: #333; }
+        .summary { margin-bottom: 4px; color: #333; line-height: 1.6; }
         .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
         .skill-cat { font-weight: 600; color: #004AAD; }
-        .job { margin-bottom: 12px; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
-        .job-title { font-weight: 600; font-size: 12px; }
-        .job-date { font-size: 10px; color: #666; }
+        .job { margin-bottom: 14px; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; gap: 12px; }
+        .job-title { font-weight: 600; font-size: 12.5px; }
+        .job-date { font-size: 10.5px; color: #666; white-space: nowrap; }
         .job ul { padding-left: 16px; }
-        .job li { margin-bottom: 2px; }
-        .project { margin-bottom: 8px; }
-        .project-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-        .project-name { font-weight: 600; }
-        .project-link { color: #004AAD; text-decoration: none; font-size: 10px; white-space: nowrap; }
+        .job li { margin-bottom: 3px; }
+        .project { margin-bottom: 11px; }
+        .project-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 3px; }
+        .project-name { font-weight: 600; font-size: 12px; }
+        .project-link { color: #004AAD; text-decoration: none; font-size: 10.5px; white-space: nowrap; }
         .project-link:hover { text-decoration: underline; }
-        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
-        .cert { font-size: 10px; }
-        .footer { margin-top: 16px; text-align: center; font-size: 9px; color: #999; }
-        .page-2-header { display: none; }
+        .project p { margin-bottom: 5px; }
+        .pills { display: flex; flex-wrap: wrap; gap: 4px; }
+        .pill { display: inline-block; font-size: 10px; padding: 2px 7px; border: 1px solid #004AAD33; color: #004AAD; border-radius: 10px; background: #004AAD08; }
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+        .cert { font-size: 10.5px; }
         @media print {
-            body { padding: 20px; font-size: 10px; }
-            h2 { margin: 12px 0 6px; }
-            .summary { margin-bottom: 4px; }
-            .job { margin-bottom: 10px; }
+            body { padding: 22px; font-size: 10.5px; }
+            h1 { font-size: 26px; }
+            h2 { font-size: 14px; margin: 14px 0 7px; }
+            .role-line { font-size: 12px; }
+            .pill { font-size: 9px; padding: 1.5px 6px; }
             .page-2-start { page-break-before: always; padding-top: 4px; }
-            .page-2-header {
-                display: block;
-                font-size: 9px;
-                color: #888;
-                text-align: right;
-                margin-bottom: 6px;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 4px;
-            }
         }
     </style>
 </head>
 <body>
     <h1>HUSSAIN GADDAL</h1>
-    <p style="font-size: 13px; color: #004AAD; font-weight: 500; margin-bottom: 4px;">Android Developer</p>
+    <p class="role-line">Android Developer</p>
     <p class="contact">
         Riyadh, Saudi Arabia | +966 53 851 7374 |
         <a href="mailto:hussain.yg2010@gmail.com">hussain.yg2010@gmail.com</a> |
@@ -94,7 +87,7 @@
         </div>
         <ul>
             <li>Co-built <strong>Kay Scanner</strong>, a device that scans physical books without human page-flipping. Worked across hardware control, image capture, and software automation around the scan pipeline.</li>
-            <li>Helped deliver <strong>Kay Labs</strong>, a 3D-printing lab partnered with Imam Muhammad bin Saud University (College of Computer &amp; Information Sciences), equipped with Ultimaker hardware so students could prototype CS coursework projects.</li>
+            <li>Helped deliver <strong>Kay Labs</strong>, a 3D-printing lab partnered with Imam Muhammad bin Saud University (College of Computer & Information Sciences), equipped with Ultimaker hardware so students could prototype CS coursework projects.</li>
             <li>Hands-on with Fusion 360, Ultimaker hardware, and Cura slicing. The prototyping work led into mobile engineering at Kay Tech in 2022.</li>
         </ul>
     </div>
@@ -105,31 +98,36 @@
         <span class="job-date">2011 – 2016</span>
     </div>
 
-    <div class="page-2-header">Hussain Gaddal — Android Developer · Page 2 of 2</div>
     <h2 class="page-2-start">Featured Projects</h2>
     <div class="project">
         <div class="project-header"><span class="project-name">Maktabati | Kay Technology | Mar 2022 – Present</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/maktabati/">View project →</a></div>
-        <p>Full rebuild of the company's PDF viewer into a research library. Added digital library browsing, PDF viewing for 1000+ page documents, search, offline caching, sign-in, and resumable downloads. <em>Tech: Kotlin, Compose, Room, Ktor</em></p>
+        <p>Full rebuild of the company's PDF viewer into a research library. Added digital library browsing, PDF viewing for 1000+ page documents, search, offline caching, sign-in, and resumable downloads.</p>
+        <div class="pills"><span class="pill">Kotlin</span><span class="pill">Jetpack Compose</span><span class="pill">Room</span><span class="pill">Ktor</span></div>
     </div>
     <div class="project">
         <div class="project-header"><span class="project-name">Chirp | Pl-Coding | Nov – Dec 2025</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/chirp/">View project →</a></div>
-        <p>Cross-platform messaging app (Android, iOS, Desktop) with 100% code sharing, offline-first sync via WebSockets, and secure auth. <em>Tech: KMP, CMP, Koin, Spring Boot, Room, FCM</em></p>
+        <p>Cross-platform messaging app (Android, iOS, Desktop) with 100% code sharing, offline-first sync via WebSockets, and secure auth.</p>
+        <div class="pills"><span class="pill">KMP</span><span class="pill">CMP</span><span class="pill">Koin</span><span class="pill">Spring Boot</span><span class="pill">Room</span><span class="pill">FCM</span></div>
     </div>
     <div class="project">
         <div class="project-header"><span class="project-name">Runique | Pl-Coding | Apr – Nov 2024</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/runique/">View project →</a></div>
-        <p>Multi-module running tracker with Wear OS sync, real-time GPS tracking, and OAuth auth. <em>Tech: Kotlin, Compose, Koin, Room, Ktor, Maps SDK, Wear OS</em></p>
+        <p>Multi-module running tracker with Wear OS sync, real-time GPS tracking, and OAuth auth.</p>
+        <div class="pills"><span class="pill">Kotlin</span><span class="pill">Jetpack Compose</span><span class="pill">Koin</span><span class="pill">Room</span><span class="pill">Ktor</span><span class="pill">Maps SDK</span><span class="pill">Wear OS</span></div>
     </div>
     <div class="project">
         <div class="project-header"><span class="project-name">EchoJournal | Pl Campus | Jan – Feb 2025</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/echojournal/">View project →</a></div>
-        <p>Audio journaling app with mood/topic tagging, search, and filtering. <em>Tech: Kotlin, Compose, MVI, Room, MediaRecorder</em></p>
+        <p>Audio journaling app with mood/topic tagging, search, and filtering.</p>
+        <div class="pills"><span class="pill">Kotlin</span><span class="pill">Jetpack Compose</span><span class="pill">MVI</span><span class="pill">Room</span><span class="pill">MediaRecorder</span></div>
     </div>
     <div class="project">
         <div class="project-header"><span class="project-name">ScribbleDash | Pl Campus | Apr 2025</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/scribbledash/">View project →</a></div>
-        <p>Drawing app with 1:1 canvas, undo/redo, clean architecture. <em>Tech: Kotlin, Compose, MVI, Koin, Material 3</em></p>
+        <p>Drawing app with 1:1 canvas, undo/redo, clean architecture.</p>
+        <div class="pills"><span class="pill">Kotlin</span><span class="pill">Jetpack Compose</span><span class="pill">MVI</span><span class="pill">Koin</span><span class="pill">Material 3</span></div>
     </div>
     <div class="project">
         <div class="project-header"><span class="project-name">Translator KMM | Pl-Coding | Feb – Apr 2023</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/translator-kmm/">View project →</a></div>
-        <p>Cross-platform translation app (28 languages) with shared KMM business logic. <em>Tech: KMM, CMP, Ktor, SQLDelight</em></p>
+        <p>Cross-platform translation app (28 languages) with shared KMM business logic.</p>
+        <div class="pills"><span class="pill">KMM</span><span class="pill">CMP</span><span class="pill">Ktor</span><span class="pill">SQLDelight</span></div>
     </div>
 
     <h2>Certifications</h2>

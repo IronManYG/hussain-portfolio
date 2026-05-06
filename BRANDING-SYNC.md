@@ -7,9 +7,8 @@ Single source of truth for every cross-surface brand field. When you change a ro
 | Surface | Status | Notes |
 |---|---|---|
 | Site (EN + AR) | ✅ in sync | Researcher 2017–2022 added to timeline; OG meta fixed |
-| CV (`src/cv/Hussain_Gaddal_CV.html`) | ✅ in sync | 2-page layout: page 1 = pitch (header → education), page 2 = evidence (projects → certifications → languages); explicit `page-break-before` on Featured Projects + print-only page-2 header |
-| CV compact (`src/cv/Hussain_Gaddal_CV_compact.html`) | ✅ available | 1-page alternative — smaller fonts, 2-col skills, single-line projects, inline cert-by-year list, languages inlined into header |
-| CV PDFs (both) | ⚠️ stale | Re-export `Hussain_Gaddal_CV.pdf` (2-page) and generate `Hussain_Gaddal_CV_compact.pdf` (1-page) from the matching HTML files (see `src/social/cv.md`) |
+| CV variants (4 sources) | ✅ available | `Hussain_Gaddal_CV_A.html` (2-page, polished — accent bars + tech pills), `_C.html` (2-page, conservative), `_compact_D.html` (1-page, readable), `_compact_E.html` (1-page + impact stat block). Pick per scenario; see `src/social/cv.md` |
+| CV PDFs (both) | ⚠️ stale | Pick a variant, export to PDF: 2-page variant → `Hussain_Gaddal_CV.pdf`, 1-page variant → `Hussain_Gaddal_CV_compact.pdf` (see `src/social/cv.md` — Background graphics ON) |
 | GitHub bio / blog / location | ✅ live | Pushed via `gh api -X PATCH user` on 2026-05-06 |
 | GitHub profile README (`IronManYG/IronManYG`) | ✅ live | Repo created 2026-05-06; README v3 with `data class` + `@Composable` |
 | GitHub repo descriptions | ✅ done (8 repos) | ScribbleDash, Translator_KMM, MaterialCalculator, hussain-portfolio, dev.gaddal.qodem-api, Qodem-multi-module, AutoMatic-Book-Scaneer, Runique |
