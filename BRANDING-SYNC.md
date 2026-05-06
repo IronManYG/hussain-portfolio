@@ -16,7 +16,7 @@ Single source of truth for every cross-surface brand field. When you change a ro
 | GitHub pinned repos | ✅ done | Order: Chirp, EchoJournal, ScribbleDash, Runique, Translator_KMM, hussain-portfolio |
 | GitHub archive list | ✅ done (30 repos) | Archived 2026-05-06: 5 test/junk + 16 Udacity exercises + 9 codelab/starter (see `src/social/github.md` §5) |
 | Cert PDFs | ✅ tracked (2026-05-06) | 7 PDFs committed to `src/social/certs/` (6 PL Coding + 1 Udacity). `.gitignore` exclusion removed since these are publicly equivalent to LinkedIn Media uploads. |
-| LinkedIn | 🟢 mostly done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree to preserve project "Associated with" links). Verify the project-association links on Asteroid Radar / Maps / Material Calculator etc. survived the Education re-add. |
+| LinkedIn | ✅ done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree). Project "Associated with" links restored after the Education re-add (Asteroid Radar / Maps / Material Calculator etc.). |
 | Notion redirect embeds | ⏸️ pending (manual) | Site now deployed → all 18 URLs at `/notion/<slug>/` resolve. Open `src/social/notion.md`, paste each `/embed` block in the matching old-Notion section. |
 | Brand images | ⏸️ pending (generation) | 4 prompts in `src/_data/image_prompts.json` (`og_image`, `linkedin_banner`, `github_readme_hero`, `notion_redirect_hero`); output to `src/assets/img/branding/` (folder currently untracked, populate then `git add`). |
 
