@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "note": "Canonical source of truth for cross-surface brand fields. Any change here should be propagated to the surfaces listed in BRANDING-SYNC.md (LinkedIn, GitHub, CV, site, Notion). The site templates may already pull from home.json / about_page.json — keep those in sync with this file rather than replacing them.",
+  "identity": {
+    "name_en": "Hussain Gaddal",
+    "name_ar": "حسين قدال",
+    "full_name_en": "Hussain Yahya Gaddal",
+    "current_role": "Android Developer",
+    "current_company": "Kay Technology",
+    "location_en": "Riyadh, Saudi Arabia",
+    "location_ar": "الرياض، المملكة العربية السعودية",
+    "tenure_total": "8+ years at Kay Technology (Researcher 2017–2022, Android Developer 2022–present)",
+    "years_mobile": "4+"
+  },
+  "headline": {
+    "linkedin_220": "Android Developer at Kay Technology · Kotlin · Jetpack Compose · KMP/CMP · Ktor backends · 4+ yrs shipping production mobile apps · Riyadh",
+    "github_bio_160": "Android Developer at Kay Technology. Kotlin · Jetpack Compose · KMP/CMP · Ktor backends. Building production mobile apps from Riyadh.",
+    "site_hero_en": "Android Developer.",
+    "site_hero_subtitle_en": "I build large-scale, multi-platform apps that hold up in production. My work pairs clean system architecture with native mobile performance using Kotlin Multiplatform.",
+    "cv_subtitle": "Android Developer"
+  },
+  "bio": {
+    "site_about_en": "I'm an Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale.",
+    "linkedin_about_en": "I'm Hussain, an Android Developer at Kay Technology in Riyadh. 4+ years shipping production apps in Kotlin and Jetpack Compose, with the last year focused on Kotlin Multiplatform and Compose Multiplatform (KMP/CMP).\n\nAt Kay Tech I lead the Android product. I migrated the legacy Java/XML codebase to Kotlin and Compose, which dropped crashes by 40%. I built reusable in-house SDKs (auth, search, downloads) that cut feature delivery time by 25%, redesigned core flows in Material 3 Compose for a 15% lift in session duration, and set up a Bitrise CI/CD pipeline plus a multi-module Clean Architecture/MVI structure that took new-developer onboarding from weeks to days (50% faster). I also build the Ktor microservices the app talks to (auth, content, search), and tightened API response time by ~30%.\n\nOutside Kay Tech I ship side projects across Android, Wear OS, Desktop, and iOS using KMP/CMP. Recent ones: Chirp (cross-platform messenger, Spring Boot backend), Runique (multi-module running tracker with Wear OS sync), and ScribbleDash (Compose drawing app). The portfolio has the full list with architecture writeups.\n\nI'm open to senior Android, KMP, or full-stack Kotlin roles."
+  },
+  "top_skills": [
+    "Kotlin",
+    "Jetpack Compose",
+    "Kotlin Multiplatform (KMP)",
+    "Compose Multiplatform (CMP)",
+    "Clean Architecture"
+  ],
+  "metrics": {
+    "crash_reduction_pct": 40,
+    "delivery_speedup_pct": 25,
+    "session_duration_pct": 15,
+    "onboarding_reduction_pct": 50,
+    "api_response_pct": 30
+  },
+  "contact": {
+    "email": "hussain.yg2010@gmail.com",
+    "phone": "+966 53 851 7374",
+    "portfolio": "https://ironmanyg.github.io/hussain-portfolio/",
+    "linkedin": "https://www.linkedin.com/in/hussaingaddal/",
+    "github": "https://github.com/IronManYG",
+    "github_username": "IronManYG"
+  },
+  "research_era": {
+    "role": "Researcher",
+    "company": "Kay Technology",
+    "dates": "Sep 2017 – Mar 2022",
+    "projects": ["Kay Scanner", "Kay Labs"],
+    "tools": ["Fusion 360", "Ultimaker hardware", "Cura"]
+  }
+}
