@@ -581,335 +581,25 @@ All cert data below was verified against the actual PDFs in [`./certs/`](./certs
 
 LinkedIn certification form fields per entry: **Name**, **Issuing organization**, **Issue date**, **Credential ID** (where present), **Credential URL**, **Skills**, **Media (file + title + description)**.
 
-> **PL Coding format note.** The 2024+ PL Coding certs (CMP × 2, Spring Boot, Android Essentials, Wear OS) don't print a credential ID — leave that field blank on LinkedIn. The older 2022 CI/CD cert prints `VWTNWR`. The Udacity Nanodegree is fully verifiable at `confirm.udacity.com/KXAAJDDG`.
+> **PL Coding's LinkedIn issuer is "PL Coding GmbH"** — match exactly so LinkedIn links to the verified company page. The "GmbH" suffix is the German legal entity form; only use it on LinkedIn (CV/site keeps the cleaner "PL Coding").
 >
-> **JetBrains badge.** PL Coding's website advertises the 2025 CMP + Spring Boot courses as "in collaboration with JetBrains". JetBrains is *not* printed on the cert PDFs themselves — keep the JetBrains mention inside the Media description, not in the issuer field.
+> **Paste in the order below — oldest first.** LinkedIn's display sort is newest-on-top, but the *paste order* drives the stack when months tie. Pasting from oldest → newest puts the newest cert at the top of your displayed list. The 7 certs below are already sorted oldest-first.
 >
-> **Testing course is bundled.** The "Mastering Automated Testing of Industry-Level Android Apps" topics are part of *The Essentials of Industry-Level Android App Development* — there is no separate Testing certification. Add testing skills to Cert #4's Skills list instead of as a standalone entry.
-
----
-
-### Cert #1 — Compose Multiplatform Desktop Apps
-
-**Name**
-
-```text
-Building Industry-Level Compose Multiplatform Desktop Apps
-```
-
-**Issuing organization**
-
-```text
-PL Coding
-```
-
-**Issue date** → `December 2025`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
-
-**Credential URL**
-
-```text
-https://www.pl-coding.com/courses/cmp-mobile
-```
-
-**Skills (top 6 — add all)**
-
-```text
-Compose Multiplatform
-Compose for Desktop
-Kotlin Multiplatform
-Cross-Platform Development
-Responsive UI
-Multi-Module Architecture
-```
-
-**Media — file:** upload `Building Industry-Level Compose Multiplatform Desktop Apps Certificate.pdf`
-
-**Media — title**
-
-```text
-Compose Multiplatform Desktop — Course Completion Certificate
-```
-
-**Media — description**
-
-```text
-Issued by PL Coding (in collaboration with JetBrains). 21-lesson / 4-hour add-on extending the CMP base course to Windows, MacOS and Linux desktop targets — covering desktop-specific Figma extensions, packaging, and platform-aware Compose UI.
-```
-
----
-
-### Cert #2 — Compose Multiplatform Android & iOS
-
-**Name**
-
-```text
-Building Industry-Level Compose Multiplatform Android & iOS Apps
-```
-
-**Issuing organization**
-
-```text
-PL Coding
-```
-
-**Issue date** → `December 2025`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
-
-**Credential URL**
-
-```text
-https://www.pl-coding.com/courses/cmp-mobile
-```
-
-**Skills (top 8 — add all)**
-
-```text
-Kotlin Multiplatform
-Compose Multiplatform
-Jetpack Compose
-Multi-Module Architecture
-Offline-First Architecture
-Gradle Convention Plugins
-Room Database
-Authentication
-```
-
-**Media — file:** upload `Building Industry-Level Compose Multiplatform Android & iOS Apps Certificate.pdf`
-
-**Media — title**
-
-```text
-Compose Multiplatform Android & iOS — Course Completion Certificate
-```
-
-**Media — description**
-
-```text
-Issued by PL Coding (in collaboration with JetBrains). 170+ video lessons / 30+ hours building an industry-scale multi-module chat app — covering KMP & CMP internals, build-logic + convention plugins, version catalogs, offline-first data with Room, authentication, real-time communication, and 100% responsive Compose UI across Android & iOS.
-```
-
----
-
-### Cert #3 — Kotlin Backends With Spring Boot
-
-**Name**
-
-```text
-Building Industry-Level Kotlin Backends With Spring Boot
-```
-
-**Issuing organization**
-
-```text
-PL Coding
-```
-
-**Issue date** → `October 2025`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
-
-**Credential URL**
-
-```text
-https://www.pl-coding.com/courses/kotlin-spring-boot
-```
-
-**Skills (top 8 — add all)**
-
-```text
-Spring Boot
-Kotlin
-PostgreSQL
-Redis
-WebSockets
-RabbitMQ
-REST APIs
-JWT Authentication
-```
-
-Optional extras to add if LinkedIn lets you tag more: `Multi-Module Gradle`, `CI/CD with GitHub Actions`, `BCrypt Password Hashing`, `Rate Limiting`.
-
-**Media — file:** upload `Building Industry-Level Kotlin Backends With Spring Boot Certificate.pdf`
-
-**Media — title**
-
-```text
-Kotlin Spring Boot Backends — Course Completion Certificate
-```
-
-**Media — description**
-
-```text
-Issued by PL Coding (in collaboration with JetBrains). 120+ video lessons / 20+ hours building a production-grade Kotlin chat-app backend with Spring Boot — covering multi-module Gradle architecture, PostgreSQL + Redis, JWT auth with refresh tokens, REST + WebSockets + RabbitMQ messaging, BCrypt password security, Redis-backed rate limiting, and CI/CD deployment via GitHub Actions.
-```
-
----
-
-### Cert #4 — The Essentials of Industry-Level Android App Development
-
-**Name**
-
-```text
-The Essentials of Industry-Level Android App Development
-```
-
-**Issuing organization**
-
-```text
-PL Coding
-```
-
-**Issue date** → `October 2024`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
-
-**Credential URL**
-
-```text
-https://www.pl-coding.com/courses/android-essentials
-```
-
-**Skills (top 10 — add all; testing skills bundled here since there's no separate Testing cert)**
-
-```text
-Multi-Module Architecture
-Jetpack Compose
-Gradle Convention Plugins
-Kotlin Coroutines
-Kotlin Flows
-Android Architecture
-REST APIs
-Caching Strategies
-Unit Testing
-UI Testing
-```
-
-Optional extras: `Google Maps SDK`, `Dynamic Feature Modules`, `Version Catalogs`, `JUnit5`, `MockK`, `Integration Testing`, `End-to-End Testing`.
-
-**Media — file:** upload `The Essentials of Industry-Level Android App Development Certificate.pdf`
-
-**Media — title**
-
-```text
-Essentials of Industry-Level Android — Course Completion Certificate
-```
-
-**Media — description**
-
-```text
-Issued by PL Coding. 84 video lessons / 17+ hours building a 6-screen running tracker app — covering project planning and architecture fundamentals, Gradle build-logic with version catalogs and convention plugins, reactive programming with Coroutines & Flows, Jetpack Compose at scale, remote APIs and local database caching strategies, dynamic feature modules, location tracking with the Google Maps SDK, and bundled testing strategies (unit, UI, integration, end-to-end).
-```
-
----
-
-### Cert #5 — Building Industry-Level Wear OS Apps
-
-> **URL note:** PL Coding sells this course only via a direct checkout link (no `/courses/` landing page). Leave Credential URL blank, or use the courses index URL below.
-
-**Name**
-
-```text
-Building Industry-Level Wear OS Apps
-```
-
-**Issuing organization**
-
-```text
-PL Coding
-```
-
-**Issue date** → `November 2024`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
-
-**Credential URL**
-
-```text
-https://www.pl-coding.com/courses
-```
-
-**Skills (top 6 — add all)**
-
-```text
-Wear OS
-Health Services API
-Jetpack Compose
-Cross-Device Sync
-Kotlin Coroutines & Flows
-Multi-Module Architecture
-```
-
-**Media — file:** upload `Building Industry-Level Wear OS Apps Certificate.pdf`
-
-**Media — title**
-
-```text
-Wear OS Apps — Course Completion Certificate
-```
-
-**Media — description**
-
-```text
-Issued by PL Coding. 5+ hours of video building a complete Wear OS app integrated with a paired mobile device — covering Wear OS theming with Jetpack Compose, exercise and heart-rate tracking via the Health Services API, watch-phone data synchronization, and integration into an existing multi-module Android architecture.
-```
-
----
-
-### Cert #6 — Professional App Development With CI/CD
-
-**Name**
-
-```text
-Professional App Development With CI/CD
-```
-
-**Issuing organization**
-
-```text
-PL Coding
-```
-
-**Issue date** → `December 2022`  ·  **Expiration date** → leave blank
-
-**Credential ID**
-
-```text
-VWTNWR
-```
-
-**Credential URL**
-
-```text
-https://www.pl-coding.com/courses/ci-cd-course
-```
-
-**Skills (top 6 — add all)**
-
-```text
-CI/CD
-Bitrise
-Continuous Integration
-Continuous Delivery
-Google Play Console
-Firebase App Distribution
-```
-
-Optional extras: `Git Workflow`, `Staging Environments`, `Automated Deployment`.
-
-**Media — file:** upload `Professional App Development With CI-CD Certificate.pdf`
-
-**Media — title**
-
-```text
-Professional App Dev with CI/CD — Course Completion Certificate
-```
-
-**Media — description**
-
-```text
-Issued by PL Coding. Step-by-step CI/CD workflow course for Android — covering automated CI pipelines with Bitrise, fully automated deployment to Google Play, industry-standard Git branching strategies for projects at scale, staging environment setup, and automated app distribution to QA testing teams via Firebase App Distribution.
-```
-
----
-
-### Cert #7 — Android Kotlin Developer Nanodegree (Udacity)
-
-> **Likely already on your LinkedIn.** Included for completeness — if it's already there, just verify the **Credential URL** and **Credential ID** are filled in. Udacity Nanodegrees are publicly verifiable, which boosts credibility for recruiters.
+> **PL Coding cert format.** 2024+ PL Coding certs (Essentials, Wear OS, Spring Boot, CMP × 2) don't print a credential ID — leave that field blank. The older 2022 CI/CD cert prints `VWTNWR`. The Udacity Nanodegree is fully verifiable at `confirm.udacity.com/KXAAJDDG`.
 >
-> **Name on PDF.** The Udacity cert reads "Hussain Yahya Hussain Gaddal" (your full legal name). LinkedIn doesn't have to match — keep your LinkedIn name as "Hussain Gaddal".
+> **JetBrains badge.** PL Coding's website advertises the 2025 CMP + Spring Boot courses as "in collaboration with JetBrains". JetBrains is *not* printed on the cert PDFs — keep the JetBrains mention inside the Media description, not in the issuer field.
+>
+> **Testing course is bundled.** The "Mastering Automated Testing of Industry-Level Android Apps" topics are part of *The Essentials of Industry-Level Android App Development* — there is no separate Testing cert. Skills bundled into Cert #3 below.
+>
+> **LinkedIn skill cap.** LinkedIn caps skills *per certification* at 5 (UI limit). Each cert below lists the **top 5 to attach to the cert itself**, plus an **overflow** list for skills that should land elsewhere (your LinkedIn main Skills section, CV pills, GitHub repo topics, or site expertise cards) — see the propagation table at the end of this section.
+
+---
+
+### Cert #1 — Android Kotlin Developer Nanodegree (Udacity) *(Feb 2022 — paste first)*
+
+> **Likely already on your LinkedIn.** If it's there, just verify the **Credential URL** and **Credential ID** are filled — publicly verifiable Nanodegrees boost credibility with recruiters.
+>
+> **Name on PDF.** "Hussain Yahya Hussain Gaddal" (your full legal name). LinkedIn doesn't have to match — keep "Hussain Gaddal" everywhere on LinkedIn.
 
 **Name**
 
@@ -937,7 +627,7 @@ KXAAJDDG
 https://confirm.udacity.com/KXAAJDDG
 ```
 
-**Skills (top 8 — add all)**
+**Top 5 skills (attach to cert)**
 
 ```text
 Android Development
@@ -945,12 +635,9 @@ Kotlin
 Android SDK
 MVVM Architecture
 Room Database
-Retrofit
-LiveData
-Coroutines
 ```
 
-Optional extras: `Material Design`, `Firebase`, `Navigation Component`, `Lifecycle-Aware Components`.
+**Overflow skills (add to LinkedIn main Skills section instead — see propagation table):** `Retrofit`, `LiveData`, `Coroutines`, `Material Design`, `Firebase`, `Navigation Component`, `Lifecycle-Aware Components`.
 
 **Media — file:** upload `Android Kotlin Developer Nanodegree Program Certificate.pdf`
 
@@ -968,9 +655,361 @@ Verified Nanodegree program from Udacity (Feb 2022). Credential publicly verifia
 
 ---
 
+### Cert #2 — Professional App Development With CI/CD *(Dec 2022)*
+
+**Name**
+
+```text
+Professional App Development With CI/CD
+```
+
+**Issuing organization**
+
+```text
+PL Coding GmbH
+```
+
+**Issue date** → `December 2022`  ·  **Expiration date** → leave blank
+
+**Credential ID**
+
+```text
+VWTNWR
+```
+
+**Credential URL**
+
+```text
+https://www.pl-coding.com/courses/ci-cd-course
+```
+
+**Top 5 skills (attach to cert)**
+
+```text
+CI/CD
+Bitrise
+Continuous Delivery
+Google Play Console
+Firebase App Distribution
+```
+
+**Overflow skills:** `Continuous Integration`, `Git Workflow`, `Staging Environments`, `Automated Deployment`.
+
+**Media — file:** upload `Professional App Development With CI-CD Certificate.pdf`
+
+**Media — title**
+
+```text
+Professional App Dev with CI/CD — Course Completion Certificate
+```
+
+**Media — description**
+
+```text
+Issued by PL Coding. Step-by-step CI/CD workflow course for Android — covering automated CI pipelines with Bitrise, fully automated deployment to Google Play, industry-standard Git branching strategies for projects at scale, staging environment setup, and automated app distribution to QA testing teams via Firebase App Distribution.
+```
+
+---
+
+### Cert #3 — The Essentials of Industry-Level Android App Development *(Oct 2024)*
+
+**Name**
+
+```text
+The Essentials of Industry-Level Android App Development
+```
+
+**Issuing organization**
+
+```text
+PL Coding GmbH
+```
+
+**Issue date** → `October 2024`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
+
+**Credential URL**
+
+```text
+https://www.pl-coding.com/courses/android-essentials
+```
+
+**Top 5 skills (attach to cert; testing skills bundled here since there's no separate Testing cert)**
+
+```text
+Multi-Module Architecture
+Jetpack Compose
+Gradle Convention Plugins
+Kotlin Coroutines
+Unit Testing
+```
+
+**Overflow skills:** `Kotlin Flows`, `Android Architecture`, `REST APIs`, `Caching Strategies`, `UI Testing`, `JUnit5`, `MockK`, `Integration Testing`, `End-to-End Testing`, `Google Maps SDK`, `Dynamic Feature Modules`, `Version Catalogs`.
+
+**Media — file:** upload `The Essentials of Industry-Level Android App Development Certificate.pdf`
+
+**Media — title**
+
+```text
+Essentials of Industry-Level Android — Course Completion Certificate
+```
+
+**Media — description**
+
+```text
+Issued by PL Coding. 84 video lessons / 17+ hours building a 6-screen running tracker app — covering project planning and architecture fundamentals, Gradle build-logic with version catalogs and convention plugins, reactive programming with Coroutines & Flows, Jetpack Compose at scale, remote APIs and local database caching strategies, dynamic feature modules, location tracking with the Google Maps SDK, and bundled testing strategies (unit, UI, integration, end-to-end).
+```
+
+---
+
+### Cert #4 — Building Industry-Level Wear OS Apps *(Nov 2024)*
+
+> **URL note:** PL Coding sells this course only via a direct checkout link (no `/courses/` landing page). Leave Credential URL blank, or use the courses index URL below.
+
+**Name**
+
+```text
+Building Industry-Level Wear OS Apps
+```
+
+**Issuing organization**
+
+```text
+PL Coding GmbH
+```
+
+**Issue date** → `November 2024`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
+
+**Credential URL**
+
+```text
+https://www.pl-coding.com/courses
+```
+
+**Top 5 skills (attach to cert)**
+
+```text
+Wear OS
+Health Services API
+Jetpack Compose
+Cross-Device Sync
+Multi-Module Architecture
+```
+
+**Overflow skills:** `Kotlin Coroutines & Flows`.
+
+**Media — file:** upload `Building Industry-Level Wear OS Apps Certificate.pdf`
+
+**Media — title**
+
+```text
+Wear OS Apps — Course Completion Certificate
+```
+
+**Media — description**
+
+```text
+Issued by PL Coding. 5+ hours of video building a complete Wear OS app integrated with a paired mobile device — covering Wear OS theming with Jetpack Compose, exercise and heart-rate tracking via the Health Services API, watch-phone data synchronization, and integration into an existing multi-module Android architecture.
+```
+
+---
+
+### Cert #5 — Building Industry-Level Kotlin Backends With Spring Boot *(Oct 2025)*
+
+**Name**
+
+```text
+Building Industry-Level Kotlin Backends With Spring Boot
+```
+
+**Issuing organization**
+
+```text
+PL Coding GmbH
+```
+
+**Issue date** → `October 2025`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
+
+**Credential URL**
+
+```text
+https://www.pl-coding.com/courses/kotlin-spring-boot
+```
+
+**Top 5 skills (attach to cert)**
+
+```text
+Spring Boot
+Kotlin
+PostgreSQL
+WebSockets
+JWT Authentication
+```
+
+**Overflow skills:** `Redis`, `RabbitMQ`, `REST APIs`, `Multi-Module Gradle`, `CI/CD with GitHub Actions`, `BCrypt Password Hashing`, `Rate Limiting`.
+
+**Media — file:** upload `Building Industry-Level Kotlin Backends With Spring Boot Certificate.pdf`
+
+**Media — title**
+
+```text
+Kotlin Spring Boot Backends — Course Completion Certificate
+```
+
+**Media — description**
+
+```text
+Issued by PL Coding (in collaboration with JetBrains). 120+ video lessons / 20+ hours building a production-grade Kotlin chat-app backend with Spring Boot — covering multi-module Gradle architecture, PostgreSQL + Redis, JWT auth with refresh tokens, REST + WebSockets + RabbitMQ messaging, BCrypt password security, Redis-backed rate limiting, and CI/CD deployment via GitHub Actions.
+```
+
+---
+
+### Cert #6 — Compose Multiplatform Android & iOS *(Dec 11, 2025)*
+
+**Name**
+
+```text
+Building Industry-Level Compose Multiplatform Android & iOS Apps
+```
+
+**Issuing organization**
+
+```text
+PL Coding GmbH
+```
+
+**Issue date** → `December 2025`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
+
+**Credential URL**
+
+```text
+https://www.pl-coding.com/courses/cmp-mobile
+```
+
+**Top 5 skills (attach to cert)**
+
+```text
+Kotlin Multiplatform
+Compose Multiplatform
+Multi-Module Architecture
+Offline-First Architecture
+Authentication
+```
+
+**Overflow skills:** `Jetpack Compose`, `Gradle Convention Plugins`, `Room Database`.
+
+**Media — file:** upload `Building Industry-Level Compose Multiplatform Android & iOS Apps Certificate.pdf`
+
+**Media — title**
+
+```text
+Compose Multiplatform Android & iOS — Course Completion Certificate
+```
+
+**Media — description**
+
+```text
+Issued by PL Coding (in collaboration with JetBrains). 170+ video lessons / 30+ hours building an industry-scale multi-module chat app — covering KMP & CMP internals, build-logic + convention plugins, version catalogs, offline-first data with Room, authentication, real-time communication, and 100% responsive Compose UI across Android & iOS.
+```
+
+---
+
+### Cert #7 — Compose Multiplatform Desktop Apps *(Dec 15, 2025 — paste last)*
+
+**Name**
+
+```text
+Building Industry-Level Compose Multiplatform Desktop Apps
+```
+
+**Issuing organization**
+
+```text
+PL Coding GmbH
+```
+
+**Issue date** → `December 2025`  ·  **Expiration date** → leave blank  ·  **Credential ID** → leave blank
+
+**Credential URL**
+
+```text
+https://www.pl-coding.com/courses/cmp-mobile
+```
+
+**Top 5 skills (attach to cert)**
+
+```text
+Compose Multiplatform
+Compose for Desktop
+Cross-Platform Development
+Responsive UI
+Multi-Module Architecture
+```
+
+**Overflow skills:** `Kotlin Multiplatform`.
+
+**Media — file:** upload `Building Industry-Level Compose Multiplatform Desktop Apps Certificate.pdf`
+
+**Media — title**
+
+```text
+Compose Multiplatform Desktop — Course Completion Certificate
+```
+
+**Media — description**
+
+```text
+Issued by PL Coding (in collaboration with JetBrains). 21-lesson / 4-hour add-on extending the CMP base course to Windows, MacOS and Linux desktop targets — covering desktop-specific Figma extensions, packaging, and platform-aware Compose UI.
+```
+
+---
+
 ### Notes on the "Issuing organization" field
 
-- **PL Coding** — LinkedIn's autocomplete may or may not surface a "PL Coding" company page; if not, type the name manually and LinkedIn saves it as a free-text issuer.
+- **PL Coding GmbH** — LinkedIn's autocomplete should surface the verified company page. If not, type it manually (it's the German legal entity form, capital `GmbH`).
 - **Udacity** — has a verified LinkedIn company page; let autocomplete fill it.
 - Don't put "Pl-Coding (JetBrains-collaborated)" in the issuer field — JetBrains is a collaborator, not the issuer (and only on the 2025 CMP + Spring Boot courses; the 2024/2022 ones aren't JetBrains-collaborated). The JetBrains mention belongs in the Media description for the 2025 certs only.
-- **LinkedIn ordering** defaults to chronological (most recent first). Add them in this order so they sort correctly: #1 → #2 → #3 → #4 → #5 → #6 → #7.
+- **LinkedIn ordering** — paste oldest-first as numbered above (#1 Udacity → #7 CMP Desktop). Newest pastes appear at the top of the displayed list.
+
+---
+
+### Cross-surface skill propagation
+
+LinkedIn caps skills per certification at 5. The "overflow" lists above don't go to waste — each skill has at least one other home where it reinforces your stack and improves discoverability.
+
+**Free-space surfaces (where overflow can land):**
+
+| Surface | Cap | Where to edit | Notes |
+|---|---|---|---|
+| LinkedIn main Skills section | 50 total | Profile → Skills | Endorsements + recruiter search benefit. Prune obsolete skills first via §8. |
+| CV project pills | ~6–8 per project | `src/cv/Hussain_Gaddal_CV_A.html`, `src/cv/Hussain_Gaddal_CV_C.html` | Don't overcrowd compact variants D/E. |
+| GitHub repo topics | 20 max per repo | Repo settings → Topics | Pinned repos already topic-tagged; check for additions. |
+| Site expertise cards | varies | `src/_data/home.json` (en+ar) | Cards on homepage. |
+| Site project pages | ~6 per project | `src/_data/projects.json` `tech_stack` | Already populated for most. |
+
+**Where each overflow skill belongs:**
+
+- **LinkedIn main Skills section — bulk add (de-dupe with existing first):**
+  `Retrofit`, `LiveData`, `Material Design`, `Firebase`, `Navigation Component`, `Lifecycle-Aware Components`, `MVVM Architecture`, `CI/CD`, `Bitrise`, `Continuous Integration`, `Continuous Delivery`, `Google Play Console`, `Firebase App Distribution`, `Multi-Module Architecture`, `Gradle Convention Plugins`, `Version Catalogs`, `Kotlin Coroutines`, `Kotlin Flows`, `Caching Strategies`, `Unit Testing`, `UI Testing`, `JUnit5`, `MockK`, `Integration Testing`, `End-to-End Testing`, `Wear OS`, `Health Services API`, `Cross-Device Sync`, `Spring Boot`, `PostgreSQL`, `Redis`, `WebSockets`, `RabbitMQ`, `JWT Authentication`, `BCrypt`, `Rate Limiting`, `GitHub Actions`, `Compose Multiplatform`, `Compose for Desktop`, `Kotlin Multiplatform`, `Cross-Platform Development`, `Responsive UI`, `Offline-First Architecture`, `Authentication`.
+
+- **CV pills (variants A and C only — D/E are length-locked):**
+  - **Chirp** (currently `KMP, CMP, Koin, Spring Boot, Room, FCM`) — add `WebSockets`, `JWT`, `PostgreSQL`. Drop `FCM` if you need room.
+  - **Runique** (currently `Kotlin, Compose, Koin, Room, Ktor, Maps SDK, Wear OS`) — add `Health Services API`. Already at 7 pills — consider dropping `Ktor` since Wear OS course doesn't use it.
+
+- **GitHub repo topics (open each repo → Settings → Topics):**
+  - **Chirp / Translator KMM / similar KMP repos** — add `compose-multiplatform`, `compose-desktop`, `kotlin-multiplatform`, `offline-first`, `multi-module-architecture`, `convention-plugins`.
+  - **Chirp backend / qodem-api** — add `spring-boot`, `postgresql`, `redis`, `websockets`, `rabbitmq`, `jwt-authentication`, `rate-limiting`.
+  - **Runique** — add `wear-os`, `health-services-api`, `convention-plugins`, `multi-module`.
+  - **Older Android repos (Translator KMM, etc.)** — add `mvvm`, `retrofit`, `livedata` if still relevant.
+
+- **Site `home.json` expertise cards (en + ar):**
+  - **Backend card** — Spring Boot already added; consider adding `WebSockets` and `PostgreSQL` for backend stack visibility.
+  - **Mobile card** — consider adding `Wear OS` and `Cross-Platform` if room.
+  - **Tooling/DevOps card (if exists, otherwise create)** — `CI/CD`, `GitHub Actions`, `Bitrise`.
+
+**Suggested execution order:**
+
+1. **First** — paste all 7 certs to LinkedIn (with top-5 skills each). This is the highest-visibility win and is the immediate paste-blocking item.
+2. **Second** — bulk-add the LinkedIn main Skills section with the de-duped overflow list. Cheap and high-value for recruiter search.
+3. **Third** — GitHub repo topics on Chirp + Runique (these are pinned, so visible to anyone visiting your profile).
+4. **Fourth** — CV pills on variants A and C only. Re-export PDFs after.
+5. **Fifth (optional)** — site `home.json` expertise card refresh.
