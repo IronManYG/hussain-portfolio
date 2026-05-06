@@ -24,6 +24,18 @@
           ]
         },
         {
+          "role": "Researcher",
+          "company": "@ Kay Technology",
+          "color": "text-kotlin-orange",
+          "date_location": "Sep 2017 - Mar 2022 | Riyadh, Saudi Arabia",
+          "node_color": "bg-[#A3E635] ring-[#A3E635]/20 border-ide-bg",
+          "details": [
+            "Co-built <strong class=\"text-ide-text-strong\">Kay Scanner</strong>, a device that scans physical books without human page-flipping. Worked across hardware control, image capture, and software automation around the scan pipeline.",
+            "Helped deliver <strong class=\"text-ide-text-strong\">Kay Labs</strong>, a 3D-printing lab partnered with Imam Muhammad bin Saud University (College of Computer & Information Sciences), equipped with Ultimaker hardware so students could prototype their CS coursework projects.",
+            "Hands-on with Fusion 360, Ultimaker hardware, and Cura slicing. The prototyping work led into mobile engineering at Kay Tech in 2022."
+          ]
+        },
+        {
           "role": "Bachelor (Honors) of Electrical Engineering",
           "company": "@ Academy of Engineering Sciences",
           "color": "text-kotlin-purple",
@@ -113,6 +125,18 @@
             "صممت واجهات مستخدم تفاعلية وجذابة باستخدام <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>، بالإضافة إلى مكتبات Coil وتأثيرات Lottie الحركية، مما زاد من مدة جلسة المستخدم بنسبة <strong class=\"text-ide-text-strong\">15%</strong>.",
             "وضعت معايير معمارية واضحة (Clean Architecture, MVI) وأسست مسار تكامل وتسليم مستمر (<strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong>)، مما قلص من وقت تأهيل المطورين الجدد بنسبة <strong class=\"text-ide-text-strong\">50%</strong>.",
             "برمجت وأدرت خدمات مصغرة (Micro-services) خفيفة باستخدام Ktor للمصادقة وتوصيل المحتوى، مما أدى إلى تحسين سرعة استجابة الـ API بنسبة <strong class=\"text-ide-text-strong\">30%</strong>."
+          ]
+        },
+        {
+          "role": "باحث (Researcher)",
+          "company": "@ كيه لتقنية المعلومات",
+          "color": "text-kotlin-orange",
+          "date_location": "سبتمبر 2017 - مارس 2022 | الرياض، السعودية",
+          "node_color": "bg-[#A3E635] ring-[#A3E635]/20 border-ide-bg",
+          "details": [
+            "شاركت في بناء <strong class=\"text-ide-text-strong\">Kay Scanner</strong>، جهاز يقوم بمسح الكتب الورقية ضوئياً دون الحاجة لتقليب الصفحات يدوياً. عملت على التحكم بالجهاز، والتقاط الصور، وأتمتة البرمجيات حول مسار المسح.",
+            "ساهمت في إطلاق <strong class=\"text-ide-text-strong\">Kay Labs</strong>، معمل للطباعة ثلاثية الأبعاد بالشراكة مع جامعة الإمام محمد بن سعود الإسلامية (كلية علوم الحاسب والمعلومات)، مُجهّز بأجهزة Ultimaker لتمكين الطلاب من بناء النماذج الأولية لمشاريعهم البرمجية.",
+            "عمل عملي بأدوات Fusion 360 و Ultimaker و Cura. مرحلة النماذج الأولية هذه كانت مدخلي إلى هندسة تطبيقات الجوال في كيه لتقنية المعلومات عام 2022."
           ]
         },
         {
