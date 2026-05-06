@@ -52,10 +52,3 @@ Started at Kay Technology in 2017 as a Researcher on hardware and 3D-printing pr
 ![Room](https://img.shields.io/badge/Room-4285F4?style=flat&logo=android&logoColor=white)
 ![Bitrise](https://img.shields.io/badge/Bitrise-683D87?style=flat&logo=bitrise&logoColor=white)
 ![Material_3](https://img.shields.io/badge/Material_3-757575?style=flat&logo=materialdesign&logoColor=white)
-
-#### GitHub stats
-
-<a href="https://github.com/IronManYG">
-  <img src="https://github-readme-stats.vercel.app/api?username=IronManYG&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="160" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=IronManYG&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" height="160" />
-</a>
