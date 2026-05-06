@@ -74,7 +74,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "Backend & Cloud",
-          "description": "Building micro-services with <strong class=\"text-ide-text-strong\">Ktor</strong> and Spring Boot. Database design with PostgreSQL."
+          "description": "Building micro-services with <strong class=\"text-ide-text-strong\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
         }
       ]
     }
@@ -154,7 +154,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "الخوادم والسحابة",
-          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-ide-text-strong\">Ktor</strong> و Spring Boot، مع خبرة في تصميم قواعد بيانات PostgreSQL."
+          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-ide-text-strong\">Spring Boot</strong> و Ktor، مع خبرة في تصميم قواعد بيانات PostgreSQL."
         }
       ]
     }

@@ -40,8 +40,8 @@ The site rebuilds from those automatically. Everything else (LinkedIn, GitHub, N
 | Role / title | `profile.json#identity.current_role` | Headline + About line 1 | Bio | Header subtitle | Subtitle line | Hero headline | About line 1 | Eyebrow text | 2026-05-05 |
 | Company | `profile.json#identity.current_company` | Experience role | Company field | Top of README | Work Experience block | About paragraph | Experience timeline | (n/a) | 2026-05-05 |
 | Location | `profile.json#identity.location_en` | Header location | Location field | Top of README | Contact line | Footer location | Hero subtitle | (n/a) | 2026-05-05 |
-| Headline (long) | `profile.json#headline.linkedin_220` | Headline | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | 2026-05-05 |
-| Bio (short) | `profile.json#headline.github_bio_160` | (n/a) | Bio | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | 2026-05-05 |
+| Headline (long) | `profile.json#headline.linkedin_220` | Headline | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | 2026-05-06 |
+| Bio (short) | `profile.json#headline.github_bio_160` | (n/a) | Bio | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | 2026-05-06 |
 | Bio (long) | `profile.json#bio.linkedin_about_en` | About | (n/a) | "What I'm working on" section | Professional Summary | (n/a) | About paragraphs | (n/a) | 2026-05-05 |
 | Top 5 skills | `profile.json#top_skills` | Top Skills | (n/a) | Stack badges | Skills section | Expertise cards | (n/a) | (n/a) | 2026-05-05 |
 | Metrics (40 / 25 / 15 / 50 / 30) | `profile.json#metrics` | Experience bullets | (n/a) | "What I'm working on" bullets | Work Experience bullets | (n/a) | Experience bullets | (n/a) | 2026-05-05 |

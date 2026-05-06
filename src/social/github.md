@@ -10,7 +10,7 @@ The actual `IronManYG/IronManYG` profile README content lives in [`./github-prof
 
 | Field | Set to | How |
 |---|---|---|
-| Bio | `Android Developer at Kay Technology. Kotlin · Jetpack Compose · KMP/CMP · Ktor backends. Building production mobile apps from Riyadh.` | Settings → Public profile |
+| Bio | `Android Developer at Kay Technology. Kotlin · Jetpack Compose · KMP/CMP · Spring Boot + Ktor backends. Full-stack Kotlin from Riyadh.` | Settings → Public profile |
 | Blog | `https://ironmanyg.github.io/hussain-portfolio/` | Settings → Public profile (replaces the old Notion URL) |
 | Location | `Riyadh, Saudi Arabia` | Settings → Public profile |
 | Company | `Kay Technology` | Already set |
@@ -26,7 +26,7 @@ Then run:
 
 ```bash
 gh api -X PATCH user \
-  -f bio="Android Developer at Kay Technology. Kotlin · Jetpack Compose · KMP/CMP · Ktor backends. Building production mobile apps from Riyadh." \
+  -f bio="Android Developer at Kay Technology. Kotlin · Jetpack Compose · KMP/CMP · Spring Boot + Ktor backends. Full-stack Kotlin from Riyadh." \
   -f blog="https://ironmanyg.github.io/hussain-portfolio/" \
   -f location="Riyadh, Saudi Arabia"
 ```

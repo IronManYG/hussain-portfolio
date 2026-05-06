@@ -11,7 +11,7 @@ data class Hussain(
         "Kotlin Multiplatform", "Compose Multiplatform",
         "Ktor", "Spring Boot"
     ),
-    val shipping: String = "Production Android + KMP/CMP side projects + Ktor backends",
+    val shipping: String = "Production Android + KMP/CMP side projects + Spring Boot/Ktor backends",
     val openTo: List<String> = listOf("Senior Android", "KMP", "Full-stack Kotlin")
 )
 

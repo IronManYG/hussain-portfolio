@@ -8,9 +8,9 @@ Edit each section by clicking the pencil icon next to it on your profile page.
 
 ## 1. Headline (220 char limit)
 
-> Android Developer at Kay Technology · Kotlin · Jetpack Compose · KMP/CMP · Ktor backends · 4+ yrs shipping production mobile apps · Riyadh
+> Android Developer at Kay Technology · Kotlin · Jetpack Compose · KMP/CMP · Spring Boot + Ktor backends · Full-stack Kotlin · 4+ yrs · Riyadh
 
-(~140 chars. Mobile-readable. Keywords front-loaded for LinkedIn search.)
+(140 chars. Mobile-readable. Keywords front-loaded for LinkedIn search. Spring Boot leads the backend pair because Hussain has more Spring Boot experience; Ktor is also accurate via Kay Tech microservices.)
 
 ---
 
