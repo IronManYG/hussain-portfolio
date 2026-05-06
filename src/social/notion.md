@@ -4,45 +4,129 @@ The old Notion site stays live so legacy CV PDFs (which link to Notion sections)
 
 The redirect pages are bilingual (English left / Arabic right) and have one button per language. Buttons use `target="_top"` so the click escapes the Notion iframe and opens the new portfolio in the user's main window.
 
-## URLs to embed
-
-Replace each Notion section's content with one `/embed` block, set the URL to the matching row below.
-
-| Notion section | Embed URL |
-|---|---|
-| Home / cover page | `https://ironmanyg.github.io/hussain-portfolio/notion/home/` |
-| Projects index | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/` |
-| CV | `https://ironmanyg.github.io/hussain-portfolio/notion/cv/` |
-| About / bio | `https://ironmanyg.github.io/hussain-portfolio/notion/about/` |
-| Experience | `https://ironmanyg.github.io/hussain-portfolio/notion/experience/` |
-| Contact | `https://ironmanyg.github.io/hussain-portfolio/notion/contact/` |
-
-### Per-project pages
-
-Each Notion project page gets its own redirect at `/notion/projects/<slug>/`. Slugs auto-generate from `src/_data/projects.json`. Current 12:
-
-| Notion project page | Embed URL |
-|---|---|
-| Chirp | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/chirp/` |
-| Runique | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/runique/` |
-| ScribbleDash | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/scribbledash/` |
-| EchoJournal | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/echojournal/` |
-| Qodem | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/qodem/` |
-| Maktabati | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/maktabati/` |
-| Asteroid Radar | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/asteroid-radar/` |
-| PlantPediaZ | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/plantpediaz/` |
-| Todo-Maps | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/todo-maps/` |
-| Material Calculator | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/material-calculator/` |
-| Translator KMM | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/translator-kmm/` |
-| ND940C3-Project | `https://ironmanyg.github.io/hussain-portfolio/notion/projects/nd940c3/` |
+**Click the copy icon in the top-right of any code block below to copy that URL.**
 
 ## How to embed in Notion
 
 1. Open the Notion page you want to redirect.
 2. Delete the existing content (or keep a small intro line above the embed).
 3. Type `/embed` and select "Embed".
-4. Paste the URL from the table above and confirm.
+4. Paste the URL from below and confirm.
 5. Drag the embed handle to make it about 600px tall — that's enough to show the bilingual card without scrolling.
+
+## Main sections (6)
+
+### Home / cover page
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/home/
+```
+
+### Projects index
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/
+```
+
+### CV
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/cv/
+```
+
+### About / bio
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/about/
+```
+
+### Experience
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/experience/
+```
+
+### Contact
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/contact/
+```
+
+## Per-project pages (12)
+
+Each Notion project page gets its own redirect at `/notion/projects/<slug>/`. Slugs auto-generate from `src/_data/projects.json`.
+
+### Chirp
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/chirp/
+```
+
+### Runique
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/runique/
+```
+
+### ScribbleDash
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/scribbledash/
+```
+
+### EchoJournal
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/echojournal/
+```
+
+### Qodem
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/qodem/
+```
+
+### Maktabati
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/maktabati/
+```
+
+### Asteroid Radar
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/asteroid-radar/
+```
+
+### PlantPediaZ
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/plantpediaz/
+```
+
+### Todo-Maps
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/todo-maps/
+```
+
+### Material Calculator
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/material-calculator/
+```
+
+### Translator KMM
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/translator-kmm/
+```
+
+### ND940C3-Project
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/nd940c3/
+```
 
 ## Edge cases
 

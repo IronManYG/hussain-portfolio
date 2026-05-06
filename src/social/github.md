@@ -4,6 +4,36 @@ Profile: <https://github.com/IronManYG>
 
 The actual `IronManYG/IronManYG` profile README content lives in [`./github-profile-readme.md`](./github-profile-readme.md). This file is the operational guide: what to set on the profile, what to pin, what to describe, what to archive.
 
+**Click the copy icon in the top-right of any code block below to copy it in one click.**
+
+## 0. Quick-paste profile values
+
+For the GitHub Settings → Public profile UI (when you don't want to use the API):
+
+### Bio
+
+```text
+Android Developer at Kay Technology. Kotlin · Jetpack Compose · KMP/CMP · Spring Boot + Ktor backends. Full-stack Kotlin from Riyadh.
+```
+
+### Blog (URL)
+
+```text
+https://ironmanyg.github.io/hussain-portfolio/
+```
+
+### Location
+
+```text
+Riyadh, Saudi Arabia
+```
+
+### Company
+
+```text
+Kay Technology
+```
+
 ---
 
 ## 1. Profile fields

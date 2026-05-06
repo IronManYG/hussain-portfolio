@@ -14,6 +14,10 @@ Ready-to-paste copy and instructions for every surface where you have a public p
 | [`cv.md`](./cv.md) | Re-exporting the CV PDF and keeping the HTML version in sync with the rest |
 | [`images.md`](./images.md) | Generating and placing the brand images (LinkedIn banner, GitHub README hero, OG image) |
 
+## Copy buttons
+
+Every paste-block in `linkedin.md`, `notion.md`, and `github.md` is wrapped in a fenced code block. When you view these files on GitHub (or in VS Code's markdown preview), each code block shows a **copy icon in its top-right corner** — one click copies the whole block to your clipboard. Look for the icon when you're about to paste a headline, About paragraph, project description, certification, or Notion URL.
+
 ## How the kit fits with the rest
 
 ```
