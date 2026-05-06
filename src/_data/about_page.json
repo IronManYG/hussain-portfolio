@@ -54,44 +54,37 @@
         {
           "icon": "ph-certificate text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
-          "title": "Compose Multiplatform Masterclasses",
+          "title": "Building Industry-Level Compose Multiplatform Apps",
           "description": "Advanced tracks for Desktop, Android, and iOS, created in collaboration with <strong>JetBrains</strong>.",
-          "provider_year": "Pl-Coding | 2025"
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "Kotlin Backends With Spring Boot",
+          "title": "Building Industry-Level Kotlin Backends With Spring Boot",
           "description": "JetBrains-partnered course on server-side Kotlin architecture, REST design, and database management.",
-          "provider_year": "Pl-Coding | 2025"
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-code text-kotlin-purple",
           "borderHover": "hover:border-kotlin-purple/50",
-          "title": "Essentials of Industry-Level Android Dev",
+          "title": "The Essentials of Industry-Level Android App Development",
           "description": "Production-grade Android patterns covering multi-module architecture, dependency injection, and CI/CD.",
-          "provider_year": "Pl-Coding | 2024"
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-watch text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
           "title": "Building Industry-Level Wear OS Apps",
           "description": "Wear OS development with Health Services API, Tiles, and cross-device sync.",
-          "provider_year": "Pl-Coding | 2024"
-        },
-        {
-          "icon": "ph-test-tube text-kotlin-purple",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "title": "Testing Large-Scale Multi-Module Apps",
-          "description": "Testing strategies across decoupled module layers using JUnit, MockK, and Turbine for Flow assertions.",
-          "provider_year": "Pl-Coding | 2024"
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-git-branch text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "Professional App Dev with CI/CD",
+          "title": "Professional App Development With CI/CD",
           "description": "Automated build, test, and deployment pipelines with Bitrise for continuous integration and delivery.",
-          "provider_year": "Pl-Coding | 2022"
+          "provider_year": "PL Coding | 2022"
         },
         {
           "icon": "ph-android-logo text-[#A3E635]",
@@ -158,44 +151,37 @@
         {
           "icon": "ph-certificate text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
-          "title": "دورات متقدمة في Compose Multiplatform",
+          "title": "بناء تطبيقات Compose Multiplatform بمستوى احترافي",
           "description": "اجتياز برامج تدريبية متقدمة لتطوير تطبيقات سطح المكتب، الأندرويد، والـ iOS (بمشاركة رسمية وتصميم من <strong>JetBrains</strong>).",
-          "provider_year": "Pl-Coding | 2025"
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "الواجهات الخلفية لـ Kotlin بإستخدام Spring Boot",
+          "title": "بناء واجهات خلفية لـ Kotlin بمستوى احترافي مع Spring Boot",
           "description": "دورة معتمدة بالشراكة مع <strong>JetBrains</strong> تركز على بناء خوادم Kotlin قابلة للتوسع وإدارة قواعد البيانات.",
-          "provider_year": "Pl-Coding | 2025"
+          "provider_year": "PL Coding | 2025"
         },
         {
           "icon": "ph-code text-kotlin-purple",
           "borderHover": "hover:border-kotlin-purple/50",
-          "title": "أساسيات تطوير أندرويد المتقدمة للشركات",
+          "title": "أساسيات تطوير تطبيقات أندرويد بمستوى احترافي",
           "description": "تدريب شامل على أنماط تطوير تطبيقات الأندرويد الاحترافية الجاهزة للإنتاج، بما في ذلك المعمارية متعددة الوحدات وتطبيقات CI/CD.",
-          "provider_year": "Pl-Coding | 2024"
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-watch text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
-          "title": "بناء تطبيقات Wear OS المتقدمة",
+          "title": "بناء تطبيقات Wear OS بمستوى احترافي",
           "description": "تطوير متقدم ومترابط لنظام Wear OS يشمل Health Services API، والمزامنة السلسة عبر الأجهزة المختلفة.",
-          "provider_year": "Pl-Coding | 2024"
-        },
-        {
-          "icon": "ph-test-tube text-kotlin-purple",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "title": "اختبار الأنظمة المتعددة الوحدات (Multi-Module Apps)",
-          "description": "مهارات شاملة في صياغة استراتيجيات اختبار دقيقة ومعزولة للوحدات الهيكلية المتعددة باستخدام أدوات متقدمة مثل JUnit، و MockK.",
-          "provider_year": "Pl-Coding | 2024"
+          "provider_year": "PL Coding | 2024"
         },
         {
           "icon": "ph-git-branch text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "تطوير تطبيقات احترافية متواصلة (CI/CD)",
+          "title": "التطوير الاحترافي للتطبيقات مع CI/CD",
           "description": "أتمتة شاملة لدورات البناء والاختبار والنشر عبر Bitrise لضمان التكامل والتسليم المستمر الموثوق.",
-          "provider_year": "Pl-Coding | 2022"
+          "provider_year": "PL Coding | 2022"
         },
         {
           "icon": "ph-android-logo text-[#A3E635]",

@@ -26,3 +26,4 @@ linkedin/
 
 # Playwright MCP working directory (session artifacts, screenshots, console logs)
 .playwright-mcp/
+
