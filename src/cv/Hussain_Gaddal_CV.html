@@ -30,9 +30,22 @@
         .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; }
         .cert { font-size: 10px; }
         .footer { margin-top: 16px; text-align: center; font-size: 9px; color: #999; }
+        .page-2-header { display: none; }
         @media print {
             body { padding: 20px; font-size: 10px; }
             h2 { margin: 12px 0 6px; }
+            .summary { margin-bottom: 4px; }
+            .job { margin-bottom: 10px; }
+            .page-2-start { page-break-before: always; padding-top: 4px; }
+            .page-2-header {
+                display: block;
+                font-size: 9px;
+                color: #888;
+                text-align: right;
+                margin-bottom: 6px;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 4px;
+            }
         }
     </style>
 </head>
@@ -92,7 +105,8 @@
         <span class="job-date">2011 – 2016</span>
     </div>
 
-    <h2>Featured Projects</h2>
+    <div class="page-2-header">Hussain Gaddal — Android Developer · Page 2 of 2</div>
+    <h2 class="page-2-start">Featured Projects</h2>
     <div class="project">
         <div class="project-header"><span class="project-name">Maktabati | Kay Technology | Mar 2022 – Present</span><a class="project-link" href="https://ironmanyg.github.io/hussain-portfolio/maktabati/">View project →</a></div>
         <p>Full rebuild of the company's PDF viewer into a research library. Added digital library browsing, PDF viewing for 1000+ page documents, search, offline caching, sign-in, and resumable downloads. <em>Tech: Kotlin, Compose, Room, Ktor</em></p>
