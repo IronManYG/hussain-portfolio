@@ -2,22 +2,28 @@
 
 Single source of truth for every cross-surface brand field. When you change a row, walk down it and update each surface, then bump the "Last synced" date.
 
-## Surface status snapshot (2026-05-06)
+## Surface status snapshot (2026-05-07)
 
 | Surface | Status | Notes |
 |---|---|---|
-| Site (EN + AR) | ✅ in sync | Researcher 2017–2022 added to timeline; OG meta fixed |
-| CV variants (4 sources) | ✅ available | `Hussain_Gaddal_CV_A.html` (2-page, polished — accent bars + tech pills), `_C.html` (2-page, conservative), `_compact_D.html` (1-page, readable), `_compact_E.html` (1-page + impact stat block). Pick per scenario; see `src/social/cv.md` |
-| CV PDFs (both) | ✅ current (2026-05-06) | `Hussain_Gaddal_CV.pdf` re-exported from variant C (2-page); `Hussain_Gaddal_CV_compact.pdf` exported from variant D (1-page). Re-export when canonical content changes. |
+| Site (EN + AR) | ✅ in sync | Researcher 2017–2022 timeline; OG meta fixed; cert titles renamed to official PL Coding names; deployed via PR #2 (merge `2a0267f`) on 2026-05-07. |
+| CV variants (4 sources) | ✅ available | `_A.html` (2-page polished), `_C.html` (2-page conservative), `_compact_D.html` (1-page readable), `_compact_E.html` (1-page + impact stats). Chirp pills now include `WebSockets` / `JWT` / `PostgreSQL`; Runique adds `Health Services` (variants A and C only). |
+| CV PDFs (both) | ✅ current (2026-05-07) | `Hussain_Gaddal_CV.pdf` re-exported from variant C; `Hussain_Gaddal_CV_compact.pdf` from variant D. Re-export via `msedge.exe --headless=new --print-to-pdf="..." "file:///..."` (or Chrome Ctrl+P) when canonical content changes. |
 | GitHub bio / blog / location | ✅ live | Pushed via `gh api -X PATCH user` on 2026-05-06 |
 | GitHub profile README (`IronManYG/IronManYG`) | ✅ live | Repo created 2026-05-06; README v3 with `data class` + `@Composable` |
-| GitHub repo descriptions | ✅ done (8 repos) | ScribbleDash, Translator_KMM, MaterialCalculator, hussain-portfolio, dev.gaddal.qodem-api, Qodem-multi-module, AutoMatic-Book-Scaneer, Runique |
-| GitHub repo topics + homepages | ✅ done (6 pinned + PlantPediaZ) | All pinned repos now carry topic tags and link to portfolio detail pages |
-| GitHub pinned repos | ✅ done | Order: Chirp, EchoJournal, ScribbleDash, Runique, Translator_KMM, hussain-portfolio (Runique replaced PlantPediaZ on 2026-05-06) |
+| GitHub repo descriptions | ✅ done (~9 repos) | ScribbleDash, Translator_KMM, MaterialCalculator, hussain-portfolio, dev.gaddal.qodem-api, Qodem-multi-module, AutoMatic-Book-Scaneer, Runique, Chirp, EchoJournal, PlantPediaZ. Still missing on `chirp-api`, `Maktabati` — see `src/social/github.md` §7. |
+| GitHub repo topics + homepages | ✅ done (6 pinned + PlantPediaZ + 5 expanded on 2026-05-07) | Pinned repos topic-tagged. On 2026-05-07 added topics to `chirp-api` (Spring Boot stack: spring-boot, postgresql, redis, websockets, rabbitmq, jwt-authentication, multi-module-gradle, rate-limiting, bcrypt), `Maktabati` (Android library), `dev.gaddal.qodem-api` (Ktor backend); added `multi-module-architecture` to Chirp; added `health-services-api` + `convention-plugins` to Runique. |
+| GitHub pinned repos | ✅ done | Order: Chirp, EchoJournal, ScribbleDash, Runique, Translator_KMM, hussain-portfolio |
 | GitHub archive list | ✅ done (30 repos) | Archived 2026-05-06: 5 test/junk + 16 Udacity exercises + 9 codelab/starter (see `src/social/github.md` §5) |
-| LinkedIn | ⏸️ pending (manual) | All copy ready in `src/social/linkedin.md` |
-| Notion redirect embeds | ⏸️ pending (manual) | All URLs ready in `src/social/notion.md`; redirect pages live at `/notion/<slug>/` after deploy |
-| Brand images | ⏸️ pending (generation) | Prompts in `src/_data/image_prompts.json`; output goes to `src/assets/img/branding/` |
+| Cert PDFs | ✅ tracked (2026-05-06) | 7 PDFs committed to `src/social/certs/` (6 PL Coding + 1 Udacity). `.gitignore` exclusion removed since these are publicly equivalent to LinkedIn Media uploads. |
+| LinkedIn | 🟢 mostly done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree to preserve project "Associated with" links). Verify the project-association links on Asteroid Radar / Maps / Material Calculator etc. survived the Education re-add. |
+| Notion redirect embeds | ⏸️ pending (manual) | Site now deployed → all 18 URLs at `/notion/<slug>/` resolve. Open `src/social/notion.md`, paste each `/embed` block in the matching old-Notion section. |
+| Brand images | ⏸️ pending (generation) | 4 prompts in `src/_data/image_prompts.json` (`og_image`, `linkedin_banner`, `github_readme_hero`, `notion_redirect_hero`); output to `src/assets/img/branding/` (folder currently untracked, populate then `git add`). |
+
+## Pending quality checks (after the manual surface work above)
+
+- **Arabic translation review** — run `arabic-localization` skill (`C:\Users\hussa.HUSSAIN-YG\.claude\skills\arabic-localization\`) on the Arabic-supporting parts of `src/_data/about_page.json` (`ar` block), `src/_data/home.json` (Arabic strings), `src/_data/projects.json`, and `src/ar/*.njk` templates. Verify cert title translations, Researcher-era role, and any new Spring Boot / Wear OS stack mentions read naturally in Arabic.
+- **Notion embed mobile responsiveness** — once `/notion/<slug>/` pages are embedded into the legacy Notion site, test on mobile width (375px viewport) that the embedded redirect renders correctly: button is reachable, layout doesn't overflow, no horizontal scroll. Templates live in `src/notion-redirect.njk` and `src/notion-redirect-project.njk`; tweak responsive CSS there if needed.
 
 
 Canonical content lives in:
