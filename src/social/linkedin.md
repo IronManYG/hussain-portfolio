@@ -55,26 +55,89 @@ Clean Architecture
 
 ## 4. Featured section (pin 4 cards)
 
-| Order | Type | Item |
-|---|---|---|
-| 1 | Document | Resume PDF (already pinned — re-export from `src/cv/Hussain_Gaddal_CV_C.html` and replace the file) |
-| 2 | Link | Portfolio |
-| 3 | Link | GitHub profile |
-| 4 | Link | Top project (Chirp) |
+LinkedIn lets you set **Title** (required) + **Description** for both Documents and Links. Links also accept a **Thumbnail** image (LinkedIn auto-fetches the page's OG image if you don't upload one — once `og_image.png` is in place at `src/assets/img/branding/og_image.png` and the site has redeployed, the portfolio + Chirp links will pull a branded preview automatically).
 
-URLs for slots 2–4 (each in its own copy block):
+### Card 1 — Resume PDF (Document)
+
+Already pinned. Re-export `src/cv/Hussain_Gaddal_CV_C.html` (or A) → save as `Hussain_Gaddal_CV.pdf` and replace the existing upload.
+
+**Title** *(required)*
+
+```text
+Hussain Gaddal — Android Developer CV (2025)
+```
+
+**Description**
+
+```text
+4+ years shipping production Android. Kotlin · Jetpack Compose · KMP/CMP · Spring Boot + Ktor backends. Researcher era 2017–2022. JetBrains-collaborated certs through Pl-Coding.
+```
+
+### Card 2 — Portfolio (Link)
+
+**URL**
 
 ```text
 https://ironmanyg.github.io/hussain-portfolio/
 ```
 
+**Title** *(required)*
+
+```text
+Hussain Gaddal — Portfolio
+```
+
+**Description**
+
+```text
+Bilingual EN/AR portfolio site. Featured projects with architecture writeups, downloadable CV, and contact.
+```
+
+**Thumbnail:** leave blank to let LinkedIn fetch the OG image from the page (once `og_image.png` is generated and deployed). If you want to upload a custom one earlier, use any 1200×630 PNG that fits the brand.
+
+### Card 3 — GitHub profile (Link)
+
+**URL**
+
 ```text
 https://github.com/IronManYG
 ```
 
+**Title** *(required)*
+
+```text
+IronManYG on GitHub
+```
+
+**Description**
+
+```text
+Open-source side projects in Kotlin, Compose, KMP/CMP, and Spring Boot. Pinned: Chirp, EchoJournal, ScribbleDash, Runique, Translator KMM, hussain-portfolio.
+```
+
+**Thumbnail:** GitHub serves a default profile preview, so leaving this blank is fine. LinkedIn will pull it on save.
+
+### Card 4 — Chirp (Link)
+
+**URL**
+
 ```text
 https://ironmanyg.github.io/hussain-portfolio/chirp/
 ```
+
+**Title** *(required)*
+
+```text
+Chirp — Cross-platform Messenger (KMP/CMP)
+```
+
+**Description**
+
+```text
+Android, iOS, and Desktop messenger with 100% shared business logic via Compose Multiplatform. Spring Boot backend, offline-first WebSocket sync, secure auth, FCM push.
+```
+
+**Thumbnail:** leave blank — LinkedIn fetches the project page's OG image after deploy.
 
 ---
 
