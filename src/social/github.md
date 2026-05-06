@@ -198,3 +198,25 @@ Legitimate older work — leave public, unpinned, no archive:
 - `AsteroidRadar`, `todo-maps`, `ND940C3-Project`, `ShoeStore`
 - `Qodem-v1`, `Qodem`, `RecipeApp`
 - Researcher-era hardware/3D-printing forks: `pi-scan`, `spreadpi`, `spreads`, `scantailor`, `Michigan-Linear-Book-Scanner`, `3D-Printing-costs`, `kbricks-models`, `kbricks-core`, `FusionSheeter`. These quietly back up the Researcher narrative.
+
+---
+
+## 7. Repos waiting for topic tags (future check)
+
+These repos currently have **no topics and no description**. They're not pinned and not on the CV — lower priority than the showcase repos tagged in §4. Worth tagging when/if they get demo-ready, added to LinkedIn projects, or referenced from the portfolio.
+
+| Repo | Likely stack (verify first) | Suggested topics | Suggested description |
+|---|---|---|---|
+| `NutriSport` | Android / CMP nutrition app | `android`, `kotlin`, `jetpack-compose`, `nutrition`, `health-tracking` | "Nutrition tracking app — verify if Android-only or CMP" |
+| `NoteMark` | Android Compose notes app | `android`, `kotlin`, `jetpack-compose`, `notes-app`, `markdown` | "Markdown-aware notes app built with Jetpack Compose" |
+| `SpendLess` | Android Compose finance | `android`, `kotlin`, `jetpack-compose`, `expense-tracker`, `finance` | "Personal expense tracker built with Jetpack Compose" |
+| `HabitTracker` | Android Compose habits | `android`, `kotlin`, `jetpack-compose`, `habit-tracker`, `productivity` | "Habit-tracking app built with Jetpack Compose" |
+| `MyDiary` | Android diary | `android`, `kotlin`, `diary-app`, `journaling` | "Personal diary / journaling app" |
+
+Process when ready (per repo):
+
+1. Open the repo locally or skim its README to confirm the actual stack — don't tag blindly.
+2. Add topics: `gh repo edit IronManYG/<REPO> --add-topic <topic1>,<topic2>,...`
+3. Set description: `gh repo edit IronManYG/<REPO> --description "<one-line description>"`
+
+Older practice repos (`day-XX-*`, `andfun-kotlin-*`, `nd940-*`, codelab/starters) intentionally stay topic-less and untouched — they're already archived per §5.

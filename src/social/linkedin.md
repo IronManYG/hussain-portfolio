@@ -653,6 +653,51 @@ Android Kotlin Developer Nanodegree — Verified Certificate of Completion
 Verified Nanodegree program from Udacity (Feb 2022). Credential publicly verifiable at confirm.udacity.com/KXAAJDDG. Program covered Android SDK fundamentals, lifecycle and architecture (MVVM), persistence with Room, networking with Retrofit, reactive UI patterns (LiveData, Coroutines), and standard Android design patterns.
 ```
 
+#### Companion entry — LinkedIn Education (keep both, pragmatic reason)
+
+> **Why duplicate.** LinkedIn's Project "Associated with" links bind to **Education** and **Experience** entries — not to **Certifications**. Deleting the Education entry breaks the project associations on the Nanodegree-era projects (Asteroid Radar, Maps, Material Calculator, etc.). Keeping the Nanodegree in *both* sections is the practical move; the Education entry is what carries the project linkages.
+
+LinkedIn Education form copy blocks:
+
+**School**
+
+```text
+Udacity
+```
+
+**Degree**
+
+```text
+Certificate of Completion, Android Kotlin Developer
+```
+
+**Field of study**
+
+```text
+Android Development
+```
+
+**Start date** → `October 2021`  *(verify your actual enrollment date in your Udacity dashboard — typical Nanodegree pace was 4 months, so Oct 2021 is the most likely lead-in to Feb 2022 completion)*
+
+**End date** → `February 2022`
+
+**Grade**
+
+```text
+Pass
+```
+
+**Activities and societies** → leave blank
+
+**Description** → leave blank *(the cert Media description above already covers content; duplicating here would be filler)*
+
+**Skills** — keep just `OOP`, or skip entirely. All real Android-stack skills already attach to the Certification entry above; duplicating across surfaces dilutes endorsements.
+
+**Media** — same as the Certification above:
+
+- File: `Android Kotlin Developer Nanodegree Program Certificate.pdf`
+- Link: `https://confirm.udacity.com/KXAAJDDG`
+
 ---
 
 ### Cert #2 — Professional App Development With CI/CD *(Dec 2022)*
