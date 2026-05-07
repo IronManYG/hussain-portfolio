@@ -2,7 +2,7 @@
   {
     "id": "chirp",
     "title_en": "Chirp Messaging Client",
-    "title_ar": "تطبيق تشيرب للمراسلة",
+    "title_ar": "تطبيق Chirp للمراسلة",
     "slug": "chirp",
     "featured": true,
     "grid": {
@@ -77,7 +77,7 @@
   {
     "id": "runique",
     "title_en": "Runique",
-    "title_ar": "رونيق",
+    "title_ar": "Runique",
     "slug": "runique",
     "featured": true,
     "grid": {
@@ -135,7 +135,7 @@
   {
     "id": "scribbledash",
     "title_en": "ScribbleDash",
-    "title_ar": "سكربل داش",
+    "title_ar": "ScribbleDash",
     "slug": "scribbledash",
     "featured": true,
     "grid": {
@@ -197,7 +197,7 @@
   {
     "id": "echojournal",
     "title_en": "EchoJournal",
-    "title_ar": "إيكو جورنال",
+    "title_ar": "EchoJournal",
     "slug": "echojournal",
     "featured": true,
     "grid": {
@@ -263,7 +263,7 @@
   {
     "id": "qodem",
     "title_en": "Qodem Donation Logistics",
-    "title_ar": "لوجستيات كودم للتبرع",
+    "title_ar": "لوجستيات Qodem للتبرع",
     "slug": "qodem",
     "featured": false,
     "grid": {
