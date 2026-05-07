@@ -57,22 +57,27 @@ Reason: "لامركزية عمليات الحجز" (decentralization of booking)
 
 ## 🟡 Major (register and pattern issues)
 
-### ⏸️ 5. Marketing-puffery drift across `projects.json` AR
+### ✅ 5. Marketing-puffery drift across `projects.json` AR
 
-EN tone is calm/builder; AR consistently adds CV-flex prefixes that the user explicitly removed from EN copy in earlier passes. **This is the largest pattern issue across the entire AR corpus.**
+> Applied in commit on 2026-05-07. Listed here for the record.
 
-| File · field | AR addition not in EN |
+EN tone is calm/builder; AR consistently added CV-flex prefixes that the user had removed from EN copy in earlier passes. This was the largest pattern issue across the entire AR corpus.
+
+| File · field | What was stripped / how it was reframed |
 |---|---|
-| Chirp · `overview_ar` | `بمستوى المؤسسات (Enterprise-grade)`, `مُصمم لإبراز أساليب التطوير الحديثة` |
-| Chirp · `impact_ar[2]` | `إمكانيات ممتازة` (excellent capabilities) |
-| Runique · `overview_ar` | `يبرز هذا المشروع قدرتي في…` (this project highlights my abilities) |
-| Runique · `challenge_ar` | `دقة استثنائية` (vs EN simply "precision") |
-| Runique · `impact_ar` | `بناء معمارية صلبة ضمنت…` (frames each result as "I built X that ensured Y" instead of leading with the result) |
-| ScribbleDash · `overview_ar` | `يُظهر التطبيق المهارات التقنية…` (tone shift to "see how skilled I am") |
-| EchoJournal · `overview_ar` | `يتجاوز التطبيق فكرة التسجيل الصوتي البسيط` (bombastic lead-in) |
-| Maktabati · `impact_ar[0]` | `بشكل كلي… كلياً` (says "completely" twice) |
+| Chirp · `overview_ar` | Dropped `بمستوى المؤسسات (Enterprise-grade)` and `مُصمم لإبراز أساليب التطوير الحديثة`. Now mirrors the EN one-line "cross-platform messaging app built entirely in Kotlin". |
+| Chirp · `impact_ar` | Removed `تحقيق` / `دمج` / `توفير` verb prefixes; bullets now lead with the metric (`100%`, `WebSocket`, `offline-first`) the way EN does. Dropped `إمكانيات ممتازة`. |
+| Runique · `overview_ar` | Dropped `يبرز هذا المشروع قدرتي في…`. Mirrors EN "Runique connects a phone companion app to a Wear OS smartwatch…". |
+| Runique · `challenge_ar` | Dropped `دقة استثنائية` → `دقة`, `الحساسة`, `حادة`. Trimmed wording. |
+| Runique · `impact_ar` | Reframed all 3 bullets to lead with the result; dropped `بناء معمارية صلبة ضمنت…` framing. |
+| ScribbleDash · `overview_ar` | Dropped `يُظهر تطبيق X المهارات التقنية…` and the "see how skilled I am" register. Mirrors EN "ScribbleDash is a drawing app that pushes Android's native drawing APIs through Jetpack Compose." |
+| ScribbleDash · `impact_ar` | Removed verb-prefix style; bullets now lead with `60FPS` and `محرك Undo/Redo`. |
+| EchoJournal · `overview_ar` | Dropped `يتجاوز التطبيق فكرة التسجيل الصوتي البسيط` bombastic lead-in. Mirrors EN "It records voice logs and lets the user browse them as a filterable timeline…". |
+| EchoJournal · `impact_ar` | Reframed all 3 bullets, removed `بناء آلة حالة صوتية مستقرة` and `تفعيل التحديث الفوري التلقائي` prefixes. |
+| Maktabati · `impact_ar[0]` | Fixed doubled "completely" (`بشكل كلي… كلياً`). Reframed all 3 bullets to lead with the result. |
+| Qodem · `impact_ar` | Reframed all 3 bullets to mirror EN's terse "X that does Y" structure. |
 
-**Fix approach:** strip the prefixes. AR sentences should *start* with the metric (`60FPS`, `100%`, `سرعة سب-ثانية`), not with the praise framing. Estimated effort: ~30 min focused pass.
+**Outcome:** AR project sections now match EN's calm/builder tone. AR readers see the same set of facts as EN readers, in the same register, with the same number of bullets per section.
 
 ### 🔵 6. Project brand-name transliterations — `projects.json` · `title_ar`
 
@@ -196,10 +201,10 @@ Strict iron-rule-4 reading: all UI buttons should be masdar (`التواصل`). 
 ## Summary
 
 - **Total findings:** 17
-- **Fixed:** 4 critical + 5 notion polish = 9 items committed.
-- **Outstanding:** 4 major (#5, #7, #8, #9–#13 grouped) + 4 minor (#14, #15, #16, register call #17).
+- **Fixed:** 4 critical + 5 notion polish + 1 major puffery sweep (the largest pattern issue) = 10 items committed.
+- **Outstanding:** 3 major (#7 EN/AR structural divergence, #8 punctuation, #9–#13 small content drops) + 4 minor (#14 shadda, #15 RTL Tailwind margins, #16 و-joins, #17 button-register call).
 
-**Suggested next focused pass:** finding #5 (puffery sweep across `projects.json`) — biggest tone payoff per minute of work. Stripping the CV-flex prefixes and reframing impact bullets to lead with the result will make the AR version sound like the same understated person who wrote the EN.
+**Suggested next focused pass:** finding #15 (RTL Tailwind margins) — has actual layout consequences for AR readers on the live site. After that, #8 (punctuation cleanup) is a fast win, and #11–#13 are tiny single-line fixes that can be batched.
 
 ## Cross-references
 
