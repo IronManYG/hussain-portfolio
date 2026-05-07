@@ -1,0 +1,9 @@
+# Destination for brand visuals generated from src/_data/image_prompts.json
+# Files to add (when generated):
+#   - linkedin_banner.png   (1584x396)
+#   - github_readme_hero.png (1280x320)
+#   - og_image.png          (1200x630)
+#   - notion_redirect_hero.png (800x200, optional)
+#
+# Once present, these are served at:
+#   https://ironmanyg.github.io/hussain-portfolio/assets/img/branding/<file>.png

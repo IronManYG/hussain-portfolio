@@ -43,7 +43,7 @@ Canonical content lives in:
 
 The site rebuilds from those automatically. Everything else (LinkedIn, GitHub, Notion) is manual.
 
-**Ready-to-paste copy for those external surfaces lives in [`src/social/`](./src/social/README.md)** — open the relevant file there when you're about to update LinkedIn, GitHub, or Notion. Update both the canonical data file *and* the matching kit `.md` so the kit stays accurate.
+**Ready-to-paste copy for those external surfaces lives in [`src/social/`](../src/social/README.md)** — open the relevant file there when you're about to update LinkedIn, GitHub, or Notion. Update both the canonical data file *and* the matching kit `.md` so the kit stays accurate.
 
 ## Cross-surface field map
 

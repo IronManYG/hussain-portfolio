@@ -1,6 +1,6 @@
 # Social kit — Hussain Gaddal
 
-Ready-to-paste copy and instructions for every surface where you have a public profile or content. The kit is your single reference when you update LinkedIn, GitHub, the CV, or the Notion redirect site. It is the "what to paste" companion to `profile.json` (canonical data) and `BRANDING-SYNC.md` (when to update what).
+Ready-to-paste copy and instructions for every surface where you have a public profile or content. The kit is your single reference when you update LinkedIn, GitHub, the CV, or the Notion redirect site. It is the "what to paste" companion to `profile.json` (canonical data) and `.notes/BRANDING-SYNC.md` (when to update what).
 
 ## Files
 
@@ -35,7 +35,7 @@ src/social/                ← THIS FOLDER: ready-to-paste copy for external sur
 LinkedIn / GitHub / Notion / shared-as-PDF CV
 ```
 
-When you change a canonical file, also walk the matching surface row in [`/BRANDING-SYNC.md`](../../BRANDING-SYNC.md), update the kit's relevant `.md` (so it reflects the new copy), then paste from the kit into the external surface.
+When you change a canonical file, also walk the matching surface row in [`/.notes/BRANDING-SYNC.md`](../../.notes/BRANDING-SYNC.md), update the kit's relevant `.md` (so it reflects the new copy), then paste from the kit into the external surface.
 
 ## Why these aren't published on the site
 

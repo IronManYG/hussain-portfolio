@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "note": "Canonical source of truth for cross-surface brand fields. Any change here should be propagated to the surfaces listed in BRANDING-SYNC.md (LinkedIn, GitHub, CV, site, Notion). The site templates may already pull from home.json / about_page.json — keep those in sync with this file rather than replacing them.",
+  "note": "Canonical source of truth for cross-surface brand fields. Any change here should be propagated to the surfaces listed in .notes/BRANDING-SYNC.md (LinkedIn, GitHub, CV, site, Notion). The site templates may already pull from home.json / about_page.json — keep those in sync with this file rather than replacing them.",
   "identity": {
     "name_en": "Hussain Gaddal",
     "name_ar": "حسين قدال",

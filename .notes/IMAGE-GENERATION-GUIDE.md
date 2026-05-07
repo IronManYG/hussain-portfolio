@@ -1,6 +1,6 @@
 # Image generation guide
 
-Companion to [`src/_data/image_prompts.json`](./src/_data/image_prompts.json). The JSON has 16 paste-ready prompts (4 slots × 4 variants). This guide tells you which model to use, which variant to start with per slot, and how to iterate when a generation isn't right.
+Companion to [`src/_data/image_prompts.json`](../src/_data/image_prompts.json). The JSON has 16 paste-ready prompts (4 slots × 4 variants). This guide tells you which model to use, which variant to start with per slot, and how to iterate when a generation isn't right.
 
 ## TL;DR per slot — what to try first
 
@@ -129,6 +129,6 @@ A slot is shippable when:
 
 ## Cross-references
 
-- All 16 prompts: [`src/_data/image_prompts.json`](./src/_data/image_prompts.json)
+- All 16 prompts: [`src/_data/image_prompts.json`](../src/_data/image_prompts.json)
 - Live status: [`BRANDING-SYNC.md`](./BRANDING-SYNC.md) — image row is `Brand images | ⏸️ pending (generation)`
 - Research sources backing the prompt structure are listed at the top of `image_prompts.json` under `research_sources`.
