@@ -22,8 +22,15 @@ Single source of truth for every cross-surface brand field. When you change a ro
 
 ## Pending quality checks (after the manual surface work above)
 
-- **Arabic translation review** — run `arabic-localization` skill (`C:\Users\hussa.HUSSAIN-YG\.claude\skills\arabic-localization\`) on the Arabic-supporting parts of `src/_data/about_page.json` (`ar` block), `src/_data/home.json` (Arabic strings), `src/_data/projects.json`, and `src/ar/*.njk` templates. Verify cert title translations, Researcher-era role, and any new Spring Boot / Wear OS stack mentions read naturally in Arabic.
+- **Arabic translation review** — ✅ done (2026-05-07). Full review in [`ARABIC-REVIEW.md`](./ARABIC-REVIEW.md) — 13 of 17 findings fixed, 4 decision-deferred items resolved (Q1/Q2/Q3/Q4 in chat).
 - **Notion embed mobile responsiveness** — once `/notion/<slug>/` pages are embedded into the legacy Notion site, test on mobile width (375px viewport) that the embedded redirect renders correctly: button is reachable, layout doesn't overflow, no horizontal scroll. Templates live in `src/notion-redirect.njk` and `src/notion-redirect-project.njk`; tweak responsive CSS there if needed.
+
+## Intentional EN/AR divergences (not drift)
+
+These differences between the EN and AR surfaces are deliberate localization choices, not inconsistencies to fix:
+
+- **Architecture sections** in `projects.json` are written as flowing prose on the EN side and as bulleted lists with bolded sub-headers on the AR side. Reason: Arabic prose is denser to scan than English prose; bullets serve AR readers better, while EN's calm/builder voice carries naturally as paragraphs. Each language is presented in its native-feeling structure.
+- **EN-in-parens technical terms** in AR strings (`Clean Architecture`, `Compose Multiplatform`, `KMP`, `Backend`, `Native Performance`, etc.) — kept deliberately for AR developers who recognize the EN form, plus mild bilingual-search SEO. Trimmed only when the AR phrase IS the literal English (e.g., `(At Scale)` after `على النطاق الواسع`).
 
 
 Canonical content lives in:

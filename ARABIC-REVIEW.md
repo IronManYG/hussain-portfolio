@@ -79,23 +79,25 @@ EN tone is calm/builder; AR consistently added CV-flex prefixes that the user ha
 
 **Outcome:** AR project sections now match EN's calm/builder tone. AR readers see the same set of facts as EN readers, in the same register, with the same number of bullets per section.
 
-### 🔵 6. Project brand-name transliterations — `projects.json` · `title_ar`
+### ✅ 6. Project brand-name transliterations — switched to Latin
 
-Iron rule 5 says brand names stay Latin. Several `title_ar` fields use AR transliterations:
+**Decision (Q1): align all `title_ar` to Latin brand names** for iron-rule-5 compliance and consistency with the body text in the same records.
 
-| Field | Current | Strict-rule version |
+| Field | Before | After |
 |---|---|---|
 | Chirp · `title_ar` | `تطبيق تشيرب للمراسلة` | `تطبيق Chirp للمراسلة` |
 | Runique · `title_ar` | `رونيق` | `Runique` |
 | ScribbleDash · `title_ar` | `سكربل داش` | `ScribbleDash` |
 | EchoJournal · `title_ar` | `إيكو جورنال` | `EchoJournal` |
-| Qodem · `title_ar` | `لوجستيات كودم للتبرع` | `لوجستيات Qodem للتبرع` (or keep `كودم` if that's the official brand) |
+| Qodem · `title_ar` | `لوجستيات كودم للتبرع` | `لوجستيات Qodem للتبرع` |
 
-**Decision call:** transliteration may be a deliberate choice for AR-only readers' parsing comfort. Inside the same record, body text already uses Latin (`Chirp`, `Runique`, etc.) — so titles are the only inconsistent surface. Either align the titles to Latin, or accept the divergence as intentional and document it.
+Propagates automatically to the Notion redirect pages via `{{ project.title_ar }}` in `notion-redirect-project.njk` — no embed re-paste needed.
 
-### ⏸️ 7. EN/AR structural divergence in architecture sections — `projects.json`
+### 🔵 7. EN/AR structural divergence in architecture sections — accepted as intentional localization
 
-EN architecture sections are flowing paragraphs; AR architecture sections are converted into `<ul>` bulleted lists with bolded sub-headings. EN readers see prose; AR readers see a sales-deck list. Pick one structure and apply it consistently in both languages, or accept the divergence as intentional.
+**Decision (Q2): accept divergence and document it.** Recorded in [`BRANDING-SYNC.md`](./BRANDING-SYNC.md) under "Intentional EN/AR divergences (not drift)".
+
+Reasoning: Arabic prose is denser to scan than English prose. Bullets serve AR readers better; the calm/builder voice carries naturally as paragraphs in EN. Each language is presented in its native-feeling structure — sophisticated localization, not drift.
 
 ### ✅ 8. Punctuation: comma vs period before `مما` — `about_page.json`
 
@@ -106,11 +108,14 @@ EN architecture sections are flowing paragraphs; AR architecture sections are co
 + "...إدارة التنزيلات، مما سرّع..."
 ```
 
-### 🔵 9. Hero subtitle parentheticals — `about_page.json` · `hero.subtitle`
+### ✅ 9. Hero subtitle parentheticals — partial trim applied
 
-Three trailing English-in-parens (`Legacy Codebases`, `Multi-module`, `At Scale`). The third is especially redundant because `على النطاق الواسع` already conveys it.
+```diff
+- "...قادرة على العمل بكفاءة وموثوقية على النطاق الواسع (At Scale)."
++ "...قادرة على العمل بكفاءة وموثوقية على النطاق الواسع."
+```
 
-**Decision-flagged, not bug-fixed.** The same EN-in-parens pattern recurs deliberately across many AR strings (`(Backend)`, `(Multi-module)`, `(Cross-platform)`, `(Native Performance)`, etc.) — likely an intentional SEO / keyword-reinforcement strategy for AR readers who recognize the EN technical terms. Trimming this one without a global policy would create inconsistency. Awaiting policy decision: keep the dual-term pattern broadly, or trim throughout.
+**Policy decision (Q3):** keep the EN-in-parens pattern globally — it serves bilingual readers and SEO. **Surgical exception only when the AR is literally the English** (here, `على النطاق الواسع` IS "at scale"). `(Legacy Codebases)` and `(Multi-module)` retained because those are technical terms with no commonly-accepted Arabic shorthand.
 
 ### ✅ 10. Redundant English-in-parens for naturalized roles — `about_page.json`
 
@@ -188,28 +193,26 @@ The AR templates use `dir="rtl"` inherited from `<html>` and are inline-flex / f
 - `about_page.json` · education detail: `هندسة وبناء الأنظمة البرمجية الموثوقة` → `تصميم أنظمة برمجية موثوقة` (dropped doubled verb). ✅
 - `home.json` · `about.paragraphs[1]` (`الإمكانيات الواسعة لتقنية CMP وبناء خدمات خلفية`) — left as-is. EN ("explores ... and building...") uses the same coordinated structure, so faithful translation justifies the و. Closing as 🔵 by-design.
 
-### 🔵 17. Button register — `home.json` AR
+### ✅ 17. Button register — switched to masdar
 
-- `btn_work: "عرض المشاريع المميزة"` — masdar ✅
-- `btn_cv: "تحميل السيرة الذاتية"` — masdar ✅
-- `btn_contact: "تواصل معي"` — imperative
+**Decision (Q4): align to masdar.**
 
-Strict iron-rule-4 reading: all UI buttons should be masdar (`التواصل`). Pragmatic reading: the contact CTA is consumer-friendly imperative and EN even has the same vibe. Inconsistent register, but a defensible product choice. Flag for confirmation.
+```diff
+- "btn_contact": "تواصل معي"
++ "btn_contact": "التواصل"
+```
+
+All three CTAs now use masdar consistently (`عرض المشاريع المميزة`, `تحميل السيرة الذاتية`, `التواصل`).
 
 ---
 
-## Summary
+## Summary — all 17 findings resolved
 
-- **Total findings:** 17
-- ✅ **Fixed (13):** #1, #2, #3, #4, #5, #8, #10, #11, #12, #13, #14, #15 (with re-audit), #16 (with closure-by-inspection on the home.json instance).
-- 🔵 **Decision-deferred (4) — no defect, awaiting your policy call:**
-  - **#6 Brand-name transliteration** in `projects.json` `title_ar` (`تشيرب`, `رونيق`, `سكربل داش`, `إيكو جورنال`, `كودم`). Iron rule 5 says brand names stay Latin, but transliteration is a defensible choice for AR-only readers' parsing comfort.
-  - **#7 EN/AR structural divergence** in `projects.json` architecture sections — EN uses prose, AR uses bulleted lists with bolded sub-headers. Both are valid; pick which structure is canonical and apply to the other side, or accept the divergence as intentional.
-  - **#9 Hero subtitle parentheticals** in `about_page.json` (`Legacy Codebases`, `Multi-module`, `At Scale`) — part of a broader EN-in-parens pattern recurring across many AR strings. Decide as a global pattern (keep / trim / case-by-case) rather than touching this one in isolation.
-  - **#17 Button register on `home.json` AR** — `btn_contact: تواصل معي` is imperative while sibling buttons use masdar. Defensible product choice (matches EN's "Contact Me" register).
-- **Bonus polish (5 items):** notion-redirect AR copy was tightened during the 404 fix (commit `5a364d1`).
+- ✅ **Fixed (16):** #1, #2, #3, #4, #5, #6, #8, #9 (partial trim), #10, #11, #12, #13, #14, #15, #16, #17.
+- 🔵 **Accepted as intentional (1):** #7 — EN/AR architecture structural divergence is documented as intentional localization in [`BRANDING-SYNC.md`](./BRANDING-SYNC.md), not a defect.
+- **Bonus polish (5 items):** notion-redirect AR copy tightened during the 404 fix (commit `5a364d1`).
 
-The AR side now matches the EN side in tone, accuracy, brevity, and surface coverage. Remaining items are policy decisions, not translation defects.
+The AR side matches the EN side in tone, accuracy, brevity, and surface coverage. EN/AR structural divergence in `projects.json` architecture sections is intentional and documented.
 
 ## Cross-references
 

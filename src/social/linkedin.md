@@ -498,16 +498,6 @@ https://github.com/IronManYG/AutoMatic-Book-Scaneer
 
 #### 13. Kay Labs *(Researcher era)*
 
-> **TODO — rewrite description before next LinkedIn pass.** Current copy is a placeholder kept from the old Kay Technology PR blurb. Issues to fix:
-> 1. **Voice** — currently third-person about Kay Technology. LinkedIn projects need first-person ("I built / led / delivered").
-> 2. **My role is invisible** — name what I actually did (install, configure, slicer toolchain, student onboarding, intake software, training, etc.).
-> 3. **PR-translation feel** — phrases like "in the context of its social responsibility" and "the most reliable and safe" are Arabic→English literal translation + AI-writing-pattern adjacent. Contradicts the cleanup happening on the rest of the surface.
-> 4. **No outcome / metrics** — number of printers, students reached, courses using it, semester it launched.
-> 5. **Name inconsistency in source** — old copy opens "K-Labs" then never reuses it. Use **Kay Labs** consistently.
-> 6. **Trails off** — old copy ends with "...convert their imagination and ideas to reality..." (filler + ellipsis). Land the sentence.
->
-> Target shape: `Delivered a [N]-printer Ultimaker lab at IMSIU (Faculty of Computer & Information Sciences) in partnership with Precise. My role: [scope]. Outcome: [N students/semester, X courses, …].`
-
 **Project name**
 
 ```text
@@ -517,7 +507,9 @@ Kay Labs
 **Description**
 
 ```text
-A 3D-printing lab built in partnership with Imam Muhammad bin Saud University (College of Computer & Information Sciences). Equipped with Ultimaker hardware so students could prototype their CS coursework projects. Hands-on with Fusion 360 (CAD), Ultimaker hardware, and Cura slicing.
+Delivered Kay Labs at IMSIU's College of Computer & Information Sciences in partnership with Precise — a 3-printer Ultimaker lab equipped for CS senior projects.
+
+My role spanned hardware install and configuration, the Cura slicing toolchain, intake software for student print-job submission, plus onboarding, training, and ongoing maintenance. Directly mentored 8 senior-year students across 3 graduation projects, helping them prototype hardware components for their work.
 
 Stack: Fusion 360, Ultimaker, Cura, 3D Printing
 ```
