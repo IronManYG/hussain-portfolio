@@ -124,6 +124,18 @@ gh api -X PATCH repos/IronManYG/AutoMatic-Book-Scaneer \
   -f description="Early prototype of the Kay Scanner book digitization device. Hardware + capture pipeline. Researcher era (2017–2022)."
 ```
 
+Descriptions + homepages added 2026-05-07 for the two repos that previously had topics-only:
+
+```bash
+gh api -X PATCH repos/IronManYG/chirp-api \
+  -f description="Backend for Chirp messaging app — Kotlin/Spring Boot with PostgreSQL, Redis, WebSockets for real-time delivery, RabbitMQ, JWT auth, and rate limiting. Multi-module Gradle build." \
+  -f homepage="https://ironmanyg.github.io/hussain-portfolio/chirp/"
+
+gh api -X PATCH repos/IronManYG/Maktabati \
+  -f description="In-house digital archive viewer (Kay Technology) — multi-module Clean Architecture, Jetpack Compose UI, Barteksc PDF Viewer for 1000+ page institutional documents, DownloadX + Room for resumable encrypted 10GB+ syncs." \
+  -f homepage="https://ironmanyg.github.io/hussain-portfolio/maktabati/"
+```
+
 To replicate the topic + homepage pattern on a new repo:
 
 ```bash
@@ -201,22 +213,23 @@ Legitimate older work — leave public, unpinned, no archive:
 
 ---
 
-## 7. Repos waiting for topic tags (future check)
+## 7. Repos that needed topic tags — ✅ done 2026-05-07
 
-These repos currently have **no topics and no description**. They're not pinned and not on the CV — lower priority than the showcase repos tagged in §4. Worth tagging when/if they get demo-ready, added to LinkedIn projects, or referenced from the portfolio.
+Five repos were tagged in one pass on 2026-05-07 with descriptions and topics confirmed by the user (NutriSport is CMP not Android-only; NoteMark is a regular notes app, not markdown-aware; SpendLess + HabitTracker use MVI + Clean Architecture; MyDiary is Compose-based).
 
-| Repo | Likely stack (verify first) | Suggested topics | Suggested description |
+| Repo | Stack | Applied topics | Applied description |
 |---|---|---|---|
-| `NutriSport` | Android / CMP nutrition app | `android`, `kotlin`, `jetpack-compose`, `nutrition`, `health-tracking` | "Nutrition tracking app — verify if Android-only or CMP" |
-| `NoteMark` | Android Compose notes app | `android`, `kotlin`, `jetpack-compose`, `notes-app`, `markdown` | "Markdown-aware notes app built with Jetpack Compose" |
-| `SpendLess` | Android Compose finance | `android`, `kotlin`, `jetpack-compose`, `expense-tracker`, `finance` | "Personal expense tracker built with Jetpack Compose" |
-| `HabitTracker` | Android Compose habits | `android`, `kotlin`, `jetpack-compose`, `habit-tracker`, `productivity` | "Habit-tracking app built with Jetpack Compose" |
-| `MyDiary` | Android diary | `android`, `kotlin`, `diary-app`, `journaling` | "Personal diary / journaling app" |
+| `NutriSport` | KMP/CMP nutrition app | `kotlin-multiplatform`, `compose-multiplatform`, `cross-platform`, `jetpack-compose`, `kotlin`, `nutrition`, `health-tracking` | "Cross-platform nutrition tracking app — Kotlin Multiplatform with Compose Multiplatform UI." |
+| `NoteMark` | Android Compose notes app | `android`, `kotlin`, `jetpack-compose`, `notes-app`, `productivity` | "Notes app built with Jetpack Compose." |
+| `SpendLess` | Android Compose finance | `android`, `kotlin`, `jetpack-compose`, `expense-tracker`, `finance`, `mvi`, `clean-architecture` | "Personal expense tracker built with Jetpack Compose, MVI, and Clean Architecture." |
+| `HabitTracker` | Android Compose habits | `android`, `kotlin`, `jetpack-compose`, `habit-tracker`, `productivity`, `mvi`, `clean-architecture` | "Habit-tracking app built with Jetpack Compose, MVI, and Clean Architecture." |
+| `MyDiary` | Android Compose diary | `android`, `kotlin`, `jetpack-compose`, `diary-app`, `journaling` | "Personal diary / journaling app built with Jetpack Compose." |
 
-Process when ready (per repo):
+Reference command pattern:
 
-1. Open the repo locally or skim its README to confirm the actual stack — don't tag blindly.
-2. Add topics: `gh repo edit IronManYG/<REPO> --add-topic <topic1>,<topic2>,...`
-3. Set description: `gh repo edit IronManYG/<REPO> --description "<one-line description>"`
+```bash
+gh api -X PATCH repos/IronManYG/<REPO> -f description="..."
+gh api -X PUT repos/IronManYG/<REPO>/topics -f 'names[]=<topic1>' -f 'names[]=<topic2>' ...
+```
 
 Older practice repos (`day-XX-*`, `andfun-kotlin-*`, `nd940-*`, codelab/starters) intentionally stay topic-less and untouched — they're already archived per §5.
