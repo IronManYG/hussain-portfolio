@@ -106,9 +106,11 @@ EN architecture sections are flowing paragraphs; AR architecture sections are co
 + "...إدارة التنزيلات، مما سرّع..."
 ```
 
-### ⏸️ 9. Hero subtitle parentheticals — `about_page.json` · `hero.subtitle`
+### 🔵 9. Hero subtitle parentheticals — `about_page.json` · `hero.subtitle`
 
-Three trailing English-in-parens (`Legacy Codebases`, `Multi-module`, `At Scale`). The third is especially redundant because `على النطاق الواسع` already conveys it. Trim.
+Three trailing English-in-parens (`Legacy Codebases`, `Multi-module`, `At Scale`). The third is especially redundant because `على النطاق الواسع` already conveys it.
+
+**Decision-flagged, not bug-fixed.** The same EN-in-parens pattern recurs deliberately across many AR strings (`(Backend)`, `(Multi-module)`, `(Cross-platform)`, `(Native Performance)`, etc.) — likely an intentional SEO / keyword-reinforcement strategy for AR readers who recognize the EN technical terms. Trimming this one without a global policy would create inconsistency. Awaiting policy decision: keep the dual-term pattern broadly, or trim throughout.
 
 ### ✅ 10. Redundant English-in-parens for naturalized roles — `about_page.json`
 
@@ -199,15 +201,15 @@ Strict iron-rule-4 reading: all UI buttons should be masdar (`التواصل`). 
 ## Summary
 
 - **Total findings:** 17
-- **Fixed:** 4 critical + 5 notion polish + 1 puffery sweep + 7 minor/major polish = **17 of 17 items addressed**, after counting #7 and #17 as decision-deferred (see below).
-- **Decision-deferred (no defect, awaiting your call):**
+- ✅ **Fixed (13):** #1, #2, #3, #4, #5, #8, #10, #11, #12, #13, #14, #15 (with re-audit), #16 (with closure-by-inspection on the home.json instance).
+- 🔵 **Decision-deferred (4) — no defect, awaiting your policy call:**
+  - **#6 Brand-name transliteration** in `projects.json` `title_ar` (`تشيرب`, `رونيق`, `سكربل داش`, `إيكو جورنال`, `كودم`). Iron rule 5 says brand names stay Latin, but transliteration is a defensible choice for AR-only readers' parsing comfort.
   - **#7 EN/AR structural divergence** in `projects.json` architecture sections — EN uses prose, AR uses bulleted lists with bolded sub-headers. Both are valid; pick which structure is canonical and apply to the other side, or accept the divergence as intentional.
-  - **#17 Button register on `home.json` AR** — `btn_contact: تواصل معي` is imperative while sibling buttons use masdar. Defensible product choice (matches EN's "Contact Me" register). Flag only — left as-is.
-- **Closed-by-inspection:**
-  - Part of **#15** (Tailwind margins): re-audit showed the AR templates intentionally use physical classes for hand-tailored RTL layout — only 2 swapped icon margins were real bugs (now fixed).
-  - Part of **#16** (و-joins): one instance in `home.json` mirrors EN's coordinated structure faithfully, so the و is appropriate.
+  - **#9 Hero subtitle parentheticals** in `about_page.json` (`Legacy Codebases`, `Multi-module`, `At Scale`) — part of a broader EN-in-parens pattern recurring across many AR strings. Decide as a global pattern (keep / trim / case-by-case) rather than touching this one in isolation.
+  - **#17 Button register on `home.json` AR** — `btn_contact: تواصل معي` is imperative while sibling buttons use masdar. Defensible product choice (matches EN's "Contact Me" register).
+- **Bonus polish (5 items):** notion-redirect AR copy was tightened during the 404 fix (commit `5a364d1`).
 
-The AR side now matches the EN side in tone, accuracy, brevity, and surface coverage. Remaining work is structural (#7) and a single product-voice judgment call (#17).
+The AR side now matches the EN side in tone, accuracy, brevity, and surface coverage. Remaining items are policy decisions, not translation defects.
 
 ## Cross-references
 
