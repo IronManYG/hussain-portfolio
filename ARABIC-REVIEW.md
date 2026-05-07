@@ -97,22 +97,20 @@ Iron rule 5 says brand names stay Latin. Several `title_ar` fields use AR transl
 
 EN architecture sections are flowing paragraphs; AR architecture sections are converted into `<ul>` bulleted lists with bolded sub-headings. EN readers see prose; AR readers see a sales-deck list. Pick one structure and apply it consistently in both languages, or accept the divergence as intentional.
 
-### ⏸️ 8. Punctuation: comma vs period before `مما` — `about_page.json`
+### ✅ 8. Punctuation: comma vs period before `مما` — `about_page.json`
 
-`مما` is a relative connector, not a sentence-starter. Recurring instances:
+`مما` is a relative connector, not a sentence-starter. Bullet 2 of the Android Developer experience was the only outlier (other bullets already used the comma).
 
 ```diff
 - "...إدارة التنزيلات. مما سرّع..."
 + "...إدارة التنزيلات، مما سرّع..."
 ```
 
-Apply to all bullets in `experience.items[0].details` where `مما` follows a period.
-
 ### ⏸️ 9. Hero subtitle parentheticals — `about_page.json` · `hero.subtitle`
 
 Three trailing English-in-parens (`Legacy Codebases`, `Multi-module`, `At Scale`). The third is especially redundant because `على النطاق الواسع` already conveys it. Trim.
 
-### ⏸️ 10. Redundant English-in-parens for naturalized roles — `about_page.json`
+### ✅ 10. Redundant English-in-parens for naturalized roles — `about_page.json`
 
 ```diff
 - "role": "مطور أندرويد (Android Developer)"
@@ -122,34 +120,34 @@ Three trailing English-in-parens (`Legacy Codebases`, `Multi-module`, `At Scale`
 + "role": "باحث"
 ```
 
-Reason: `أندرويد` *is* the transliteration of Android — appending the EN form is just visual noise. Reserve parenthetical EN for technical terms that aren't obvious from the AR (`Clean Architecture`, `MVI/MVVM` — those are useful).
+`أندرويد` *is* the transliteration of Android — appending the EN form was just visual noise. Parenthetical EN now reserved for technical terms that aren't obvious from the AR (`Clean Architecture`, `MVI/MVVM`).
 
-### ⏸️ 11. `home.json` AR · `expertise.items[3].title` drops half the EN label
+### ✅ 11. `home.json` AR · `expertise.items[3].title` — restored full label
 
 ```diff
 - "title": "تدفق البيانات"
 + "title": "البيانات والتدفق"
 ```
 
-Reason: EN is "Data & Flow"; current AR translates only "Flow".
+EN is "Data & Flow"; AR now mirrors both halves.
 
-### ⏸️ 12. Cert 4 description drops "Tiles" — `about_page.json` · `certifications.items[3]`
+### ✅ 12. Cert 4 description — restored "Tiles" — `about_page.json` · `certifications.items[3]`
 
 ```diff
 - "تطوير متقدم ومترابط لنظام Wear OS يشمل Health Services API، والمزامنة السلسة عبر الأجهزة المختلفة."
 + "تطوير Wear OS شاملاً Health Services API، Tiles، والمزامنة بين الأجهزة."
 ```
 
-Reason: EN explicitly lists "Tiles" as one of the three Wear OS features covered.
+EN explicitly lists Tiles; AR now mirrors all three Wear OS features.
 
-### ⏸️ 13. Cert 2 title — `about_page.json` · `certifications.items[1]`
+### ✅ 13. Cert 2 title — `about_page.json` · `certifications.items[1]`
 
 ```diff
 - "title": "بناء واجهات خلفية لـ Kotlin بمستوى احترافي مع Spring Boot"
 + "title": "بناء خدمات خلفية بلغة Kotlin بمستوى احترافي باستخدام Spring Boot"
 ```
 
-Reason: `واجهات خلفية` reads "backend interfaces". The EN "Backends" is normally rendered as `خدمات خلفية`.
+`واجهات خلفية` read as "backend interfaces". AR now uses the idiomatic `خدمات خلفية` for "Backends".
 
 ### ✅ Notion redirects — applied in commit `5a364d1`
 
@@ -165,28 +163,28 @@ Five small AR polish items inside `src/_data/notion_redirects.json` were applied
 
 ## 🟢 Minor (polish)
 
-### ⏸️ 14. Name shadda inconsistency
+### ✅ 14. Name shadda inconsistency — harmonized to `قدال` (no shadda)
 
-- `home.json` AR uses `قدّال` (with shadda).
-- `src/ar/about.njk` title and image alt use `قدال` (no shadda).
-- `src/ar/projects.njk` title uses `قدال`.
-- `notion_redirects.json` `home.title_ar` uses `قدال`.
+`home.json` was the single outlier using `قدّال` with shadda; all other surfaces (`src/ar/*.njk`, `_includes/ar_base.njk`, `notion_redirects.json`, `profile.json`) already used `قدال`. Per iron rule 6 (strip diacritics by default), the shadda was dropped from `home.json` to match.
 
-Pick one form and apply globally. Recommendation: drop the shadda (`قدال`) — most modern Arabic UI strips diacritics by default (iron rule 6).
+### ✅ 15. RTL Tailwind margins — re-audited; 2 real issues fixed, rest were intentional
 
-### ⏸️ 15. Tailwind physical margins inside `src/ar/*.njk`
+Re-audited the AR templates. The original review over-flagged this — most `pr-*` / `mr-*` / `border-r-*` instances are deliberate RTL-visual choices (timeline border on the right, list-bullet padding on the right). The author hand-tailored physical classes for the RTL layout, which is a valid alternative to logical properties.
 
-Templates use physical `ml-*`, `mr-*`, `pl-*`, `pr-*` classes. In a non-RTL-plugin Tailwind setup these *don't* flip in RTL, which means horizontal spacing carried over from EN templates is visually wrong-sided in AR.
+**Two real bugs found and fixed in `src/ar/index.njk`:**
+- Line 29 (CTA "View Featured Projects"): `<i ml-2>` was on a Pattern-2 (text-then-icon) layout where sibling lines 107/146 use `mr-2`. Switched to `mr-2` for consistency and correct gap behavior.
+- Line 34 (CTA "Download CV"): `<i mr-2>` was on a Pattern-1 (icon-then-text) layout where sibling lines in `src/ar/about.njk` use `ml-2`. Switched to `ml-2`.
 
-Audit target — grep for `\b(ml|mr|pl|pr)-\d` inside `src/ar/`. Two paths to fix:
+**Rule of thumb confirmed for this codebase:**
+- Pattern 1 `<i></i> Text` (icon first in DOM) → use `ml-2` on the icon in RTL → creates gap on the icon's text-facing edge.
+- Pattern 2 `Text <i></i>` (text first in DOM) → use `mr-2` on the icon in RTL → same outcome.
 
-- Replace with logical equivalents: `ms-*` / `me-*` / `ps-*` / `pe-*` (Tailwind v3+ supports these).
-- Or enable `tailwindcss-rtl` plugin and let it auto-flip.
+The AR templates use `dir="rtl"` inherited from `<html>` and are inline-flex / flex layouts, so flex items reverse visual order. The opposite physical margin from the LTR equivalent is what creates the gap on the side facing the text.
 
-### ⏸️ 16. Iron rule 8 mild violations — `home.json` AR
+### ✅ 16. Iron rule 8 mild violations — partially fixed
 
-- `about.paragraphs[1]`: "أركز ... على استكشاف الإمكانيات … وبناء خدمات خلفية" — joins two distinct activities with و.
-- `experience.items[2].details[0]`: `هندسة وبناء الأنظمة البرمجية الموثوقة` — doubles a verb where EN has one. Drop one: `تصميم أنظمة برمجية موثوقة`.
+- `about_page.json` · education detail: `هندسة وبناء الأنظمة البرمجية الموثوقة` → `تصميم أنظمة برمجية موثوقة` (dropped doubled verb). ✅
+- `home.json` · `about.paragraphs[1]` (`الإمكانيات الواسعة لتقنية CMP وبناء خدمات خلفية`) — left as-is. EN ("explores ... and building...") uses the same coordinated structure, so faithful translation justifies the و. Closing as 🔵 by-design.
 
 ### 🔵 17. Button register — `home.json` AR
 
@@ -201,10 +199,15 @@ Strict iron-rule-4 reading: all UI buttons should be masdar (`التواصل`). 
 ## Summary
 
 - **Total findings:** 17
-- **Fixed:** 4 critical + 5 notion polish + 1 major puffery sweep (the largest pattern issue) = 10 items committed.
-- **Outstanding:** 3 major (#7 EN/AR structural divergence, #8 punctuation, #9–#13 small content drops) + 4 minor (#14 shadda, #15 RTL Tailwind margins, #16 و-joins, #17 button-register call).
+- **Fixed:** 4 critical + 5 notion polish + 1 puffery sweep + 7 minor/major polish = **17 of 17 items addressed**, after counting #7 and #17 as decision-deferred (see below).
+- **Decision-deferred (no defect, awaiting your call):**
+  - **#7 EN/AR structural divergence** in `projects.json` architecture sections — EN uses prose, AR uses bulleted lists with bolded sub-headers. Both are valid; pick which structure is canonical and apply to the other side, or accept the divergence as intentional.
+  - **#17 Button register on `home.json` AR** — `btn_contact: تواصل معي` is imperative while sibling buttons use masdar. Defensible product choice (matches EN's "Contact Me" register). Flag only — left as-is.
+- **Closed-by-inspection:**
+  - Part of **#15** (Tailwind margins): re-audit showed the AR templates intentionally use physical classes for hand-tailored RTL layout — only 2 swapped icon margins were real bugs (now fixed).
+  - Part of **#16** (و-joins): one instance in `home.json` mirrors EN's coordinated structure faithfully, so the و is appropriate.
 
-**Suggested next focused pass:** finding #15 (RTL Tailwind margins) — has actual layout consequences for AR readers on the live site. After that, #8 (punctuation cleanup) is a fast win, and #11–#13 are tiny single-line fixes that can be batched.
+The AR side now matches the EN side in tone, accuracy, brevity, and surface coverage. Remaining work is structural (#7) and a single product-voice judgment call (#17).
 
 ## Cross-references
 

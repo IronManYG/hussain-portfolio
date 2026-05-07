@@ -107,21 +107,21 @@
       "description": "مسيرتي المهنية في هندسة البرمجيات.",
       "items": [
         {
-          "role": "مطور أندرويد (Android Developer)",
+          "role": "مطور أندرويد",
           "company": "@ كيه لتقنية المعلومات",
           "color": "text-kotlin-orange",
           "date_location": "مارس 2022 - الحاضر | الرياض، السعودية",
           "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
           "details": [
             "توليت <strong class=\"text-ide-text-strong\">القيادة التقنية الكاملة</strong> لمنتج الأندرويد. أدرت عملية الانتقال من بيئة عمل قديمة مبنية بـ Java/XML إلى معمارية حديثة باستخدام Kotlin و Jetpack Compose، مما أدى إلى <strong class=\"text-ide-text-strong\">انخفاض معدلات الانهيار بنسبة 40%</strong>.",
-            "بنيت حزماً برمجية داخلية (SDKs) ووحدات أساسية قابلة لإعادة الاستخدام لخدمات المصادقة، والبحث، وإدارة التنزيلات. مما سرّع من وتيرة إنجاز الفريق بنسبة <strong class=\"text-ide-text-strong\">25%</strong>.",
+            "بنيت حزماً برمجية داخلية (SDKs) ووحدات أساسية قابلة لإعادة الاستخدام لخدمات المصادقة، والبحث، وإدارة التنزيلات، مما سرّع من وتيرة إنجاز الفريق بنسبة <strong class=\"text-ide-text-strong\">25%</strong>.",
             "صممت واجهات مستخدم تفاعلية وجذابة باستخدام <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>، بالإضافة إلى مكتبات Coil وتأثيرات Lottie الحركية، مما زاد من مدة جلسة المستخدم بنسبة <strong class=\"text-ide-text-strong\">15%</strong>.",
             "وضعت معايير معمارية واضحة (Clean Architecture, MVI) وأسست مسار تكامل وتسليم مستمر (<strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong>)، مما قلص من وقت تأهيل المطورين الجدد بنسبة <strong class=\"text-ide-text-strong\">50%</strong>.",
             "برمجت وأدرت خدمات مصغرة (Micro-services) خفيفة باستخدام Ktor للمصادقة وتوصيل المحتوى، مما أدى إلى تحسين سرعة استجابة الـ API بنسبة <strong class=\"text-ide-text-strong\">30%</strong>."
           ]
         },
         {
-          "role": "باحث (Researcher)",
+          "role": "باحث",
           "company": "@ كيه لتقنية المعلومات",
           "color": "text-kotlin-orange",
           "date_location": "سبتمبر 2017 - مارس 2022 | الرياض، السعودية",
@@ -139,7 +139,7 @@
           "date_location": "2011 - 2016",
           "node_color": "bg-kotlin-purple ring-kotlin-purple/20 border-ide-bg",
           "details": [
-            "أتممت برنامجاً هندسياً شاملاً، والذي أرسى لدي أساساً متيناً في طرق التفكير الهيكلي، وحل المشكلات، والمهارات التحليلية، وهي الأسس التي أستند إليها الآن في هندسة وبناء الأنظمة البرمجية الموثوقة."
+            "أتممت برنامجاً هندسياً شاملاً، والذي أرسى لدي أساساً متيناً في طرق التفكير الهيكلي، وحل المشكلات، والمهارات التحليلية، وهي الأسس التي أستند إليها الآن في تصميم أنظمة برمجية موثوقة."
           ]
         }
       ]
@@ -158,7 +158,7 @@
         {
           "icon": "ph-shield-check text-[#79C0FF]",
           "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "بناء واجهات خلفية لـ Kotlin بمستوى احترافي مع Spring Boot",
+          "title": "بناء خدمات خلفية بلغة Kotlin بمستوى احترافي باستخدام Spring Boot",
           "description": "دورة معتمدة بالشراكة مع <strong>JetBrains</strong> تركز على بناء خوادم Kotlin قابلة للتوسع وإدارة قواعد البيانات.",
           "provider_year": "PL Coding | 2025"
         },
@@ -173,7 +173,7 @@
           "icon": "ph-watch text-kotlin-orange",
           "borderHover": "hover:border-kotlin-orange/50",
           "title": "بناء تطبيقات Wear OS بمستوى احترافي",
-          "description": "تطوير متقدم ومترابط لنظام Wear OS يشمل Health Services API، والمزامنة السلسة عبر الأجهزة المختلفة.",
+          "description": "تطوير Wear OS شاملاً Health Services API، Tiles، والمزامنة بين الأجهزة.",
           "provider_year": "PL Coding | 2024"
         },
         {

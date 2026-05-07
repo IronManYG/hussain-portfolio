@@ -82,7 +82,7 @@
   "ar": {
     "hero": {
       "badge": "متاح لفرص عمل جديدة",
-      "greeting": "أنا حسين قدّال.",
+      "greeting": "أنا حسين قدال.",
       "headline": "مطور تطبيقات <span class=\"gradient-text\">أندرويد</span>.",
       "subtitle": "أبني تطبيقات تعمل بكفاءة — واسعة النطاق، متعددة المنصات، ومصممة لتدوم. يتمحور عملي حول دمج معمارية الأنظمة النظيفة (Clean Architecture) مع الأداء الأصلي لتطبيقات الجوال باستخدام Kotlin Multiplatform.",
       "btn_work": "عرض المشاريع المميزة",
@@ -143,7 +143,7 @@
           "bgHover": "group-hover:bg-kotlin-orange/20",
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
-          "title": "تدفق البيانات",
+          "title": "البيانات والتدفق",
           "description": "تصميم معماريات بيانات متينة للعمل بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-ide-text-strong\">Ktor Client</strong>، و GraphQL."
         },
         {
