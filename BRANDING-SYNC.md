@@ -17,7 +17,7 @@ Single source of truth for every cross-surface brand field. When you change a ro
 | GitHub archive list | ✅ done (30 repos) | Archived 2026-05-06: 5 test/junk + 16 Udacity exercises + 9 codelab/starter (see `src/social/github.md` §5) |
 | Cert PDFs | ✅ tracked (2026-05-06) | 7 PDFs committed to `src/social/certs/` (6 PL Coding + 1 Udacity). `.gitignore` exclusion removed since these are publicly equivalent to LinkedIn Media uploads. |
 | LinkedIn | ✅ done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree). Project "Associated with" links restored after the Education re-add (Asteroid Radar / Maps / Material Calculator etc.). |
-| Notion redirect embeds | ⏸️ pending (manual) | Site now deployed → all 18 URLs at `/notion/<slug>/` resolve. Open `src/social/notion.md`, paste each `/embed` block in the matching old-Notion section. |
+| Notion redirect embeds | ✅ done (2026-05-07) | All 18 redirect URLs embedded into the legacy Notion site. Project + CV buttons fixed (per-project URLs and CV target both 404'd; commit `5a364d1`) and re-tested live from inside Notion. |
 | Brand images | ⏸️ pending (generation) | 4 prompts in `src/_data/image_prompts.json` (`og_image`, `linkedin_banner`, `github_readme_hero`, `notion_redirect_hero`); output to `src/assets/img/branding/` (folder currently untracked, populate then `git add`). |
 
 ## Pending quality checks (after the manual surface work above)
