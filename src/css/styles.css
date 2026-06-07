@@ -100,6 +100,18 @@
         letter-spacing: normal;
     }
 
+    /* RTL polish: Arabic is cursive — never letter-space it (breaks letter
+       joins) and uppercase is a no-op, so neutralize the utility classes the
+       redesigned layout uses (tracking-*, uppercase). Also drop the accented
+       hero <em> italic, which Arabic fonts render as an awkward synthetic slant
+       (keep its accent colour + weight from .rt-em em). */
+    html[dir="rtl"] [class*="tracking-"] { letter-spacing: 0 !important; }
+    html[dir="rtl"] .uppercase { text-transform: none; }
+    html[dir="rtl"] .rt-em em { font-style: normal; }
+    /* JetBrains Mono has no Arabic glyphs — fall back to IBM Plex Sans Arabic
+       for Arabic runs while keeping Latin/numerals monospaced. */
+    html[dir="rtl"] .font-mono { font-family: 'JetBrains Mono', 'IBM Plex Sans Arabic', system-ui, monospace; }
+
     code, pre {
         font-family: 'JetBrains Mono', monospace;
     }

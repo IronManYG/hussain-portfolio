@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default("حسين قدال | مطور تطبيقات أندرويد") }}</title>
+    <meta name="description" content="{{ seo_description | default(description) | default('حسين قدال — مطور تطبيقات أندرويد في الرياض، يعمل بلغة Kotlin و Jetpack Compose وتطبيقات KMP.') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title | default('حسين قدال | مطور تطبيقات أندرويد') }}">
+    <meta property="og:description" content="{{ seo_description | default(description) | default('حسين قدال — مطور تطبيقات أندرويد في الرياض، يعمل بلغة Kotlin و Jetpack Compose وتطبيقات KMP.') }}">
+    <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio{{ page.url | url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://ironmanyg.github.io{{ '/assets/img/branding/og_image.png' | url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://ironmanyg.github.io{{ '/assets/img/branding/og_image.png' | url }}">
+    <meta name="twitter:title" content="{{ title | default('حسين قدال | مطور تطبيقات أندرويد') }}">
+    <meta name="twitter:description" content="{{ seo_description | default(description) | default('حسين قدال — مطور تطبيقات أندرويد في الرياض، يعمل بلغة Kotlin و Jetpack Compose وتطبيقات KMP.') }}">
+
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+        document.documentElement.classList.toggle('dark', useDark);
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{{ '/styles.css' | url }}">
+
+    <link rel="manifest" href="{{ '/manifest.json' | url }}">
+    <meta name="theme-color" content="#15140f">
+</head>
+<body class="isolate bg-rt-bg text-rt-text font-display antialiased selection:bg-rt-accent/25 selection:text-rt-text">
+
+    <!-- Whole-page green ambiance + film-grain atmosphere (behind content). -->
+    <div class="page-glow" aria-hidden="true"></div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-rt-border bg-rt-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="{{ '/ar/' | url }}" class="flex items-center gap-2.5 group" aria-label="حسين قدال — الرئيسية">
+                <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]" aria-hidden="true">HG</span>
+                <span class="font-semibold text-rt-text">حسين قدال</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-7 text-sm text-rt-muted">
+                <a href="#projects" class="hover:text-rt-text transition-colors">الأعمال المختارة</a>
+                <a href="{{ '/ar/about/' | url }}" class="hover:text-rt-text transition-colors">نبذة</a>
+                <a href="{{ '/ar/projects/' | url }}" class="hover:text-rt-text transition-colors">المشاريع</a>
+                <a href="#contact" class="hover:text-rt-text transition-colors">تواصل</a>
+            </div>
+
+            <div class="flex items-center gap-3 text-rt-muted">
+                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-1" aria-label="تبديل الوضع الداكن">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+                <a href="{{ page.url | replace('/ar/', '/') | url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="Switch to English">EN / ع</a>
+                <button id="mobile-menu-btn" class="text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="ph ph-list" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <h2 id="mobile-menu-title" class="sr-only">قائمة التنقل</h2>
+            <div class="flex justify-between items-center mb-8">
+                <span class="flex items-center gap-2.5" aria-hidden="true">
+                    <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]">HG</span>
+                </span>
+                <button id="mobile-menu-close" class="text-2xl text-rt-muted hover:text-rt-text transition-colors p-1" aria-label="إغلاق القائمة">
+                    <i class="ph ph-x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6 text-lg font-medium">
+                <a href="#projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">الأعمال المختارة</a>
+                <a href="{{ '/ar/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">نبذة</a>
+                <a href="{{ '/ar/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">المشاريع</a>
+                <a href="#contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">تواصل</a>
+            </div>
+            <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="mailto:hussain.yg2010@gmail.com" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="البريد الإلكتروني"><i class="ph ph-envelope-simple"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="relative z-10">
+        {{ content | safe }}
+    </main>
+
+    <!-- Contact / Footer -->
+    <footer id="contact" class="relative z-10 border-t border-rt-border bg-rt-subtle">
+        <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+            <p class="font-mono text-xs text-rt-muted mb-4">تواصل</p>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">لنبنِ شيئاً يدوم.</h2>
+            <p class="text-rt-muted text-lg mb-10 max-w-2xl mx-auto leading-relaxed">متاح لأدوار أندرويد و KMP و Kotlin المتكامل المتقدّمة. مقرّي الرياض، وأعمل عن بُعد أو في الموقع.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                <a href="mailto:hussain.yg2010@gmail.com" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-6 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
+                    لنتواصل <i class="ph ph-paper-plane-tilt"></i>
+                </a>
+                <a href="tel:+966538517374" dir="ltr" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-6 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+                    <i class="ph ph-phone"></i> +966 53 851 7374
+                </a>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-6 text-rt-muted mb-10">
+                <span class="flex items-center gap-2 font-mono text-sm"><i class="ph ph-map-pin text-rt-accent"></i> الرياض، السعودية</span>
+                <span class="h-1 w-1 rounded-full bg-rt-border hidden sm:block" aria-hidden="true"></span>
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            </div>
+            <p class="font-mono text-xs text-rt-muted border-t border-rt-border pt-8">&copy; <span id="copyright-year"></span> حسين قدال.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initTheme } from '{{ "/js/theme.js" | url }}';
+        import { initMenu } from '{{ "/js/menu.js" | url }}';
+        initTheme();
+        initMenu();
+        const yr = document.getElementById('copyright-year');
+        if (yr) yr.textContent = "2025–2026";
+    </script>
+</body>
+</html>
