@@ -5,8 +5,8 @@ description: "Hussain Gaddal, Android Developer with 4+ years building Kotlin an
 ---
 <!-- ───────── Hero ───────── -->
 <header class="relative max-w-7xl mx-auto px-6 pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
-    <div class="absolute -top-24 -right-24 w-[520px] h-[520px] rounded-full pointer-events-none" aria-hidden="true"
-         style="background: radial-gradient(circle, rgb(var(--rt-accent) / 0.20), transparent 62%); filter: blur(28px);"></div>
+    <div class="absolute pointer-events-none" aria-hidden="true"
+         style="width:480px;height:480px;top:-160px;right:-120px;background:radial-gradient(circle, rgb(var(--rt-accent) / 0.28), transparent 65%);filter:blur(20px);"></div>
     <div class="relative z-[1] grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
         <!-- Copy -->
         <div>
@@ -70,20 +70,20 @@ description: "Hussain Gaddal, Android Developer with 4+ years building Kotlin an
     <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
         {% for project in projects %}{% if project.featured %}
         {% if project.feature_card %}
-        <!-- Feature card (span-12, banner on top) -->
-        <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 flex flex-col border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
-            <div class="relative aspect-video overflow-hidden bg-rt-subtle">
+        <!-- Feature card (span-12, 2-col, whole thumbnail visible) -->
+        <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 grid md:grid-cols-[1.3fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+            <div class="relative bg-rt-subtle min-h-[280px] md:min-h-[340px] overflow-hidden">
                 {% if project.grid.images %}
-                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-100 dark:opacity-0">
-                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 dark:opacity-100">
+                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain p-5 opacity-100 dark:opacity-0">
+                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain p-5 opacity-0 dark:opacity-100">
                 {% endif %}
             </div>
-            <div class="p-6 sm:p-8">
+            <div class="p-6 sm:p-8 flex flex-col justify-center">
                 <div class="flex flex-wrap gap-2 mb-3 font-mono">
                     {% for tag in project.tags.slice(0, 3) %}<span class="text-[10px] px-2 py-0.5 rounded-full bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endfor %}
                 </div>
                 <h3 class="text-2xl font-bold tracking-tight mb-2 group-hover:text-rt-accent transition-colors">{{ project.title_en }}{% if project.year %} <span class="text-rt-muted font-normal text-lg">· {{ project.year }}</span>{% endif %}</h3>
-                <p class="text-rt-muted leading-relaxed max-w-2xl{% if project.card_impact_en %} mb-5{% endif %}">{{ project.description_en }}</p>
+                <p class="text-rt-muted leading-relaxed{% if project.card_impact_en %} mb-5{% endif %}">{{ project.description_en }}</p>
                 {% if project.card_impact_en %}
                 <div class="pt-4 border-t border-rt-border">
                     <span class="font-mono text-sm text-rt-accent">{{ project.card_impact_en }}</span>
@@ -96,8 +96,8 @@ description: "Hussain Gaddal, Android Developer with 4+ years building Kotlin an
         <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group md:col-span-4 flex flex-col border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <div class="relative aspect-video overflow-hidden bg-rt-subtle">
                 {% if project.grid.images %}
-                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-100 dark:opacity-0">
-                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0 dark:opacity-100">
+                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
+                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
                 {% endif %}
             </div>
             <div class="p-5 flex flex-col flex-1">

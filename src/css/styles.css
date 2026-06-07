@@ -225,17 +225,24 @@
 
     /* Riyadh Terra atmosphere — static film-grain overlay (no animation).
        Use as a fixed full-page layer behind content: <div class="grain-overlay"></div> */
+    /* Grain is a fixed top layer (z above content, below nav). Theme-specific:
+       LIGHT theme uses dark speckles (multiply) so it shows on sandstone;
+       DARK theme uses white speckles (overlay) — the mockup's exact approach. */
     .grain-overlay {
         position: fixed;
         inset: 0;
-        z-index: 45;                /* above page content (z-10), below the fixed nav (z-50) */
+        z-index: 45;
         pointer-events: none;
-        opacity: 0.45;
-        mix-blend-mode: overlay;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-        background-size: 140px 140px;
+        background-size: 130px 130px;
+        mix-blend-mode: multiply;
+        opacity: 0.25;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='130' height='130'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
     }
-    .dark .grain-overlay { opacity: 0.6; }
+    .dark .grain-overlay {
+        mix-blend-mode: overlay;
+        opacity: 0.6;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='130' height='130'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
+    }
 
     /* Riyadh Terra hero emphasis — accent the <em> words in the H1 */
     .rt-em em {
