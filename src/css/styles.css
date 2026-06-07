@@ -57,6 +57,16 @@
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    /* Instant theme swap: while .theme-switching is on <html> (one frame during
+       toggle), kill every transition so colors snap together. Prevents the
+       project names recoloring (150ms) ahead of the card/page bg (300ms),
+       which made them briefly wash out. Hover transitions are unaffected. */
+    html.theme-switching *,
+    html.theme-switching *::before,
+    html.theme-switching *::after {
+        transition: none !important;
+    }
+
     /* Prevent any section from bleeding outside viewport on mobile */
     section, header, footer {
         max-width: 100vw;
