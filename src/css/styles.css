@@ -238,6 +238,22 @@
     @media (prefers-reduced-motion: reduce) {
         .grain-overlay { opacity: 0.25; }
     }
+
+    /* Riyadh Terra hero emphasis — accent the <em> words in the H1 */
+    .rt-em em {
+        font-style: italic;
+        font-weight: 500;
+        color: rgb(var(--rt-accent));
+    }
+    /* Phone-frame screenshot for project cards */
+    .rt-phone {
+        border-radius: 22px;
+        border: 5px solid rgb(var(--rt-border));
+        background: rgb(var(--rt-border));
+        box-shadow: 0 30px 60px -25px rgba(0,0,0,.5);
+        overflow: hidden;
+    }
+    .rt-card:hover { transform: translateY(-2px); border-color: rgb(var(--rt-accent)); }
 }
 
 /* Custom Scrollbar */

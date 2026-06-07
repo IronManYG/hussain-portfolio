@@ -5,6 +5,11 @@
     "title_ar": "تطبيق Chirp للمراسلة",
     "slug": "chirp",
     "featured": true,
+    "feature_card": true,
+    "year": "2025",
+    "shot": "/assets/img/projects/shots/chirp-shot.png",
+    "card_impact_en": "100% shared logic · Android · iOS · Desktop",
+    "card_impact_ar": "مشاركة كاملة للمنطق · أندرويد · iOS · سطح المكتب",
     "grid": {
       "size": "md:col-span-8",
       "glow": "glow-blue",
@@ -80,6 +85,10 @@
     "title_ar": "Runique",
     "slug": "runique",
     "featured": true,
+    "year": "2024",
+    "shot": "/assets/img/projects/shots/runique-shot.png",
+    "card_impact_en": "Sub-second watch ↔ phone sync",
+    "card_impact_ar": "مزامنة لحظية بين الساعة والهاتف",
     "grid": {
       "size": "md:col-span-4",
       "glow": "glow-orange",
@@ -138,6 +147,10 @@
     "title_ar": "ScribbleDash",
     "slug": "scribbledash",
     "featured": true,
+    "year": "2025",
+    "shot": "/assets/img/projects/shots/scribbledash-shot.png",
+    "card_impact_en": "Steady 60 FPS draw loop",
+    "card_impact_ar": "حلقة رسم ثابتة ٦٠ إطار/ث",
     "grid": {
       "size": "md:col-span-12",
       "glow": "glow-orange",
@@ -200,6 +213,8 @@
     "title_ar": "EchoJournal",
     "slug": "echojournal",
     "featured": true,
+    "year": "2025",
+    "shot": "/assets/img/projects/shots/echojournal-shot.png",
     "grid": {
       "size": "md:col-span-6",
       "glow": "glow-blue",

@@ -1,14 +1,24 @@
 {
   "en": {
     "hero": {
-      "badge": "Available for new opportunities",
-      "greeting": "I'm Hussain Gaddal.",
-      "headline": "<span class=\"gradient-text\">Android Developer</span>.",
-      "subtitle": "I build large-scale, multi-platform apps that hold up in production. My work pairs clean system architecture with native mobile performance using Kotlin Multiplatform.",
-      "btn_work": "View Featured Projects",
+      "badge": "Open to senior Android & KMP roles · Riyadh",
+      "greeting": "— Hussain Gaddal",
+      "headline": "I build Android apps that <em>just work</em> at scale.",
+      "subtitle": "Android Developer, 4+ years shipping multi-module Kotlin &amp; Compose apps. Currently leading the Android product at <strong>Kay Technology</strong>, exploring KMP &amp; Ktor on the side.",
+      "btn_work": "View selected work",
       "btn_cv": "Download CV",
-      "btn_contact": "Contact Me"
+      "stats": [
+        { "v": "4+", "k": "Years shipping" },
+        { "v": "13", "k": "Projects built" },
+        { "v": "Riyadh", "k": "Saudi Arabia" }
+      ]
     },
+    "facts": [
+      { "k": "Currently", "v": "Android Developer · Kay Technology" },
+      { "k": "Stack", "v": "Kotlin · Compose · KMP · Ktor" },
+      { "k": "Open to", "v": "Senior Android / KMP / full-stack Kotlin" },
+      { "k": "Last shipped", "v": "Chirp · 2025" }
+    ],
     "about": {
       "section_label": "About Me",
       "title": "Building the Intersection of <span class=\"text-kotlin-purple\">Systems</span> and <span class=\"text-kotlin-orange\">UX</span>.",
