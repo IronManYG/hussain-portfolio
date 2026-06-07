@@ -239,19 +239,6 @@
     }
     .dark .grain-overlay { opacity: 0.5; }
 
-    /* Whole-page accent ambiance (behind content). Soft teal/terracotta
-       radials that show through the transparent hero + work sections. */
-    .page-glow {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        background:
-            radial-gradient(55% 45% at 85% 6%, rgb(var(--rt-accent) / 0.10), transparent 70%),
-            radial-gradient(50% 45% at 8% 55%, rgb(var(--rt-accent-2) / 0.06), transparent 70%),
-            radial-gradient(60% 50% at 95% 92%, rgb(var(--rt-accent) / 0.07), transparent 70%);
-    }
-
     /* Promote stacked card thumbnails to their own compositor layer so the
        light/dark opacity swap is GPU-only — no repaint flash / name flicker. */
     .rt-thumb {
