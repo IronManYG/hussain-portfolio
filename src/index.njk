@@ -71,11 +71,11 @@ description: "Hussain Gaddal, Android Developer with 4+ years building Kotlin an
         {% for project in projects %}{% if project.featured %}
         {% if project.feature_card %}
         <!-- Feature card (span-12, 2-col, whole thumbnail visible) -->
-        <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 grid md:grid-cols-[1.3fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
-            <div class="relative bg-rt-subtle min-h-[280px] md:min-h-[340px] overflow-hidden">
+        <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 grid md:grid-cols-[1.4fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+            <div class="relative aspect-video overflow-hidden bg-rt-subtle">
                 {% if project.grid.images %}
-                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain p-5 opacity-100 dark:opacity-0">
-                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-contain p-5 opacity-0 dark:opacity-100">
+                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
+                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
                 {% endif %}
             </div>
             <div class="p-6 sm:p-8 flex flex-col justify-center">
@@ -96,8 +96,8 @@ description: "Hussain Gaddal, Android Developer with 4+ years building Kotlin an
         <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group md:col-span-4 flex flex-col border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <div class="relative aspect-video overflow-hidden bg-rt-subtle">
                 {% if project.grid.images %}
-                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
-                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
+                <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
+                <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
                 {% endif %}
             </div>
             <div class="p-5 flex flex-col flex-1">
