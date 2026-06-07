@@ -256,28 +256,24 @@
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
     }
 
-    /* Whole-page green ambiance — several soft accent (teal/green) glows in
-       DIFFERENT places, behind content (z-6, below main z-10) and above the
-       grain. Opaque bands cover it, so only the transparent hero + section
-       backgrounds pick up the green. Theme-aware via --rt-accent. Fixed, so the
-       green stays distributed across the viewport as the tall page scrolls. */
+    /* Whole-page green ambiance — the hero's corner glow, now spread across the
+       page as several teal radials (same ~0.26 accent + soft `transparent 65%`
+       falloff as the old hero `.mock-hero::before`). Behind content (z-6, below
+       main z-10, above grain z-5), so opaque bands (facts/cards/footer) cover
+       it and only the transparent hero + section backgrounds pick up the green.
+       Fixed → the glows stay distributed across the viewport as the page
+       scrolls, covering the whole page. Theme-aware via --rt-accent. */
     .page-glow {
         position: fixed;
         inset: 0;
         z-index: 6;
         pointer-events: none;
         background:
-            radial-gradient(38% 32% at 14% 30%, rgb(var(--rt-accent) / 0.09), transparent 70%),
-            radial-gradient(42% 36% at 92% 52%, rgb(var(--rt-accent) / 0.10), transparent 72%),
-            radial-gradient(46% 40% at 40% 78%, rgb(var(--rt-accent) / 0.08), transparent 72%),
-            radial-gradient(40% 34% at 82% 96%, rgb(var(--rt-accent) / 0.07), transparent 70%);
-    }
-    .dark .page-glow {
-        background:
-            radial-gradient(38% 32% at 14% 30%, rgb(var(--rt-accent) / 0.12), transparent 70%),
-            radial-gradient(42% 36% at 92% 52%, rgb(var(--rt-accent) / 0.13), transparent 72%),
-            radial-gradient(46% 40% at 40% 78%, rgb(var(--rt-accent) / 0.10), transparent 72%),
-            radial-gradient(40% 34% at 82% 96%, rgb(var(--rt-accent) / 0.09), transparent 70%);
+            radial-gradient(460px circle at 88% 6%,  rgb(var(--rt-accent) / 0.26), transparent 65%),
+            radial-gradient(420px circle at 8% 26%,  rgb(var(--rt-accent) / 0.20), transparent 65%),
+            radial-gradient(440px circle at 98% 54%, rgb(var(--rt-accent) / 0.22), transparent 65%),
+            radial-gradient(440px circle at 26% 76%, rgb(var(--rt-accent) / 0.20), transparent 65%),
+            radial-gradient(420px circle at 78% 98%, rgb(var(--rt-accent) / 0.20), transparent 65%);
     }
 
     /* Promote stacked card thumbnails to their own compositor layer so the
