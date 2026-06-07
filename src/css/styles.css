@@ -14,6 +14,17 @@
         --color-text-muted: 100 116 139;
         --color-text-dim: 148 163 184;
         --color-text-strong: 15 23 42;
+
+        /* Riyadh Terra — light (redesign tokens; coexist with ide-* until migration done) */
+        --rt-bg: 245 239 230;        /* #f5efe6 warm sandstone */
+        --rt-surface: 255 255 255;   /* #ffffff */
+        --rt-subtle: 235 228 215;    /* #ebe4d7 */
+        --rt-border: 227 220 207;    /* #e3dccf hairline */
+        --rt-text: 28 28 31;         /* #1c1c1f */
+        --rt-muted: 107 102 97;      /* #6b6661 */
+        --rt-accent: 14 107 98;      /* #0e6b62 deep teal */
+        --rt-accent-2: 196 107 58;   /* #c46b3a terracotta */
+        --rt-btn-text: 255 255 255;  /* #ffffff */
     }
     .dark {
         --color-ide-bg: 13 17 23;
@@ -25,6 +36,17 @@
         --color-text-muted: 156 163 175;
         --color-text-dim: 107 114 128;
         --color-text-strong: 255 255 255;
+
+        /* Riyadh Terra — dark */
+        --rt-bg: 21 20 15;           /* #15140f warm near-black */
+        --rt-surface: 28 27 22;      /* #1c1b16 */
+        --rt-subtle: 37 35 25;       /* #252319 */
+        --rt-border: 46 44 34;       /* #2e2c22 */
+        --rt-text: 236 229 213;      /* #ece5d5 */
+        --rt-muted: 156 148 131;     /* #9c9483 */
+        --rt-accent: 62 179 164;     /* #3eb3a4 brighter teal */
+        --rt-accent-2: 221 141 82;   /* #dd8d52 */
+        --rt-btn-text: 12 14 18;     /* #0c0e12 dark text on bright accent */
     }
 
     body {
@@ -199,6 +221,22 @@
     .magnetic-wrap {
         display: inline-block;
         transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* Riyadh Terra atmosphere — static film-grain overlay (no animation).
+       Use as a fixed full-page layer behind content: <div class="grain-overlay"></div> */
+    .grain-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.35;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        background-size: 160px 160px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .grain-overlay { opacity: 0.25; }
     }
 }
 

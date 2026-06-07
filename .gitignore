@@ -27,3 +27,6 @@ linkedin/
 # Playwright MCP working directory (session artifacts, screenshots, console logs)
 .playwright-mcp/
 
+# Redesign working files (mockups, Figma exports, briefs) — not published, kept private
+design/
+
