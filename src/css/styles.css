@@ -287,6 +287,11 @@
             radial-gradient(440px circle at 26% 76%, rgb(var(--rt-accent) / 0.20), transparent 65%),
             radial-gradient(420px circle at 78% 98%, rgb(var(--rt-accent) / 0.20), transparent 65%);
     }
+    /* On phones the radials are wider than the viewport and overlap into a
+       heavy wash — soften the whole layer. */
+    @media (max-width: 768px) {
+        .page-glow { opacity: 0.5; }
+    }
 
     /* Promote stacked card thumbnails to their own compositor layer so the
        light/dark opacity swap is GPU-only — no repaint flash / name flicker. */
