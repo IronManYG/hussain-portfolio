@@ -365,6 +365,29 @@
         border-color: rgb(var(--rt-accent));
     }
     .rt-chip-count { font-size: 10px; opacity: 0.7; }
+
+    /* Riyadh Terra prose — re-skins the project case-study HTML (which still
+       carries legacy ide and kotlin color classes from projects.json) to the
+       Terra tokens via higher-specificity overrides, so no data rewrite is
+       needed. Drop these overrides once the prose strings are migrated. */
+    .rt-prose { color: rgb(var(--rt-muted)); line-height: 1.75; }
+    .rt-prose p { margin-bottom: 1rem; }
+    .rt-prose p:last-child { margin-bottom: 0; }
+    .rt-prose ul { list-style: disc; padding-inline-start: 1.25rem; margin: 0.5rem 0 1rem; }
+    .rt-prose ol { list-style: decimal; padding-inline-start: 1.25rem; margin: 0.5rem 0 1rem; }
+    .rt-prose li { margin-bottom: 0.4rem; }
+    .rt-prose h3 { font-weight: 600; font-size: 1.2rem; margin: 1.6rem 0 0.5rem; }
+    .rt-prose strong, .rt-prose b, .rt-prose h3, .rt-prose .text-ide-text-strong { color: rgb(var(--rt-text)); font-weight: 600; }
+    .rt-prose .text-ide-text-muted { color: rgb(var(--rt-muted)); }
+    .rt-prose em { font-style: italic; }
+    .rt-prose a { color: rgb(var(--rt-accent)); text-decoration: underline; text-underline-offset: 2px; }
+    .rt-prose code, .rt-prose .text-kotlin-orange {
+        color: rgb(var(--rt-accent));
+        font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+        background: rgb(var(--rt-subtle)); border: 1px solid rgb(var(--rt-border));
+        padding: 0.1em 0.35em; border-radius: 4px;
+    }
+    html[dir="rtl"] .rt-prose ul, html[dir="rtl"] .rt-prose ol { list-style-position: inside; }
 }
 
 /* Custom Scrollbar */
