@@ -9,7 +9,7 @@
       "btn_cv": "Download CV",
       "stats": [
         { "v": "4+", "k": "Years shipping" },
-        { "v": "13", "k": "Projects built" },
+        { "v": "12", "k": "Projects built" },
         { "v": "Riyadh", "k": "Saudi Arabia" }
       ]
     },
@@ -100,7 +100,7 @@
       "btn_contact": "التواصل",
       "stats": [
         { "v": "٤+", "k": "سنوات خبرة" },
-        { "v": "١٣", "k": "مشاريع منجزة" },
+        { "v": "١٢", "k": "مشاريع منجزة" },
         { "v": "الرياض", "k": "السعودية" }
       ]
     },

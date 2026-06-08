@@ -347,6 +347,24 @@
     html[dir="rtl"] .rt-tl-item::before { left: auto; right: -23px; }
     html[dir="rtl"] .rt-tl-bullet { padding-left: 0; padding-right: 18px; }
     html[dir="rtl"] .rt-tl-bullet::before { left: auto; right: 0; content: "←"; }
+
+    /* Riyadh Terra filter chips (Projects index) */
+    .rt-chip {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        padding: 6px 12px; border-radius: 999px;
+        border: 1px solid rgb(var(--rt-border));
+        color: rgb(var(--rt-muted));
+        background: transparent;
+        transition: color .15s, border-color .15s, background .15s;
+    }
+    .rt-chip:hover { color: rgb(var(--rt-text)); border-color: rgb(var(--rt-accent) / 0.5); }
+    .rt-chip.is-active {
+        color: rgb(var(--rt-btn-text));
+        background: rgb(var(--rt-accent));
+        border-color: rgb(var(--rt-accent));
+    }
+    .rt-chip-count { font-size: 10px; opacity: 0.7; }
 }
 
 /* Custom Scrollbar */

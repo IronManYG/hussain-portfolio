@@ -1,64 +1,97 @@
 ---
-layout: base.njk
+layout: base_rt.njk
 title: "All Projects | Hussain Gaddal"
-description: "A comprehensive list of all my Android, Kotlin Multiplatform, and backend projects."
+seo_description: "Production Android work, Kotlin Multiplatform experiments, and open-source builds by Hussain Gaddal — filterable by what they shipped, not which library they imported."
 ---
-<style>
-    /* Scoped to this page only: free the outer main wrapper so cards can use full width */
-    body > main { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
-</style>
-<main class="pt-32 pb-24 px-4 sm:px-6 max-w-7xl mx-auto">
-    <header class="mb-12 text-center fade-section">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ locales.en.page_projects_title | safe }}</h1>
-        <p class="text-xl text-ide-text-muted font-light max-w-2xl mx-auto">{{ locales.en.page_projects_desc }}</p>
-    </header>
+{% set nonTech = ["Course Challenge", "Course Project", "Community Challenge", "Personal", "Personal Project", "Professional", "Institution", "Android"] %}
+{% set prodSlugs = ["maktabati", "material-calculator", "qodem"] %}
 
-    <!-- Filters -->
-    <div class="flex flex-wrap justify-center gap-3 mb-16 fade-section" id="project-filters" role="toolbar" aria-label="Project category filters">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true"><span>{{ locales.en.filter_all }}</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="kmp" aria-pressed="false"><span>KMP</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="cmp" aria-pressed="false"><span>CMP</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="android" aria-pressed="false"><span>Android</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="wear os" aria-pressed="false"><span>Wear OS</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="firebase" aria-pressed="false"><span>Firebase</span><span class="filter-count" aria-hidden="true">0</span></button>
+<!-- ───────── Head + filters ───────── -->
+<header class="max-w-7xl mx-auto px-6 pt-32 pb-10 lg:pt-40">
+    <div class="flex items-end justify-between gap-6 flex-wrap">
+        <div>
+            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-3">Selected work</div>
+            <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-2xl">Twelve projects, <em>three</em> that mattered.</h1>
+            <p class="text-lg text-rt-muted leading-relaxed max-w-2xl mt-5">Production Android work I shipped to real users, multiplatform builds I'd defend in an interview, and smaller tools I built to learn — sorted by what they taught me, not by which library I imported.</p>
+        </div>
+        <div class="font-mono text-xs text-rt-muted shrink-0"><b class="text-rt-text font-semibold">12 projects</b> · 2020 — 2025</div>
     </div>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="projects-grid">
-        {% for project in projects %}
-        <div class="project-card-wrapper fade-section" data-tags="{{ project.tags | join(',') | lower }}">
-            <a href="{{ ('/' + project.slug + '/') | url }}" class="bento-card project-card-split group bento-animate {{ project.grid.glow }} glass-noise relative overflow-hidden rounded-3xl border border-ide-border flex flex-col sm:flex-row min-h-full">
-                <div class="project-card-visual relative w-full sm:w-[45%] h-[200px] sm:h-auto sm:min-h-[220px] flex-shrink-0 overflow-hidden">
-                    {% if project.grid.images %}
-                    <img src="{{ project.grid.images.en.light | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05] dark:hidden">
-                    <img src="{{ project.grid.images.en.dark | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05] hidden dark:block">
-                    {% elif project.grid.image %}
-                    <img src="{{ project.grid.image | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05]">
-                    {% else %}
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="ph {{ project.grid.icon }} text-8xl {{ project.grid.iconColor }} relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3" aria-hidden="true"></i>
-                    </div>
-                    {% endif %}
-                </div>
+    <!-- Filters -->
+    <div class="flex flex-wrap items-center gap-2 mt-8 pt-6 border-t border-rt-border" id="project-filters" role="toolbar" aria-label="Project category filters">
+        <button class="rt-chip is-active" data-filter="all" aria-pressed="true">All <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <button class="rt-chip" data-filter="production" aria-pressed="false">Production <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <button class="rt-chip" data-filter="multiplatform" aria-pressed="false">Multiplatform <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <button class="rt-chip" data-filter="opensource" aria-pressed="false">Open-source <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <span class="font-mono text-[11px] text-rt-muted border border-dashed border-rt-border rounded-full px-3 py-1.5 sm:ml-auto">All projects use Kotlin · Compose unless noted</span>
+    </div>
+</header>
 
-                <div class="relative z-20 flex-1 flex flex-col justify-center gap-3 p-6 sm:p-7 bg-ide-surface min-w-0">
-                    <div class="flex gap-2 flex-wrap">
-                        {% for tag in project.tags.slice(0, 3) %}
-                        <span class="tech-pill text-xs shadow-none">{{ tag }}</span>
-                        {% endfor %}
-                        {% if project.tags.length > 3 %}
-                        <span class="tech-pill text-xs shadow-none">+{{ project.tags.length - 3 }}</span>
-                        {% endif %}
+<!-- ───────── Featured project ───────── -->
+{% for project in projects %}{% if project.feature_card %}
+<section class="max-w-7xl mx-auto px-6 pb-12">
+    <div class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+        <a href="{{ ('/' + project.slug + '/') | url }}" class="group relative block aspect-video md:aspect-auto md:min-h-[340px] overflow-hidden bg-rt-subtle" aria-label="{{ project.title_en }} — case study">
+            <span class="absolute top-4 left-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">Featured</span>
+            {% if project.grid.images %}
+            <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
+            <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
+            {% endif %}
+        </a>
+        <div class="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+            <div class="font-mono text-[11px] uppercase tracking-[0.12em] text-rt-accent mb-3">{{ project.year }} · multiplatform</div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3"><a href="{{ ('/' + project.slug + '/') | url }}" class="hover:text-rt-accent transition-colors">{{ project.title_en }}</a></h2>
+            <p class="text-sm text-rt-muted leading-relaxed mb-6">{{ project.featured_role_en | safe }}</p>
+            {% if project.featured_stats_en %}
+            <div class="grid grid-cols-3 border-y border-rt-border mb-6">
+                {% for s in project.featured_stats_en %}
+                <div class="py-3.5 {% if not loop.first %}border-l border-rt-border pl-4{% endif %}">
+                    <div class="text-2xl font-bold leading-none tracking-tight">{{ s.v }}</div>
+                    <div class="font-mono text-[10px] uppercase tracking-wide text-rt-muted mt-1.5">{{ s.k }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="flex flex-wrap gap-1.5 mb-6 font-mono">
+                {% for tag in project.tags %}{% if tag not in nonTech %}<span class="text-[10.5px] px-2.5 py-1 rounded bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="{{ ('/' + project.slug + '/') | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-2.5 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">Read case study <span class="font-mono">→</span></a>
+                {% if project.repoUrl %}<a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-rt-muted hover:text-rt-accent transition-colors">GitHub ↗</a>{% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}{% endfor %}
+
+<!-- ───────── Project grid ───────── -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="projects-grid">
+        {% for project in projects %}{% if not project.feature_card %}
+        {% set tl = project.tags | join('|') | lower %}
+        {% set isMp = ('multiplatform' in tl) or ('kmm' in tl) or ('kmp' in tl) or ('cmp' in tl) or ('wear os' in tl) %}
+        {% set isProd = project.slug in prodSlugs %}
+        <div class="project-card-wrapper" data-multiplatform="{{ 'true' if isMp else 'false' }}" data-production="{{ 'true' if isProd else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
+            <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group flex flex-col h-full border border-rt-border rounded-2xl bg-rt-surface p-6 transition-all duration-300">
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                    <h3 class="text-lg sm:text-xl font-bold tracking-tight group-hover:text-rt-accent transition-colors">{{ project.title_en }}</h3>
+                    {% if project.year %}<span class="font-mono text-[11px] tracking-[0.1em] text-rt-muted shrink-0">{{ project.year }}</span>{% endif %}
+                </div>
+                <p class="text-sm text-rt-muted leading-relaxed">{{ project.description_en }}</p>
+                {% if project.card_impact_en %}
+                <div class="font-mono text-xs text-rt-accent border-t border-dashed border-rt-border mt-4 pt-3">{{ project.card_impact_en }}</div>
+                {% endif %}
+                <div class="flex items-center justify-between gap-3 mt-auto pt-4">
+                    <div class="flex flex-wrap gap-1.5 font-mono">
+                        {% for tag in project.tags %}{% if tag not in nonTech and loop.index <= 4 %}<span class="text-[10px] px-2 py-0.5 rounded bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
                     </div>
-                    <h4 class="text-xl sm:text-2xl font-bold group-hover:text-ide-text-strong transition-colors">{{ project.title_en }}</h4>
-                    <p class="text-ide-text-muted font-light text-sm sm:text-base leading-relaxed">{{ project.description_en }}</p>
+                    <span class="font-mono text-xs text-rt-muted group-hover:text-rt-accent transition-colors shrink-0">View →</span>
                 </div>
             </a>
         </div>
-        {% endfor %}
+        {% endif %}{% endfor %}
     </div>
-
-    <div id="projects-empty" class="hidden text-center py-16 text-ide-text-muted text-lg" role="status" aria-live="polite">{{ locales.en.filter_empty }}</div>
-</main>
+    <div id="projects-empty" class="hidden text-center py-16 text-rt-muted text-lg" role="status" aria-live="polite">No projects match that filter.</div>
+</section>
 
 <script src="{{ '/js/projects-filter.js' | url }}"></script>

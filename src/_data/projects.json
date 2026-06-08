@@ -10,6 +10,18 @@
     "shot": "/assets/img/projects/shots/chirp-shot.png",
     "card_impact_en": "100% shared logic · Android · iOS · Desktop",
     "card_impact_ar": "مشاركة كاملة للمنطق · أندرويد · iOS · سطح المكتب",
+    "featured_role_en": "Solo build. <b>Compose Multiplatform</b> UI shared across Android, iOS &amp; Desktop, a <b>Spring Boot</b> backend over <b>Ktor</b> + WebSockets, Room for offline-first cache, and Koin for DI. Real-time messages with an offline queue and automatic resync.",
+    "featured_role_ar": "عمل فردي. واجهة <b>Compose Multiplatform</b> مشتركة بين أندرويد وiOS وسطح المكتب، وخادم <b>Spring Boot</b> عبر <b>Ktor</b> وWebSockets، وRoom  للتخزين دون اتصال، وKoin لحقن التبعيات. رسائل فورية مع طابور دون اتصال ومزامنة تلقائية.",
+    "featured_stats_en": [
+      { "v": "100%", "k": "shared logic" },
+      { "v": "3", "k": "platforms" },
+      { "v": "Live", "k": "WebSocket sync" }
+    ],
+    "featured_stats_ar": [
+      { "v": "١٠٠٪", "k": "مشاركة المنطق" },
+      { "v": "٣", "k": "منصات" },
+      { "v": "فوري", "k": "مزامنة WebSocket" }
+    ],
     "grid": {
       "size": "md:col-span-8",
       "glow": "glow-blue",
