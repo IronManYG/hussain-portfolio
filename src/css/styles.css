@@ -306,12 +306,30 @@
         inset: 0;
         z-index: 6;
         pointer-events: none;
+        /* Slightly over-scaled so the slow drift never exposes a hard edge. */
+        transform: scale(1.1);
         background:
             radial-gradient(460px circle at 88% 6%,  rgb(var(--rt-accent) / 0.26), transparent 65%),
             radial-gradient(420px circle at 8% 26%,  rgb(var(--rt-accent) / 0.20), transparent 65%),
             radial-gradient(440px circle at 98% 54%, rgb(var(--rt-accent) / 0.22), transparent 65%),
             radial-gradient(440px circle at 26% 76%, rgb(var(--rt-accent) / 0.20), transparent 65%),
             radial-gradient(420px circle at 78% 98%, rgb(var(--rt-accent) / 0.20), transparent 65%);
+    }
+    /* Slow, subtle drift so the green ambiance feels alive without distracting —
+       transform-only (GPU compositing, no repaint). Disabled for users who ask
+       for reduced motion. */
+    @keyframes glow-drift {
+        0%   { transform: scale(1.10) translate3d(0, 0, 0); }
+        25%  { transform: scale(1.13) translate3d(-1.6%, 1.2%, 0); }
+        50%  { transform: scale(1.11) translate3d(1.5%, -1%, 0); }
+        75%  { transform: scale(1.14) translate3d(1%, 1.6%, 0); }
+        100% { transform: scale(1.10) translate3d(0, 0, 0); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+        .page-glow {
+            animation: glow-drift 28s ease-in-out infinite;
+            will-change: transform;
+        }
     }
     /* On phones the radials are wider than the viewport and overlap into a
        heavy wash — soften the whole layer. */
