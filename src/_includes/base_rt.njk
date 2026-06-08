@@ -54,11 +54,13 @@
                 <span class="font-semibold text-rt-text">Hussain Gaddal</span>
             </a>
 
+            {% set onAbout = '/about/' in page.url %}
+            {% set onProjects = ('/projects/' in page.url) or project %}
             <div class="hidden md:flex items-center gap-7 text-sm text-rt-muted">
-                <a href="#projects" class="hover:text-rt-text transition-colors">Selected work</a>
-                <a href="{{ '/about/' | url }}" class="hover:text-rt-text transition-colors">About</a>
-                <a href="{{ '/projects/' | url }}" class="hover:text-rt-text transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-rt-text transition-colors">Contact</a>
+                <a href="{{ '/' | url }}#projects" data-spy="projects" class="rt-nav-link hover:text-rt-text transition-colors">Selected work</a>
+                <a href="{{ '/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors{% if onAbout %} is-active{% endif %}"{% if onAbout %} aria-current="page"{% endif %}>About</a>
+                <a href="{{ '/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors{% if onProjects %} is-active{% endif %}"{% if onProjects %} aria-current="page"{% endif %}>Projects</a>
+                <a href="#contact" data-spy="contact" class="rt-nav-link hover:text-rt-text transition-colors">Contact</a>
             </div>
 
             <div class="flex items-center gap-3 text-rt-muted">
@@ -86,10 +88,10 @@
                 </button>
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
-                <a href="#projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Selected work</a>
-                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">About</a>
-                <a href="{{ '/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Projects</a>
-                <a href="#contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Contact</a>
+                <a href="{{ '/' | url }}#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Selected work</a>
+                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors{% if onAbout %} is-active{% endif %}"{% if onAbout %} aria-current="page"{% endif %}>About</a>
+                <a href="{{ '/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors{% if onProjects %} is-active{% endif %}"{% if onProjects %} aria-current="page"{% endif %}>Projects</a>
+                <a href="#contact" data-spy="contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Contact</a>
             </div>
             <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
@@ -127,11 +129,18 @@
         </div>
     </footer>
 
+    <!-- Back to top -->
+    <button id="back-to-top" class="rt-fab" aria-label="Back to top">
+        <i class="ph ph-arrow-up text-xl" aria-hidden="true"></i>
+    </button>
+
     <script type="module">
         import { initTheme } from '{{ "/js/theme.js" | url }}';
         import { initMenu } from '{{ "/js/menu.js" | url }}';
+        import { initNav } from '{{ "/js/nav.js" | url }}';
         initTheme();
         initMenu();
+        initNav();
         const yr = document.getElementById('copyright-year');
         if (yr) yr.textContent = "2025–2026";
     </script>

@@ -388,6 +388,36 @@
         padding: 0.1em 0.35em; border-radius: 4px;
     }
     html[dir="rtl"] .rt-prose ul, html[dir="rtl"] .rt-prose ol { list-style-position: inside; }
+
+    /* Active nav link indicator — accent underline under the current page /
+       section. Page-level (.is-active on About/Projects) is rendered in the
+       layout; section-level is toggled by nav.js scroll-spy. */
+    .rt-nav-link { position: relative; }
+    .rt-nav-link.is-active { color: rgb(var(--rt-text)); }
+    .rt-nav-link.is-active::after {
+        content: ""; position: absolute; left: 0; right: 0; bottom: -7px;
+        height: 2px; border-radius: 2px; background: rgb(var(--rt-accent));
+    }
+    /* Mobile menu active row — accent bar on the leading edge (auto-flips RTL). */
+    .mobile-nav-link.is-active {
+        color: rgb(var(--rt-text));
+        border-inline-start: 3px solid rgb(var(--rt-accent));
+        padding-inline-start: 0.75rem;
+    }
+
+    /* Back-to-top floating button */
+    .rt-fab {
+        position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 40;
+        width: 2.75rem; height: 2.75rem; border-radius: 9999px;
+        display: flex; align-items: center; justify-content: center;
+        background: rgb(var(--rt-accent)); color: rgb(var(--rt-btn-text));
+        box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+        opacity: 0; pointer-events: none; transform: translateY(8px);
+        transition: opacity .3s, transform .3s, filter .2s;
+    }
+    .rt-fab.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .rt-fab:hover { filter: brightness(1.1); transform: translateY(-2px); }
+    html[dir="rtl"] .rt-fab { right: auto; left: 1.75rem; }
 }
 
 /* Custom Scrollbar */
