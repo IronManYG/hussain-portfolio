@@ -37,6 +37,11 @@
     <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/Phosphor-regular-subset.woff2' | url }}">
     <link rel="stylesheet" href="{{ '/styles.css' | url }}">
 
+    <!-- Hold the first render until the page body is parsed, so the View-
+         Transition swap reveals a COMPLETE frame (not the near-black first paint
+         that flashed). Pairs with @view-transition in styles.css. -->
+    <link rel="expect" href="#rt-render-ready" blocking="render">
+
     <link rel="manifest" href="{{ '/manifest.json' | url }}">
     <meta name="theme-color" content="#15140f">
 </head>
@@ -176,6 +181,10 @@
     <button id="back-to-top" class="rt-fab" aria-label="العودة إلى الأعلى">
         <i class="ph ph-arrow-up text-xl" aria-hidden="true"></i>
     </button>
+
+    <!-- Sentinel for <link rel="expect" blocking="render"> — its presence in the
+         parsed DOM is what releases the held first render (complete-frame reveal). -->
+    <div id="rt-render-ready" hidden></div>
 
     <script type="module">
         import { initTheme } from '{{ "/js/theme.js" | url }}';
