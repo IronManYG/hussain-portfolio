@@ -3,8 +3,8 @@
   "en": {
     "hero": {
       "eyebrow": "About",
-      "headline": "Four years building Android apps that <em>hold up at scale</em>.",
-      "lede": "I'm <strong>Hussain Gaddal</strong>, an Android Developer based in <strong>Riyadh</strong>. I work in Kotlin &amp; Compose across multi-module architectures, set the engineering standards at <strong>Kay Technology</strong>, and explore Kotlin Multiplatform on the side.",
+      "headline": "Four years building large Android apps in <em>Kotlin &amp; Compose</em>.",
+      "lede": "I'm <strong>Hussain Gaddal</strong>, an Android developer in <strong>Riyadh</strong> who cares about how software is put together. Over the last 4+ years at <strong>Kay Technology</strong> I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and set the engineering standards. Kotlin Multiplatform is now a big part of my work too.",
       "cta_work": "View selected work",
       "cta_cv": "Download CV",
       "cta_contact": "Contact me",
@@ -58,7 +58,7 @@
     },
     "certifications": {
       "eyebrow": "Certifications",
-      "heading": "Always learning",
+      "heading": "Courses I've taken.",
       "items": [
         { "by": "PL Coding", "year": "2025", "name": "Building Industry-Level Compose Multiplatform Apps", "note": "Production CMP across Android, iOS &amp; Desktop — built in collaboration with JetBrains." },
         { "by": "PL Coding", "year": "2025", "name": "Industry-Level Kotlin Backends with Spring Boot", "note": "Server-side Kotlin: REST design, persistence, and architecture — JetBrains-partnered." },
@@ -72,8 +72,8 @@
   "ar": {
     "hero": {
       "eyebrow": "نبذة",
-      "headline": "أربع سنوات في بناء تطبيقات أندرويد <em>تصمد على نطاق واسع</em>.",
-      "lede": "أنا <strong>حسين قدّال</strong>، مطوّر أندرويد مقيم في <strong>الرياض</strong>. أعمل بـ Kotlin و Compose على معماريات متعددة الوحدات، وأضع المعايير الهندسية في <strong>Kay Technology</strong>، وأستكشف Kotlin Multiplatform على الهامش.",
+      "headline": "أربع سنوات في بناء تطبيقات أندرويد كبيرة بـ <em>Kotlin و Compose</em>.",
+      "lede": "أنا <strong>حسين قدّال</strong>، مطوّر أندرويد في <strong>الرياض</strong> يهتم بطريقة بناء البرمجيات وهندستها. على مدى أكثر من ٤ سنوات في <strong>كيه لتقنية المعلومات</strong>، نقلتُ بيئة عمل قديمة إلى Kotlin و Compose، وصمّمتُ معماريات متعددة الوحدات، ووضعتُ المعايير الهندسية. وأصبح Kotlin Multiplatform اليوم جزءاً كبيراً من عملي.",
       "cta_work": "المشاريع المختارة",
       "cta_cv": "تنزيل السيرة",
       "cta_contact": "تواصل معي",
@@ -81,7 +81,7 @@
       "quick": [
         { "k": "الخبرة", "v": "+٤ سنوات" },
         { "k": "المقر", "v": "الرياض، السعودية" },
-        { "k": "الحالي", "v": "مطوّر أندرويد · Kay Technology" },
+        { "k": "الحالي", "v": "مطوّر أندرويد · كيه لتقنية المعلومات" },
         { "k": "التقنيات", "v": "Kotlin · Compose · KMP" },
         { "k": "اللغات", "v": "العربية · الإنجليزية" },
         { "k": "الروابط", "v": "<a href=\"https://github.com/IronManYG\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hover:text-rt-accent transition-colors\">github</a> · <a href=\"https://www.linkedin.com/in/hussaingaddal/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hover:text-rt-accent transition-colors\">linkedin</a>" }
@@ -90,12 +90,12 @@
     "experience": {
       "eyebrow": "المسيرة",
       "heading": "كيف وصلتُ إلى هنا",
-      "total": "<b>+٨ سنوات</b> في Kay Technology · <b>+٤</b> في الأندرويد",
+      "total": "<b>+٨ سنوات</b> في كيه لتقنية المعلومات · <b>+٤</b> في الأندرويد",
       "items": [
         {
           "current": true,
           "role": "مطوّر أندرويد",
-          "at": "Kay Technology",
+          "at": "كيه لتقنية المعلومات",
           "when": "٢٠٢٢ — الحاضر · الرياض",
           "bullets": [
             { "metric": "−٤٠٪", "text": "توليت <b>القيادة التقنية الكاملة</b> لمنتج الأندرويد، وقُدت الانتقال من Java/XML إلى Kotlin و Jetpack Compose — مع انخفاض معدلات الانهيار بنسبة <b>٤٠٪</b>." },
@@ -107,7 +107,7 @@
         },
         {
           "role": "باحث",
-          "at": "Kay Technology",
+          "at": "كيه لتقنية المعلومات",
           "when": "٢٠١٧ — ٢٠٢٢ · الرياض",
           "bullets": [
             { "text": "شاركت في بناء <b>Kay Scanner</b>، جهاز يمسح الكتب الورقية ضوئياً دون تقليب الصفحات يدوياً — عملت على التحكم بالجهاز والتقاط الصور وأتمتة مسار المسح." },
@@ -127,7 +127,7 @@
     },
     "certifications": {
       "eyebrow": "الشهادات",
-      "heading": "تعلّم مستمر",
+      "heading": "دورات أكملتُها.",
       "items": [
         { "by": "PL Coding", "year": "٢٠٢٥", "name": "بناء تطبيقات Compose Multiplatform بمستوى احترافي", "note": "تطبيقات إنتاجية للأندرويد و iOS وسطح المكتب — بالشراكة مع JetBrains." },
         { "by": "PL Coding", "year": "٢٠٢٥", "name": "بناء خدمات Kotlin الخلفية باستخدام Spring Boot", "note": "خوادم Kotlin قابلة للتوسع: تصميم REST وإدارة قواعد البيانات — بالشراكة مع JetBrains." },

@@ -1,11 +1,11 @@
 {
   "en": {
     "hero": {
-      "badge": "Open to senior Android & KMP roles · Riyadh",
-      "greeting": "— Hussain Gaddal",
+      "badge": "Available for new opportunities",
+      "greeting": "I'm Hussain Gaddal.",
       "headline": "I build Android apps that <em>just work</em> at scale.",
-      "subtitle": "Android Developer, 4+ years shipping multi-module Kotlin &amp; Compose apps. Currently leading the Android product at <strong>Kay Technology</strong>, exploring KMP &amp; Ktor on the side.",
-      "btn_work": "View selected work",
+      "subtitle": "I've spent 4+ years building multi-module Kotlin and Compose apps. Right now I lead Android at <strong>Kay Technology</strong>, and I work with Kotlin Multiplatform and Ktor in my own time.",
+      "btn_work": "View Featured Projects",
       "btn_cv": "Download CV",
       "stats": [
         { "v": "4+", "k": "Years shipping" },
@@ -16,12 +16,12 @@
     "facts": [
       { "k": "Currently", "v": "Android Developer · Kay Technology" },
       { "k": "Stack", "v": "Kotlin · Compose · KMP · Ktor" },
-      { "k": "Open to", "v": "Senior Android / KMP / full-stack Kotlin" },
+      { "k": "Open to", "v": "Android · KMP · full-stack Kotlin" },
       { "k": "Last shipped", "v": "Chirp · 2025" }
     ],
     "about": {
       "section_label": "About Me",
-      "title": "Building at the intersection of <em>systems</em> and <em>UX</em>.",
+      "title": "Solid <em>systems</em>, and apps that feel <em>right</em> to use.",
       "paragraphs": [
         "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large, multi-module Android applications, driving architecture improvements and product reliability. I focus on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and high testing standards.",
         "My current work explores the capabilities of <strong>Compose Multiplatform (CMP)</strong> and building reliable backend services using <strong>Ktor</strong>, connecting full-stack systems with fast native mobile apps.",
@@ -91,11 +91,11 @@
   },
   "ar": {
     "hero": {
-      "badge": "متاح لأدوار أندرويد و KMP المتقدّمة · الرياض",
-      "greeting": "— حسين قدال",
+      "badge": "متاح لفرص عمل جديدة",
+      "greeting": "أنا حسين قدّال.",
       "headline": "أبني تطبيقات أندرويد <em>تعمل بإتقان</em> على نطاق واسع.",
-      "subtitle": "مطوّر أندرويد بخبرة تتجاوز ٤ سنوات في بناء تطبيقات Kotlin و Compose متعددة الوحدات. أقود حالياً منتج الأندرويد في <strong>كيه لتقنية المعلومات</strong>، وأستكشف KMP و Ktor في وقتي الخاص.",
-      "btn_work": "عرض الأعمال",
+      "subtitle": "قضيتُ أكثر من ٤ سنوات في بناء تطبيقات Kotlin و Compose متعددة الوحدات. أقود حاليًا تطوير الأندرويد في <strong>كيه لتقنية المعلومات</strong>، وأعمل على Kotlin Multiplatform و Ktor في وقتي الخاص.",
+      "btn_work": "عرض المشاريع المميزة",
       "btn_cv": "تحميل السيرة الذاتية",
       "btn_contact": "التواصل",
       "stats": [
@@ -107,12 +107,12 @@
     "facts": [
       { "k": "حالياً", "v": "مطوّر أندرويد · كيه لتقنية المعلومات" },
       { "k": "التقنيات", "v": "Kotlin · Compose · KMP · Ktor" },
-      { "k": "متاح لـ", "v": "أندرويد متقدّم · KMP · Kotlin متكامل" },
+      { "k": "متاح لـ", "v": "أندرويد · KMP · Kotlin متكامل" },
       { "k": "آخر إصدار", "v": "Chirp · ٢٠٢٥" }
     ],
     "about": {
       "section_label": "نبذة عني",
-      "title": "أبني حلقة الوصل بين <em>هندسة الأنظمة</em> و<em>تجربة المستخدم</em>.",
+      "title": "أنظمة <em>متينة</em>، وتطبيقات <em>مريحة</em> في الاستخدام.",
       "paragraphs": [
         "أعمل من الرياض كقائد تطوير لتطبيقات الأندرويد متعددة الوحدات (Multi-module) في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات المعمارية البرمجية وموثوقية المنتج. أرتكز في عملي على المعمارية النظيفة (Clean Architecture)، التدفق أحادي الاتجاه للبيانات (MVI/MVVM)، وتطبيق أعلى معايير الاختبار.",
         "أركز حالياً على استكشاف الإمكانيات الواسعة لتقنية <strong>Compose Multiplatform (CMP)</strong> وبناء خدمات خلفية (Backend) موثوقة باستخدام <strong>Ktor</strong>، بهدف ربط الأنظمة المتكاملة بتطبيقات جوال سريعة وأصلية الأداء.",
