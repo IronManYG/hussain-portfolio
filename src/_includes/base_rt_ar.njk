@@ -43,34 +43,68 @@
     <div class="grain-overlay" aria-hidden="true"></div>
 
     <!-- Navbar -->
+    {% set isHome = page.url == '/ar/' %}
     <nav class="fixed w-full z-50 top-0 border-b border-rt-border bg-rt-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            {% if isHome %}
             <a href="{{ '/ar/' | url }}" class="flex items-center gap-2.5 group" aria-label="حسين قدال — الرئيسية">
                 <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]" aria-hidden="true">HG</span>
                 <span class="font-semibold text-rt-text">حسين قدال</span>
             </a>
 
-            {% set onAbout = '/ar/about/' in page.url %}
-            {% set onProjects = ('/ar/projects/' in page.url) or project %}
             <div class="hidden md:flex items-center gap-7 text-sm text-rt-muted">
-                <a href="{{ '/ar/' | url }}#projects" data-spy="projects" class="rt-nav-link hover:text-rt-text transition-colors">الأعمال المختارة</a>
-                <a href="{{ '/ar/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors{% if onAbout %} is-active{% endif %}"{% if onAbout %} aria-current="page"{% endif %}>نبذة</a>
-                <a href="{{ '/ar/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors{% if onProjects %} is-active{% endif %}"{% if onProjects %} aria-current="page"{% endif %}>المشاريع</a>
+                <a href="#projects" data-spy="projects" class="rt-nav-link hover:text-rt-text transition-colors">الأعمال المختارة</a>
+                <a href="{{ '/ar/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">نبذة</a>
+                <a href="{{ '/ar/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">المشاريع</a>
                 <a href="#contact" data-spy="contact" class="rt-nav-link hover:text-rt-text transition-colors">تواصل</a>
             </div>
+            {% else %}
+            <a href="{{ '/ar/' | url }}" id="nav-back-btn" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-right text-base" aria-hidden="true"></i> <span id="nav-back-text">{{ locales.ar.back_portfolio }}</span>
+            </a>
+            <script>
+                (function() {
+                    const ref = document.referrer;
+                    const btn = document.getElementById('nav-back-btn');
+                    const btnText = document.getElementById('nav-back-text');
+                    if (!ref || !btn || !btnText) return;
+                    let refUrl;
+                    try { refUrl = new URL(ref); } catch(e) { return; }
+                    if (refUrl.host !== window.location.host) return;
+                    const normalizePath = (p) => p.replace(/\/ar(\/|$)/, '/').replace(/\/+$/, '') || '/';
+                    if (normalizePath(window.location.pathname) === normalizePath(refUrl.pathname)) return;
+                    const refPath = refUrl.pathname.replace(/\/+$/, '');
+                    btnText.textContent = /\/projects$/.test(refPath)
+                        ? '{{ locales.ar.back_projects }}'
+                        : '{{ locales.ar.back_portfolio }}';
+                    btn.href = ref;
+                    btn.addEventListener('click', function(e) {
+                        if (window.history.length > 1) { e.preventDefault(); window.history.back(); }
+                    });
+                })();
+            </script>
+            {% endif %}
 
             <div class="flex items-center gap-3 text-rt-muted">
+                {% if repoUrl %}
+                <a href="{{ repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-rt-accent text-rt-btn-text text-sm font-semibold px-4 py-2 rounded-[10px] hover:brightness-110 transition">
+                    <i class="ph ph-github-logo text-base"></i> {{ locales.ar.btn_view_code }}
+                </a>
+                {% endif %}
                 <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-1" aria-label="تبديل الوضع الداكن">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
                 <a href="{{ page.url | replace('/ar/', '/') | url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="Switch to English">EN / ع</a>
+                {% if isHome %}
                 <button id="mobile-menu-btn" class="text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="فتح قائمة التنقل" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list" aria-hidden="true"></i>
                 </button>
+                {% endif %}
             </div>
         </div>
     </nav>
 
+    {% if isHome %}
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu-overlay" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
         <div class="mobile-menu-panel">
@@ -84,9 +118,9 @@
                 </button>
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
-                <a href="{{ '/ar/' | url }}#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">الأعمال المختارة</a>
-                <a href="{{ '/ar/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors{% if onAbout %} is-active{% endif %}"{% if onAbout %} aria-current="page"{% endif %}>نبذة</a>
-                <a href="{{ '/ar/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors{% if onProjects %} is-active{% endif %}"{% if onProjects %} aria-current="page"{% endif %}>المشاريع</a>
+                <a href="#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">الأعمال المختارة</a>
+                <a href="{{ '/ar/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">نبذة</a>
+                <a href="{{ '/ar/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">المشاريع</a>
                 <a href="#contact" data-spy="contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">تواصل</a>
             </div>
             <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
@@ -96,6 +130,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 
     <main class="relative z-10">
         {{ content | safe }}
