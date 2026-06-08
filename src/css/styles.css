@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 
+/* Smooth same-origin navigation — page→page and the EN↔AR language flip
+   crossfade instead of hard-cutting. Chromium & Safari honor this; Firefox
+   ignores it and falls back to the normal instant load. */
+@view-transition {
+    navigation: auto;
+}
+
+/* Respect reduced-motion: skip the crossfade, snap straight to the new page. */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+}
+
+
 @layer base {
     :root {
         --color-ide-bg: 248 250 252;
