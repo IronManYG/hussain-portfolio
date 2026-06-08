@@ -7,6 +7,7 @@
       "lede": "I'm <strong>Hussain Gaddal</strong>, an Android Developer based in <strong>Riyadh</strong>. I work in Kotlin &amp; Compose across multi-module architectures, set the engineering standards at <strong>Kay Technology</strong>, and explore Kotlin Multiplatform on the side.",
       "cta_work": "View selected work",
       "cta_cv": "Download CV",
+      "cta_contact": "Contact me",
       "portrait_alt": "Hussain Gaddal — Android Developer in Riyadh",
       "quick": [
         { "k": "Experience", "v": "4+ years" },
@@ -75,6 +76,7 @@
       "lede": "أنا <strong>حسين قدّال</strong>، مطوّر أندرويد مقيم في <strong>الرياض</strong>. أعمل بـ Kotlin و Compose على معماريات متعددة الوحدات، وأضع المعايير الهندسية في <strong>Kay Technology</strong>، وأستكشف Kotlin Multiplatform على الهامش.",
       "cta_work": "المشاريع المختارة",
       "cta_cv": "تنزيل السيرة",
+      "cta_contact": "تواصل معي",
       "portrait_alt": "حسين قدال — مطوّر أندرويد في الرياض",
       "quick": [
         { "k": "الخبرة", "v": "+٤ سنوات" },
