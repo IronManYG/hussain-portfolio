@@ -21,7 +21,7 @@
     ],
     "about": {
       "section_label": "About Me",
-      "title": "Building the Intersection of <span class=\"text-kotlin-purple\">Systems</span> and <span class=\"text-kotlin-orange\">UX</span>.",
+      "title": "Building at the intersection of <em>systems</em> and <em>UX</em>.",
       "paragraphs": [
         "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large, multi-module Android applications, driving architecture improvements and product reliability. I focus on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and high testing standards.",
         "My current work explores the capabilities of <strong>Compose Multiplatform (CMP)</strong> and building reliable backend services using <strong>Ktor</strong>, connecting full-stack systems with fast native mobile apps.",
@@ -44,7 +44,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "Languages",
-          "description": "Mastering <strong class=\"text-ide-text-strong\">Kotlin</strong> for large mobile apps and backend, alongside Java for legacy integrations."
+          "description": "Mastering <strong class=\"text-rt-text\">Kotlin</strong> for large mobile apps and backend, alongside Java for legacy integrations."
         },
         {
           "icon": "ph-layout",
@@ -54,7 +54,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "UI Architecture",
-          "description": "Building declarative UIs with <strong class=\"text-ide-text-strong\">Jetpack Compose</strong> and applying Material 3 design systems."
+          "description": "Building declarative UIs with <strong class=\"text-rt-text\">Jetpack Compose</strong> and applying Material 3 design systems."
         },
         {
           "icon": "ph-stack",
@@ -64,7 +64,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "System Design",
-          "description": "Clean Architecture, MVI/MVVM, <strong class=\"text-ide-text-strong\">KMP</strong>, Dependency Injection (Hilt), and Concurrency (Coroutines)."
+          "description": "Clean Architecture, MVI/MVVM, <strong class=\"text-rt-text\">KMP</strong>, Dependency Injection (Hilt), and Concurrency (Coroutines)."
         },
         {
           "icon": "ph-database",
@@ -74,7 +74,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "Data & Flow",
-          "description": "Designing reliable offline-first architectures using Room, <strong class=\"text-ide-text-strong\">Ktor Client</strong>, and GraphQL."
+          "description": "Designing reliable offline-first architectures using Room, <strong class=\"text-rt-text\">Ktor Client</strong>, and GraphQL."
         },
         {
           "icon": "ph-hard-drive",
@@ -84,7 +84,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "Backend & Cloud",
-          "description": "Building micro-services with <strong class=\"text-ide-text-strong\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
+          "description": "Building micro-services with <strong class=\"text-rt-text\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
         }
       ]
     }
@@ -112,7 +112,7 @@
     ],
     "about": {
       "section_label": "نبذة عني",
-      "title": "أبني حلقة الوصل بين <span class=\"text-kotlin-purple\">هندسة الأنظمة</span> و<span class=\"text-kotlin-orange\">تجربة المستخدم</span>.",
+      "title": "أبني حلقة الوصل بين <em>هندسة الأنظمة</em> و<em>تجربة المستخدم</em>.",
       "paragraphs": [
         "أعمل من الرياض كقائد تطوير لتطبيقات الأندرويد متعددة الوحدات (Multi-module) في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات المعمارية البرمجية وموثوقية المنتج. أرتكز في عملي على المعمارية النظيفة (Clean Architecture)، التدفق أحادي الاتجاه للبيانات (MVI/MVVM)، وتطبيق أعلى معايير الاختبار.",
         "أركز حالياً على استكشاف الإمكانيات الواسعة لتقنية <strong>Compose Multiplatform (CMP)</strong> وبناء خدمات خلفية (Backend) موثوقة باستخدام <strong>Ktor</strong>، بهدف ربط الأنظمة المتكاملة بتطبيقات جوال سريعة وأصلية الأداء.",
@@ -135,7 +135,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "لغات البرمجة",
-          "description": "إتقان متقدم للغة <strong class=\"text-ide-text-strong\">Kotlin</strong> لتطوير تطبيقات الجوال الضخمة والخوادم، إلى جانب Java للتعامل مع الأنظمة الموروثة (Legacy Integrations)."
+          "description": "إتقان متقدم للغة <strong class=\"text-rt-text\">Kotlin</strong> لتطوير تطبيقات الجوال الضخمة والخوادم، إلى جانب Java للتعامل مع الأنظمة الموروثة (Legacy Integrations)."
         },
         {
           "icon": "ph-layout",
@@ -145,7 +145,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "هندسة الواجهات",
-          "description": "بناء واجهات مستخدم تعريفية (Declarative UIs) باستخدام <strong class=\"text-ide-text-strong\">Jetpack Compose</strong> وتطبيق أنظمة تصميم Material 3."
+          "description": "بناء واجهات مستخدم تعريفية (Declarative UIs) باستخدام <strong class=\"text-rt-text\">Jetpack Compose</strong> وتطبيق أنظمة تصميم Material 3."
         },
         {
           "icon": "ph-stack",
@@ -155,7 +155,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "تصميم الأنظمة",
-          "description": "المعمارية النظيفة (Clean Architecture)، أنماط MVI/MVVM، ومكتبات <strong class=\"text-ide-text-strong\">KMP</strong>، بالإضافة إلى حقن التبعيات (Hilt) والبرمجة التزامنية (Coroutines)."
+          "description": "المعمارية النظيفة (Clean Architecture)، أنماط MVI/MVVM، ومكتبات <strong class=\"text-rt-text\">KMP</strong>، بالإضافة إلى حقن التبعيات (Hilt) والبرمجة التزامنية (Coroutines)."
         },
         {
           "icon": "ph-database",
@@ -165,7 +165,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "البيانات والتدفق",
-          "description": "تصميم معماريات بيانات متينة للعمل بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-ide-text-strong\">Ktor Client</strong>، و GraphQL."
+          "description": "تصميم معماريات بيانات متينة للعمل بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-rt-text\">Ktor Client</strong>، و GraphQL."
         },
         {
           "icon": "ph-hard-drive",
@@ -175,7 +175,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "الخوادم والسحابة",
-          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-ide-text-strong\">Spring Boot</strong> و Ktor، مع خبرة في تصميم قواعد بيانات PostgreSQL."
+          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-rt-text\">Spring Boot</strong> و Ktor، مع خبرة في تصميم قواعد بيانات PostgreSQL."
         }
       ]
     }

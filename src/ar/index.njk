@@ -53,8 +53,26 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
     </div>
 </section>
 
+<!-- ───────── نبذة ───────── -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
+    <div class="grid lg:grid-cols-[1fr_1.25fr] gap-10 lg:gap-16 items-start">
+        <div>
+            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-3">{{ home.ar.about.section_label }}</div>
+            <h2 class="rt-em text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight">{{ home.ar.about.title | safe }}</h2>
+        </div>
+        <div>
+            {% for p in home.ar.about.paragraphs.slice(0, 2) %}
+            <p class="text-rt-muted leading-relaxed{% if not loop.last %} mb-4{% endif %}">{{ p | safe }}</p>
+            {% endfor %}
+            <a href="{{ '/ar/about/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-accent hover:brightness-110 transition mt-6">
+                المزيد عنّي <span class="font-mono">←</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- ───────── الأعمال المختارة ───────── -->
-<section id="projects" class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
+<section id="projects" class="border-t border-rt-border max-w-7xl mx-auto px-6 py-20 lg:py-24">
     <div class="flex items-end justify-between gap-6 mb-10">
         <div>
             <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ home.ar.featured_projects.section_label }}</div>
@@ -117,5 +135,26 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
 
     <div class="mt-10 text-center sm:hidden">
         <a href="{{ '/ar/projects/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-accent">كافة المشاريع <span class="font-mono">←</span></a>
+    </div>
+</section>
+
+<!-- ───────── المهارات ───────── -->
+<section id="expertise" class="border-t border-rt-border">
+    <div class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
+        <div class="mb-10">
+            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ home.ar.expertise.section_label }}</div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ home.ar.expertise.title }}</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {% for item in home.ar.expertise.items %}
+            <div class="border border-rt-border rounded-2xl bg-rt-surface p-6">
+                <div class="w-11 h-11 rounded-xl bg-rt-accent/10 text-rt-accent flex items-center justify-center mb-4">
+                    <i class="ph {{ item.icon }} text-xl" aria-hidden="true"></i>
+                </div>
+                <h3 class="text-lg font-bold tracking-tight mb-2">{{ item.title }}</h3>
+                <p class="text-sm text-rt-muted leading-relaxed">{{ item.description | safe }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </section>
