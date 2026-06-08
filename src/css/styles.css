@@ -257,25 +257,27 @@
 
     /* Grain — behind content (z-5 < main z-10), so opaque bands (facts/cards/
        footer) cover it and keep exact token colors; it shows through the
-       transparent hero + section backgrounds. Theme-aware:
-       • LIGHT: balanced grayscale (black+white) speckle → visible film texture
-         on the sandstone bg.
-       • DARK: white speckle → lifts the dark transparent areas to the mock's
-         grainy warm-gray ~rgb(46,45,40). */
+       transparent hero + section backgrounds.
+
+       SELF-CONTAINED via background-blend-mode: the speckle blends against this
+       layer's OWN background-color (the theme bg), NOT the page behind it. That
+       makes it immune to sibling compositing — earlier the animated .page-glow
+       (a GPU/will-change layer) broke the old mix-blend-mode:overlay grain,
+       which depends on a shared backdrop. This approach can't be broken that
+       way, and it drops the whole-page mix-blend that also hurt nav smoothness. */
     .grain-overlay {
         position: fixed;
         inset: 0;
         z-index: 5;
         pointer-events: none;
-        background-size: 140px 140px;
-        mix-blend-mode: overlay;
-        opacity: 0.62;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0.42 0.42 0.42 0 0  0.34 0.34 0.34 0 0  0.20 0.20 0.20 0 0  0 0 0 0 1'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
+        background-color: rgb(var(--rt-bg));
+        background-size: 150px 150px;
+        background-blend-mode: overlay;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
     }
     .dark .grain-overlay {
-        background-size: 160px 160px;
-        opacity: 0.6;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
+        background-size: 170px 170px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
     }
 
     /* Whole-page green ambiance — the hero's corner glow, now spread across the
