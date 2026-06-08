@@ -3,22 +3,6 @@
 @tailwind utilities;
 
 
-/* Smooth same-origin navigation — page→page and the EN↔AR language flip
-   crossfade instead of hard-cutting. Chromium & Safari honor this; Firefox
-   ignores it and falls back to the normal instant load. */
-@view-transition {
-    navigation: auto;
-}
-
-/* Respect reduced-motion: skip the crossfade, snap straight to the new page. */
-@media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation: none;
-    }
-}
-
-
 @layer base {
     :root {
         --color-ide-bg: 248 250 252;
@@ -285,12 +269,12 @@
         pointer-events: none;
         background-size: 140px 140px;
         mix-blend-mode: overlay;
-        opacity: 0.5;
+        opacity: 0.62;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0.42 0.42 0.42 0 0  0.34 0.34 0.34 0 0  0.20 0.20 0.20 0 0  0 0 0 0 1'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
     }
     .dark .grain-overlay {
         background-size: 160px 160px;
-        opacity: 0.35;
+        opacity: 0.6;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
     }
 
@@ -315,19 +299,19 @@
             radial-gradient(440px circle at 26% 76%, rgb(var(--rt-accent) / 0.20), transparent 65%),
             radial-gradient(420px circle at 78% 98%, rgb(var(--rt-accent) / 0.20), transparent 65%);
     }
-    /* Slow, subtle drift so the green ambiance feels alive without distracting —
-       transform-only (GPU compositing, no repaint). Disabled for users who ask
-       for reduced motion. */
+    /* Drifting green ambiance — feels alive without distracting. Transform-only
+       (GPU compositing, no repaint). Disabled for users who ask for reduced
+       motion. */
     @keyframes glow-drift {
-        0%   { transform: scale(1.10) translate3d(0, 0, 0); }
-        25%  { transform: scale(1.13) translate3d(-1.6%, 1.2%, 0); }
-        50%  { transform: scale(1.11) translate3d(1.5%, -1%, 0); }
-        75%  { transform: scale(1.14) translate3d(1%, 1.6%, 0); }
-        100% { transform: scale(1.10) translate3d(0, 0, 0); }
+        0%   { transform: scale(1.12) translate3d(0, 0, 0); }
+        25%  { transform: scale(1.18) translate3d(-3.4%, 2.6%, 0); }
+        50%  { transform: scale(1.14) translate3d(3%, -2.2%, 0); }
+        75%  { transform: scale(1.2) translate3d(2.2%, 3.2%, 0); }
+        100% { transform: scale(1.12) translate3d(0, 0, 0); }
     }
     @media (prefers-reduced-motion: no-preference) {
         .page-glow {
-            animation: glow-drift 28s ease-in-out infinite;
+            animation: glow-drift 14s ease-in-out infinite;
             will-change: transform;
         }
     }
