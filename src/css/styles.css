@@ -41,6 +41,7 @@
         --rt-accent: 14 107 98;      /* #0e6b62 deep teal */
         --rt-accent-2: 196 107 58;   /* #c46b3a terracotta */
         --rt-btn-text: 255 255 255;  /* #ffffff */
+        color-scheme: light;
     }
     .dark {
         --color-ide-bg: 13 17 23;
@@ -63,11 +64,20 @@
         --rt-accent: 62 179 164;     /* #3eb3a4 brighter teal */
         --rt-accent-2: 221 141 82;   /* #dd8d52 */
         --rt-btn-text: 12 14 18;     /* #0c0e12 dark text on bright accent */
+        color-scheme: dark;
+    }
+
+    /* Paint the themed background on <html> itself (not just <body>). The inline
+       head script sets .dark before first paint, so the canvas is already the
+       right colour — no white frame flashes between page loads, even in
+       browsers without cross-document View Transitions. */
+    html {
+        background-color: rgb(var(--rt-bg));
     }
 
     body {
         font-family: 'IBM Plex Sans Arabic', sans-serif;
-        background-color: rgb(var(--color-ide-bg));
+        background-color: rgb(var(--rt-bg));
         color: rgb(var(--color-text-main));
         overflow-x: hidden;
         transition: background-color 0.3s ease, color 0.3s ease;
