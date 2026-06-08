@@ -196,5 +196,25 @@
         const yr = document.getElementById('copyright-year');
         if (yr) yr.textContent = "2025–2026";
     </script>
+
+    <!-- Speculation Rules: prerender same-origin pages on hover/touch intent so
+         navigation is INSTANT (the page is fully rendered before the click) — no
+         navigation gap to flash, in any Chromium browser incl. Arc. Excludes the
+         CV PDF; cross-origin links (GitHub/LinkedIn) are never prerendered. -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "where": {
+            "and": [
+              { "href_matches": "/hussain-portfolio/*" },
+              { "not": { "href_matches": "/hussain-portfolio/cv/*" } }
+            ]
+          },
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
 </body>
 </html>
