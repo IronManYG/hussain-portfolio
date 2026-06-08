@@ -316,6 +316,37 @@
         overflow: hidden;
     }
     .rt-card:hover { transform: translateY(-2px); border-color: rgb(var(--rt-accent)); }
+
+    /* About timeline — a single vertical rail with one dot per role; the
+       current role gets an accent halo. Bullets are marked with an arrow that
+       points into the line of reading (→ LTR, ← RTL). Logical flips for RTL. */
+    .rt-tl { position: relative; padding-left: 28px; }
+    .rt-tl::before {
+        content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px;
+        width: 2px; background: rgb(var(--rt-border));
+    }
+    .rt-tl-item::before {
+        content: ""; position: absolute; left: -23px; top: 6px;
+        width: 12px; height: 12px; border-radius: 50%;
+        background: rgb(var(--rt-accent));
+        box-shadow: 0 0 0 4px rgb(var(--rt-bg));
+    }
+    .rt-tl-item.is-current::before {
+        box-shadow: 0 0 0 4px rgb(var(--rt-bg)), 0 0 0 8px rgb(var(--rt-accent) / 0.30);
+    }
+    .rt-tl-bullet { position: relative; padding-left: 18px; }
+    .rt-tl-bullet::before {
+        content: "→"; position: absolute; left: 0; top: 0;
+        color: rgb(var(--rt-accent));
+        font-family: 'JetBrains Mono', monospace; font-weight: 600;
+    }
+    .rt-tl-bullet b, .rt-tl-bullet strong { color: rgb(var(--rt-text)); font-weight: 600; }
+
+    html[dir="rtl"] .rt-tl { padding-left: 0; padding-right: 28px; }
+    html[dir="rtl"] .rt-tl::before { left: auto; right: 9px; }
+    html[dir="rtl"] .rt-tl-item::before { left: auto; right: -23px; }
+    html[dir="rtl"] .rt-tl-bullet { padding-left: 0; padding-right: 18px; }
+    html[dir="rtl"] .rt-tl-bullet::before { left: auto; right: 0; content: "←"; }
 }
 
 /* Custom Scrollbar */
