@@ -54,9 +54,12 @@
 
             <div class="hidden md:flex items-center gap-7 text-sm text-rt-muted">
                 <a href="#projects" data-spy="projects" class="rt-nav-link hover:text-rt-text transition-colors">الأعمال المختارة</a>
-                <a href="{{ '/ar/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">نبذة</a>
-                <a href="{{ '/ar/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">المشاريع</a>
+                <a href="#about" data-spy="about" class="rt-nav-link hover:text-rt-text transition-colors">نبذة</a>
+                <a href="#expertise" data-spy="expertise" class="rt-nav-link hover:text-rt-text transition-colors">المهارات</a>
                 <a href="#contact" data-spy="contact" class="rt-nav-link hover:text-rt-text transition-colors">تواصل</a>
+                <span class="h-4 w-px bg-rt-border" aria-hidden="true"></span>
+                <a href="{{ '/ar/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">المشاريع</a>
+                <a href="{{ '/ar/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">الخبرة</a>
             </div>
             {% else %}
             <a href="{{ '/ar/' | url }}" id="nav-back-btn" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
@@ -119,9 +122,12 @@
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
                 <a href="#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">الأعمال المختارة</a>
-                <a href="{{ '/ar/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">نبذة</a>
-                <a href="{{ '/ar/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">المشاريع</a>
+                <a href="#about" data-spy="about" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">نبذة</a>
+                <a href="#expertise" data-spy="expertise" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">المهارات</a>
                 <a href="#contact" data-spy="contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">تواصل</a>
+                <hr class="border-rt-border" aria-hidden="true">
+                <a href="{{ '/ar/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">المشاريع</a>
+                <a href="{{ '/ar/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">الخبرة</a>
             </div>
             <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>

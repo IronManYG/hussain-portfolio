@@ -58,9 +58,12 @@
 
             <div class="hidden md:flex items-center gap-7 text-sm text-rt-muted">
                 <a href="#projects" data-spy="projects" class="rt-nav-link hover:text-rt-text transition-colors">Selected work</a>
-                <a href="{{ '/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">About</a>
-                <a href="{{ '/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">Projects</a>
+                <a href="#about" data-spy="about" class="rt-nav-link hover:text-rt-text transition-colors">About</a>
+                <a href="#expertise" data-spy="expertise" class="rt-nav-link hover:text-rt-text transition-colors">Skills</a>
                 <a href="#contact" data-spy="contact" class="rt-nav-link hover:text-rt-text transition-colors">Contact</a>
+                <span class="h-4 w-px bg-rt-border" aria-hidden="true"></span>
+                <a href="{{ '/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">Projects</a>
+                <a href="{{ '/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">Experience</a>
             </div>
             {% else %}
             <a href="{{ '/' | url }}" id="nav-back-btn" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
@@ -125,9 +128,12 @@
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
                 <a href="#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Selected work</a>
-                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">About</a>
-                <a href="{{ '/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Projects</a>
+                <a href="#about" data-spy="about" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">About</a>
+                <a href="#expertise" data-spy="expertise" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Skills</a>
                 <a href="#contact" data-spy="contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Contact</a>
+                <hr class="border-rt-border" aria-hidden="true">
+                <a href="{{ '/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Projects</a>
+                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Experience</a>
             </div>
             <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
