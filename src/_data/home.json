@@ -38,51 +38,26 @@
       "items": [
         {
           "icon": "ph-code",
-          "color": "text-kotlin-purple",
-          "bgLight": "bg-kotlin-purple/10",
-          "bgHover": "group-hover:bg-kotlin-purple/20",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "Languages",
           "description": "<strong class=\"text-rt-text\">Kotlin</strong> for large mobile apps and backend. <strong class=\"text-rt-text\">Java</strong> when the work touches legacy code."
         },
         {
           "icon": "ph-layout",
-          "color": "text-kotlin-orange",
-          "bgLight": "bg-kotlin-orange/10",
-          "bgHover": "group-hover:bg-kotlin-orange/20",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "gridCols": "lg:col-span-1",
           "title": "UI Architecture",
           "description": "Declarative UIs in <strong class=\"text-rt-text\">Jetpack Compose</strong>, built on Material 3."
         },
         {
           "icon": "ph-stack",
-          "color": "text-kotlin-purple",
-          "bgLight": "bg-kotlin-purple/10",
-          "bgHover": "group-hover:bg-kotlin-purple/20",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "gridCols": "lg:col-span-1",
           "title": "System Design",
           "description": "Clean Architecture, MVI/MVVM, <strong class=\"text-rt-text\">KMP</strong>, Dependency Injection (Koin and Hilt), and coroutines for concurrency."
         },
         {
           "icon": "ph-database",
-          "color": "text-kotlin-orange",
-          "bgLight": "bg-kotlin-orange/10",
-          "bgHover": "group-hover:bg-kotlin-orange/20",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "gridCols": "lg:col-span-1",
           "title": "Data & Flow",
           "description": "Offline-first data with Room and <strong class=\"text-rt-text\">Ktor Client</strong>."
         },
         {
           "icon": "ph-hard-drive",
-          "color": "text-kotlin-purple",
-          "bgLight": "bg-kotlin-purple/10",
-          "bgHover": "group-hover:bg-kotlin-purple/20",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "gridCols": "lg:col-span-1",
           "title": "Backend & Cloud",
           "description": "Building servers with <strong class=\"text-rt-text\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
         }
@@ -129,51 +104,26 @@
       "items": [
         {
           "icon": "ph-code",
-          "color": "text-kotlin-purple",
-          "bgLight": "bg-kotlin-purple/10",
-          "bgHover": "group-hover:bg-kotlin-purple/20",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "لغات البرمجة",
           "description": "<strong class=\"text-rt-text\">Kotlin</strong> لتطبيقات الجوال الكبيرة والخوادم. و <strong class=\"text-rt-text\">Java</strong> عند العمل على الأنظمة القديمة."
         },
         {
           "icon": "ph-layout",
-          "color": "text-kotlin-orange",
-          "bgLight": "bg-kotlin-orange/10",
-          "bgHover": "group-hover:bg-kotlin-orange/20",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "gridCols": "lg:col-span-1",
           "title": "هندسة الواجهات",
           "description": "واجهات تعريفية بـ <strong class=\"text-rt-text\">Jetpack Compose</strong>، مبنية على نظام Material 3."
         },
         {
           "icon": "ph-stack",
-          "color": "text-kotlin-purple",
-          "bgLight": "bg-kotlin-purple/10",
-          "bgHover": "group-hover:bg-kotlin-purple/20",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "gridCols": "lg:col-span-1",
           "title": "تصميم الأنظمة",
           "description": "المعمارية النظيفة (Clean Architecture)، أنماط MVI/MVVM، ومكتبات <strong class=\"text-rt-text\">KMP</strong>، بالإضافة إلى حقن التبعيات (DI) عبر Koin و Hilt، والتزامن عبر Coroutines."
         },
         {
           "icon": "ph-database",
-          "color": "text-kotlin-orange",
-          "bgLight": "bg-kotlin-orange/10",
-          "bgHover": "group-hover:bg-kotlin-orange/20",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "gridCols": "lg:col-span-1",
           "title": "البيانات والتدفق",
           "description": "بيانات تعمل دون اتصال بـ Room و <strong class=\"text-rt-text\">Ktor Client</strong>."
         },
         {
           "icon": "ph-hard-drive",
-          "color": "text-kotlin-purple",
-          "bgLight": "bg-kotlin-purple/10",
-          "bgHover": "group-hover:bg-kotlin-purple/20",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "gridCols": "lg:col-span-1",
           "title": "الخوادم والسحابة",
           "description": "بناء خوادم باستخدام <strong class=\"text-rt-text\">Spring Boot</strong> و Ktor، وتصميم قواعد بيانات PostgreSQL."
         }
