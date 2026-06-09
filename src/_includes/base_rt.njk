@@ -76,32 +76,22 @@
                 <a href="{{ '/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">Experience</a>
             </div>
             {% else %}
-            <a href="{{ '/' | url }}" id="nav-back-btn" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
-                <i class="ph ph-arrow-left text-base" aria-hidden="true"></i> <span id="nav-back-text">{{ locales.en.back_portfolio }}</span>
+            <!-- Static, page-aware back link. Project-detail pages go up to the
+                 Projects index (`backTo: projects` in their front matter); the
+                 top-level sub-pages (Projects, About) go up to the Portfolio home.
+                 No document.referrer / history.back() — those were unreliable: the
+                 prev/next chain + Speculation-Rules prerendering (the homepage
+                 prerenders project links from "Selected work") bake a stale referrer
+                 into the cached page. A fixed URL is prerendered → instant. -->
+            {% if backTo == 'projects' %}
+            <a href="{{ '/projects/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-left text-base" aria-hidden="true"></i> {{ locales.en.back_projects }}
             </a>
-            <script>
-                (function() {
-                    const ref = document.referrer;
-                    const btn = document.getElementById('nav-back-btn');
-                    const btnText = document.getElementById('nav-back-text');
-                    if (!ref || !btn || !btnText) return;
-                    let refUrl;
-                    try { refUrl = new URL(ref); } catch(e) { return; }
-                    if (refUrl.host !== window.location.host) return;
-                    // Ignore language-toggle round-trips so Back doesn't bounce to
-                    // the same page in the other locale.
-                    const normalizePath = (p) => p.replace(/\/ar(\/|$)/, '/').replace(/\/+$/, '') || '/';
-                    if (normalizePath(window.location.pathname) === normalizePath(refUrl.pathname)) return;
-                    const refPath = refUrl.pathname.replace(/\/+$/, '');
-                    btnText.textContent = /\/projects$/.test(refPath)
-                        ? '{{ locales.en.back_projects }}'
-                        : '{{ locales.en.back_portfolio }}';
-                    btn.href = ref;
-                    btn.addEventListener('click', function(e) {
-                        if (window.history.length > 1) { e.preventDefault(); window.history.back(); }
-                    });
-                })();
-            </script>
+            {% else %}
+            <a href="{{ '/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-left text-base" aria-hidden="true"></i> {{ locales.en.back_portfolio }}
+            </a>
+            {% endif %}
             {% endif %}
 
             <div class="flex items-center gap-3 text-rt-muted">

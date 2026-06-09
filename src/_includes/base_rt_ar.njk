@@ -71,30 +71,18 @@
                 <a href="{{ '/ar/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">الخبرة</a>
             </div>
             {% else %}
-            <a href="{{ '/ar/' | url }}" id="nav-back-btn" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
-                <i class="ph ph-arrow-right text-base" aria-hidden="true"></i> <span id="nav-back-text">{{ locales.ar.back_portfolio }}</span>
+            <!-- Static, page-aware back link — see the EN base_rt.njk comment.
+                 Project-detail → Projects index (`backTo: projects`); top-level
+                 sub-pages (Projects, About) → Portfolio home. No referrer/history. -->
+            {% if backTo == 'projects' %}
+            <a href="{{ '/ar/projects/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-right text-base" aria-hidden="true"></i> {{ locales.ar.back_projects }}
             </a>
-            <script>
-                (function() {
-                    const ref = document.referrer;
-                    const btn = document.getElementById('nav-back-btn');
-                    const btnText = document.getElementById('nav-back-text');
-                    if (!ref || !btn || !btnText) return;
-                    let refUrl;
-                    try { refUrl = new URL(ref); } catch(e) { return; }
-                    if (refUrl.host !== window.location.host) return;
-                    const normalizePath = (p) => p.replace(/\/ar(\/|$)/, '/').replace(/\/+$/, '') || '/';
-                    if (normalizePath(window.location.pathname) === normalizePath(refUrl.pathname)) return;
-                    const refPath = refUrl.pathname.replace(/\/+$/, '');
-                    btnText.textContent = /\/projects$/.test(refPath)
-                        ? '{{ locales.ar.back_projects }}'
-                        : '{{ locales.ar.back_portfolio }}';
-                    btn.href = ref;
-                    btn.addEventListener('click', function(e) {
-                        if (window.history.length > 1) { e.preventDefault(); window.history.back(); }
-                    });
-                })();
-            </script>
+            {% else %}
+            <a href="{{ '/ar/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-right text-base" aria-hidden="true"></i> {{ locales.ar.back_portfolio }}
+            </a>
+            {% endif %}
             {% endif %}
 
             <div class="flex items-center gap-3 text-rt-muted">

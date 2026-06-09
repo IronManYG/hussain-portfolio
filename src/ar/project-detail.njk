@@ -1,5 +1,6 @@
 ---
 layout: base_rt_ar.njk
+backTo: projects
 pagination:
   data: projects
   size: 1
@@ -33,7 +34,6 @@ eleventyComputed:
         <dl class="flex flex-wrap gap-x-10 gap-y-4 mt-8 pt-6 border-t border-rt-border">
             {% if project.year %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">السنة</dt><dd class="text-sm text-rt-text mt-1"><bdi>{{ project.year | arNum }}</bdi></dd></div>{% endif %}
             {% if typeTag %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">النوع</dt><dd class="text-sm text-rt-text mt-1">{{ typeTag }}</dd></div>{% endif %}
-            {% if project.repoUrl %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">المصدر</dt><dd class="text-sm mt-1"><a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="text-rt-accent hover:brightness-110 transition">GitHub ↗</a></dd></div>{% endif %}
         </dl>
     </header>
 
@@ -135,7 +135,7 @@ eleventyComputed:
         </a>
         {% else %}<span></span>{% endif %}
         {% if nextProject %}
-        <a href="{{ ('/ar/' + nextProject.slug + '/') | url }}" class="group flex items-start gap-3 text-left max-w-sm sm:ml-auto" rel="next">
+        <a href="{{ ('/ar/' + nextProject.slug + '/') | url }}" class="group flex items-start gap-3 text-left max-w-sm" rel="next">
             <span>
                 <span class="block font-mono text-[10px] uppercase tracking-wider text-rt-muted">{{ locales.ar.nav_next_project }}</span>
                 <span class="block text-base font-semibold group-hover:text-rt-accent transition-colors">{{ nextProject.title_ar }}</span>
