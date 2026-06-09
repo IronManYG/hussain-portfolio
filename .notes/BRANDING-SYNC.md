@@ -18,7 +18,7 @@ Single source of truth for every cross-surface brand field. When you change a ro
 | Cert PDFs | ✅ tracked (2026-05-06) | 7 PDFs committed to `src/social/certs/` (6 PL Coding + 1 Udacity). `.gitignore` exclusion removed since these are publicly equivalent to LinkedIn Media uploads. |
 | LinkedIn | ✅ done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree). Project "Associated with" links restored after the Education re-add (Asteroid Radar / Maps / Material Calculator etc.). |
 | Notion redirect embeds | ✅ done (2026-05-07) | All 18 redirect URLs embedded into the legacy Notion site. Project + CV buttons fixed (per-project URLs and CV target both 404'd; commit `5a364d1`) and re-tested live from inside Notion. |
-| Brand images | ⏸️ pending (generation) | 4 prompts in `src/_data/image_prompts.json` (`og_image`, `linkedin_banner`, `github_readme_hero`, `notion_redirect_hero`); output to `src/assets/img/branding/` (folder currently untracked, populate then `git add`). |
+| Brand images | ✅ generated (2026-06-10) — manual uploads pending | All 4 built from code (Desert Oasis): sources in `brand/`, regenerate with `./brand/generate.sh`, outputs in `src/assets/img/branding/`. OG ships automatically via `<meta og:image>` (now `.jpg`, WhatsApp-safe size). STILL MANUAL: upload `linkedin_banner.png` to LinkedIn, embed `github_readme_hero.png` in the `IronManYG/IronManYG` README, optionally add `notion_redirect_hero.png` to Notion pages. See [`IMAGE-GENERATION-GUIDE.md`](./IMAGE-GENERATION-GUIDE.md). |
 
 ## Pending quality checks (after the manual surface work above)
 
@@ -64,8 +64,8 @@ The site rebuilds from those automatically. Everything else (LinkedIn, GitHub, N
 | GitHub URL | `profile.json#contact.github` | Featured + Contact info | (self) | (self) | Header link | Footer + nav | Footer + nav | (n/a) | 2026-05-05 |
 | Researcher 2017–2022 | `about_page.json#en.experience.items[1]` + `profile.json#research_era` | Experience role | (n/a) | "What I'm working on" line | Work Experience nested role | (n/a) | Experience timeline | (n/a) | 2026-05-05 |
 | Pinned projects (6) | `projects.json` (featured: true) + Maktabati + Translator KMM + portfolio | LinkedIn Projects (Tier 1) | (n/a) | Featured projects table | Featured Projects (CV has 6) | Featured projects grid | (n/a) | (n/a) | 2026-05-05 |
-| OG image | `src/assets/img/branding/og_image.png` | (n/a) | (n/a) | Optional hero | (n/a) | `<meta og:image>` | `<meta og:image>` | (n/a) | 2026-05-05 |
-| LinkedIn banner | `src/assets/img/branding/linkedin_banner.png` | Profile banner | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | 2026-05-05 |
+| OG image | `brand/og_image.html` → `src/assets/img/branding/og_image.jpg` | (n/a) | (n/a) | Optional hero | (n/a) | `<meta og:image>` | `<meta og:image>` | (n/a) | 2026-06-10 |
+| LinkedIn banner | `brand/linkedin_banner.html` → `src/assets/img/branding/linkedin_banner.png` | Profile banner | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | (n/a) | 2026-06-10 |
 
 ## Sync workflow
 

@@ -1,134 +1,111 @@
-# Image generation guide
+# Brand images — generation guide
 
-Companion to [`src/_data/image_prompts.json`](../src/_data/image_prompts.json). The JSON has 16 paste-ready prompts (4 slots × 4 variants). This guide tells you which model to use, which variant to start with per slot, and how to iterate when a generation isn't right.
+The four brand visuals (OG card, LinkedIn banner, GitHub README hero, Notion
+redirect hero) are **built from code, not AI-generated**. The design sources are
+HTML/CSS/SVG files in [`brand/`](../brand/), styled with the site's exact Desert
+Oasis tokens and self-hosted fonts, and rendered to pixels with headless Chrome.
 
-## TL;DR per slot — what to try first
+```
+./brand/generate.sh        # regenerates all four images in one command
+```
 
-| Slot | Recommended start | Model | Why |
-|---|---|---|---|
-| `linkedin_banner` | `v3_isometric_platform_stack` | Nano Banana (Gemini 2.5 Flash Image) or Imagen 4 | Most distinctive without being gimmicky. The four floating tiles read instantly as "cross-platform" and survive LinkedIn's profile-photo crop on the bottom-left. |
-| `github_readme_hero` | `v4_terminal_prompt` | Nano Banana Pro (Gemini 3 Pro Image) | Pure typography → text fidelity matters; Pro renders monospace cleanest. The `> hussain.gaddal --kotlin --multiplatform` line lands the brand in two seconds. |
-| `og_image` | `v1_centered_card` | **Nano Banana Pro** (only) | This slot has 3 strings of in-image text (name + tagline + URL). Pro is the only model with reliably correct multi-line typography. v1 is the most universally readable in chat-app previews. |
-| `notion_redirect_hero` | `v1_double_chevron` | Any (lowest priority) | Tiny banner, low stakes. The chevron motif is mirror-safe so it works in EN-LTR and AR-RTL Notion sections without re-generating. |
+That's the whole pipeline. Outputs land in `src/assets/img/branding/` and ship
+with the site build (`src/assets` is passthrough-copied).
 
-**If the recommended starter doesn't grab you,** the `v2`/`v3`/`v4` alternates explore meaningfully different directions — pick whichever matches your taste.
+## Why code, not AI generation
 
-## Model picker — which tool for which slot
+The previous version of this guide orchestrated Nano Banana / Imagen / Midjourney
+prompts — and spent half its length on workarounds for the two ways AI generators
+fail at brand assets: **they drift off the exact palette** and **they garble
+in-image text**. These four assets are typographic/geometric compositions, which
+is exactly what HTML/CSS/SVG renders perfectly:
 
-| Need | Use | Why |
+| | AI generation | HTML → PNG (this pipeline) |
 |---|---|---|
-| In-image text (the OG card) | **Nano Banana Pro** (`gemini-3-pro-image-preview`) | SOTA text rendering. The Flash model misspells. |
-| Photographic banners (`v2_macro_desk_editorial`) | **Imagen 4** or **Nano Banana** | Both nail soft DOF, golden-hour, real materials. |
-| Geometric / vector / minimalist (most variants) | **Nano Banana** (Flash) | Fast, cheap, narrative-prompt friendly. |
-| Editorial illustration (alternate aesthetic ceiling) | **Midjourney v7** | Best art direction. Use `--ar 4:1` for banners, `--ar 1.91:1` for OG. |
-| Fallback if above are unavailable | **Flux Pro 1.1** or **DALL-E 3** | Solid second-pass options. |
+| Brand colors | "close to" the hex, drifts per run | the exact token values |
+| Text | misspells, needs Pro models + retries | pixel-perfect, real brand fonts |
+| Reproducible | no (every run differs) | yes (source in git, one command) |
+| Palette change later | regenerate + re-iterate everything | edit tokens, re-run script |
 
-## How to actually run a generation
+The AI path still exists as an **alternate** for directions code can't produce
+(photographic, editorial-illustration) — see the last section.
 
-1. **Open `src/_data/image_prompts.json`** and find the slot.
-2. **Copy the entire `full_prompt` string** of the variant you're trying. Each `full_prompt` is already in narrative scene-direction form — paste it as-is, don't add adjectives.
-3. **Set the aspect ratio explicitly** in the tool:
-   - LinkedIn banner: `4:1` (target 1584×396)
-   - GitHub README hero: `4:1` (target 1280×320)
-   - OG image: `1.91:1` (target 1200×630)
-   - Notion redirect hero: `4:1` (target 800×200)
-4. **Generate ONE candidate first.** Don't shotgun 8 variations — you can't tell what helped.
-5. **Save to `src/assets/img/branding/<id>__<variant_id>.png`** (note the double underscore). Example: `linkedin_banner__v3_isometric_platform_stack.png`.
-6. **Once you pick a winner per slot, alias it to `<id>.png`** (just `linkedin_banner.png`) — that's the canonical filename the site/LinkedIn/Notion all reference.
+## The four slots
 
-## Iteration cheat-sheet — what to change if the first result is off
+| Slot | File | Size | Design | Used by |
+|---|---|---|---|---|
+| `og_image` | `og_image.jpg` | 1200×630 | Centered editorial card: HG chip, name, tagline, URL on sandstone, teal frame | `<meta og:image>` in both layouts (link previews in WhatsApp/Slack/iMessage/X) |
+| `linkedin_banner` | `linkedin_banner.png` | 3168×792 (2× of 1584×396) | Isometric platform stack: phone → desktop → watch → tablet tiles on a shared-codebase line, sandstone, left third empty for the profile photo | LinkedIn profile banner (manual upload) |
+| `github_readme_hero` | `github_readme_hero.png` | 2560×640 (2× of 1280×320) | Terminal prompt `> hussain.gaddal --kotlin --multiplatform` on Desert Oasis dark with grain | `IronManYG/IronManYG` profile README |
+| `notion_redirect_hero` | `notion_redirect_hero.png` | 1600×400 (2× of 800×200) | Centered HG logomark on sandstone — direction-neutral, safe in EN-LTR and AR-RTL sections | Notion redirect pages (optional) |
 
-**Looks too sterile / "stock illustration":**
-- Add: `editorial restraint, magazine-cover composition, in the style of [Pentagram / Wallpaper / Monocle]`
-- Add: `subtle imperfection: slight off-center, hand-drawn line weight variation`
+Banners render at 2× for retina crispness (platforms downscale). The OG image is
+exact-size **JPEG, not PNG**: the grain texture pushes the PNG to ~1 MB and
+**WhatsApp silently skips link previews for images over ~600 KB** — the JPEG is
+~210 KB. The `og:image:width/height` metas declare 1200×630; keep them in sync.
 
-**Looks too AI-blurred / generic:**
-- Add: `crisp vector edges, no gradients, no glow, no shadows except where specified`
-- Add: `flat shading, posterized, no atmospheric haze`
+## Changing an image
 
-**Text in the image is misspelled or garbled (OG card especially):**
-- Switch to **Nano Banana Pro** if you weren't already.
-- Re-quote each text string in **double quotes** in the prompt.
-- Reduce text length — fewer characters = better rendering.
-- Try the variant with less text (e.g., `v3_minimalist_centered_typography` instead of `v4_editorial_magazine_cover`).
+1. Edit the slot's HTML in `brand/` (or `brand/_brand.css` for shared
+   tokens/fonts/grain).
+2. `./brand/generate.sh`
+3. Eyeball the output at thumbnail size, not just full size — the OG card is
+   judged in a ~300px chat preview.
+4. `npm run build` and confirm the file landed in `_site/assets/img/branding/`.
 
-**Composition crops wrong on LinkedIn (profile photo overlaps subject):**
-- Add: `the left 25% of the frame must be empty white space — no subject, no text, no decorative element`
-- Re-check the `safe_zone_note` in the JSON.
+**Token discipline:** `brand/_brand.css` mirrors the `--rt-*` tokens in
+`src/css/styles.css`. If the site palette ever changes, change `styles.css`
+first, copy the new values into `_brand.css`, re-run the script — done. (The
+favicon `src/favicon.svg` and `src/manifest.json` colors are the other two
+hand-synced surfaces.)
 
-**Colors drift away from Cobalt Navy:**
-- Add: `strict palette: Cobalt Navy #004AAD as the only blue, no teal, no royal blue, no cerulean`
-- Generators sometimes pick a "more pleasing" blue. Be insistent.
+**Design rules baked into the current sources:**
+- LinkedIn crops the bottom-left ~280×280 behind the profile photo → the
+  banner's left third stays empty.
+- Some chat apps crop the bottom/right ~5% of OG cards → the URL line sits 62px
+  up from the bottom.
+- The Notion hero must not imply reading direction (EN + AR sections) → it's a
+  centered, symmetric-weight logomark.
+- One terracotta accent per composition, teal carries the brand — same ratio
+  the site uses.
 
-**Banner reads as "tech company logo" not "personal portfolio":**
-- Switch from geometric variants (`v1`, `v3`) to typographic (`v4`) or photographic (`v2`).
-- Add: `personal portfolio aesthetic, not corporate brand identity`
+## Shipping each surface
 
-**Too busy / overloaded:**
-- Add: `more whitespace, simpler composition, fewer elements`
-- Bump the negative_prompt list with whatever's cluttering (e.g., "no decorative dots, no abstract shapes scattered around the main subject").
+- **OG image** — ships automatically with the site. After deploying, validate
+  with [opengraph.xyz](https://www.opengraph.xyz/) or by sharing the URL in a
+  private WhatsApp/Slack message. If a stale preview shows, the scraper cached
+  it — X/LinkedIn have re-scrape tools ([LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)).
+- **LinkedIn banner** — LinkedIn re-hosts uploads: profile → camera icon on the
+  banner → upload `src/assets/img/branding/linkedin_banner.png` → check the
+  preview crop (desktop AND the mobile app — mobile crops tighter).
+- **GitHub README hero** — embed at the top of `IronManYG/IronManYG`'s README:
+  `![](https://ironmanyg.github.io/hussain-portfolio/assets/img/branding/github_readme_hero.png)`
+  (or commit the file into that repo to avoid cross-repo coupling).
+- **Notion hero** — upload into a Notion image block atop a redirect section;
+  check mobile width.
 
-## Per-slot iteration playbook
+When a slot ships, flip its row in [`BRANDING-SYNC.md`](./BRANDING-SYNC.md) and
+bump the "Last synced" date.
 
-### LinkedIn banner
+## Alternate path: AI generation
 
-The bottom-left ~280×280 region is **always** behind the profile photo. Don't put critical detail there. If a generation has interesting subject in that corner, regenerate with stronger emphasis on the empty-left rule.
+Use only when you want a direction code can't render — photographic
+(`v2_macro_desk_editorial`), illustrated, or just a different take to compare.
+[`src/_data/image_prompts.json`](../src/_data/image_prompts.json) (v3, recolored
+to Desert Oasis) has 16 paste-ready prompts, 4 per slot.
 
-If `v3_isometric_platform_stack` (recommended) feels too clean: try `v2_macro_desk_editorial` for warmth, or `v4_typographic_kotlin_code` for personality.
+Condensed playbook:
 
-### GitHub README hero
-
-Renders at full width on desktop and scaled-down on mobile. Don't put critical detail in the outer 5% — it can clip on narrow viewports. Otherwise the slot is forgiving.
-
-If `v4_terminal_prompt` (recommended) feels too literal: `v3_constellation_network` is the most distinctive non-typographic alternate. `v2_topographic_contour` is the most editorial.
-
-### OG image
-
-This is the highest-stakes slot — it's what shows up when someone shares your portfolio link in Slack / iMessage / Twitter / WhatsApp. People decide whether to click in 2 seconds.
-
-**Hard rule:** use **Nano Banana Pro**. The Flash model and most other generators will misspell at least one of the three text strings (`Hussain Gaddal` / `Android Developer · Kotlin · KMP/CMP` / the URL).
-
-If `v1_centered_card` (recommended) feels too plain: `v2_split_navy_offwhite` is bolder; `v4_editorial_magazine_cover` adds the structured metadata block that signals "considered" without being noisy.
-
-Test the result by:
-1. Drop the file URL in the [Open Graph debugger](https://www.opengraph.xyz/) or share it in a private Slack DM to yourself.
-2. Verify the name reads cleanly at preview-thumbnail size (not just full size).
-3. Verify Arabic preview if you share to a contact with Arabic locale (none of the OG variants include Arabic by design — the OG card is EN-only).
-
-### Notion redirect hero
-
-Lowest priority. Most redirect pages look fine with no image at all. If you want a small visual lift, `v1_double_chevron` is the safest neutral choice. `v4_pure_logomark` is the most brand-y if you want one mark used consistently across all 18 Notion redirect pages.
-
-## Naming convention reminder
-
-```
-src/assets/img/branding/
-├── linkedin_banner__v3_isometric_platform_stack.png   ← variant attempt
-├── linkedin_banner__v1_geometric_devices.png           ← another attempt
-├── linkedin_banner.png                                 ← final pick (alias / copy)
-├── og_image__v1_centered_card.png
-├── og_image.png                                        ← final pick
-├── github_readme_hero.png
-└── notion_redirect_hero.png
-```
-
-The `<id>.png` (no variant suffix) is what the site, LinkedIn, GitHub README, and Notion expect. Keep variants for reference / future regenerations.
-
-## When a slot is "done"
-
-A slot is shippable when:
-
-1. The image saved to `src/assets/img/branding/<id>.png` (the canonical filename).
-2. Tested in context:
-   - **LinkedIn banner**: previewed on the actual LinkedIn profile (LinkedIn's preview UI shows the photo crop).
-   - **GitHub README hero**: rendered on the live `IronManYG/IronManYG` profile README.
-   - **OG image**: shared in a private Slack DM and the unfurl looks right.
-   - **Notion redirect hero**: embedded in one Notion section and visually checked on mobile width too.
-3. Committed to git: `git add src/assets/img/branding/<id>.png && git commit -m "branding: ship <slot> v<N> [<variant>]"`.
-4. The matching row in [`BRANDING-SYNC.md`](./BRANDING-SYNC.md) flipped to `✅`.
-
-## Cross-references
-
-- All 16 prompts: [`src/_data/image_prompts.json`](../src/_data/image_prompts.json)
-- Live status: [`BRANDING-SYNC.md`](./BRANDING-SYNC.md) — image row is `Brand images | ⏸️ pending (generation)`
-- Research sources backing the prompt structure are listed at the top of `image_prompts.json` under `research_sources`.
+- **Model:** in-image text → Nano Banana Pro (Gemini 3 Pro Image) only;
+  photographic → Imagen 4; geometric/flat → Nano Banana (Flash);
+  editorial-illustration ceiling → Midjourney v7 (`--ar 4:1` banners,
+  `--ar 1.91:1` OG).
+- **Paste the `full_prompt` as-is**, set the aspect ratio explicitly, generate
+  ONE candidate, iterate one variable at a time.
+- **Color drift is the #1 failure:** append
+  `strict palette: deep teal #0e6b62 as the only green-blue, warm sandstone #f5efe6 background, terracotta #c46b3a accents only — no navy, no mint, no neon`.
+- **Garbled text is #2:** double-quote every literal string, shorten it, or
+  switch to the HTML pipeline (which never garbles).
+- Save attempts as `src/assets/img/branding/<id>__<variant_id>.png`; alias the
+  winner to the canonical filename. If an AI image wins a slot, note it in this
+  guide so the `brand/` source isn't mistaken for the live version.

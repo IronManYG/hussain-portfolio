@@ -1,6 +1,6 @@
 {
-  "version": "2.0.0",
-  "note": "Generator-agnostic prompts for missing brand visuals across LinkedIn, GitHub, the portfolio, and the Notion redirect pages. Project images are intentionally not in this list — they already exist in src/assets/img/projects/. Each slot now exposes 4 variants (v1 = original direction, v2/v3/v4 = alternate directions). Pick the variant that fits the surface, paste `full_prompt` into Nano Banana / Imagen / Midjourney / DALL-E, and save outputs to src/assets/img/branding/<id>__<variant_id>.png so they're served at https://ironmanyg.github.io/hussain-portfolio/assets/img/branding/<id>__<variant_id>.png. The selected final per slot can be aliased to <id>.png for the canonical filename used by the site/LinkedIn/GitHub/Notion.",
+  "version": "3.0.0",
+  "note": "ALTERNATE path: generator-agnostic AI prompts for the four brand visuals, recolored to the Desert Oasis palette (2026-06). The PRIMARY path is now the deterministic HTML->PNG pipeline in brand/ (see .notes/IMAGE-GENERATION-GUIDE.md) — exact tokens, exact fonts, zero text errors. Use these prompts only when you want an AI-illustrated direction (photographic, editorial-illustration) that hand-coded HTML/SVG cannot produce. Save outputs to src/assets/img/branding/<id>__<variant_id>.png; alias the winner to <id>.png (og_image ships as .jpg for WhatsApp size limits).",
   "research_sources": [
     "https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana",
     "https://ai.google.dev/gemini-api/docs/image-generation",
@@ -29,14 +29,32 @@
     "flux_pro_1_1_or_dalle_3": "Solid fallbacks; treat them as second-pass options."
   },
   "brand": {
-    "primary": "#004AAD",
-    "primary_name": "Cobalt Navy",
-    "neutral_dark": "#0A0A0A",
-    "neutral_light": "#FFFFFF",
-    "off_white": "#F8F8F8",
-    "accent_kotlin": "#7F52FF",
-    "fonts_for_in_image_text": ["IBM Plex Sans", "IBM Plex Mono"],
-    "personality_keywords": ["calm", "editorial", "Swiss-grid", "builder, not influencer", "signal over noise"]
+    "palette_name": "Desert Oasis",
+    "primary": "#0e6b62",
+    "primary_name": "Deep Teal",
+    "accent_2": "#c46b3a",
+    "accent_2_name": "Terracotta",
+    "bg_sandstone": "#f5efe6",
+    "neutral_dark": "#1c1c1f",
+    "muted": "#6b6661",
+    "dark_theme": {
+      "bg": "#15140f",
+      "text": "#ece5d5",
+      "muted": "#9c9483",
+      "accent": "#3eb3a4",
+      "accent_2": "#dd8d52"
+    },
+    "fonts_for_in_image_text": [
+      "IBM Plex Sans Arabic",
+      "JetBrains Mono"
+    ],
+    "personality_keywords": [
+      "calm",
+      "editorial",
+      "warm",
+      "builder, not influencer",
+      "signal over noise"
+    ]
   },
   "images": [
     {
@@ -51,44 +69,63 @@
           "label": "Original — geometric multi-device silhouettes",
           "style": "Clean, minimal, geometric. Subtle gradient backdrop. Tech-leaning but not cliché — no binary rain, no glowing circuits, no robot hands.",
           "subject": "Abstract composition suggesting cross-platform mobile development: a soft cluster of overlapping device-shape silhouettes (phone + tablet + watch + desktop monitor) rendered as outlined geometric forms in light strokes, off-center to the right side of the banner. Empty negative space on the left where the LinkedIn profile photo sits.",
-          "color_palette": ["#004AAD", "#0A0A0A", "#FFFFFF", "subtle gradient from navy to deep navy"],
+          "color_palette": [
+            "#0e6b62",
+            "#1c1c1f",
+            "#FFFFFF",
+            "subtle gradient from teal to deep teal"
+          ],
           "mood": "calm, professional, confident",
           "in_image_text": "none — text is added by LinkedIn (name, headline). Keep the banner pure visual.",
           "negative_prompt": "no text, no logos, no faces, no people, no binary code, no glowing circuits, no neon, no AI-generated person stereotypes, no Anthropic/Google/Apple branding, no stock-photo skylines",
-          "full_prompt": "A 4:1 horizontal LinkedIn banner (1584x396), minimal geometric composition. On the right two-thirds of the frame, a soft cluster of four overlapping device silhouettes (a phone, a tablet, a smartwatch, and a desktop monitor) rendered as thin outlined geometric forms in Cobalt Navy (#004AAD) on a subtly graduated background that fades from #004AAD top-right to a deeper navy bottom-right. The left third of the frame is intentionally empty negative space (the LinkedIn profile photo overlays this region). Lighting: flat, ambient, no harsh shadows — Swiss/International Typographic Style aesthetic. Mood: calm, professional, signal-over-noise. Crisp vector-clean edges, light stroke weight (~2px equivalent). No text, no logos, no faces, no glowing circuits, no neon, no stock-photo skylines."
+          "full_prompt": "A 4:1 horizontal LinkedIn banner (1584x396), minimal geometric composition. On the right two-thirds of the frame, a soft cluster of four overlapping device silhouettes (a phone, a tablet, a smartwatch, and a desktop monitor) rendered as thin outlined geometric forms in deep teal (#0e6b62) on a subtly graduated background that fades from #0e6b62 top-right to a deeper teal bottom-right. The left third of the frame is intentionally empty negative space (the LinkedIn profile photo overlays this region). Lighting: flat, ambient, no harsh shadows — Swiss/International Typographic Style aesthetic. Mood: calm, professional, signal-over-noise. Crisp vector-clean edges, light stroke weight (~2px equivalent). No text, no logos, no faces, no glowing circuits, no neon, no stock-photo skylines."
         },
         {
           "variant_id": "v2_macro_desk_editorial",
           "label": "Editorial macro photography — builder's desk",
           "style": "Photographic. Editorial product-photography feel, shallow depth of field, real materials — closer to a thoughtful Monocle / It's Nice That spread than a tech-stock photo.",
           "subject": "A horizontal macro photograph of a builder's desk surface shot from a low 30-degree angle: the right side of the frame holds a closed matte-black notebook with an unbranded pen resting on it, a brass ruler at a slight diagonal, and the corner of a smartphone partially visible — all on a textured off-white paper or linen surface. The left third of the frame is gently out-of-focus negative space with soft warm bokeh, leaving room for the LinkedIn profile photo overlay.",
-          "color_palette": ["#0A0A0A", "#F8F8F8", "warm linen tones", "single accent of #004AAD on a small object detail"],
+          "color_palette": [
+            "#1c1c1f",
+            "#f5efe6",
+            "warm linen tones",
+            "single accent of #0e6b62 on a small object detail"
+          ],
           "mood": "considered, calm, craft-oriented",
           "in_image_text": "none",
           "negative_prompt": "no laptops, no glowing screens, no people, no hands, no faces, no headphones, no coffee cliché steam, no stock-photo cleanliness, no Apple/Google logos",
-          "full_prompt": "A 4:1 horizontal LinkedIn banner photograph (1584x396), shot with an 85mm macro lens at f/2.0 producing shallow depth of field and soft warm bokeh. A builder's desk surface seen from a low 30-degree angle: on the right two-thirds, a closed matte-black hardcover notebook with an unbranded pen resting on it, a brass ruler at a 15-degree diagonal, and the corner of a phone partially visible at the edge — all on a textured linen-weave off-white surface. One small object carries a single Cobalt Navy (#004AAD) accent (a bookmark ribbon or pen detail). The left third of the frame is intentionally empty, soft-focus, slightly warmer in tone, reserved for the LinkedIn profile photo overlay. Lighting: soft window light from the upper-left, golden-hour warmth, no harsh highlights. Mood: editorial, craft-oriented, considered. Subtle film grain. No people, no hands, no laptops, no glowing screens, no coffee steam, no logos."
+          "full_prompt": "A 4:1 horizontal LinkedIn banner photograph (1584x396), shot with an 85mm macro lens at f/2.0 producing shallow depth of field and soft warm bokeh. A builder's desk surface seen from a low 30-degree angle: on the right two-thirds, a closed matte-black hardcover notebook with an unbranded pen resting on it, a brass ruler at a 15-degree diagonal, and the corner of a phone partially visible at the edge — all on a textured linen-weave off-white surface. One small object carries a single deep teal (#0e6b62) accent (a bookmark ribbon or pen detail). The left third of the frame is intentionally empty, soft-focus, slightly warmer in tone, reserved for the LinkedIn profile photo overlay. Lighting: soft window light from the upper-left, golden-hour warmth, no harsh highlights. Mood: editorial, craft-oriented, considered. Subtle film grain. No people, no hands, no laptops, no glowing screens, no coffee steam, no logos."
         },
         {
           "variant_id": "v3_isometric_platform_stack",
           "label": "Isometric 3D — KMP platform stack",
           "style": "Isometric 3D render. Flat-shaded, low-poly, restrained palette — closer to a clean architecture diagram than a marketing render. References: dribbble isometric illustrations, Figma's branding aesthetic.",
           "subject": "Four floating, slightly offset rectangular platform-tiles arranged in an ascending isometric stack on the right two-thirds of the frame. From bottom to top, each tile is a stylised abstraction of: an Android phone, a desktop window, a smartwatch face, and a tablet. Tiles are connected by thin vertical lines suggesting a shared codebase running through them. Pure white background on the left side for the profile photo overlay.",
-          "color_palette": ["#FFFFFF background", "#004AAD primary tile faces", "#0A0A0A edges and connecting lines", "#7F52FF single Kotlin-purple accent on the top tile"],
+          "color_palette": [
+            "#FFFFFF background",
+            "#0e6b62 primary tile faces",
+            "#1c1c1f edges and connecting lines",
+            "#c46b3a single terracotta accent on the top tile"
+          ],
           "mood": "structural, deliberate, builder",
           "in_image_text": "none",
           "negative_prompt": "no realistic device renders, no Android mascot, no Kotlin logo, no glowing edges, no shadows that imply photorealism, no people, no text",
-          "full_prompt": "A 4:1 horizontal LinkedIn banner (1584x396), pure isometric 3D illustration on a flat white #FFFFFF background. Four flat-shaded low-poly platform tiles floating at 30-degree isometric angle, ascending diagonally up and to the right across the right two-thirds of the frame. Bottom tile: stylised Android phone outline. Second: desktop window. Third: round smartwatch. Top: tablet. Each tile is filled in Cobalt Navy (#004AAD), edged in #0A0A0A, with thin #0A0A0A vertical lines connecting them suggesting a shared codebase. The top tile carries a small Kotlin-purple (#7F52FF) accent dot. The left third of the frame is intentionally empty white space for the LinkedIn profile photo overlay. Mood: structural, deliberate, architecture-diagram cleanliness. Crisp vector edges, no gradients, no glow, no shadows. No realistic device renders, no logos, no people, no text."
+          "full_prompt": "A 4:1 horizontal LinkedIn banner (1584x396), pure isometric 3D illustration on a flat white #FFFFFF background. Four flat-shaded low-poly platform tiles floating at 30-degree isometric angle, ascending diagonally up and to the right across the right two-thirds of the frame. Bottom tile: stylised Android phone outline. Second: desktop window. Third: round smartwatch. Top: tablet. Each tile is filled in deep teal (#0e6b62), edged in #1c1c1f, with thin #1c1c1f vertical lines connecting them suggesting a shared codebase. The top tile carries a small terracotta (#c46b3a) accent dot. The left third of the frame is intentionally empty white space for the LinkedIn profile photo overlay. Mood: structural, deliberate, architecture-diagram cleanliness. Crisp vector edges, no gradients, no glow, no shadows. No realistic device renders, no logos, no people, no text."
         },
         {
           "variant_id": "v4_typographic_kotlin_code",
           "label": "Typographic — fading Kotlin code fragment",
           "style": "Pure typographic composition, Swiss/International Typographic Style, monospace as visual texture. References: Kvell, Pentagram editorial layouts, GitHub octicons restraint.",
-          "subject": "A horizontal composition of monospace text: a single Kotlin code line — 'fun build(): Future = compose(android, ios, desktop, web)' — set in IBM Plex Mono, ranged left, occupying the right two-thirds of the frame. The code fades from full-opacity Cobalt Navy on the right to barely visible toward the centre, never reaching the left third. The left third is empty white for the profile photo overlay.",
-          "color_palette": ["#FFFFFF background", "#004AAD code text", "#0A0A0A subtle baseline rule"],
+          "subject": "A horizontal composition of monospace text: a single Kotlin code line — 'fun build(): Future = compose(android, ios, desktop, web)' — set in IBM Plex Mono, ranged left, occupying the right two-thirds of the frame. The code fades from full-opacity deep teal on the right to barely visible toward the centre, never reaching the left third. The left third is empty white for the profile photo overlay.",
+          "color_palette": [
+            "#FFFFFF background",
+            "#0e6b62 code text",
+            "#1c1c1f subtle baseline rule"
+          ],
           "mood": "quietly confident, code-as-poetry",
           "in_image_text": "Yes — exact string in double quotes: \"fun build(): Future = compose(android, ios, desktop, web)\". Render in IBM Plex Mono (or any clean monospace fallback).",
           "negative_prompt": "no syntax-highlighted IDE colours beyond the navy, no terminal frame, no window chrome, no faces, no decorative borders, no comic fonts",
-          "full_prompt": "A 4:1 horizontal LinkedIn banner (1584x396) on a pure white #FFFFFF background. A single line of monospace code rendered in IBM Plex Mono, exact text: \"fun build(): Future = compose(android, ios, desktop, web)\". The text spans the right two-thirds of the frame, fading from 100% opacity Cobalt Navy (#004AAD) on the right to ~5% opacity near the centre, completely transparent on the left third (which is reserved for the LinkedIn profile photo overlay). A thin #0A0A0A horizontal rule sits 12px below the code baseline, only as wide as the visible portion of text. No window chrome, no terminal frame, no syntax highlighting beyond the single navy colour. Mood: Swiss typographic, code-as-poetry, quietly confident. No decorative elements, no faces, no people, no logos."
+          "full_prompt": "A 4:1 horizontal LinkedIn banner (1584x396) on a pure white #FFFFFF background. A single line of monospace code rendered in IBM Plex Mono, exact text: \"fun build(): Future = compose(android, ios, desktop, web)\". The text spans the right two-thirds of the frame, fading from 100% opacity deep teal (#0e6b62) on the right to ~5% opacity near the centre, completely transparent on the left third (which is reserved for the LinkedIn profile photo overlay). A thin #1c1c1f horizontal rule sits 12px below the code baseline, only as wide as the visible portion of text. No window chrome, no terminal frame, no syntax highlighting beyond the single navy colour. Mood: Swiss typographic, code-as-poetry, quietly confident. No decorative elements, no faces, no people, no logos."
         }
       ]
     },
@@ -103,45 +140,63 @@
           "variant_id": "v1_signal_waveform",
           "label": "Original — dual-stroke waveform / signal",
           "style": "Slightly more playful than LinkedIn — this surface tolerates more personality.",
-          "subject": "A horizontal composition: stylized waveform or signal pattern flowing left to right, rendered in two stroke widths (thin Cobalt Navy + thicker pure-black). Could be read as audio (EchoJournal nod) or as code rhythm. Off-center; leaves breathing room on both ends.",
-          "color_palette": ["#004AAD", "#0A0A0A", "#FFFFFF"],
+          "subject": "A horizontal composition: stylized waveform or signal pattern flowing left to right, rendered in two stroke widths (thin deep teal + thicker pure-black). Could be read as audio (EchoJournal nod) or as code rhythm. Off-center; leaves breathing room on both ends.",
+          "color_palette": [
+            "#0e6b62",
+            "#1c1c1f",
+            "#FFFFFF"
+          ],
           "mood": "active, builder, signal-over-noise",
           "in_image_text": "none",
           "negative_prompt": "no text, no logos, no faces, no people, no binary code, no glowing circuits, no neon, no Anthropic/Google/Apple branding, no stock-photo skylines",
-          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. A horizontal waveform composition flowing left to right across the centre of the frame: two parallel signal lines, one thin (~1.5px) in Cobalt Navy (#004AAD) and one thicker (~3px) in #0A0A0A, oscillating in irregular but harmonic peaks. The waveform fades in from 30% opacity at the left edge, reaches full intensity at the centre-right, and tapers off softly past the right third. Generous breathing room above and below. Mood: active, builder, signal-over-noise — could be read as audio waveform or code rhythm. Crisp vector edges. No text, no logos, no faces, no neon, no glow, no grid background."
+          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. A horizontal waveform composition flowing left to right across the centre of the frame: two parallel signal lines, one thin (~1.5px) in deep teal (#0e6b62) and one thicker (~3px) in #1c1c1f, oscillating in irregular but harmonic peaks. The waveform fades in from 30% opacity at the left edge, reaches full intensity at the centre-right, and tapers off softly past the right third. Generous breathing room above and below. Mood: active, builder, signal-over-noise — could be read as audio waveform or code rhythm. Crisp vector edges. No text, no logos, no faces, no neon, no glow, no grid background."
         },
         {
           "variant_id": "v2_topographic_contour",
           "label": "Topographic contour map — abstract terrain",
           "style": "Editorial cartographic — references USGS topo lines, Field Notes covers, Kinfolk magazine restraint. Layered linework over flat background.",
           "subject": "Concentric topographic contour lines forming an abstract elevation map, off-centred to the right two-thirds of the frame. Lines are progressively darker as they move toward the centre of the contour cluster, suggesting elevation (or focus). Left third of the frame is sparse, with one or two thin outermost rings drifting off the edge.",
-          "color_palette": ["#FFFFFF background", "#004AAD contour lines varying in opacity from 15% to 100%", "#0A0A0A innermost ring only"],
+          "color_palette": [
+            "#FFFFFF background",
+            "#0e6b62 contour lines varying in opacity from 15% to 100%",
+            "#1c1c1f innermost ring only"
+          ],
           "mood": "exploratory, layered, considered",
           "in_image_text": "none",
           "negative_prompt": "no labels, no compass roses, no map markers, no terrain shading, no realism, no faces, no text",
-          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. An abstract topographic-style contour-line composition: ~12 concentric irregular closed curves nested inside each other, off-centred toward the right two-thirds of the frame. Lines are drawn in Cobalt Navy (#004AAD) at progressively higher opacity moving inward — outermost ring at 15% opacity, innermost ring rendered in #0A0A0A. Stroke weight ~1.5px throughout. The outermost two rings drift off the right edge of the frame. The left third holds only one or two faint outermost arcs and otherwise generous white space. Mood: editorial, layered, considered, exploratory. Vector-crisp edges, no shading, no fill, no gradients. No labels, no map markers, no compass, no text, no faces, no logos."
+          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. An abstract topographic-style contour-line composition: ~12 concentric irregular closed curves nested inside each other, off-centred toward the right two-thirds of the frame. Lines are drawn in deep teal (#0e6b62) at progressively higher opacity moving inward — outermost ring at 15% opacity, innermost ring rendered in #1c1c1f. Stroke weight ~1.5px throughout. The outermost two rings drift off the right edge of the frame. The left third holds only one or two faint outermost arcs and otherwise generous white space. Mood: editorial, layered, considered, exploratory. Vector-crisp edges, no shading, no fill, no gradients. No labels, no map markers, no compass, no text, no faces, no logos."
         },
         {
           "variant_id": "v3_constellation_network",
           "label": "Constellation grid — connected projects",
           "style": "Information-graphic minimalism, references: Stripe Press book covers, Edward Tufte plates. Dot-and-line network on a light grid.",
           "subject": "A constellation-style network of small filled dots (representing shipped projects) connected by thin straight lines, distributed across the right two-thirds of the frame. Six larger dots act as anchor nodes (the six pinned projects), with several smaller satellite dots branching off each. Lines are sparse, not a dense graph. A faint dotted baseline grid sits underneath at very low opacity.",
-          "color_palette": ["#FFFFFF background", "#004AAD dots and connecting lines", "#0A0A0A six anchor dots only", "5%-opacity grid in light grey"],
+          "color_palette": [
+            "#FFFFFF background",
+            "#0e6b62 dots and connecting lines",
+            "#1c1c1f six anchor dots only",
+            "5%-opacity grid in light grey"
+          ],
           "mood": "shipped, connected, lived-in",
           "in_image_text": "none",
           "negative_prompt": "no text labels on nodes, no arrows, no force-directed mess, no constellation names, no zodiac, no faces",
-          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. A faint dotted baseline grid at 5% opacity covers the full frame. On top of it, an abstract constellation-style network: six larger filled dots (~6px diameter) in #0A0A0A act as anchor nodes, distributed asymmetrically across the right two-thirds of the frame. Each anchor has 2-4 smaller satellite dots (~3px) in Cobalt Navy (#004AAD) branching off it, connected by thin (~1px) Cobalt Navy lines. The graph is intentionally sparse — generous white space between clusters, no overlapping lines. Left third holds only one small Cobalt Navy satellite dot drifting on its own. Mood: shipped, connected, network-of-projects, lived-in. Vector-clean. No text labels, no arrows, no constellation names, no faces, no logos."
+          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. A faint dotted baseline grid at 5% opacity covers the full frame. On top of it, an abstract constellation-style network: six larger filled dots (~6px diameter) in #1c1c1f act as anchor nodes, distributed asymmetrically across the right two-thirds of the frame. Each anchor has 2-4 smaller satellite dots (~3px) in deep teal (#0e6b62) branching off it, connected by thin (~1px) deep teal lines. The graph is intentionally sparse — generous white space between clusters, no overlapping lines. Left third holds only one small deep teal satellite dot drifting on its own. Mood: shipped, connected, network-of-projects, lived-in. Vector-clean. No text labels, no arrows, no constellation names, no faces, no logos."
         },
         {
           "variant_id": "v4_terminal_prompt",
           "label": "Typographic — terminal prompt line",
           "style": "Pure typographic composition, terminal/monospace aesthetic without any window chrome.",
-          "subject": "A single horizontal line of monospace text reading '> hussain.gaddal --kotlin --multiplatform' followed by a solid block cursor, set ranged-left. A thin Cobalt Navy underline sits below the entire text. Generous white space above and below.",
-          "color_palette": ["#FFFFFF background", "#0A0A0A text", "#004AAD chevron prompt and underline", "#0A0A0A blinking-cursor block"],
+          "subject": "A single horizontal line of monospace text reading '> hussain.gaddal --kotlin --multiplatform' followed by a solid block cursor, set ranged-left. A thin deep teal underline sits below the entire text. Generous white space above and below.",
+          "color_palette": [
+            "#FFFFFF background",
+            "#1c1c1f text",
+            "#0e6b62 chevron prompt and underline",
+            "#1c1c1f blinking-cursor block"
+          ],
           "mood": "approachable, builder, dev-native",
           "in_image_text": "Yes — exact string in double quotes: \"> hussain.gaddal --kotlin --multiplatform\" plus a trailing solid block █ cursor. Render in IBM Plex Mono.",
           "negative_prompt": "no terminal window chrome, no traffic-light buttons, no syntax-highlight greens or yellows, no scanlines, no glow, no text other than the specified string",
-          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. A single line of IBM Plex Mono text, vertically centred, ranged-left starting at ~8% from the left edge. Exact text: the chevron \">\" rendered in Cobalt Navy (#004AAD), followed by \" hussain.gaddal --kotlin --multiplatform\" rendered in #0A0A0A, followed by a solid block █ cursor in #0A0A0A. Below the entire text, a thin (~1.5px) Cobalt Navy (#004AAD) horizontal underline running from the chevron to just past the cursor. Generous breathing room above and below. No terminal window chrome, no traffic-light buttons, no scanlines, no glow, no syntax-highlight colours beyond what's specified. Mood: builder, dev-native, approachable, no-frills. No other text, no faces, no logos."
+          "full_prompt": "A 4:1 horizontal GitHub README hero image (1280x320) on a pure white #FFFFFF background. A single line of IBM Plex Mono text, vertically centred, ranged-left starting at ~8% from the left edge. Exact text: the chevron \">\" rendered in deep teal (#0e6b62), followed by \" hussain.gaddal --kotlin --multiplatform\" rendered in #1c1c1f, followed by a solid block █ cursor in #1c1c1f. Below the entire text, a thin (~1.5px) deep teal (#0e6b62) horizontal underline running from the chevron to just past the cursor. Generous breathing room above and below. No terminal window chrome, no traffic-light buttons, no scanlines, no glow, no syntax-highlight colours beyond what's specified. Mood: builder, dev-native, approachable, no-frills. No other text, no faces, no logos."
         }
       ]
     },
@@ -156,45 +211,63 @@
           "variant_id": "v1_centered_card",
           "label": "Original — centered editorial card",
           "style": "More information-dense than the banners. Stands alone in a chat preview — needs to communicate identity in 2 seconds.",
-          "subject": "Centered card-style composition: name 'Hussain Gaddal' in IBM Plex Sans bold, tagline 'Android Developer · Kotlin · KMP/CMP' in IBM Plex Sans medium below it, a small Cobalt Navy geometric mark to the left of the name. Soft off-white background with a thin Cobalt Navy frame. Bottom-right corner: 'ironmanyg.github.io/hussain-portfolio' in IBM Plex Mono small.",
-          "color_palette": ["#004AAD", "#0A0A0A", "#F8F8F8", "#FFFFFF"],
+          "subject": "Centered card-style composition: name 'Hussain Gaddal' in IBM Plex Sans bold, tagline 'Android Developer · Kotlin · KMP/CMP' in IBM Plex Sans medium below it, a small deep teal geometric mark to the left of the name. Soft sandstone background with a thin deep teal frame. Bottom-right corner: 'ironmanyg.github.io/hussain-portfolio' in IBM Plex Mono small.",
+          "color_palette": [
+            "#0e6b62",
+            "#1c1c1f",
+            "#f5efe6",
+            "#FFFFFF"
+          ],
           "mood": "clean editorial, calm",
-          "in_image_text": "Yes — name + tagline + URL as described above. Use IBM Plex Sans / Mono.",
+          "in_image_text": "Yes — name + tagline + URL as described above. Use IBM Plex Sans / JetBrains Mono.",
           "negative_prompt": "no stock photos of laptops, no abstract blobs, no AI-blurred backgrounds, no decorative emoji, no gradients other than what's specified",
-          "full_prompt": "A 1.91:1 social card / Open Graph image (1200x630) on a soft off-white #F8F8F8 background framed by a thin (~2px) Cobalt Navy (#004AAD) inset border ~24px from each edge. Centred composition. A small Cobalt Navy geometric mark (a single chevron or angled rectangle, ~32px tall) sits to the left of the name with ~16px gap. Exact text, all rendered crisply in declared fonts:\n  - Headline (IBM Plex Sans Bold, ~64pt, #0A0A0A): \"Hussain Gaddal\"\n  - Subhead (IBM Plex Sans Medium, ~24pt, #0A0A0A at 75% opacity, ~16px below headline): \"Android Developer · Kotlin · KMP/CMP\"\n  - Bottom-right corner (IBM Plex Mono Regular, ~14pt, #0A0A0A at 60% opacity, ~32px from bottom and right edges): \"ironmanyg.github.io/hussain-portfolio\"\nGenerous breathing room above the headline. Mood: clean editorial, Pentagram-press calm, magazine-cover restraint. No photographs, no gradients, no decorative emoji, no AI-blurred backgrounds."
+          "full_prompt": "A 1.91:1 social card / Open Graph image (1200x630) on a warm sandstone #f5efe6 background framed by a thin (~2px) deep teal (#0e6b62) inset border ~24px from each edge. Centred composition. A small deep teal geometric mark (a single chevron or angled rectangle, ~32px tall) sits to the left of the name with ~16px gap. Exact text, all rendered crisply in declared fonts:\n  - Headline (IBM Plex Sans Bold, ~64pt, #1c1c1f): \"Hussain Gaddal\"\n  - Subhead (IBM Plex Sans Medium, ~24pt, #1c1c1f at 75% opacity, ~16px below headline): \"Android Developer · Kotlin · KMP/CMP\"\n  - Bottom-right corner (IBM Plex Mono Regular, ~14pt, #1c1c1f at 60% opacity, ~32px from bottom and right edges): \"ironmanyg.github.io/hussain-portfolio\"\nGenerous breathing room above the headline. Mood: clean editorial, Pentagram-press calm, magazine-cover restraint. No photographs, no gradients, no decorative emoji, no AI-blurred backgrounds."
         },
         {
           "variant_id": "v2_split_navy_offwhite",
-          "label": "Asymmetric split — solid navy left, off-white right",
+          "label": "Asymmetric split — solid teal left, sandstone right",
           "style": "Editorial poster split, references: Penguin Modern Classics covers, Off-Magazine layouts.",
-          "subject": "The frame is split vertically: left ~40% solid Cobalt Navy, right ~60% off-white. On the navy side, large reversed-out white display name 'Hussain Gaddal' set in IBM Plex Sans bold, ranged-left, vertically centred. On the off-white side, the tagline 'Android Developer · Kotlin · KMP/CMP' in #0A0A0A IBM Plex Sans medium, ranged-left at the same vertical baseline as the headline. URL bottom-right in IBM Plex Mono.",
-          "color_palette": ["#004AAD", "#F8F8F8", "#FFFFFF text-on-navy", "#0A0A0A text-on-light"],
+          "subject": "The frame is split vertically: left ~40% solid deep teal, right ~60% off-white. On the teal side, large reversed-out white display name 'Hussain Gaddal' set in IBM Plex Sans bold, ranged-left, vertically centred. On the off-white side, the tagline 'Android Developer · Kotlin · KMP/CMP' in #1c1c1f IBM Plex Sans medium, ranged-left at the same vertical baseline as the headline. URL bottom-right in IBM Plex Mono.",
+          "color_palette": [
+            "#0e6b62",
+            "#f5efe6",
+            "#FFFFFF text-on-teal",
+            "#1c1c1f text-on-light"
+          ],
           "mood": "deliberate, editorial-poster, confident",
-          "in_image_text": "Yes — \"Hussain Gaddal\" headline (white on navy), \"Android Developer · Kotlin · KMP/CMP\" subhead (dark on off-white), \"ironmanyg.github.io/hussain-portfolio\" URL (dark mono on off-white, bottom-right).",
+          "in_image_text": "Yes — \"Hussain Gaddal\" headline (white on teal), \"Android Developer · Kotlin · KMP/CMP\" subhead (dark on off-white), \"ironmanyg.github.io/hussain-portfolio\" URL (dark mono on off-white, bottom-right).",
           "negative_prompt": "no gradient between the two sides, no diagonal split, no shadows, no decorative shapes, no photographs",
-          "full_prompt": "A 1.91:1 social card (1200x630) split vertically into two solid panels: left 40% (~480px wide) in solid Cobalt Navy #004AAD, right 60% (~720px wide) in soft off-white #F8F8F8. Hard vertical seam, no gradient, no diagonal. Vertically-centred typography across both panels:\n  - Left panel: \"Hussain Gaddal\" set in IBM Plex Sans Bold ~56pt, reversed-out #FFFFFF, ranged-left ~48px from the left edge.\n  - Right panel: \"Android Developer · Kotlin · KMP/CMP\" in IBM Plex Sans Medium ~22pt, #0A0A0A, ranged-left ~48px in from the seam, sitting on the same baseline as the bottom of the headline.\n  - Bottom-right corner of right panel: \"ironmanyg.github.io/hussain-portfolio\" in IBM Plex Mono Regular ~13pt, #0A0A0A at 60% opacity, ~32px from bottom and right edges.\nMood: deliberate, Penguin-classic editorial poster, magazine cover. Crisp text edges. No shadows, no gradients, no decorative shapes, no photographs, no logos."
+          "full_prompt": "A 1.91:1 social card (1200x630) split vertically into two solid panels: left 40% (~480px wide) in solid deep teal #0e6b62, right 60% (~720px wide) in warm sandstone #f5efe6. Hard vertical seam, no gradient, no diagonal. Vertically-centred typography across both panels:\n  - Left panel: \"Hussain Gaddal\" set in IBM Plex Sans Bold ~56pt, reversed-out #FFFFFF, ranged-left ~48px from the left edge.\n  - Right panel: \"Android Developer · Kotlin · KMP/CMP\" in IBM Plex Sans Medium ~22pt, #1c1c1f, ranged-left ~48px in from the seam, sitting on the same baseline as the bottom of the headline.\n  - Bottom-right corner of right panel: \"ironmanyg.github.io/hussain-portfolio\" in IBM Plex Mono Regular ~13pt, #1c1c1f at 60% opacity, ~32px from bottom and right edges.\nMood: deliberate, Penguin-classic editorial poster, magazine cover. Crisp text edges. No shadows, no gradients, no decorative shapes, no photographs, no logos."
         },
         {
           "variant_id": "v3_minimalist_centered_typography",
           "label": "Pure minimalist — typography only, no frame",
           "style": "Helvetica-poster restraint, references: Massimo Vignelli, Unimark. Pure type composition, no decorative elements.",
-          "subject": "Off-white background. Centred composition with NO border, NO geometric mark, NO frame. Three lines of type stacked vertically: a small Cobalt Navy mono eyebrow label, the large headline name, then the role tagline. Bottom-centre URL in mono.",
-          "color_palette": ["#F8F8F8 background", "#0A0A0A primary text", "#004AAD eyebrow + URL underline only"],
+          "subject": "Off-white background. Centred composition with NO border, NO geometric mark, NO frame. Three lines of type stacked vertically: a small deep teal mono eyebrow label, the large headline name, then the role tagline. Bottom-centre URL in mono.",
+          "color_palette": [
+            "#f5efe6 background",
+            "#1c1c1f primary text",
+            "#0e6b62 eyebrow + URL underline only"
+          ],
           "mood": "restrained, gallery-poster, quiet authority",
           "in_image_text": "Yes — eyebrow \"PORTFOLIO · 2026\", headline \"Hussain Gaddal\", subhead \"Android Developer · Kotlin · KMP/CMP\", URL \"ironmanyg.github.io/hussain-portfolio\".",
           "negative_prompt": "no border, no decorative shapes, no geometric marks, no photographs, no gradients, no shadows, no patterns",
-          "full_prompt": "A 1.91:1 social card (1200x630) on a flat off-white #F8F8F8 background. No border, no decorative element. Centred composition, all text horizontally ranged-centre:\n  - Eyebrow (IBM Plex Mono Regular ~13pt, letter-spaced ~0.15em, Cobalt Navy #004AAD, top-centre, ~80px from top): \"PORTFOLIO · 2026\"\n  - Headline (IBM Plex Sans Bold ~84pt, #0A0A0A, vertically centred): \"Hussain Gaddal\"\n  - Subhead (IBM Plex Sans Medium ~22pt, #0A0A0A at 70% opacity, ~24px below headline): \"Android Developer · Kotlin · KMP/CMP\"\n  - URL (IBM Plex Mono Regular ~14pt, #0A0A0A at 60% opacity, with a ~1px Cobalt Navy underline, bottom-centre, ~64px from bottom): \"ironmanyg.github.io/hussain-portfolio\"\nGenerous symmetrical whitespace. Mood: Vignelli/Unimark Helvetica-poster restraint, gallery-quiet authority. Crisp text edges. No shadows, no gradients, no shapes, no photographs."
+          "full_prompt": "A 1.91:1 social card (1200x630) on a flat off-white #f5efe6 background. No border, no decorative element. Centred composition, all text horizontally ranged-centre:\n  - Eyebrow (IBM Plex Mono Regular ~13pt, letter-spaced ~0.15em, deep teal #0e6b62, top-centre, ~80px from top): \"PORTFOLIO · 2026\"\n  - Headline (IBM Plex Sans Bold ~84pt, #1c1c1f, vertically centred): \"Hussain Gaddal\"\n  - Subhead (IBM Plex Sans Medium ~22pt, #1c1c1f at 70% opacity, ~24px below headline): \"Android Developer · Kotlin · KMP/CMP\"\n  - URL (IBM Plex Mono Regular ~14pt, #1c1c1f at 60% opacity, with a ~1px deep teal underline, bottom-centre, ~64px from bottom): \"ironmanyg.github.io/hussain-portfolio\"\nGenerous symmetrical whitespace. Mood: Vignelli/Unimark Helvetica-poster restraint, gallery-quiet authority. Crisp text edges. No shadows, no gradients, no shapes, no photographs."
         },
         {
           "variant_id": "v4_editorial_magazine_cover",
           "label": "Magazine cover — display headline + metadata block",
           "style": "Editorial magazine cover — references: Wallpaper*, Monocle, Real Review. Display headline plus small structured metadata.",
-          "subject": "Off-white frame. Top-left: large display headline 'Hussain Gaddal' in IBM Plex Sans Bold, ranged-left. Just below: tagline. Bottom-left: a small structured metadata block in IBM Plex Mono — three short labelled lines (ROLE / STACK / LOCATION). A single Cobalt Navy hairline rule separates the headline area from the metadata block.",
-          "color_palette": ["#F8F8F8 background", "#0A0A0A text", "#004AAD hairline rule + first metadata label"],
+          "subject": "Off-white frame. Top-left: large display headline 'Hussain Gaddal' in IBM Plex Sans Bold, ranged-left. Just below: tagline. Bottom-left: a small structured metadata block in IBM Plex Mono — three short labelled lines (ROLE / STACK / LOCATION). A single deep teal hairline rule separates the headline area from the metadata block.",
+          "color_palette": [
+            "#f5efe6 background",
+            "#1c1c1f text",
+            "#0e6b62 hairline rule + first metadata label"
+          ],
           "mood": "Wallpaper-magazine editorial, structured, lived-in",
           "in_image_text": "Yes — \"Hussain Gaddal\" headline; \"Android Developer · Kotlin · KMP/CMP\" subhead; metadata block with three lines: \"ROLE — Android Developer @ Kay Technology\", \"STACK — Kotlin · KMP · CMP · Spring Boot\", \"LOCATION — Khartoum / Remote\"; URL bottom-right.",
           "negative_prompt": "no photographs, no large geometric marks, no frame border, no decorative emoji, no gradients",
-          "full_prompt": "A 1.91:1 social card (1200x630) on a soft off-white #F8F8F8 background, magazine-cover layout. Top-left, ~64px in from top and left:\n  - Headline (IBM Plex Sans Bold ~72pt, #0A0A0A, ranged-left): \"Hussain Gaddal\"\n  - Subhead (IBM Plex Sans Medium ~22pt, #0A0A0A at 75% opacity, ~16px below): \"Android Developer · Kotlin · KMP/CMP\"\nA thin (~1.5px) Cobalt Navy #004AAD horizontal hairline rule, ~360px wide, sits ~80px below the subhead, ranged-left. Below the rule, ~24px gap, a structured metadata block in IBM Plex Mono Regular ~13pt:\n  - Line 1 (label \"ROLE\" in #004AAD, em-dash, value in #0A0A0A): \"ROLE — Android Developer @ Kay Technology\"\n  - Line 2 (label \"STACK\" in #0A0A0A at 70%, em-dash, value in #0A0A0A): \"STACK — Kotlin · KMP · CMP · Spring Boot\"\n  - Line 3 (label \"LOCATION\" in #0A0A0A at 70%, em-dash, value in #0A0A0A): \"LOCATION — Khartoum / Remote\"\nLine height ~1.6em between the metadata lines. Bottom-right corner (IBM Plex Mono Regular ~13pt, #0A0A0A at 60% opacity, ~32px from bottom and right): \"ironmanyg.github.io/hussain-portfolio\". Mood: Wallpaper / Monocle editorial cover, structured, lived-in. Crisp text edges. No photographs, no large geometric marks, no border, no gradients."
+          "full_prompt": "A 1.91:1 social card (1200x630) on a warm sandstone #f5efe6 background, magazine-cover layout. Top-left, ~64px in from top and left:\n  - Headline (IBM Plex Sans Bold ~72pt, #1c1c1f, ranged-left): \"Hussain Gaddal\"\n  - Subhead (IBM Plex Sans Medium ~22pt, #1c1c1f at 75% opacity, ~16px below): \"Android Developer · Kotlin · KMP/CMP\"\nA thin (~1.5px) deep teal #0e6b62 horizontal hairline rule, ~360px wide, sits ~80px below the subhead, ranged-left. Below the rule, ~24px gap, a structured metadata block in IBM Plex Mono Regular ~13pt:\n  - Line 1 (label \"ROLE\" in #0e6b62, em-dash, value in #1c1c1f): \"ROLE — Android Developer @ Kay Technology\"\n  - Line 2 (label \"STACK\" in #1c1c1f at 70%, em-dash, value in #1c1c1f): \"STACK — Kotlin · KMP · CMP · Spring Boot\"\n  - Line 3 (label \"LOCATION\" in #1c1c1f at 70%, em-dash, value in #1c1c1f): \"LOCATION — Khartoum / Remote\"\nLine height ~1.6em between the metadata lines. Bottom-right corner (IBM Plex Mono Regular ~13pt, #1c1c1f at 60% opacity, ~32px from bottom and right): \"ironmanyg.github.io/hussain-portfolio\". Mood: Wallpaper / Monocle editorial cover, structured, lived-in. Crisp text edges. No photographs, no large geometric marks, no border, no gradients."
         }
       ]
     },
@@ -208,46 +281,61 @@
         {
           "variant_id": "v1_double_chevron",
           "label": "Original — centred chevron / forwarding motif",
-          "style": "Minimal — a single arrow-like or 'forwarding' visual motif in Cobalt Navy on white. Should look the same in EN-LTR and AR-RTL contexts (mirror-safe).",
+          "style": "Minimal — a single arrow-like or 'forwarding' visual motif in deep teal on white. Should look the same in EN-LTR and AR-RTL contexts (mirror-safe).",
           "subject": "A double-arrow or chevron motif suggesting movement / forwarding. Centred. Lots of whitespace.",
-          "color_palette": ["#004AAD", "#FFFFFF"],
+          "color_palette": [
+            "#0e6b62",
+            "#FFFFFF"
+          ],
           "mood": "neutral, transitional",
           "in_image_text": "none",
           "negative_prompt": "no text, no flags, no country symbols, no decorative borders",
-          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. Centred composition: two stacked horizontal chevrons (»-style double angle bracket) in Cobalt Navy #004AAD, stroke weight ~3px, total chevron group ~120px wide. Generous symmetrical whitespace on all sides — at least 320px of empty space to either side of the chevron group. The motif is left-right symmetric so it reads identically when mirrored for RTL Arabic contexts. Mood: neutral, transitional, forwarding. Crisp vector edges. No text, no flags, no country symbols, no borders, no shadows, no gradients."
+          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. Centred composition: two stacked horizontal chevrons (»-style double angle bracket) in deep teal #0e6b62, stroke weight ~3px, total chevron group ~120px wide. Generous symmetrical whitespace on all sides — at least 320px of empty space to either side of the chevron group. The motif is left-right symmetric so it reads identically when mirrored for RTL Arabic contexts. Mood: neutral, transitional, forwarding. Crisp vector edges. No text, no flags, no country symbols, no borders, no shadows, no gradients."
         },
         {
           "variant_id": "v2_dot_to_dot_path",
           "label": "Dot-to-dot path — old destination → new destination",
           "style": "Information-graphic minimalism. Mirror-safe via two equal dots flanking a central dashed line.",
           "subject": "Two small filled dots, one on the left third and one on the right third of the frame, connected by a centred dashed horizontal line. Each dot has a faint concentric ring around it suggesting a 'location'. Identical visual weight on both sides — fully symmetric for RTL.",
-          "color_palette": ["#FFFFFF background", "#004AAD dots + dashed line", "#0A0A0A faint concentric rings"],
+          "color_palette": [
+            "#FFFFFF background",
+            "#0e6b62 dots + dashed line",
+            "#1c1c1f faint concentric rings"
+          ],
           "mood": "transitional, way-finding, neutral",
           "in_image_text": "none",
           "negative_prompt": "no arrows, no directional cues, no maps, no compass, no text, no flags",
-          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. Two filled circles in Cobalt Navy #004AAD, each ~14px diameter, one centred at ~25% from the left edge and one centred at ~75% from the left edge, both vertically centred. Each circle is surrounded by a single concentric ring at ~28px diameter, stroked in #0A0A0A at 20% opacity, ~1px weight. The two circles are connected by a horizontal dashed line in Cobalt Navy #004AAD at 60% opacity (dash 6px, gap 6px, weight ~1.5px), running between them at the vertical centre. The composition is fully left-right symmetric so it reads identically when mirrored for RTL Arabic contexts. Mood: way-finding, transitional, neutral. No arrows, no compass, no map markers, no text, no flags."
+          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. Two filled circles in deep teal #0e6b62, each ~14px diameter, one centred at ~25% from the left edge and one centred at ~75% from the left edge, both vertically centred. Each circle is surrounded by a single concentric ring at ~28px diameter, stroked in #1c1c1f at 20% opacity, ~1px weight. The two circles are connected by a horizontal dashed line in deep teal #0e6b62 at 60% opacity (dash 6px, gap 6px, weight ~1.5px), running between them at the vertical centre. The composition is fully left-right symmetric so it reads identically when mirrored for RTL Arabic contexts. Mood: way-finding, transitional, neutral. No arrows, no compass, no map markers, no text, no flags."
         },
         {
           "variant_id": "v3_two_stacked_bars",
           "label": "Two stacked horizontal bars — old → new",
           "style": "Architectural diagram minimalism, Swiss-grid restraint.",
-          "subject": "Two thin horizontal bars stacked vertically, centred in the frame. Top bar in #0A0A0A at 40% opacity (representing 'old' Notion), bottom bar in solid Cobalt Navy (representing 'new' portfolio). The two bars are exactly the same length and centred, making the composition mirror-safe.",
-          "color_palette": ["#FFFFFF background", "#0A0A0A at 40% top bar", "#004AAD bottom bar"],
+          "subject": "Two thin horizontal bars stacked vertically, centred in the frame. Top bar in #1c1c1f at 40% opacity (representing 'old' Notion), bottom bar in solid deep teal (representing 'new' portfolio). The two bars are exactly the same length and centred, making the composition mirror-safe.",
+          "color_palette": [
+            "#FFFFFF background",
+            "#1c1c1f at 40% top bar",
+            "#0e6b62 bottom bar"
+          ],
           "mood": "transitional, layered, neutral",
           "in_image_text": "none",
           "negative_prompt": "no arrows, no directional cues, no labels, no text, no shadows",
-          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. Two thin horizontal bars, both ~3px tall and exactly ~320px wide, horizontally centred in the frame. The top bar sits at vertical centre minus ~12px, rendered in #0A0A0A at 40% opacity. The bottom bar sits at vertical centre plus ~12px, rendered in solid Cobalt Navy #004AAD. Both bars share the same x-extent — the composition is fully left-right symmetric and mirror-safe for RTL Arabic. Generous symmetrical whitespace above, below, and to either side. Mood: transitional, layered, Swiss-grid neutral. Crisp vector edges. No arrows, no labels, no text, no shadows, no gradients."
+          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. Two thin horizontal bars, both ~3px tall and exactly ~320px wide, horizontally centred in the frame. The top bar sits at vertical centre minus ~12px, rendered in #1c1c1f at 40% opacity. The bottom bar sits at vertical centre plus ~12px, rendered in solid deep teal #0e6b62. Both bars share the same x-extent — the composition is fully left-right symmetric and mirror-safe for RTL Arabic. Generous symmetrical whitespace above, below, and to either side. Mood: transitional, layered, Swiss-grid neutral. Crisp vector edges. No arrows, no labels, no text, no shadows, no gradients."
         },
         {
           "variant_id": "v4_pure_logomark",
           "label": "Centred logomark — single geometric brand glyph",
           "style": "Pure brand-mark minimalism. Single shape, no text, mirror-safe.",
-          "subject": "A single centred geometric brand glyph: an outlined Cobalt Navy square rotated 45 degrees (a diamond) with a smaller solid Cobalt Navy diamond nested inside it. Heavy whitespace on all four sides. The shape is symmetric on both axes so RTL is irrelevant.",
-          "color_palette": ["#FFFFFF background", "#004AAD outlined diamond", "#004AAD solid inner diamond"],
+          "subject": "A single centred geometric brand glyph: an outlined deep teal square rotated 45 degrees (a diamond) with a smaller solid deep teal diamond nested inside it. Heavy whitespace on all four sides. The shape is symmetric on both axes so RTL is irrelevant.",
+          "color_palette": [
+            "#FFFFFF background",
+            "#0e6b62 outlined diamond",
+            "#0e6b62 solid inner diamond"
+          ],
           "mood": "neutral, mark-of-presence, calm",
           "in_image_text": "none",
           "negative_prompt": "no text, no decorative borders, no shadows, no gradients, no extra shapes",
-          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. A single centred geometric brand glyph: an outer outlined diamond (square rotated 45 degrees) ~80px tall, stroked in Cobalt Navy #004AAD at ~2px weight, with a smaller solid Cobalt Navy diamond ~24px tall nested inside it at the same centre. Both diamonds are symmetric on both horizontal and vertical axes — the composition is fully mirror-safe in any direction. Generous symmetrical whitespace on all four sides, at least ~340px of empty space to either side of the glyph. Mood: neutral, calm, mark-of-presence. Crisp vector edges. No text, no decorative borders, no shadows, no gradients, no extra shapes."
+          "full_prompt": "A 4:1 horizontal banner (800x200) on a pure white #FFFFFF background. A single centred geometric brand glyph: an outer outlined diamond (square rotated 45 degrees) ~80px tall, stroked in deep teal #0e6b62 at ~2px weight, with a smaller solid deep teal diamond ~24px tall nested inside it at the same centre. Both diamonds are symmetric on both horizontal and vertical axes — the composition is fully mirror-safe in any direction. Generous symmetrical whitespace on all four sides, at least ~340px of empty space to either side of the glyph. Mood: neutral, calm, mark-of-presence. Crisp vector edges. No text, no decorative borders, no shadows, no gradients, no extra shapes."
         }
       ]
     }
