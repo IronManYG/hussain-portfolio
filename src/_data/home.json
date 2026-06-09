@@ -24,8 +24,8 @@
       "title": "Solid <em>systems</em>, and apps that feel <em>right</em> to use.",
       "paragraphs": [
         "Based in Riyadh at <strong>Kay Technology</strong>, I lead the development of large, multi-module Android applications, driving architecture improvements and product reliability. I focus on Clean Architecture, Unidirectional Data Flow (MVI/MVVM), and high testing standards.",
-        "My current work explores the capabilities of <strong>Compose Multiplatform (CMP)</strong> and building reliable backend services using <strong>Ktor</strong>, connecting full-stack systems with fast native mobile apps.",
-        "Beyond the IDE, I spend my time exploring 3D Printing, listening to tech podcasts, and improving my programming skills."
+        "My current work explores the capabilities of <strong>Compose Multiplatform (CMP)</strong> and building reliable backend services with <strong>Spring Boot</strong> and <strong>Ktor</strong>, connecting full-stack systems with fast native mobile apps.",
+        "Away from the IDE, I'm usually 3D printing something, deep in a strategy game like Age of Empires, or at the gym."
       ]
     },
     "featured_projects": {
@@ -33,8 +33,8 @@
       "title": "Featured Projects"
     },
     "expertise": {
-      "section_label": "Core Competencies",
-      "title": "Technical Expertise",
+      "section_label": "Skills",
+      "title": "What I work with",
       "items": [
         {
           "icon": "ph-code",
@@ -44,7 +44,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "Languages",
-          "description": "Mastering <strong class=\"text-rt-text\">Kotlin</strong> for large mobile apps and backend, alongside Java for legacy integrations."
+          "description": "<strong class=\"text-rt-text\">Kotlin</strong> for large mobile apps and backend. <strong class=\"text-rt-text\">Java</strong> when the work touches legacy code."
         },
         {
           "icon": "ph-layout",
@@ -54,7 +54,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "UI Architecture",
-          "description": "Building declarative UIs with <strong class=\"text-rt-text\">Jetpack Compose</strong> and applying Material 3 design systems."
+          "description": "Declarative UIs in <strong class=\"text-rt-text\">Jetpack Compose</strong>, built on Material 3."
         },
         {
           "icon": "ph-stack",
@@ -64,7 +64,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "System Design",
-          "description": "Clean Architecture, MVI/MVVM, <strong class=\"text-rt-text\">KMP</strong>, Dependency Injection (Hilt), and Concurrency (Coroutines)."
+          "description": "Clean Architecture, MVI/MVVM, <strong class=\"text-rt-text\">KMP</strong>, Dependency Injection (Koin and Hilt), and coroutines for concurrency."
         },
         {
           "icon": "ph-database",
@@ -74,7 +74,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "Data & Flow",
-          "description": "Designing reliable offline-first architectures using Room, <strong class=\"text-rt-text\">Ktor Client</strong>, and GraphQL."
+          "description": "Offline-first data with Room and <strong class=\"text-rt-text\">Ktor Client</strong>."
         },
         {
           "icon": "ph-hard-drive",
@@ -84,7 +84,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "Backend & Cloud",
-          "description": "Building micro-services with <strong class=\"text-rt-text\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
+          "description": "Building servers with <strong class=\"text-rt-text\">Spring Boot</strong> and Ktor. Database design with PostgreSQL."
         }
       ]
     }
@@ -115,8 +115,8 @@
       "title": "أنظمة <em>متينة</em>، وتطبيقات <em>مريحة</em> في الاستخدام.",
       "paragraphs": [
         "أعمل من الرياض كقائد تطوير لتطبيقات الأندرويد متعددة الوحدات (Multi-module) في شركة <strong>كيه لتقنية المعلومات</strong>، حيث أقود تحسينات المعمارية البرمجية وموثوقية المنتج. أرتكز في عملي على المعمارية النظيفة (Clean Architecture)، التدفق أحادي الاتجاه للبيانات (MVI/MVVM)، وتطبيق أعلى معايير الاختبار.",
-        "أركز حالياً على استكشاف الإمكانيات الواسعة لتقنية <strong>Compose Multiplatform (CMP)</strong> وبناء خدمات خلفية (Backend) موثوقة باستخدام <strong>Ktor</strong>، بهدف ربط الأنظمة المتكاملة بتطبيقات جوال سريعة وأصلية الأداء.",
-        "بعيداً عن بيئة التطوير (IDE)، أقضي وقتي في استكشاف عالم الطباعة ثلاثية الأبعاد، الاستماع للبودكاست التقني، والتطوير المستمر لمهاراتي البرمجية."
+        "أركز حالياً على استكشاف الإمكانيات الواسعة لتقنية <strong>Compose Multiplatform (CMP)</strong> وبناء خدمات خلفية (Backend) موثوقة باستخدام <strong>Spring Boot</strong> و <strong>Ktor</strong>، بهدف ربط الأنظمة المتكاملة بتطبيقات جوال سريعة وأصلية الأداء.",
+        "بعيداً عن الشاشة، أمضي وقتي في الطباعة ثلاثية الأبعاد، أو في لعبة استراتيجية مثل Age of Empires، أو في النادي الرياضي."
       ]
     },
     "featured_projects": {
@@ -124,8 +124,8 @@
       "title": "مشاريع مميزة"
     },
     "expertise": {
-      "section_label": "الكفاءات الأساسية",
-      "title": "الخبرات التقنية",
+      "section_label": "المهارات",
+      "title": "ما أعمل به",
       "items": [
         {
           "icon": "ph-code",
@@ -135,7 +135,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "md:col-span-2 lg:col-span-2",
           "title": "لغات البرمجة",
-          "description": "إتقان متقدم للغة <strong class=\"text-rt-text\">Kotlin</strong> لتطوير تطبيقات الجوال الضخمة والخوادم، إلى جانب Java للتعامل مع الأنظمة الموروثة (Legacy Integrations)."
+          "description": "<strong class=\"text-rt-text\">Kotlin</strong> لتطبيقات الجوال الكبيرة والخوادم. و <strong class=\"text-rt-text\">Java</strong> عند العمل على الأنظمة القديمة."
         },
         {
           "icon": "ph-layout",
@@ -145,7 +145,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "هندسة الواجهات",
-          "description": "بناء واجهات مستخدم تعريفية (Declarative UIs) باستخدام <strong class=\"text-rt-text\">Jetpack Compose</strong> وتطبيق أنظمة تصميم Material 3."
+          "description": "واجهات تعريفية بـ <strong class=\"text-rt-text\">Jetpack Compose</strong>، مبنية على نظام Material 3."
         },
         {
           "icon": "ph-stack",
@@ -155,7 +155,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "تصميم الأنظمة",
-          "description": "المعمارية النظيفة (Clean Architecture)، أنماط MVI/MVVM، ومكتبات <strong class=\"text-rt-text\">KMP</strong>، بالإضافة إلى حقن التبعيات (Hilt) والبرمجة التزامنية (Coroutines)."
+          "description": "المعمارية النظيفة (Clean Architecture)، أنماط MVI/MVVM، ومكتبات <strong class=\"text-rt-text\">KMP</strong>، بالإضافة إلى حقن التبعيات (DI) عبر Koin و Hilt، والتزامن عبر Coroutines."
         },
         {
           "icon": "ph-database",
@@ -165,7 +165,7 @@
           "borderHover": "hover:border-kotlin-orange/50",
           "gridCols": "lg:col-span-1",
           "title": "البيانات والتدفق",
-          "description": "تصميم معماريات بيانات متينة للعمل بلا إنترنت (Offline-first) باستخدام Room، <strong class=\"text-rt-text\">Ktor Client</strong>، و GraphQL."
+          "description": "بيانات تعمل دون اتصال بـ Room و <strong class=\"text-rt-text\">Ktor Client</strong>."
         },
         {
           "icon": "ph-hard-drive",
@@ -175,7 +175,7 @@
           "borderHover": "hover:border-kotlin-purple/50",
           "gridCols": "lg:col-span-1",
           "title": "الخوادم والسحابة",
-          "description": "بناء خدمات مصغرة (Micro-services) باستخدام <strong class=\"text-rt-text\">Spring Boot</strong> و Ktor، مع خبرة في تصميم قواعد بيانات PostgreSQL."
+          "description": "بناء خوادم باستخدام <strong class=\"text-rt-text\">Spring Boot</strong> و Ktor، وتصميم قواعد بيانات PostgreSQL."
         }
       ]
     }

@@ -12,7 +12,8 @@ seo_description: "Android Developer with 4+ years at Kay Technology — Kotlin, 
         <div>
             <div class="font-mono text-xs uppercase tracking-[0.18em] text-rt-muted mb-4">{{ about.hero.eyebrow }}</div>
             <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-6">{{ about.hero.headline | safe }}</h1>
-            <p class="text-lg text-rt-muted leading-relaxed max-w-xl mb-8">{{ about.hero.lede | safe }}</p>
+            <p class="text-lg text-rt-muted leading-relaxed max-w-xl mb-5">{{ about.hero.lede | safe }}</p>
+            {% if about.hero.personal %}<p class="text-base text-rt-muted leading-relaxed max-w-xl mb-8">{{ about.hero.personal | safe }}</p>{% endif %}
             <div class="flex flex-wrap items-center gap-3">
                 <a href="{{ '/projects/' | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
                     {{ about.hero.cta_work }} <span class="font-mono">→</span>

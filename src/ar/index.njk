@@ -61,7 +61,7 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
             <h2 class="rt-em text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight">{{ home.ar.about.title | safe }}</h2>
         </div>
         <div>
-            {% for p in home.ar.about.paragraphs.slice(0, 2) %}
+            {% for p in home.ar.about.paragraphs.slice(0, 3) %}
             <p class="text-rt-muted leading-relaxed{% if not loop.last %} mb-4{% endif %}">{{ p | safe }}</p>
             {% endfor %}
             <a href="{{ '/ar/about/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-accent hover:brightness-110 transition mt-6">
