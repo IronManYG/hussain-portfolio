@@ -439,12 +439,12 @@ function initSubpageFadeSections() {
 // ─────────────────────────────────────────────────────────────────────────────
 // 8. SUBPAGE TECH GRID — bouncy entrance for tech-stack grids on project pages
 //    Targets all elements with .tech-grid-item class or
-//    any grid of .bg-ide-surface elements inside .fade-section.
+//    any grid of .rt-card elements inside .fade-section.
 // ─────────────────────────────────────────────────────────────────────────────
 function initSubpageTechGrid() {
     if (document.querySelector('.hero-headline')) return;
 
-    // Find any grid containing tech boxes (look for bg-ide-surface / border rounded-lg grids)
+    // Find any grid containing tech boxes ( look for tech-box / border rounded-lg grids)
     const techGrids = document.querySelectorAll('.grid.grid-cols-2, .grid.grid-cols-1');
     techGrids.forEach(grid => {
         const items = Array.from(grid.children);
