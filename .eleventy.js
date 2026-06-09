@@ -1,4 +1,13 @@
 module.exports = function(eleventyConfig) {
+  // Arabic-Indic (Eastern) numerals — convert Western 0-9 → ٠-٩ for the
+  // Arabic/RTL pages (years, counts). Numbers still flow LTR; this only swaps
+  // the glyphs. Apply explicitly in AR templates, e.g. `{{ project.year | arNum }}`.
+  const arabicIndic = { "0": "٠", "1": "١", "2": "٢", "3": "٣", "4": "٤", "5": "٥", "6": "٦", "7": "٧", "8": "٨", "9": "٩" };
+  eleventyConfig.addFilter("arNum", (value) => {
+    if (value === undefined || value === null) return value;
+    return String(value).replace(/[0-9]/g, (d) => arabicIndic[d]);
+  });
+
   // Passthrough copy for static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/js");

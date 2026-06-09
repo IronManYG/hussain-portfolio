@@ -1,6 +1,24 @@
 export function initTheme() {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
+    const root = document.documentElement;
+
+    // Swap the theme with transitions suppressed for one frame, so colors snap
+    // instantly. Without this, the card/page background (300ms) lags the name
+    // color (150ms) and the project names briefly wash out — a visible flicker.
+    const swapTheme = (toDark) => {
+        root.classList.add('theme-switching');
+        const isDark = typeof toDark === 'boolean'
+            ? root.classList.toggle('dark', toDark)
+            : root.classList.toggle('dark');
+        // Force a reflow so the no-transition state is committed before paint…
+        void root.offsetWidth;
+        // …then restore transitions after the new colors have painted.
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            root.classList.remove('theme-switching');
+        }));
+        return isDark;
+    };
 
     const updateThemeIcon = () => {
         if (!themeIcon || !themeToggleBtn) return;
@@ -19,7 +37,7 @@ export function initTheme() {
         updateThemeIcon();
 
         themeToggleBtn.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark');
+            const isDark = swapTheme();
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             updateThemeIcon();
         });
@@ -30,7 +48,7 @@ export function initTheme() {
         const mql = window.matchMedia('(prefers-color-scheme: dark)');
         const onChange = (e) => {
             if (localStorage.getItem('theme')) return;
-            document.documentElement.classList.toggle('dark', e.matches);
+            swapTheme(e.matches);
             updateThemeIcon();
         };
         if (mql.addEventListener) mql.addEventListener('change', onChange);

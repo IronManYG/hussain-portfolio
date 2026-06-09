@@ -7,33 +7,35 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'IBM Plex Sans Arabic', sans-serif; color: #1a1a2e; font-size: 11px; line-height: 1.55; padding: 40px; max-width: 800px; margin: 0 auto; }
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: #f5efe6; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #1C1C1F; font-size: 11px; line-height: 1.55; padding: 40px; max-width: 800px; margin: 0 auto; }
         h1 { font-size: 30px; font-weight: 700; margin-bottom: 4px; letter-spacing: 0.3px; }
-        h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; border-bottom: 2px solid #004AAD; padding-bottom: 5px; margin: 18px 0 10px; color: #004AAD; }
-        .role-line { font-size: 13.5px; color: #004AAD; font-weight: 500; margin-bottom: 4px; }
-        .contact { font-size: 10.5px; color: #555; margin-bottom: 14px; }
-        .contact a { color: #004AAD; text-decoration: none; }
-        .summary { margin-bottom: 4px; color: #333; line-height: 1.6; }
+        h2 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; border-bottom: 2px solid #0E6B62; padding-bottom: 5px; margin: 18px 0 10px; color: #0E6B62; }
+        .role-line { font-size: 13.5px; color: #0E6B62; font-weight: 500; margin-bottom: 4px; }
+        .contact { font-size: 10.5px; color: #6B6661; margin-bottom: 14px; }
+        .contact a { color: #0E6B62; text-decoration: none; }
+        .summary { margin-bottom: 4px; color: #1C1C1F; line-height: 1.6; }
         .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
-        .skill-cat { font-weight: 600; color: #004AAD; }
+        .skill-cat { font-weight: 600; color: #0E6B62; }
         .job { margin-bottom: 14px; }
         .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; gap: 12px; }
         .job-title { font-weight: 600; font-size: 12.5px; }
-        .job-date { font-size: 10.5px; color: #666; white-space: nowrap; }
+        .job-date { font-size: 10.5px; color: #6B6661; white-space: nowrap; }
         .job ul { padding-left: 16px; }
         .job li { margin-bottom: 3px; }
         .project { margin-bottom: 11px; }
         .project-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 3px; }
         .project-name { font-weight: 600; font-size: 12px; }
-        .project-link { color: #004AAD; text-decoration: none; font-size: 10.5px; white-space: nowrap; }
+        .project-link { color: #0E6B62; text-decoration: none; font-size: 10.5px; white-space: nowrap; }
         .project-link:hover { text-decoration: underline; }
         .project p { margin-bottom: 5px; }
         .pills { display: flex; flex-wrap: wrap; gap: 4px; }
-        .pill { display: inline-block; font-size: 10px; padding: 2px 7px; border: 1px solid #004AAD33; color: #004AAD; border-radius: 10px; background: #004AAD08; }
+        .pill { display: inline-block; font-size: 10px; padding: 2px 7px; border: 1px solid #0E6B6233; color: #0E6B62; border-radius: 10px; background: #0E6B6208; }
         .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
         .cert { font-size: 10.5px; }
         @media print {
-            body { padding: 22px; font-size: 10.5px; }
+            @page { size: A4; margin: 0; }
+            html { background: #f5efe6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body { padding: 14mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 10.5px; }
             h1 { font-size: 26px; }
             h2 { font-size: 14px; margin: 14px 0 7px; }
             .role-line { font-size: 12px; }

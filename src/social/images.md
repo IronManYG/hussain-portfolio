@@ -40,7 +40,7 @@ src/assets/img/branding/
 | File | Surface | Reference |
 |---|---|---|
 | `linkedin_banner.png` | LinkedIn | Manual upload via LinkedIn's banner editor (LinkedIn re-hosts on its own CDN) |
-| `og_image.png` | Site (EN + AR) | `<meta og:image>` + `<meta twitter:image>` in `src/_includes/base.njk` and `ar_base.njk` |
+| `og_image.png` | Site (EN + AR) | `<meta og:image>` + `<meta twitter:image>` in `src/_includes/base_rt.njk` and `base_rt_ar.njk` |
 | `github_readme_hero.png` | GitHub profile README | `<img src="https://ironmanyg.github.io/hussain-portfolio/assets/img/branding/github_readme_hero.png">` in `IronManYG/IronManYG/README.md` (currently the README has no hero — adding one is the only change required) |
 | `notion_redirect_hero.png` | Notion redirect template | Edit `src/notion-redirect.njk` to include `<img src="/assets/img/branding/notion_redirect_hero.png">` near the top of each pane |
 

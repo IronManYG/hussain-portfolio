@@ -1,64 +1,97 @@
 ---
-layout: ar_base.njk
+layout: base_rt_ar.njk
 title: "كل المشاريع | حسين قدال"
-description: "قائمة شاملة بكافة مشاريعي في نظام أندرويد، Kotlin Multiplatform، والخوادم."
+seo_description: "أعمال أندرويد إنتاجية، وتجارب Kotlin Multiplatform، ومشاريع مفتوحة المصدر من حسين قدال — مُصنَّفة بما أنجزته لا بمكتباتها."
 ---
-<style>
-    /* Scoped to this page only: free the outer main wrapper so cards can use full width */
-    body > main { max-width: none !important; padding-left: 0 !important; padding-right: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; }
-</style>
-<main class="pt-32 pb-24 px-4 sm:px-6 max-w-7xl mx-auto">
-    <header class="mb-12 text-center fade-section">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ locales.ar.page_projects_title | safe }}</h1>
-        <p class="text-xl text-ide-text-muted font-light max-w-2xl mx-auto">{{ locales.ar.page_projects_desc }}</p>
-    </header>
+{% set nonTech = ["Course Challenge", "Course Project", "Community Challenge", "Personal", "Personal Project", "Professional", "Institution", "Android"] %}
+{% set prodSlugs = ["maktabati", "material-calculator", "qodem"] %}
 
-    <!-- Filters -->
-    <div class="flex flex-wrap justify-center gap-3 mb-16 fade-section" id="project-filters" role="toolbar" aria-label="تصنيفات المشاريع">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true"><span>{{ locales.ar.filter_all }}</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="kmp" aria-pressed="false"><span>KMP</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="cmp" aria-pressed="false"><span>CMP</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="android" aria-pressed="false"><span>أندرويد</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="wear os" aria-pressed="false"><span>Wear OS</span><span class="filter-count" aria-hidden="true">0</span></button>
-        <button class="filter-btn" data-filter="firebase" aria-pressed="false"><span>Firebase</span><span class="filter-count" aria-hidden="true">0</span></button>
+<!-- ───────── Head + filters ───────── -->
+<header class="max-w-7xl mx-auto px-6 pt-32 pb-10 lg:pt-40">
+    <div class="flex items-end justify-between gap-6 flex-wrap">
+        <div>
+            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-3">أعمال مختارة</div>
+            <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-2xl">كافة المشاريع</h1>
+            <p class="text-lg text-rt-muted leading-relaxed max-w-2xl mt-5">أرشيف يضم أعمالي الاحترافية، وتحديات المجتمع التقني، وتجاربي الشخصية — تطبيقات إنتاجية، ومشاريع متعددة المنصات، وأدوات صغيرة بنيتُها للتعلّم. مُرتَّبة حسب ما علّمتني.</p>
+        </div>
+        <div class="font-mono text-xs text-rt-muted shrink-0"><bdi><b class="text-rt-text font-semibold">١٢ مشروعاً</b> · ٢٠٢٠ — ٢٠٢٥</bdi></div>
     </div>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="projects-grid">
-        {% for project in projects %}
-        <div class="project-card-wrapper fade-section" data-tags="{{ project.tags | join(',') | lower }}">
-            <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="bento-card project-card-split group bento-animate {{ project.grid.glow }} glass-noise relative overflow-hidden rounded-3xl border border-ide-border flex flex-col sm:flex-row min-h-full">
-                <div class="project-card-visual relative w-full sm:w-[45%] h-[200px] sm:h-auto sm:min-h-[220px] flex-shrink-0 overflow-hidden">
-                    {% if project.grid.images %}
-                    <img src="{{ project.grid.images.ar.light | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05] dark:hidden">
-                    <img src="{{ project.grid.images.ar.dark | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05] hidden dark:block">
-                    {% elif project.grid.image %}
-                    <img src="{{ project.grid.image | url }}" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.05]">
-                    {% else %}
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="ph {{ project.grid.icon }} text-8xl {{ project.grid.iconColor }} relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" aria-hidden="true"></i>
-                    </div>
-                    {% endif %}
-                </div>
+    <!-- Filters -->
+    <div class="flex flex-wrap items-center gap-2 mt-8 pt-6 border-t border-rt-border" id="project-filters" role="toolbar" aria-label="تصفية المشاريع حسب الفئة">
+        <button class="rt-chip is-active" data-filter="all" aria-pressed="true">الكل <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <button class="rt-chip" data-filter="production" aria-pressed="false">إنتاجي <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <button class="rt-chip" data-filter="multiplatform" aria-pressed="false">متعدد المنصات <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <button class="rt-chip" data-filter="opensource" aria-pressed="false">مفتوح المصدر <span class="rt-chip-count" aria-hidden="true">0</span></button>
+        <span class="font-mono text-[11px] text-rt-muted border border-dashed border-rt-border rounded-full px-3 py-1.5 sm:ms-auto">جميع المشاريع تستخدم Kotlin · Compose ما لم يُذكر غير ذلك</span>
+    </div>
+</header>
 
-                <div class="relative z-20 flex-1 flex flex-col justify-center gap-3 p-6 sm:p-7 bg-ide-surface min-w-0">
-                    <div class="flex gap-2 flex-wrap">
-                        {% for tag in project.tags.slice(0, 3) %}
-                        <span class="tech-pill text-xs shadow-none">{{ tag }}</span>
-                        {% endfor %}
-                        {% if project.tags.length > 3 %}
-                        <span class="tech-pill text-xs shadow-none">+{{ project.tags.length - 3 }}</span>
-                        {% endif %}
+<!-- ───────── Featured project ───────── -->
+{% for project in projects %}{% if project.feature_card %}
+<section class="max-w-7xl mx-auto px-6 pb-12">
+    <div class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+        <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="group relative block aspect-video md:aspect-auto md:min-h-[340px] overflow-hidden bg-rt-subtle" aria-label="{{ project.title_ar }} — دراسة حالة">
+            <span class="absolute top-4 right-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">مميَّز</span>
+            {% if project.grid.images %}
+            <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
+            <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
+            {% endif %}
+        </a>
+        <div class="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
+            <div class="font-mono text-[11px] uppercase tracking-[0.12em] text-rt-accent mb-3"><bdi>{{ project.year | arNum }}</bdi> · متعدد المنصات</div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3"><a href="{{ ('/ar/' + project.slug + '/') | url }}" class="hover:text-rt-accent transition-colors">{{ project.title_ar }}</a></h2>
+            <p class="text-sm text-rt-muted leading-relaxed mb-6">{{ project.featured_role_ar | safe }}</p>
+            {% if project.featured_stats_ar %}
+            <div class="grid grid-cols-3 border-y border-rt-border mb-6">
+                {% for s in project.featured_stats_ar %}
+                <div class="py-3.5 {% if not loop.first %}border-r border-rt-border pr-4{% endif %}">
+                    <div class="text-2xl font-bold leading-none tracking-tight"><bdi>{{ s.v }}</bdi></div>
+                    <div class="font-mono text-[10px] uppercase tracking-wide text-rt-muted mt-1.5">{{ s.k }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="flex flex-wrap gap-1.5 mb-6 font-mono">
+                {% for tag in project.tags %}{% if tag not in nonTech %}<span class="text-[10.5px] px-2.5 py-1 rounded bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
+            </div>
+            <div class="flex flex-wrap items-center gap-4">
+                <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-2.5 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">اقرأ دراسة الحالة <span class="font-mono">←</span></a>
+                {% if project.repoUrl %}<a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-rt-muted hover:text-rt-accent transition-colors">GitHub ↗</a>{% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}{% endfor %}
+
+<!-- ───────── Project grid ───────── -->
+<section class="max-w-7xl mx-auto px-6 pb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="projects-grid">
+        {% for project in projects %}{% if not project.feature_card %}
+        {% set tl = project.tags | join('|') | lower %}
+        {% set isMp = ('multiplatform' in tl) or ('kmm' in tl) or ('kmp' in tl) or ('cmp' in tl) or ('wear os' in tl) %}
+        {% set isProd = project.slug in prodSlugs %}
+        <div class="project-card-wrapper" data-multiplatform="{{ 'true' if isMp else 'false' }}" data-production="{{ 'true' if isProd else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
+            <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="rt-card group flex flex-col h-full border border-rt-border rounded-2xl bg-rt-surface p-6 transition-all duration-300">
+                <div class="flex items-baseline justify-between gap-3 mb-2">
+                    <h3 class="text-lg sm:text-xl font-bold tracking-tight group-hover:text-rt-accent transition-colors">{{ project.title_ar }}</h3>
+                    {% if project.year %}<span class="font-mono text-[11px] tracking-[0.1em] text-rt-muted shrink-0"><bdi>{{ project.year | arNum }}</bdi></span>{% endif %}
+                </div>
+                <p class="text-sm text-rt-muted leading-relaxed">{{ project.description_ar }}</p>
+                {% if project.card_impact_ar %}
+                <div class="font-mono text-xs text-rt-accent border-t border-dashed border-rt-border mt-4 pt-3">{{ project.card_impact_ar }}</div>
+                {% endif %}
+                <div class="flex items-center justify-between gap-3 mt-auto pt-4">
+                    <div class="flex flex-wrap gap-1.5 font-mono">
+                        {% for tag in project.tags %}{% if tag not in nonTech and loop.index <= 4 %}<span class="text-[10px] px-2 py-0.5 rounded bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
                     </div>
-                    <h4 class="text-xl sm:text-2xl font-bold group-hover:text-ide-text-strong transition-colors">{{ project.title_ar }}</h4>
-                    <p class="text-ide-text-muted font-light text-sm sm:text-base leading-relaxed">{{ project.description_ar }}</p>
+                    <span class="font-mono text-xs text-rt-muted group-hover:text-rt-accent transition-colors shrink-0">عرض ←</span>
                 </div>
             </a>
         </div>
-        {% endfor %}
+        {% endif %}{% endfor %}
     </div>
-
-    <div id="projects-empty" class="hidden text-center py-16 text-ide-text-muted text-lg" role="status" aria-live="polite">{{ locales.ar.filter_empty }}</div>
-</main>
+    <div id="projects-empty" class="hidden text-center py-16 text-rt-muted text-lg" role="status" aria-live="polite">لا توجد مشاريع مطابقة لهذا التصنيف.</div>
+</section>
 
 <script src="{{ '/js/projects-filter.js' | url }}"></script>

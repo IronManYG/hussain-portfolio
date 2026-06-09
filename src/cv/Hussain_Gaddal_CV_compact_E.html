@@ -7,37 +7,39 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'IBM Plex Sans Arabic', sans-serif; color: #1a1a2e; font-size: 10.5px; line-height: 1.5; padding: 32px; max-width: 800px; margin: 0 auto; }
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: #f5efe6; -webkit-print-color-adjust: exact; print-color-adjust: exact; color: #1C1C1F; font-size: 10.5px; line-height: 1.5; padding: 32px; max-width: 800px; margin: 0 auto; }
         h1 { font-size: 22px; font-weight: 700; margin-bottom: 3px; letter-spacing: 0.3px; }
-        h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1.5px solid #004AAD; padding-bottom: 3px; margin: 12px 0 6px; color: #004AAD; }
-        .role-line { font-size: 12px; color: #004AAD; font-weight: 500; margin-bottom: 2px; }
-        .meta-line { font-size: 9.5px; color: #555; margin-bottom: 2px; }
-        .contact { font-size: 9.5px; color: #555; margin-bottom: 10px; }
-        .contact a, .role-line a { color: #004AAD; text-decoration: none; }
-        .summary { color: #333; }
+        h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1.5px solid #0E6B62; padding-bottom: 3px; margin: 12px 0 6px; color: #0E6B62; }
+        .role-line { font-size: 12px; color: #0E6B62; font-weight: 500; margin-bottom: 2px; }
+        .meta-line { font-size: 9.5px; color: #6B6661; margin-bottom: 2px; }
+        .contact { font-size: 9.5px; color: #6B6661; margin-bottom: 10px; }
+        .contact a, .role-line a { color: #0E6B62; text-decoration: none; }
+        .summary { color: #1C1C1F; }
         .impact { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 8px 0 4px; }
-        .impact-cell { border: 1px solid #004AAD33; background: #004AAD08; padding: 6px 4px; text-align: center; border-radius: 4px; }
-        .impact-num { font-size: 14px; font-weight: 700; color: #004AAD; line-height: 1.1; }
-        .impact-label { font-size: 8.5px; color: #555; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.2; margin-top: 2px; }
+        .impact-cell { border: 1px solid #0E6B6233; background: #0E6B6208; padding: 6px 4px; text-align: center; border-radius: 4px; }
+        .impact-num { font-size: 14px; font-weight: 700; color: #0E6B62; line-height: 1.1; }
+        .impact-label { font-size: 8.5px; color: #6B6661; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.2; margin-top: 2px; }
         .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px 18px; font-size: 10px; }
-        .skill-cat { font-weight: 600; color: #004AAD; }
+        .skill-cat { font-weight: 600; color: #0E6B62; }
         .job { margin-bottom: 9px; }
         .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; gap: 12px; }
         .job-title { font-weight: 600; font-size: 11px; }
-        .job-date { font-size: 9.5px; color: #666; white-space: nowrap; }
+        .job-date { font-size: 9.5px; color: #6B6661; white-space: nowrap; }
         .job ul { padding-left: 14px; }
         .job li { margin-bottom: 2px; }
         .project { margin-bottom: 6px; }
         .project-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 1px; }
         .project-name { font-weight: 600; font-size: 10.5px; }
-        .project-link { color: #004AAD; text-decoration: none; font-size: 9.5px; white-space: nowrap; }
+        .project-link { color: #0E6B62; text-decoration: none; font-size: 9.5px; white-space: nowrap; }
         .project-link:hover { text-decoration: underline; }
         .project p { font-size: 10px; }
-        .project em { color: #555; }
+        .project em { color: #6B6661; }
         .cert-line { font-size: 10px; margin-bottom: 2px; }
-        .cert-line .year { font-weight: 600; color: #004AAD; }
+        .cert-line .year { font-weight: 600; color: #0E6B62; }
         @media print {
-            body { padding: 22px; font-size: 10px; }
+            @page { size: A4; margin: 0; }
+            html { background: #f5efe6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body { padding: 14mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 10px; }
             h1 { font-size: 20px; }
             h2 { font-size: 11px; margin: 10px 0 5px; }
             .summary, .job li, .project p { font-size: 9.5px; }

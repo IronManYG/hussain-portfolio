@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default("Hussain Gaddal | Android Developer & Kotlin Expert") }}</title>
+    <meta name="description" content="{{ seo_description | default(description) | default('Hussain Gaddal — Android Developer based in Riyadh, working with Kotlin, Jetpack Compose, and KMP applications.') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title | default('Hussain Gaddal | Android Developer & Kotlin Expert') }}">
+    <meta property="og:description" content="{{ seo_description | default(description) | default('Hussain Gaddal — Android Developer based in Riyadh, working with Kotlin, Jetpack Compose, and KMP applications.') }}">
+    <meta property="og:url" content="https://ironmanyg.github.io/hussain-portfolio{{ page.url | url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://ironmanyg.github.io{{ '/assets/img/branding/og_image.png' | url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="https://ironmanyg.github.io{{ '/assets/img/branding/og_image.png' | url }}">
+    <meta name="twitter:title" content="{{ title | default('Hussain Gaddal | Android Developer & Kotlin Expert') }}">
+    <meta name="twitter:description" content="{{ seo_description | default(description) | default('Hussain Gaddal — Android Developer based in Riyadh, working with Kotlin, Jetpack Compose, and KMP applications.') }}">
+
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+        document.documentElement.classList.toggle('dark', useDark);
+    </script>
+
+    <!-- Self-hosted fonts (no external CDN on the critical path). The @font-face
+         rules live in the render-blocking styles.css, so the real fonts are known
+         at first paint; preloading the above-the-fold weights means text + icons
+         paint in final form immediately — no fallback->webfont swap (the FOUT
+         that read as a blank flash on every page navigation). -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/IBMPlexSansArabic-400-latin.woff2' | url }}">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/IBMPlexSansArabic-600-latin.woff2' | url }}">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/IBMPlexSansArabic-700-latin.woff2' | url }}">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/JetBrainsMono-400-latin.woff2' | url }}">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/Phosphor-regular-subset.woff2' | url }}">
+    <link rel="stylesheet" href="{{ '/styles.css' | url }}">
+
+    <!-- Hold the first render until the page body is parsed, so the View-
+         Transition swap reveals a COMPLETE frame (not the near-black first paint
+         that flashed). Pairs with @view-transition in styles.css. -->
+    <link rel="expect" href="#rt-render-ready" blocking="render">
+
+    <link rel="manifest" href="{{ '/manifest.json' | url }}">
+    <meta name="theme-color" content="#15140f">
+</head>
+<body class="bg-rt-bg text-rt-text font-display antialiased selection:bg-rt-accent/25 selection:text-rt-text">
+
+    <!-- Whole-page green ambiance: several soft accent glows spread across the
+         page, behind the content (opaque facts/cards/footer cover them, so the
+         section bands stay clean — only the transparent hero + section
+         backgrounds pick up the green). -->
+    <div class="page-glow" aria-hidden="true"></div>
+    <!-- Static film-grain atmosphere (no animation), behind content. -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    {% set isHome = page.url == '/' %}
+    <nav class="fixed w-full z-50 top-0 border-b border-rt-border bg-rt-bg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            {% if isHome %}
+            <a href="{{ '/' | url }}" class="flex items-center gap-2.5 group" aria-label="Hussain Gaddal — home">
+                <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]" aria-hidden="true">HG</span>
+                <span class="font-semibold text-rt-text">Hussain Gaddal</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-7 text-sm text-rt-muted">
+                <a href="#about" data-spy="about" class="rt-nav-link hover:text-rt-text transition-colors">About</a>
+                <a href="#projects" data-spy="projects" class="rt-nav-link hover:text-rt-text transition-colors">Selected work</a>
+                <a href="#expertise" data-spy="expertise" class="rt-nav-link hover:text-rt-text transition-colors">Skills</a>
+                <a href="#contact" data-spy="contact" class="rt-nav-link hover:text-rt-text transition-colors">Contact</a>
+                <span class="h-4 w-px bg-rt-border" aria-hidden="true"></span>
+                <a href="{{ '/projects/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">Projects</a>
+                <a href="{{ '/about/' | url }}" class="rt-nav-link hover:text-rt-text transition-colors">Experience</a>
+            </div>
+            {% else %}
+            <!-- Static, page-aware back link. Project-detail pages go up to the
+                 Projects index (`backTo: projects` in their front matter); the
+                 top-level sub-pages (Projects, About) go up to the Portfolio home.
+                 No document.referrer / history.back() — those were unreliable: the
+                 prev/next chain + Speculation-Rules prerendering (the homepage
+                 prerenders project links from "Selected work") bake a stale referrer
+                 into the cached page. A fixed URL is prerendered → instant. -->
+            {% if backTo == 'projects' %}
+            <a href="{{ '/projects/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-left text-base" aria-hidden="true"></i> {{ locales.en.back_projects }}
+            </a>
+            {% else %}
+            <a href="{{ '/' | url }}" class="inline-flex items-center gap-2 text-sm text-rt-muted hover:text-rt-text transition-colors">
+                <i class="ph ph-arrow-left text-base" aria-hidden="true"></i> {{ locales.en.back_portfolio }}
+            </a>
+            {% endif %}
+            {% endif %}
+
+            <div class="flex items-center gap-3 text-rt-muted">
+                {% if repoUrl %}
+                <a href="{{ repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-rt-accent text-rt-btn-text text-sm font-semibold px-4 py-2 rounded-[10px] hover:brightness-110 transition">
+                    <i class="ph ph-github-logo text-base"></i> {{ locales.en.btn_view_code }}
+                </a>
+                {% endif %}
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-1" aria-label="GitHub Profile"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-1" aria-label="LinkedIn Profile"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-1" aria-label="Toggle Dark Mode">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="التبديل إلى العربية">EN / ع</a>
+                {% if isHome %}
+                <button id="mobile-menu-btn" class="text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="ph ph-list" aria-hidden="true"></i>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    {% if isHome %}
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <h2 id="mobile-menu-title" class="sr-only">Navigation Menu</h2>
+            <div class="flex justify-between items-center mb-8">
+                <span class="flex items-center gap-2.5" aria-hidden="true">
+                    <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]">HG</span>
+                </span>
+                <button id="mobile-menu-close" class="text-2xl text-rt-muted hover:text-rt-text transition-colors p-1" aria-label="Close Navigation Menu">
+                    <i class="ph ph-x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6 text-lg font-medium">
+                <a href="#about" data-spy="about" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">About</a>
+                <a href="#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Selected work</a>
+                <a href="#expertise" data-spy="expertise" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Skills</a>
+                <a href="#contact" data-spy="contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Contact</a>
+                <hr class="border-rt-border" aria-hidden="true">
+                <a href="{{ '/projects/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Projects</a>
+                <a href="{{ '/about/' | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">Experience</a>
+            </div>
+            <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="LinkedIn Profile"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="mailto:hussain.yg2010@gmail.com" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <main class="relative z-10">
+        {{ content | safe }}
+    </main>
+
+    <!-- Contact / Footer -->
+    <footer id="contact" class="relative z-10 border-t border-rt-border bg-rt-subtle">
+        <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+            <p class="font-mono text-xs uppercase tracking-[0.12em] text-rt-muted mb-4">Get in touch</p>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Have a project in mind?</h2>
+            <p class="text-rt-muted text-lg mb-10 max-w-2xl mx-auto leading-relaxed">I'm open to Android, KMP, and full-stack Kotlin roles — and to building your mobile or cross-platform product. Based in Riyadh, remote or on-site.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                <a href="mailto:hussain.yg2010@gmail.com" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-6 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
+                    Say hello <i class="ph ph-paper-plane-tilt"></i>
+                </a>
+                <a href="tel:+966538517374" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-6 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+                    <i class="ph ph-phone"></i> +966 53 851 7374
+                </a>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-6 text-rt-muted mb-10">
+                <span class="flex items-center gap-2 font-mono text-sm"><i class="ph ph-map-pin text-rt-accent"></i> Riyadh, Saudi Arabia</span>
+                <span class="h-1 w-1 rounded-full bg-rt-border hidden sm:block" aria-hidden="true"></span>
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="GitHub Profile"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="LinkedIn Profile"><i class="ph ph-linkedin-logo"></i></a>
+            </div>
+            <p class="font-mono text-xs text-rt-muted border-t border-rt-border pt-8">&copy; <span id="copyright-year"></span> Hussain Gaddal.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="rt-fab" aria-label="Back to top">
+        <i class="ph ph-arrow-up text-xl" aria-hidden="true"></i>
+    </button>
+
+    <!-- Sentinel for <link rel="expect" blocking="render"> — its presence in the
+         parsed DOM is what releases the held first render (complete-frame reveal). -->
+    <div id="rt-render-ready" hidden></div>
+
+    <script type="module">
+        import { initTheme } from '{{ "/js/theme.js" | url }}';
+        import { initMenu } from '{{ "/js/menu.js" | url }}';
+        import { initNav } from '{{ "/js/nav.js" | url }}';
+        initTheme();
+        initMenu();
+        initNav();
+        const yr = document.getElementById('copyright-year');
+        if (yr) yr.textContent = "2025–2026";
+    </script>
+
+    <!-- Speculation Rules: prerender same-origin pages on hover/touch intent so
+         navigation is INSTANT (the page is fully rendered before the click) — no
+         navigation gap to flash, in any Chromium browser incl. Arc. Excludes the
+         CV PDF; cross-origin links (GitHub/LinkedIn) are never prerendered. -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "where": {
+            "and": [
+              { "href_matches": "/hussain-portfolio/*" },
+              { "not": { "href_matches": "/hussain-portfolio/cv/*" } }
+            ]
+          },
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
+</body>
+</html>

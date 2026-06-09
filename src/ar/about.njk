@@ -1,77 +1,95 @@
 ---
-layout: ar_base.njk
+layout: base_rt_ar.njk
 title: "نبذة عن حسين قدال | الخبرات والمسيرة المهنية"
-seo_description: "الخبرات المهنية، التعليم، والشهادات للمهندس حسين قدال، مطور تطبيقات أندرويد متخصص في الكوتلن."
+seo_description: "مطوّر أندرويد بخبرة +٤ سنوات في كيه لتقنية المعلومات — Kotlin و Jetpack Compose و KMP وخدمات Ktor الخلفية. الخبرات والتعليم والشهادات."
 ---
+{% set about = about_page.ar %}
 
-<div class="pt-32 pb-24 px-4 sm:px-6 max-w-7xl mx-auto" dir="rtl">
-    <!-- Header -->
-    <div class="mb-16 fade-section">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">{{ about_page.ar.hero.title | safe }}</h1>
-        <p class="text-xl text-ide-text-muted max-w-3xl leading-relaxed mb-8">
-            {{ about_page.ar.hero.subtitle | safe }}
-        </p>
-        <div class="flex flex-wrap gap-3">
-            <a href="{{ '/cv/Hussain_Gaddal_CV.pdf' | url }}" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center text-sm shadow-kotlin-glow">
-                <i class="ph ph-file-pdf ml-2 text-lg" aria-hidden="true"></i> تحميل السيرة الذاتية
-            </a>
-            <a href="mailto:hussain.yg2010@gmail.com" class="btn-secondary inline-flex items-center text-sm">
-                <i class="ph ph-envelope-simple ml-2 text-lg" aria-hidden="true"></i> تواصل معي
-            </a>
+<!-- ───────── Hero ───────── -->
+<header class="max-w-7xl mx-auto px-6 pt-32 pb-16 lg:pt-40 lg:pb-24">
+    <div class="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
+        <!-- Intro -->
+        <div>
+            <div class="font-mono text-xs uppercase tracking-[0.18em] text-rt-muted mb-4">{{ about.hero.eyebrow }}</div>
+            <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-6">{{ about.hero.headline | safe }}</h1>
+            <p class="text-lg text-rt-muted leading-relaxed max-w-xl mb-5">{{ about.hero.lede | safe }}</p>
+            {% if about.hero.personal %}<p class="text-base text-rt-muted leading-relaxed max-w-xl mb-8">{{ about.hero.personal | safe }}</p>{% endif %}
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="{{ '/ar/projects/' | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
+                    {{ about.hero.cta_work }} <span class="font-mono">←</span>
+                </a>
+                <a href="{{ '/cv/Hussain_Gaddal_CV.pdf' | url }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-5 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+                    <i class="ph ph-file-pdf"></i> {{ about.hero.cta_cv }}
+                </a>
+                <a href="mailto:hussain.yg2010@gmail.com" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-5 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+                    <i class="ph ph-envelope-simple"></i> {{ about.hero.cta_contact }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Portrait card + quick facts -->
+        <div class="rt-card border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+            <img src="{{ '/assets/img/new-hussain.jpg' | url }}" alt="{{ about.hero.portrait_alt }}"
+                 class="w-full aspect-[4/5] object-cover" style="object-position: 28% 20%;">
+            <div class="grid grid-cols-2 gap-x-4 gap-y-4 p-5 border-t border-rt-border">
+                {% for row in about.hero.quick %}
+                <div>
+                    <div class="font-mono text-[10px] uppercase tracking-[0.06em] text-rt-muted">{{ row.k }}</div>
+                    <div class="text-sm text-rt-text mt-1"><bdi>{{ row.v | safe }}</bdi></div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
+</header>
 
-    <!-- Work Experience Section -->
-    <section id="experience" class="py-16 border-t border-ide-border">
-        <div class="mb-12 fade-section">
-            <h2 class="text-3xl font-bold mb-4 font-mono" dir="ltr"><span class="text-kotlin-orange">val</span> <span
-                    class="text-ide-text-strong">{{ about_page.ar.experience.section_label }}</span> = <span class="text-[#79C0FF]">{{ about_page.ar.experience.heading_timeline }}</span></h2>
-            <p class="text-ide-text-muted text-lg max-w-2xl">{{ about_page.ar.experience.description }}</p>
+<!-- ───────── Experience timeline ───────── -->
+<section id="experience" class="border-t border-rt-border">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+        <div class="flex items-end justify-between gap-6 flex-wrap mb-10 lg:mb-12">
+            <div>
+                <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ about.experience.eyebrow }}</div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ about.experience.heading }}</h2>
+            </div>
+            <div class="font-mono text-xs text-rt-muted"><bdi>{{ about.experience.total | safe }}</bdi></div>
         </div>
 
-        <div class="relative border-r-2 border-ide-border pr-8 space-y-12 mr-4">
-            {% for item in about_page.ar.experience.items %}
-            <div class="relative fade-section">
-                <!-- Node marker -->
-                <div class="absolute -right-[41px] top-1.5 h-4 w-4 rounded-full border-2 ring-4 {{ item.node_color }}">
+        <div class="rt-tl">
+            {% for item in about.experience.items %}
+            <div class="rt-tl-item relative {% if item.current %}is-current{% endif %} {% if not loop.last %}pb-9{% endif %}">
+                <div class="flex items-baseline gap-x-3 gap-y-1 flex-wrap mb-1.5">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight">{{ item.role }}</span>
+                    <span class="text-sm text-rt-muted">في <b class="text-rt-text font-semibold"><bdi>{{ item.at }}</bdi></b></span>
+                    {% if item.current %}<span class="font-mono text-[10px] uppercase tracking-wide text-rt-accent border border-rt-accent/40 bg-rt-accent/10 px-2 py-0.5 rounded-full">الحالي</span>{% endif %}
                 </div>
-
-                <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
-                    <h3 class="text-2xl font-bold text-ide-text-strong">{{ item.role }}</h3>
-                    <span class="{{ item.color }} font-mono text-sm" dir="ltr">{{ item.company }}</span>
-                </div>
-                <div class="text-sm text-ide-text-muted font-mono mb-4">{{ item.date_location }}</div>
-
-                <ul class="list-disc pr-5 space-y-3 text-ide-text-muted leading-relaxed">
-                    {% for bullet in item.details %}
-                    <li>{{ bullet | safe }}</li>
+                <div class="font-mono text-[11px] tracking-[0.04em] text-rt-muted mb-4"><bdi>{{ item.when }}</bdi></div>
+                <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3">
+                    {% for b in item.bullets %}
+                    <li class="rt-tl-bullet text-sm text-rt-muted leading-relaxed">{% if b.metric %}<span class="text-rt-accent font-semibold"><bdi>{{ b.metric }}</bdi></span> {% endif %}{{ b.text | safe }}</li>
                     {% endfor %}
                 </ul>
             </div>
             {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-16 border-t border-ide-border">
-        <div class="mb-12 fade-section text-center">
-            <h2 class="text-3xl font-bold mb-4 font-mono" dir="ltr"><span class="text-kotlin-orange">import</span>
-                <span class="text-[#79C0FF]">{{ about_page.ar.certifications.section_label }}</span></h2>
-            <p class="text-ide-text-muted text-lg">{{ about_page.ar.certifications.description }}</p>
+<!-- ───────── Certifications ───────── -->
+<section id="certifications" class="border-t border-rt-border bg-rt-subtle">
+    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
+        <div class="mb-8 lg:mb-10">
+            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ about.certifications.eyebrow }}</div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ about.certifications.heading }}</h2>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 fade-section">
-            {% for cert in about_page.ar.certifications.items %}
-            <div class="p-6 bg-ide-surface/50 border border-ide-border rounded-xl {{ cert.borderHover }} transition-colors flex items-start gap-4">
-                <i class="ph {{ cert.icon }} text-3xl"></i>
-                <div>
-                    <h4 class="font-bold text-ide-text-strong text-lg">{{ cert.title }}</h4>
-                    <p class="text-sm text-ide-text-muted mt-1 leading-relaxed">{{ cert.description | safe }}</p>
-                    <p class="text-xs text-ide-text-muted mt-2 font-mono" dir="ltr">{{ cert.provider_year }}</p>
-                </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for cert in about.certifications.items %}
+            <div class="rt-card border border-rt-border rounded-xl bg-rt-surface p-5 transition-all duration-300">
+                <div class="font-mono text-[10px] uppercase tracking-[0.12em] text-rt-accent mb-2">{{ cert.by }}</div>
+                <h4 class="text-[15px] font-semibold leading-snug mb-2">{{ cert.name }}</h4>
+                <p class="text-[13px] text-rt-muted leading-relaxed">{{ cert.note | safe }}</p>
+                <span class="block font-mono text-[11px] text-rt-muted mt-3"><bdi>{{ cert.year }}</bdi></span>
             </div>
             {% endfor %}
         </div>
-    </section>
-
-</div>
+    </div>
+</section>

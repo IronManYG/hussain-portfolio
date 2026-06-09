@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hussain-portfolio-v2';
+const CACHE_NAME = 'hussain-portfolio-v3';
 const SCOPE_URL = self.registration.scope;
 const u = (path) => new URL(path, SCOPE_URL).toString();
 
@@ -6,11 +6,9 @@ const ASSETS_TO_CACHE = [
     u('./'),
     u('index.html'),
     u('styles.css'),
-    u('js/main.js'),
     u('js/theme.js'),
-    u('js/animations.js'),
-    u('js/anime-animations.js'),
     u('js/menu.js'),
+    u('js/nav.js'),
     u('js/projects-filter.js'),
     u('favicon.svg'),
     u('assets/img/hussain.webp'),

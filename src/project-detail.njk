@@ -1,218 +1,147 @@
 ---
-layout: base.njk
+layout: base_rt.njk
+backTo: projects
 pagination:
   data: projects
   size: 1
   alias: project
 permalink: "{{ project.slug }}/index.html"
 eleventyComputed:
-  title: "{{ project.title_en }} | Hussain Gaddal - Android Developer Portfolio"
+  title: "{{ project.title_en }} | Hussain Gaddal — Android Developer Portfolio"
   seo_description: "{{ project.description_en }}"
   repoUrl: "{{ project.repoUrl }}"
 ---
-<main class="pt-32 pb-24 px-4 sm:px-6 max-w-4xl mx-auto">
+{% set nonTech = ["Course Challenge", "Course Project", "Community Challenge", "Personal", "Personal Project", "Professional", "Institution"] %}
+
+<article class="max-w-4xl mx-auto px-6 pt-32 pb-20 lg:pt-40">
     <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb" class="text-sm text-ide-text-muted mb-6">
-        <a href="{{ '/projects/' | url }}" class="hover:text-ide-text-strong transition-colors">{{ locales.en.breadcrumb_projects }}</a>
+    <nav aria-label="breadcrumb" class="font-mono text-xs text-rt-muted mb-8">
+        <a href="{{ '/projects/' | url }}" class="hover:text-rt-accent transition-colors">{{ locales.en.breadcrumb_projects }}</a>
         <span aria-hidden="true" class="mx-2">/</span>
-        <span aria-current="page" class="text-ide-text-strong">{{ project.title_en }}</span>
+        <span aria-current="page" class="text-rt-text">{{ project.title_en }}</span>
     </nav>
 
-    <!-- Header -->
-    <header class="mb-16 fade-section">
-        <div class="flex flex-wrap gap-2 mb-6">
-            {% for tag in project.tags %}
-            <span class="tech-pill">{{ tag }}</span>
-            {% endfor %}
+    <!-- Hero -->
+    <header class="mb-10">
+        <div class="flex flex-wrap gap-2 mb-5 font-mono">
+            {% for tag in project.tags %}<span class="text-[11px] px-2.5 py-1 rounded-full bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endfor %}
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ project.title_en }}</h1>
-        <p class="text-xl text-ide-text-muted font-light">{{ project.description_en }}</p>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">{{ project.title_en }}</h1>
+        <p class="text-lg sm:text-xl text-rt-muted leading-relaxed max-w-3xl">{{ project.description_en }}</p>
+
+        <!-- Meta strip — only rows that exist -->
+        {% set typeTag = null %}{% for tag in project.tags %}{% if tag in nonTech and not typeTag %}{% set typeTag = tag %}{% endif %}{% endfor %}
+        <dl class="flex flex-wrap gap-x-10 gap-y-4 mt-8 pt-6 border-t border-rt-border">
+            {% if project.year %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">Year</dt><dd class="text-sm text-rt-text mt-1">{{ project.year }}</dd></div>{% endif %}
+            {% if typeTag %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">Type</dt><dd class="text-sm text-rt-text mt-1">{{ typeTag }}</dd></div>{% endif %}
+        </dl>
     </header>
 
+    <!-- Hero visual -->
     {% if project.grid.images %}
-    <!-- Project Hero Visual -->
-    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border project-hero-glow shadow-[0_20px_60px_-20px_rgba(127,82,255,0.25)] bento-animate flex justify-center items-center p-4 sm:p-8">
-        <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }} Mockup" decoding="async" class="w-full h-auto object-contain max-h-[300px] sm:max-h-[500px] rounded-lg dark:hidden">
-        <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }} Mockup" decoding="async" class="w-full h-auto object-contain max-h-[300px] sm:max-h-[500px] rounded-lg hidden dark:block">
+    <div class="mb-12 rounded-2xl overflow-hidden border border-rt-border bg-rt-subtle">
+        <img src="{{ project.grid.images.en.light | url }}" alt="{{ project.title_en }}" decoding="async" class="w-full h-auto object-contain dark:hidden">
+        <img src="{{ project.grid.images.en.dark | url }}" alt="{{ project.title_en }}" decoding="async" class="w-full h-auto object-contain hidden dark:block">
     </div>
     {% elif project.grid.image %}
-    <!-- Project Hero Visual -->
-    <div class="mb-16 rounded-2xl overflow-hidden border border-ide-border project-hero-glow shadow-[0_20px_60px_-20px_rgba(127,82,255,0.25)] bento-animate flex justify-center items-center p-4 sm:p-8">
-        <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }} Mockup" decoding="async" class="w-full h-auto object-contain max-h-[300px] sm:max-h-[500px] rounded-lg">
+    <div class="mb-12 rounded-2xl overflow-hidden border border-rt-border bg-rt-subtle">
+        <img src="{{ project.grid.image | url }}" alt="{{ project.title_en }}" decoding="async" class="w-full h-auto object-contain">
     </div>
     {% elif project.grid.icon %}
-    <!-- Project Hero Icon -->
-    <div class="mb-16 rounded-2xl h-[400px] border border-ide-border project-hero-glow shadow-[0_20px_60px_-20px_rgba(127,82,255,0.25)] bento-animate flex justify-center items-center relative overflow-hidden">
-        <div class="p-8 rounded-full bg-gradient-to-br from-kotlin-purple/20 to-kotlin-orange/20 border border-kotlin-purple/30 relative z-20">
-            <i class="ph {{ project.grid.icon }} text-8xl sm:text-9xl {{ project.grid.iconColor }}" aria-hidden="true"></i>
-        </div>
+    <div class="mb-12 rounded-2xl h-72 border border-rt-border bg-rt-subtle flex items-center justify-center">
+        <i class="ph {{ project.grid.icon }} text-8xl text-rt-accent" aria-hidden="true"></i>
     </div>
     {% endif %}
 
+    <!-- Impact stat strip (only if present, e.g. featured case study) -->
+    {% if project.featured_stats_en %}
+    <div class="grid grid-cols-3 border border-rt-border rounded-xl bg-rt-surface mb-12 overflow-hidden">
+        {% for s in project.featured_stats_en %}
+        <div class="px-5 py-5 {% if not loop.first %}border-l border-rt-border{% endif %}">
+            <div class="text-2xl sm:text-3xl font-bold tracking-tight leading-none">{{ s.v }}</div>
+            <div class="font-mono text-[10px] uppercase tracking-wide text-rt-muted mt-2">{{ s.k }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Overview -->
     {% if project.overview_en %}
-    <!-- The Overview -->
-    <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-6 relative pb-3 inline-block">
-            {{ locales.en.project_overview }}
-            <span class="block absolute bottom-0 left-0 w-12 h-[3px] bg-gradient-to-r from-kotlin-purple to-kotlin-orange rounded-full"></span>
-        </h2>
-        <div class="prose prose-invert max-w-none text-ide-text-muted leading-relaxed">
-            {{ project.overview_en | safe }}
-        </div>
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ locales.en.project_overview }}</h2>
+        <div class="rt-prose max-w-none">{{ project.overview_en | safe }}</div>
     </section>
     {% endif %}
 
+    <!-- Challenge -->
     {% if project.challenge_en %}
-    <!-- The Challenge -->
-    <section class="mb-16 fade-section bg-ide-surface/60 border-l-4 border-l-kotlin-orange/60 border-y border-r border-ide-border rounded-xl p-8">
-        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong">{{ locales.en.project_challenge }}</h2>
-        <div class="text-ide-text-muted leading-relaxed">
-            {{ project.challenge_en | safe }}
-        </div>
+    <section class="mb-12 border-s-2 border-rt-accent bg-rt-surface rounded-e-xl rounded-s-sm p-6 sm:p-8">
+        <h2 class="text-2xl font-bold tracking-tight mb-4">{{ locales.en.project_challenge }}</h2>
+        <div class="rt-prose max-w-none">{{ project.challenge_en | safe }}</div>
     </section>
     {% endif %}
 
+    <!-- Architecture -->
     {% if project.architecture_en %}
-    <!-- The Solution & Architecture -->
-    <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-6 relative pb-3 inline-block">
-            {{ locales.en.project_architecture }}
-            <span class="block absolute bottom-0 left-0 w-12 h-[3px] bg-gradient-to-r from-kotlin-purple to-kotlin-orange rounded-full"></span>
-        </h2>
-        {{ project.architecture_en | safe }}
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ locales.en.project_architecture }}</h2>
+        <div class="rt-prose max-w-none">{{ project.architecture_en | safe }}</div>
     </section>
     {% endif %}
 
+    <!-- Impact -->
     {% if project.impact_en %}
-    <!-- Impact & Results -->
-    <section class="mb-16 fade-section bg-gradient-to-br from-kotlin-purple/10 to-kotlin-orange/5 border border-kotlin-purple/30 rounded-xl p-8 shadow-[0_0_40px_-10px_rgba(127,82,255,0.2)]">
-        <h2 class="text-2xl font-bold mb-4 text-ide-text-strong flex items-center gap-2">
-            <i class="ph ph-trophy text-kotlin-purple text-2xl" aria-hidden="true"></i>
-            {{ locales.en.project_impact }}
-        </h2>
-        {{ project.impact_en | safe }}
+    <section class="mb-12 bg-rt-subtle border border-rt-border rounded-xl p-6 sm:p-8">
+        <h2 class="text-2xl font-bold tracking-tight mb-4 flex items-center gap-2"><i class="ph ph-trophy text-rt-accent" aria-hidden="true"></i> {{ locales.en.project_impact }}</h2>
+        <div class="rt-prose max-w-none">{{ project.impact_en | safe }}</div>
     </section>
     {% endif %}
 
+    <!-- Tech stack -->
     {% if project.tech_stack and project.tech_stack.length > 0 %}
-    <!-- Tech Stack -->
-    <section class="mb-16 fade-section">
-        <h2 class="text-2xl font-bold mb-6 relative pb-3 inline-block">
-            {{ locales.en.project_tech_stack }}
-            <span class="block absolute bottom-0 left-0 w-12 h-[3px] bg-gradient-to-r from-kotlin-purple to-kotlin-orange rounded-full"></span>
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ locales.en.project_tech_stack }}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
             {% for tech in project.tech_stack %}
-            <div class="bg-ide-surface border border-ide-border rounded-lg p-4 text-center hover:border-kotlin-purple/40 hover:bg-ide-surface-hover transition-colors">
-                <span class="block text-sm text-ide-text-muted mb-1">{{ tech.label }}</span>
-                <span class="font-mono text-ide-text-strong text-sm">{{ tech.value }}</span>
+            <div class="rt-card border border-rt-border rounded-lg bg-rt-surface p-4 transition-all duration-300">
+                <span class="block font-mono text-[10px] uppercase tracking-[0.08em] text-rt-muted mb-1">{{ tech.label }}</span>
+                <span class="text-sm font-semibold text-rt-text">{{ tech.value }}</span>
             </div>
             {% endfor %}
         </div>
     </section>
     {% endif %}
 
-    <!-- Prev / Next project navigation -->
+    <!-- Repo CTA -->
+    {% if project.repoUrl %}
+    <div class="mb-4">
+        <a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-5 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+            <i class="ph ph-github-logo"></i> View source on GitHub
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Prev / Next -->
     {% set prevProject = projects[pagination.pageNumber - 1] %}
     {% set nextProject = projects[pagination.pageNumber + 1] %}
-    <nav class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-between mt-16 pt-8 border-t border-ide-border" aria-label="Project navigation">
+    <nav class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-between mt-12 pt-8 border-t border-rt-border" aria-label="Project navigation">
         {% if prevProject %}
         <a href="{{ ('/' + prevProject.slug + '/') | url }}" class="group flex items-start gap-3 text-left max-w-sm" rel="prev">
-            <i class="ph ph-arrow-left text-xl mt-1 transition-transform group-hover:-translate-x-1" aria-hidden="true"></i>
+            <span class="font-mono mt-0.5 transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
             <span>
-                <span class="block text-xs text-ide-text-muted uppercase tracking-wider">{{ locales.en.nav_prev_project }}</span>
-                <span class="block text-base font-semibold group-hover:text-ide-text-strong transition-colors">{{ prevProject.title_en }}</span>
+                <span class="block font-mono text-[10px] uppercase tracking-wider text-rt-muted">{{ locales.en.nav_prev_project }}</span>
+                <span class="block text-base font-semibold group-hover:text-rt-accent transition-colors">{{ prevProject.title_en }}</span>
             </span>
         </a>
         {% else %}<span></span>{% endif %}
-
         {% if nextProject %}
-        <a href="{{ ('/' + nextProject.slug + '/') | url }}" class="group flex items-start gap-3 text-right max-w-sm sm:ml-auto" rel="next">
+        <a href="{{ ('/' + nextProject.slug + '/') | url }}" class="group flex items-start gap-3 text-right max-w-sm" rel="next">
             <span>
-                <span class="block text-xs text-ide-text-muted uppercase tracking-wider">{{ locales.en.nav_next_project }}</span>
-                <span class="block text-base font-semibold group-hover:text-ide-text-strong transition-colors">{{ nextProject.title_en }}</span>
+                <span class="block font-mono text-[10px] uppercase tracking-wider text-rt-muted">{{ locales.en.nav_next_project }}</span>
+                <span class="block text-base font-semibold group-hover:text-rt-accent transition-colors">{{ nextProject.title_en }}</span>
             </span>
-            <i class="ph ph-arrow-right text-xl mt-1 transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
+            <span class="font-mono mt-0.5 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
         </a>
         {% endif %}
     </nav>
-</main>
-<script>
-(function() {
-    const ORIGIN_KEY = 'projectFlowOrigin';
-    const PREV_NEXT_KEY = 'projectPrevNextFlag';
-
-    // Decide whether this load should refresh the stored origin.
-    // - Prev/Next nav: keep the existing origin (user is still in the flow).
-    // - Reload / browser back-forward: keep, otherwise the referrer (which
-    //   after Prev/Next is the previous project) would clobber the real entry.
-    // - Anything else: treat as a fresh entry and record the current referrer.
-    const cameFromPrevNext = sessionStorage.getItem(PREV_NEXT_KEY) === '1';
-    sessionStorage.removeItem(PREV_NEXT_KEY);
-
-    let isReloadOrBackForward = false;
-    try {
-        const navEntry = performance.getEntriesByType('navigation')[0];
-        if (navEntry && (navEntry.type === 'reload' || navEntry.type === 'back_forward')) {
-            isReloadOrBackForward = true;
-        }
-    } catch(e) {}
-
-    if (!cameFromPrevNext && !isReloadOrBackForward) {
-        sessionStorage.setItem(ORIGIN_KEY, document.referrer || '');
-    }
-    const flowOrigin = sessionStorage.getItem(ORIGIN_KEY);
-
-    // Use location.replace on Prev/Next so history doesn't accumulate one
-    // entry per project — Back from any project returns to the entry point.
-    document.querySelectorAll('a[rel="prev"], a[rel="next"]').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
-            e.preventDefault();
-            sessionStorage.setItem(PREV_NEXT_KEY, '1');
-            window.location.replace(link.href);
-        });
-    });
-
-    function parseSameSite(url) {
-        if (!url) return null;
-        try {
-            const u = new URL(url);
-            if (u.host !== window.location.host) return null;
-            const path = u.pathname.replace(/\/+$/, '');
-            return { url: url, isProjects: /\/projects$/.test(path) };
-        } catch(e) {
-            return null;
-        }
-    }
-
-    // Re-wire the navbar back button: the navbar inline script keys off
-    // document.referrer, which after Prev/Next points at the previous
-    // project rather than the original entry.
-    const origin = parseSameSite(flowOrigin);
-    const navBtn = document.getElementById('nav-back-btn');
-    if (navBtn) {
-        const fresh = navBtn.cloneNode(true);
-        navBtn.parentNode.replaceChild(fresh, navBtn);
-        const freshText = fresh.querySelector('#nav-back-text');
-
-        if (origin) {
-            freshText.textContent = origin.isProjects
-                ? '{{ locales.en.back_projects }}'
-                : '{{ locales.en.back_portfolio }}';
-            // Set href as a fallback for cases where history.back() can't
-            // navigate (project opened in a new tab and Prev/Next has already
-            // replaced the only history entry).
-            fresh.href = origin.url;
-            fresh.addEventListener('click', function(e) {
-                if (window.history.length > 1) {
-                    e.preventDefault();
-                    window.history.back();
-                }
-            });
-        } else {
-            freshText.textContent = '{{ locales.en.back_portfolio }}';
-        }
-    }
-})();
-</script>
+</article>
