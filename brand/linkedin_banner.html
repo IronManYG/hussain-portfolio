@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- linkedin_banner — 1584x396 profile banner. Isometric platform stack
+     (phone / desktop / watch / tablet on a shared-codebase line), Desert
+     Oasis light. The left third stays empty: LinkedIn overlays the profile
+     photo over the bottom-left ~280x280 region. No text by design —
+     LinkedIn renders name + headline itself. Render via generate.sh. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="_brand.css">
+<style>
+    body { width: 1584px; height: 396px; position: relative; }
+    svg { position: absolute; inset: 0; }
+</style>
+</head>
+<body class="grain-light">
+<svg width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+    <!-- shared-codebase line through the tile centers -->
+    <polyline points="670,338 760,312 995,245 1230,178 1455,113 1535,90"
+              fill="none" stroke="#1c1c1f" stroke-opacity="0.30"
+              stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+
+    <!-- tile 1: phone -->
+    <g transform="translate(760,312) scale(1,0.5) rotate(45)">
+        <rect x="-82" y="-82" width="164" height="164" rx="17" fill="#0e6b62"/>
+        <rect x="-32" y="-52" width="64" height="104" rx="11" fill="none"
+              stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+        <line x1="-11" y1="38" x2="11" y2="38"
+              stroke="#f5efe6" stroke-width="3.5" stroke-linecap="round"
+              vector-effect="non-scaling-stroke"/>
+    </g>
+
+    <!-- tile 2: desktop -->
+    <g transform="translate(995,245) scale(1,0.5) rotate(45)">
+        <rect x="-82" y="-82" width="164" height="164" rx="17" fill="#0e6b62"/>
+        <rect x="-50" y="-45" width="100" height="64" rx="7" fill="none"
+              stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+        <line x1="0" y1="19" x2="0" y2="39"
+              stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+        <line x1="-21" y1="42" x2="21" y2="42"
+              stroke="#f5efe6" stroke-width="3.5" stroke-linecap="round"
+              vector-effect="non-scaling-stroke"/>
+    </g>
+
+    <!-- tile 3: watch -->
+    <g transform="translate(1230,178) scale(1,0.5) rotate(45)">
+        <rect x="-82" y="-82" width="164" height="164" rx="17" fill="#0e6b62"/>
+        <circle cx="0" cy="0" r="35" fill="none"
+                stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+        <rect x="-13" y="-54" width="26" height="11" rx="5" fill="none"
+              stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+        <rect x="-13" y="43" width="26" height="11" rx="5" fill="none"
+              stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+    </g>
+
+    <!-- tile 4: tablet, with the single terracotta accent -->
+    <g transform="translate(1455,113) scale(1,0.5) rotate(45)">
+        <rect x="-82" y="-82" width="164" height="164" rx="17" fill="#0e6b62"/>
+        <rect x="-47" y="-60" width="94" height="120" rx="11" fill="none"
+              stroke="#f5efe6" stroke-width="3.5" vector-effect="non-scaling-stroke"/>
+        <circle cx="60" cy="-60" r="9" fill="#c46b3a"/>
+    </g>
+</svg>
+</body>
+</html>

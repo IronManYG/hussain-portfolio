@@ -1,0 +1,93 @@
+/* Desert Oasis brand tokens + self-hosted fonts for brand-image rendering.
+   Values mirror src/css/styles.css (:root / .dark rt-* tokens) — if the site
+   palette changes, change it there first, then here. */
+
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-weight: 400;
+    src: url('../src/assets/fonts/IBMPlexSansArabic-400-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-weight: 500;
+    src: url('../src/assets/fonts/IBMPlexSansArabic-500-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-weight: 600;
+    src: url('../src/assets/fonts/IBMPlexSansArabic-600-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-weight: 700;
+    src: url('../src/assets/fonts/IBMPlexSansArabic-700-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 400;
+    src: url('../src/assets/fonts/JetBrainsMono-400-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 500;
+    src: url('../src/assets/fonts/JetBrainsMono-500-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    src: url('../src/assets/fonts/JetBrainsMono-700-latin.woff2') format('woff2');
+}
+
+:root {
+    /* Desert Oasis — light */
+    --bg: #f5efe6;
+    --surface: #ffffff;
+    --subtle: #ebe4d7;
+    --border: #e3dccf;
+    --text: #1c1c1f;
+    --muted: #6b6661;
+    --accent: #0e6b62;
+    --accent-2: #c46b3a;
+    /* Desert Oasis — dark */
+    --d-bg: #15140f;
+    --d-surface: #1c1b16;
+    --d-border: #2e2c22;
+    --d-text: #ece5d5;
+    --d-muted: #9c9483;
+    --d-accent: #3eb3a4;
+    --d-accent-2: #dd8d52;
+    --chip-text: #0e1014;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    overflow: hidden;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Same self-contained grain mechanism as the site (.grain-overlay) */
+.grain-light {
+    background-color: var(--bg);
+    background-size: 140px 140px;
+    background-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.42  0 0 0 0 0.34  0 0 0 0 0.20  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
+}
+.grain-dark {
+    background-color: var(--d-bg);
+    background-size: 170px 170px;
+    background-blend-mode: screen;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.82  0 0 0 0.24 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
+}
+
+/* The HG logomark — same as the site nav chip / favicon */
+.chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--chip-text);
+}
