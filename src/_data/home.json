@@ -8,8 +8,8 @@
       "btn_work": "View Featured Projects",
       "btn_cv": "Download CV",
       "stats": [
-        { "v": "4+", "k": "Years shipping" },
-        { "v": "12", "k": "Projects built" },
+        { "v": "4+", "k": "Years shipping", "n": 4, "suffix": "+" },
+        { "v": "12", "k": "Projects built", "n": 12 },
         { "v": "Riyadh", "k": "Saudi Arabia" }
       ]
     },
@@ -74,8 +74,8 @@
       "btn_cv": "تحميل السيرة الذاتية",
       "btn_contact": "التواصل",
       "stats": [
-        { "v": "٤+", "k": "سنوات خبرة" },
-        { "v": "١٢", "k": "مشاريع منجزة" },
+        { "v": "٤+", "k": "سنوات خبرة", "n": 4, "suffix": "+" },
+        { "v": "١٢", "k": "مشاريع منجزة", "n": 12 },
         { "v": "الرياض", "k": "السعودية" }
       ]
     },

@@ -67,7 +67,7 @@ eleventyComputed:
 
     <!-- Overview -->
     {% if project.overview_en %}
-    <section class="mb-12">
+    <section data-reveal class="mb-12">
         <h2 class="text-2xl font-bold tracking-tight mb-5">{{ locales.en.project_overview }}</h2>
         <div class="rt-prose max-w-none">{{ project.overview_en | safe }}</div>
     </section>
@@ -75,7 +75,7 @@ eleventyComputed:
 
     <!-- Challenge -->
     {% if project.challenge_en %}
-    <section class="mb-12 border-s-2 border-rt-accent bg-rt-surface rounded-e-xl rounded-s-sm p-6 sm:p-8">
+    <section data-reveal class="mb-12 border-s-2 border-rt-accent bg-rt-surface rounded-e-xl rounded-s-sm p-6 sm:p-8">
         <h2 class="text-2xl font-bold tracking-tight mb-4">{{ locales.en.project_challenge }}</h2>
         <div class="rt-prose max-w-none">{{ project.challenge_en | safe }}</div>
     </section>
@@ -83,7 +83,7 @@ eleventyComputed:
 
     <!-- Architecture -->
     {% if project.architecture_en %}
-    <section class="mb-12">
+    <section data-reveal class="mb-12">
         <h2 class="text-2xl font-bold tracking-tight mb-5">{{ locales.en.project_architecture }}</h2>
         <div class="rt-prose max-w-none">{{ project.architecture_en | safe }}</div>
     </section>
@@ -91,7 +91,7 @@ eleventyComputed:
 
     <!-- Impact -->
     {% if project.impact_en %}
-    <section class="mb-12 bg-rt-subtle border border-rt-border rounded-xl p-6 sm:p-8">
+    <section data-reveal class="mb-12 bg-rt-subtle border border-rt-border rounded-xl p-6 sm:p-8">
         <h2 class="text-2xl font-bold tracking-tight mb-4 flex items-center gap-2"><i class="ph ph-trophy text-rt-accent" aria-hidden="true"></i> {{ locales.en.project_impact }}</h2>
         <div class="rt-prose max-w-none">{{ project.impact_en | safe }}</div>
     </section>
@@ -99,7 +99,7 @@ eleventyComputed:
 
     <!-- Tech stack -->
     {% if project.tech_stack and project.tech_stack.length > 0 %}
-    <section class="mb-12">
+    <section data-reveal class="mb-12">
         <h2 class="text-2xl font-bold tracking-tight mb-5">{{ locales.en.project_tech_stack }}</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
             {% for tech in project.tech_stack %}

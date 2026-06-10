@@ -30,7 +30,7 @@ seo_description: "Production Android work, Kotlin Multiplatform experiments, and
 <!-- ───────── Featured project ───────── -->
 {% for project in projects %}{% if project.feature_card %}
 <section class="max-w-7xl mx-auto px-6 pb-12">
-    <div class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+    <div data-reveal class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
         <a href="{{ ('/' + project.slug + '/') | url }}" class="group relative block aspect-video md:aspect-auto md:min-h-[340px] overflow-hidden bg-rt-subtle" aria-label="{{ project.title_en }} — case study">
             <span class="absolute top-4 left-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">Featured</span>
             {% if project.grid.images %}
@@ -72,7 +72,7 @@ seo_description: "Production Android work, Kotlin Multiplatform experiments, and
         {% set isMp = ('multiplatform' in tl) or ('kmm' in tl) or ('kmp' in tl) or ('cmp' in tl) or ('wear os' in tl) %}
         {% set isProd = project.slug in prodSlugs %}
         <div class="project-card-wrapper" data-multiplatform="{{ 'true' if isMp else 'false' }}" data-production="{{ 'true' if isProd else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
-            <a href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group flex flex-col h-full border border-rt-border rounded-2xl bg-rt-surface p-6 transition-all duration-300">
+            <a data-reveal href="{{ ('/' + project.slug + '/') | url }}" class="rt-card group flex flex-col h-full border border-rt-border rounded-2xl bg-rt-surface p-6 transition-all duration-300">
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                     <h3 class="text-lg sm:text-xl font-bold tracking-tight group-hover:text-rt-accent transition-colors">{{ project.title_en }}</h3>
                     {% if project.year %}<span class="font-mono text-[11px] tracking-[0.1em] text-rt-muted shrink-0">{{ project.year }}</span>{% endif %}

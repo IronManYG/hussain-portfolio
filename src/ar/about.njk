@@ -46,7 +46,7 @@ seo_description: "مطوّر أندرويد بخبرة +٤ سنوات في كي�
 <!-- ───────── Experience timeline ───────── -->
 <section id="experience" class="border-t border-rt-border">
     <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
-        <div class="flex items-end justify-between gap-6 flex-wrap mb-10 lg:mb-12">
+        <div data-reveal class="flex items-end justify-between gap-6 flex-wrap mb-10 lg:mb-12">
             <div>
                 <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ about.experience.eyebrow }}</div>
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ about.experience.heading }}</h2>
@@ -56,7 +56,7 @@ seo_description: "مطوّر أندرويد بخبرة +٤ سنوات في كي�
 
         <div class="rt-tl">
             {% for item in about.experience.items %}
-            <div class="rt-tl-item relative {% if item.current %}is-current{% endif %} {% if not loop.last %}pb-9{% endif %}">
+            <div data-reveal class="rt-tl-item relative {% if item.current %}is-current{% endif %} {% if not loop.last %}pb-9{% endif %}">
                 <div class="flex items-baseline gap-x-3 gap-y-1 flex-wrap mb-1.5">
                     <span class="text-xl sm:text-2xl font-bold tracking-tight">{{ item.role }}</span>
                     <span class="text-sm text-rt-muted">في <b class="text-rt-text font-semibold"><bdi>{{ item.at }}</bdi></b></span>
@@ -77,13 +77,13 @@ seo_description: "مطوّر أندرويد بخبرة +٤ سنوات في كي�
 <!-- ───────── Certifications ───────── -->
 <section id="certifications" class="border-t border-rt-border bg-rt-subtle">
     <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20">
-        <div class="mb-8 lg:mb-10">
+        <div data-reveal class="mb-8 lg:mb-10">
             <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ about.certifications.eyebrow }}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ about.certifications.heading }}</h2>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {% for cert in about.certifications.items %}
-            <div class="rt-card border border-rt-border rounded-xl bg-rt-surface p-5 transition-all duration-300">
+            <div data-reveal class="rt-card border border-rt-border rounded-xl bg-rt-surface p-5 transition-all duration-300">
                 <div class="font-mono text-[10px] uppercase tracking-[0.12em] text-rt-accent mb-2">{{ cert.by }}</div>
                 <h4 class="text-[15px] font-semibold leading-snug mb-2">{{ cert.name }}</h4>
                 <p class="text-[13px] text-rt-muted leading-relaxed">{{ cert.note | safe }}</p>

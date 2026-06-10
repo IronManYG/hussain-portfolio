@@ -24,6 +24,20 @@
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
         document.documentElement.classList.toggle('dark', useDark);
+
+        // Entrance-animation gates: `js` arms the CSS hidden states (no-JS
+        // visitors never get content hidden); `is-shown` starts the hero
+        // stagger only once the page is actually displayed — after
+        // `prerenderingchange` for Speculation-Rules prerenders, otherwise the
+        // one-shot entrance would play invisibly before the user clicks.
+        document.documentElement.classList.add('js');
+        if (document.prerendering) {
+            document.addEventListener('prerenderingchange', () => {
+                document.documentElement.classList.add('is-shown');
+            }, { once: true });
+        } else {
+            document.documentElement.classList.add('is-shown');
+        }
     </script>
 
     <!-- Self-hosted fonts (no external CDN on the critical path). The @font-face
@@ -143,7 +157,7 @@
 
     <!-- Contact / Footer -->
     <footer id="contact" class="relative z-10 border-t border-rt-border bg-rt-subtle">
-        <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+        <div data-reveal class="max-w-4xl mx-auto px-6 py-20 text-center">
             <p class="font-mono text-xs text-rt-muted mb-4">تواصل</p>
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">لديك مشروع في بالك؟</h2>
             <p class="text-rt-muted text-lg mb-10 max-w-2xl mx-auto leading-relaxed">متاح لأدوار في أندرويد و KMP و Kotlin المتكامل — ولبناء تطبيقك المحمول أو حلّك متعدد المنصات. مقرّي الرياض، عن بُعد أو في الموقع.</p>
@@ -178,9 +192,11 @@
         import { initTheme } from '{{ "/js/theme.js" | url }}';
         import { initMenu } from '{{ "/js/menu.js" | url }}';
         import { initNav } from '{{ "/js/nav.js" | url }}';
+        import { initReveal } from '{{ "/js/reveal.js" | url }}';
         initTheme();
         initMenu();
         initNav();
+        initReveal();
         const yr = document.getElementById('copyright-year');
         if (yr) yr.textContent = "2025–2026";
     </script>
