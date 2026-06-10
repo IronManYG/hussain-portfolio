@@ -8,14 +8,14 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
     <div class="relative z-[1] grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
         <!-- النص -->
         <div>
-            <div class="inline-flex items-center gap-2 font-mono text-xs text-rt-muted border border-rt-border bg-rt-surface px-3 py-1.5 rounded-full mb-6">
+            <div data-hero style="--hero-step:0" class="inline-flex items-center gap-2 font-mono text-xs text-rt-muted border border-rt-border bg-rt-surface px-3 py-1.5 rounded-full mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 {{ home.ar.hero.badge }}
             </div>
-            <p class="font-mono text-sm text-rt-muted mb-4">{{ home.ar.hero.greeting }}</p>
-            <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">{{ home.ar.hero.headline | safe }}</h1>
-            <p class="text-lg text-rt-muted leading-relaxed max-w-xl mb-8">{{ home.ar.hero.subtitle | safe }}</p>
-            <div class="flex flex-wrap items-center gap-3">
+            <p data-hero style="--hero-step:1" class="font-mono text-sm text-rt-muted mb-4">{{ home.ar.hero.greeting }}</p>
+            <h1 data-hero style="--hero-step:2" class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">{{ home.ar.hero.headline | safe }}</h1>
+            <p data-hero style="--hero-step:3" class="text-lg text-rt-muted leading-relaxed max-w-xl mb-8">{{ home.ar.hero.subtitle | safe }}</p>
+            <div data-hero style="--hero-step:4" class="flex flex-wrap items-center gap-3">
                 <a href="#projects" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
                     {{ home.ar.hero.btn_work }} <span class="font-mono">←</span>
                 </a>
@@ -26,13 +26,13 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
         </div>
 
         <!-- بطاقة الصورة + الأرقام -->
-        <div class="rt-card border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+        <div data-hero style="--hero-step:5" class="rt-card border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <img src="{{ '/assets/img/new-hussain.jpg' | url }}" alt="حسين قدال — مطور تطبيقات أندرويد في الرياض"
                  class="w-full aspect-[4/5] object-cover" style="object-position: 28% 20%;">
             <div class="grid grid-cols-3 border-t border-rt-border">
                 {% for s in home.ar.hero.stats %}
                 <div class="px-4 py-3.5 {% if not loop.last %}border-e border-rt-border{% endif %}">
-                    <div class="text-xl font-bold leading-none"><bdi>{{ s.v }}</bdi></div>
+                    <div class="text-xl font-bold leading-none"><bdi{% if s.n %} data-countup="{{ s.n }}" data-countup-suffix="{{ s.suffix | default('') }}"{% endif %}>{{ s.v }}</bdi></div>
                     <div class="font-mono text-[10px] uppercase tracking-wide text-rt-muted mt-1">{{ s.k }}</div>
                 </div>
                 {% endfor %}
@@ -45,7 +45,7 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
 <section class="border-y border-rt-border bg-rt-subtle">
     <div class="max-w-7xl mx-auto px-6 flex flex-wrap">
         {% for f in home.ar.facts %}
-        <div class="flex-1 min-w-[50%] sm:min-w-0 px-5 py-5 {% if not loop.last %}sm:border-e border-rt-border{% endif %}">
+        <div data-reveal class="flex-1 min-w-[50%] sm:min-w-0 px-5 py-5 {% if not loop.last %}sm:border-e border-rt-border{% endif %}">
             <div class="font-mono text-[10px] uppercase tracking-[0.08em] text-rt-muted">{{ f.k }}</div>
             <div class="text-[15px] text-rt-text mt-1.5"><bdi>{{ f.v }}</bdi></div>
         </div>
@@ -56,11 +56,11 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
 <!-- ───────── نبذة ───────── -->
 <section id="about" class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
     <div class="grid lg:grid-cols-[1fr_1.25fr] gap-10 lg:gap-16 items-start">
-        <div>
+        <div data-reveal>
             <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-3">{{ home.ar.about.section_label }}</div>
             <h2 class="rt-em text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight">{{ home.ar.about.title | safe }}</h2>
         </div>
-        <div>
+        <div data-reveal>
             {% for p in home.ar.about.paragraphs.slice(0, 3) %}
             <p class="text-rt-muted leading-relaxed{% if not loop.last %} mb-4{% endif %}">{{ p | safe }}</p>
             {% endfor %}
@@ -73,7 +73,7 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
 
 <!-- ───────── الأعمال المختارة ───────── -->
 <section id="projects" class="border-t border-rt-border max-w-7xl mx-auto px-6 py-20 lg:py-24">
-    <div class="flex items-end justify-between gap-6 mb-10">
+    <div data-reveal class="flex items-end justify-between gap-6 mb-10">
         <div>
             <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ home.ar.featured_projects.section_label }}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">مشاريع مميزة</h2>
@@ -87,7 +87,7 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
         {% for project in projects %}{% if project.featured %}
         {% if project.feature_card %}
         <!-- بطاقة مميزة (span-12) -->
-        <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 grid md:grid-cols-[1.4fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+        <a data-reveal href="{{ ('/ar/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 grid md:grid-cols-[1.4fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <div class="relative aspect-video overflow-hidden bg-rt-subtle">
                 {% if project.grid.images %}
                 <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
@@ -109,7 +109,7 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
         </a>
         {% else %}
         <!-- بطاقة قياسية (span-4) -->
-        <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="rt-card group md:col-span-4 flex flex-col border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
+        <a data-reveal href="{{ ('/ar/' + project.slug + '/') | url }}" class="rt-card group md:col-span-4 flex flex-col border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <div class="relative aspect-video overflow-hidden bg-rt-subtle">
                 {% if project.grid.images %}
                 <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
@@ -141,13 +141,13 @@ description: "حسين قدال، مطوّر أندرويد بخبرة تتجا�
 <!-- ───────── المهارات ───────── -->
 <section id="expertise" class="border-t border-rt-border">
     <div class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
-        <div class="mb-10">
+        <div data-reveal class="mb-10">
             <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ home.ar.expertise.section_label }}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ home.ar.expertise.title }}</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {% for item in home.ar.expertise.items %}
-            <div class="border border-rt-border rounded-2xl bg-rt-surface p-6">
+            <div data-reveal class="border border-rt-border rounded-2xl bg-rt-surface p-6">
                 <div class="w-11 h-11 rounded-xl bg-rt-accent/10 text-rt-accent flex items-center justify-center mb-4">
                     <i class="ph {{ item.icon }} text-xl" aria-hidden="true"></i>
                 </div>
