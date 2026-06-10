@@ -35,7 +35,7 @@ The AI path still exists as an **alternate** for directions code can't produce
 | Slot | File | Size | Design | Used by |
 |---|---|---|---|---|
 | `og_image` | `og_image.jpg` | 1200×630 | Centered editorial card: HG chip, name, tagline, URL on sandstone, teal frame | `<meta og:image>` in both layouts (link previews in WhatsApp/Slack/iMessage/X) |
-| `linkedin_banner` | `linkedin_banner.png` | 3168×792 (2× of 1584×396) | Isometric platform stack: phone → desktop → watch → tablet tiles on a shared-codebase line, sandstone, left third empty for the profile photo | LinkedIn profile banner (manual upload) |
+| `linkedin_banner` | `linkedin_banner.png` | 3168×792 (2× of 1584×396) | Isometric platform stack: phone → desktop → watch → tablet tiles on a shared-codebase line + `one Kotlin codebase / every screen` mono tagline upper-left, sandstone, left third empty for the profile photo | LinkedIn profile banner (manual upload) |
 | `github_readme_hero` | `github_readme_hero.png` | 2560×640 (2× of 1280×320) | Terminal prompt `> hussain.gaddal --kotlin --multiplatform` on Desert Oasis dark with grain | `IronManYG/IronManYG` profile README |
 | `notion_redirect_hero` | `notion_redirect_hero.png` | 1600×400 (2× of 800×200) | Centered HG logomark on sandstone — direction-neutral, safe in EN-LTR and AR-RTL sections | Notion redirect pages (optional) |
 
