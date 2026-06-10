@@ -247,16 +247,20 @@
 }
 
 /* Cross-document View Transitions — hold the OUTGOING page during same-origin
-   navigation, then swap to the incoming page. The hold is the point (it prevents
-   the blank flash); the crossfade is NOT — a fade just animates INTO the new
-   page's first (still-rendering, near-black) frame, which is itself the flash and
-   feels slow. So the swap is effectively instant (1ms). The reveal is kept clean
-   by `<link rel=expect blocking=render>` in the page head, which delays the new
-   page's first render until its body is parsed, so the held old page swaps
-   straight to a complete frame instead of a half-painted one. */
+   navigation, then crossfade to the incoming page. The hold prevents the blank
+   flash; `<link rel=expect blocking=render>` in the page head delays the new
+   page's first render until its body is parsed, so the fade lands on a complete
+   frame, never a half-painted one (that guarantee is what made a real crossfade
+   viable again — it used to fade into a near-black still-rendering frame).
+   140ms is short enough that navigation still reads as instant. Reduced motion
+   keeps the hold but swaps in 1ms. */
 @view-transition { navigation: auto; }
 ::view-transition-old(root),
-::view-transition-new(root) { animation-duration: 1ms; }
+::view-transition-new(root) { animation-duration: 140ms; }
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) { animation-duration: 1ms; }
+}
 
 @tailwind base;
 @tailwind components;
