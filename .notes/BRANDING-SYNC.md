@@ -2,7 +2,7 @@
 
 Single source of truth for every cross-surface brand field. When you change a row, walk down it and update each surface, then bump the "Last synced" date.
 
-## Surface status snapshot (2026-05-07 · Sifr rebrand 2026-06-19 — see [Sifr rebrand sync](#sifr-rebrand-sync-2026-06-19))
+## Surface status snapshot (2026-05-07 · Sifr rebrand ✅ fully synced 2026-06-20 — see [Sifr rebrand sync](#sifr-rebrand-sync-2026-06-19))
 
 | Surface | Status | Notes |
 |---|---|---|
@@ -13,14 +13,16 @@ Single source of truth for every cross-surface brand field. When you change a ro
 | GitHub profile README (`IronManYG/IronManYG`) | ✅ live | Repo created 2026-05-06; README v3 with `data class` + `@Composable` |
 | GitHub repo descriptions | ✅ done (~16 repos) | All previously listed + `chirp-api`, `Maktabati` (descriptions + homepages added 2026-05-07), plus the 5 unpopulated repos tagged in §7: NutriSport, NoteMark, SpendLess, HabitTracker, MyDiary. |
 | GitHub repo topics + homepages | ✅ done (6 pinned + PlantPediaZ + 5 expanded + 5 §7 repos on 2026-05-07) | Pinned repos topic-tagged. On 2026-05-07 added topics to `chirp-api` (Spring Boot stack: spring-boot, postgresql, redis, websockets, rabbitmq, jwt-authentication, multi-module-gradle, rate-limiting, bcrypt), `Maktabati` (Android library), `dev.gaddal.qodem-api` (Ktor backend); added `multi-module-architecture` to Chirp; added `health-services-api` + `convention-plugins` to Runique; tagged 5 §7 repos (NutriSport=CMP, NoteMark, SpendLess, HabitTracker, MyDiary). |
-| GitHub pinned repos | ✅ done | Order: Chirp, EchoJournal, ScribbleDash, Runique, Translator_KMM, hussain-portfolio |
+| GitHub pinned repos | ✅ done | Order: Chirp, EchoJournal, ScribbleDash, Runique, Translator_KMM, hussain-portfolio. **Sifr added to pins 2026-06-20** (current set per GitHub UI). |
 | GitHub archive list | ✅ done (30 repos) | Archived 2026-05-06: 5 test/junk + 16 Udacity exercises + 9 codelab/starter (see `src/social/github.md` §5) |
 | Cert PDFs | ✅ tracked (2026-05-06) | 7 PDFs committed to `src/social/certs/` (6 PL Coding + 1 Udacity). `.gitignore` exclusion removed since these are publicly equivalent to LinkedIn Media uploads. |
-| LinkedIn | ✅ done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree). Project "Associated with" links restored after the Education re-add (Asteroid Radar / Maps / Material Calculator etc.). |
-| Notion redirect embeds | ✅ done (2026-05-07) | All 18 redirect URLs embedded into the legacy Notion site. Project + CV buttons fixed (per-project URLs and CV target both 404'd; commit `5a364d1`) and re-tested live from inside Notion. |
+| LinkedIn | ✅ done (2026-05-07 · Sifr 2026-06-20) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree). Project "Associated with" links restored after the Education re-add (Asteroid Radar / Maps / Material Calculator etc.). Project #8 updated to "Sifr — Material 3 Calculator" 2026-06-20. |
+| Notion redirect embeds | ✅ done (2026-05-07 · Sifr 2026-06-20) | All 18 redirect URLs embedded into the legacy Notion site. Project + CV buttons fixed (per-project URLs and CV target both 404'd; commit `5a364d1`) and re-tested live from inside Notion. Sifr embed added + old material-calculator removed; all embeds recolored to Desert Oasis 2026-06-20 (PR #6). |
 | Brand images | ✅ reviewed (2026-06-10) — LinkedIn upload pending | All 4 reviewed at full size and approved: OG / GitHub hero / Notion hero kept as generated; LinkedIn banner iterated to v2 (tiles +25%, `one Kotlin codebase / every screen` tagline) and re-rendered. GitHub hero SHIPPED 2026-06-10: hotlinked atop the `IronManYG/IronManYG` README (commit `b7118b6`) from the live portfolio URL — auto-updates on regenerate + deploy. Sources in `brand/`, regenerate with `./brand/generate.sh`, outputs in `src/assets/img/branding/`. OG ships automatically via `<meta og:image>` (`.jpg`, WhatsApp-safe size). STILL MANUAL: upload `linkedin_banner.png` to LinkedIn (check desktop + mobile crop), optionally add `notion_redirect_hero.png` to Notion pages. See [`IMAGE-GENERATION-GUIDE.md`](./IMAGE-GENERATION-GUIDE.md). |
 
 ## Sifr rebrand sync (2026-06-19)
+
+> **✅ Fully synced 2026-06-20** — every surface (site, GitHub repo + pins, LinkedIn, Notion, CVs) propagated. Notion embeds also recolored to Desert Oasis (PR #6).
 
 `MaterialCalculator` was renamed to **Sifr** ([`github.com/IronManYG/Sifr`](https://github.com/IronManYG/Sifr)) and majorly updated — now **live on Google Play** (v1.3.0, with a v2.0 redesign batched in-repo). Cross-surface propagation:
 
@@ -30,12 +32,13 @@ Single source of truth for every cross-surface brand field. When you change a ro
 - Social kit (`src/social/`): `github.md` (Sifr description + homepage + topics `gh` commands; topics-table row), `linkedin.md` (project #8 → "Sifr — Material 3 Calculator"), `notion.md` (Sifr redirect URL), `github-profile-readme.md` (`Now()` line + a "what I'm working on" bullet).
 - CVs: Sifr added as project #2 (after Maktabati) in `_A`, `_C`, `_compact_D`, `_compact_E`.
 
-**STILL MANUAL:**
-- [x] **Deploy** — shipped via PR #4 (merge `58db044`) 2026-06-20; `/sifr/` live (200), old `/material-calculator/` 404s.
-- [x] **CV PDFs** — re-exported (both now include Sifr; committed in PR #4).
-- [x] **GitHub repo metadata** — description + homepage + 15 topics applied via `gh api` 2026-06-20. ⏳ Still: **re-pin Sifr** among the pinned repos (web UI only).
-- [ ] **LinkedIn:** paste the updated project #8 ("Sifr — Material 3 Calculator"); update its skills + dates.
-- [ ] **Notion:** embed the new `/notion/projects/sifr/` redirect; remove the old material-calculator embed.
+**✅ ALL DONE (2026-06-20):**
+- [x] **Deploy** — shipped via PR #4 (merge `58db044`); `/sifr/` live (200), old `/material-calculator/` 404s.
+- [x] **CV PDFs** — re-exported (both include Sifr; committed in PR #4).
+- [x] **GitHub repo metadata** — description + homepage + 15 topics applied via `gh api`.
+- [x] **GitHub re-pin** — Sifr added to the pinned repos (web UI).
+- [x] **LinkedIn** — project #8 updated to "Sifr — Material 3 Calculator".
+- [x] **Notion** — `/notion/projects/sifr/` embed added, old material-calculator block removed. (All redirect embeds also recolored to Desert Oasis — PR #6.)
 
 ## Pending quality checks (after the manual surface work above)
 
