@@ -112,12 +112,19 @@ eleventyComputed:
     </section>
     {% endif %}
 
-    <!-- Repo CTA -->
-    {% if project.repoUrl %}
-    <div class="mb-4">
+    <!-- Store + Repo CTAs -->
+    {% if project.playUrl or project.repoUrl %}
+    <div class="flex flex-wrap gap-3 mb-4">
+        {% if project.playUrl %}
+        <a href="{{ project.playUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
+            <i class="ph ph-google-play-logo"></i> Get it on Google Play
+        </a>
+        {% endif %}
+        {% if project.repoUrl %}
         <a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-5 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
             <i class="ph ph-github-logo"></i> View source on GitHub
         </a>
+        {% endif %}
     </div>
     {% endif %}
 

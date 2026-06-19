@@ -92,6 +92,99 @@
     "repoUrl": "https://github.com/IronManYG/Chirp"
   },
   {
+    "id": "sifr",
+    "title_en": "Sifr",
+    "title_ar": "صفر",
+    "slug": "sifr",
+    "featured": true,
+    "feature_card": true,
+    "year": "2026",
+    "card_impact_en": "Live on Google Play · 5 palettes · 11 languages",
+    "card_impact_ar": "منشور على Google Play · ٥ سمات · ١١ لغة",
+    "featured_role_en": "A solo, published Android app — live on the <b>Google Play Store</b>. Sifr pairs a hand-written <b>recursive-descent</b> expression engine (implicit multiplication, right-associative powers, factorials, IEEE-754 cleanup) with deep personalization: five hand-crafted palettes plus <b>Material You</b>, four keypad layouts, built-in currency / unit / tip / date tools, and a live in-app language switch across <b>11 languages</b> with full RTL. Built on <b>MVI</b> with Koin, Jetpack Navigation 3, Room &amp; DataStore.",
+    "featured_role_ar": "تطبيق أندرويد فردي منشور — مُتاح على <b>متجر Google Play</b>. يجمع صِفر بين محرّك تعبيرات مكتوب يدويًا بأسلوب <b>recursive-descent</b> (ضرب ضمني، وأُسس يمينية الارتباط، ومضروب، وتنظيف دقّة IEEE-754) وتخصيص عميق: خمس سمات مصمَّمة يدويًا إضافةً إلى <b>Material You</b>، وأربعة تخطيطات للوحة المفاتيح، وأدوات مدمجة للعملات والوحدات والإكراميات والتواريخ، وتبديل لغة فوري داخل التطبيق عبر <b>١١ لغة</b> بدعم كامل للكتابة من اليمين لليسار. مبني على <b>MVI</b> مع Koin وJetpack Navigation 3 وRoom وDataStore.",
+    "featured_stats_en": [
+      { "v": "Live", "k": "on Google Play" },
+      { "v": "11", "k": "languages" },
+      { "v": "5", "k": "palettes" }
+    ],
+    "featured_stats_ar": [
+      { "v": "منشور", "k": "على Google Play" },
+      { "v": "١١", "k": "لغة" },
+      { "v": "٥", "k": "سمات" }
+    ],
+    "grid": {
+      "size": "md:col-span-8",
+      "glow": "glow-blue",
+      "image": "",
+      "icon": "",
+      "iconColor": "",
+      "images": {
+        "en": {
+          "light": "/assets/img/projects/sifr-en-light.png",
+          "dark": "/assets/img/projects/sifr-en-dark.png"
+        },
+        "ar": {
+          "light": "/assets/img/projects/sifr-ar-light.png",
+          "dark": "/assets/img/projects/sifr-ar-dark.png"
+        }
+      }
+    },
+    "tags": [
+      "Play Store",
+      "Jetpack Compose",
+      "MVI",
+      "Material 3",
+      "Personal Project"
+    ],
+    "description_en": "A modernized, deeply customizable Material 3 calculator for Android, live on Google Play — basic and scientific modes, built-in converters, five hand-crafted palettes, and full RTL across 11 languages.",
+    "description_ar": "حاسبة Material 3 عصرية وقابلة للتخصيص بعمق على أندرويد، منشورة على Google Play — أوضاع أساسية وعلمية، ومحوّلات مدمجة، وخمس سمات مصمَّمة يدويًا، ودعم كامل للكتابة من اليمين لليسار عبر ١١ لغة.",
+    "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>Sifr (Arabic for \"zero\" — the root of the English word \"cipher\") is a Material 3 calculator for Android, published on the Google Play Store. It pairs a hand-written expression engine with deep personalization: basic and scientific modes, four built-in converters, five custom palettes plus Material You, and a live in-app language switch across 11 locales with full right-to-left support.</p>\n            </div>",
+    "overview_ar": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>صِفر (تعني الصفر بالعربية، وهي أصل كلمة cipher الإنجليزية) حاسبة Material 3 لأندرويد، منشورة على متجر Google Play. تجمع بين محرّك تعبيرات مكتوب يدويًا وتخصيص عميق: أوضاع أساسية وعلمية، وأربعة محوّلات مدمجة، وخمس سمات مخصّصة إضافةً إلى Material You، وتبديل لغة فوري داخل التطبيق عبر ١١ لغة مع دعم كامل للكتابة من اليمين لليسار.</p>\n            </div>",
+    "challenge_en": "<p class=\"text-rt-muted leading-relaxed mb-4\">\n                A calculator looks trivial until you parse real input. <code>5sin(30)</code>, <code>2(3+1)</code>, right-associative powers, factorials and unary minus all have to evaluate the way a person expects — and floating-point noise like <code>sin(π) = 0.0000001</code> has to disappear without faking the math.\n            </p>\n            <p class=\"text-rt-muted leading-relaxed\">\n                On top of correctness, the app is heavily themeable and fully localized. Five palettes, four keypad layouts, light / dark / system modes and 11 languages with RTL all have to stay consistent — and switch live, without an app restart.\n            </p>",
+    "challenge_ar": "<p class=\"text-rt-muted leading-relaxed mb-4\">\n                تبدو الحاسبة أمرًا بسيطًا حتى تبدأ بتحليل مدخلات حقيقية. فتعبيرات مثل <code>5sin(30)</code> و<code>2(3+1)</code>، والأُسس يمينية الارتباط، والمضروب، والسالب الأحادي يجب أن تُحسب كما يتوقّعها المستخدم تمامًا — كما يجب أن يختفي ضجيج الفاصلة العائمة مثل <code>sin(π) = 0.0000001</code> دون تزييف النتيجة.\n            </p>\n            <p class=\"text-rt-muted leading-relaxed\">\n                وإلى جانب صحّة الحساب، التطبيق قابل للتخصيص بكثافة ومُعرَّب بالكامل. خمس سمات، وأربعة تخطيطات للوحة المفاتيح، وأوضاع فاتح / داكن / حسب النظام، و١١ لغة بدعم RTL، يجب أن تبقى جميعها متّسقة — وأن تتبدّل فوريًا دون إعادة تشغيل التطبيق.\n            </p>",
+    "architecture_en": "<div class=\"space-y-6 text-rt-muted leading-relaxed\">\n                <p>Sifr is a single Gradle module under <code>dev.gaddal.sifr</code>, split into <code>core/</code> primitives and self-contained <code>feature/</code> packages — calculator, history and settings — each with its own domain and UI layers on an MVI (State · Action · Event) loop.</p>\n\n                <p>The calculation pipeline is one-shot per <code>=</code>: an <code>ExpressionWriter</code> mutates the raw string (cursor, range selection, implicit multiplication and smart delete), an <code>ExpressionParser</code> tokenizes it, and a hand-written recursive-descent <code>ExpressionEvaluator</code> resolves operator precedence, parentheses and unary minus. Room backs the calculation history, DataStore persists every preference, Koin wires the graph, and Jetpack Navigation 3 drives routing.</p>\n\n                <h3 class=\"text-xl font-semibold text-rt-text mt-6\">Theming &amp; localization</h3>\n                <p>Five hand-crafted palettes plus Material You, four keypad layouts and 11 languages with full RTL are all swappable live — no restart — with typed, localized error states for division-by-zero, domain, overflow and syntax failures.</p>\n            </div>",
+    "architecture_ar": "<div class=\"space-y-6 text-rt-muted leading-relaxed\">\n                <p>صِفر وحدة Gradle واحدة ضمن <code>dev.gaddal.sifr</code>، مقسّمة إلى أساسيات في <code>core/</code> وحزم ميزات مستقلّة في <code>feature/</code> — الحاسبة، والسجل، والإعدادات — لكلٍّ منها طبقتا domain وUI على حلقة MVI (حالة · إجراء · حدث).</p>\n\n                <h3 class=\"text-xl font-semibold text-rt-text mt-6\">مسار الحساب</h3>\n                <ul class=\"list-disc pr-5 space-y-2\">\n                    <li><strong>كتابة التعبير:</strong> يعدّل <code>ExpressionWriter</code> النصّ الخام (المؤشر، وتحديد المدى، والضرب الضمني، والحذف الذكي).</li>\n                    <li><strong>التحليل والتقييم:</strong> يُحوّل <code>ExpressionParser</code> النصّ إلى رموز، ثم يحلّه <code>ExpressionEvaluator</code> مكتوب يدويًا بأسلوب recursive-descent يراعي أولوية المعاملات والأقواس والسالب الأحادي.</li>\n                    <li><strong>الاستمرارية والحقن:</strong> تخزّن Room سجلّ العمليات، ويحفظ DataStore كل التفضيلات، ويتولّى Koin حقن التبعيات، ويدير Jetpack Navigation 3 التنقّل.</li>\n                </ul>\n\n                <h3 class=\"text-xl font-semibold text-rt-text mt-6\">السمات والتعريب</h3>\n                <p>خمس سمات مصمَّمة يدويًا إضافةً إلى Material You، وأربعة تخطيطات للوحة المفاتيح، و١١ لغة بدعم كامل للكتابة من اليمين لليسار، كلّها قابلة للتبديل فوريًا دون إعادة تشغيل، مع حالات أخطاء مُعرَّبة ومُصنّفة للقسمة على صفر والنطاق والطفحان وأخطاء الصياغة.</p>\n            </div>",
+    "impact_en": "<ul class=\"list-disc pl-5 space-y-2 text-rt-muted\">\n                <li>Published and live on the Google Play Store (v1.3.0), with a full v2.0 redesign batched in-repo.</li>\n                <li>A hand-written recursive-descent evaluator with IEEE-754 cleanup — <code>sin(30°) = 0.5</code>, <code>sin(π) = 0</code>, no trailing noise.</li>\n                <li>Localized to 11 languages with full RTL and a live, restart-free language switch.</li>\n                <li>Five hand-crafted palettes plus Material You, four keypad layouts, and offline-first currency conversion.</li>\n            </ul>",
+    "impact_ar": "<ul class=\"list-disc pr-5 space-y-2 text-rt-muted\">\n                <li>منشور ومُتاح على متجر Google Play (الإصدار 1.3.0)، مع إعادة تصميم كاملة للإصدار 2.0 مُجهّزة داخل المستودع.</li>\n                <li>مُقيِّم recursive-descent مكتوب يدويًا مع تنظيف دقّة IEEE-754 — <code>sin(30°) = 0.5</code> و<code>sin(π) = 0</code> دون ضجيج زائد.</li>\n                <li>مُعرَّب إلى ١١ لغة بدعم كامل للكتابة من اليمين لليسار وتبديل لغة فوري دون إعادة تشغيل.</li>\n                <li>خمس سمات مصمَّمة يدويًا إضافةً إلى Material You، وأربعة تخطيطات للوحة المفاتيح، وتحويل عملات يعمل دون اتصال.</li>\n            </ul>",
+    "tech_stack": [
+      {
+        "label": "Language",
+        "value": "Kotlin 2.3"
+      },
+      {
+        "label": "Architecture",
+        "value": "MVI"
+      },
+      {
+        "label": "UI Framework",
+        "value": "Jetpack Compose"
+      },
+      {
+        "label": "DI Framework",
+        "value": "Koin"
+      },
+      {
+        "label": "Navigation",
+        "value": "Nav 3"
+      },
+      {
+        "label": "Persistence",
+        "value": "Room · DataStore"
+      },
+      {
+        "label": "Feedback",
+        "value": "Pulsar haptics"
+      },
+      {
+        "label": "Distribution",
+        "value": "Google Play"
+      }
+    ],
+    "playUrl": "https://play.google.com/store/apps/details?id=com.gaddal.materialcalculator",
+    "repoUrl": "https://github.com/IronManYG/Sifr"
+  },
+  {
     "id": "runique",
     "title_en": "Runique",
     "title_ar": "Runique",
@@ -512,37 +605,6 @@
     "impact_ar": "",
     "tech_stack": [],
     "repoUrl": "https://github.com/IronManYG/todo-maps"
-  },
-  {
-    "id": "material-calculator",
-    "title_en": "Material Calculator",
-    "title_ar": "حاسبة التنسيق",
-    "slug": "material-calculator",
-    "featured": false,
-    "grid": {
-      "size": "",
-      "glow": "glow-purple",
-      "image": "",
-      "icon": "ph-calculator",
-      "iconColor": "text-purple-500"
-    },
-    "tags": [
-      "Course Project",
-      "CI/CD",
-      "Testing"
-    ],
-    "description_en": "A clone of the Google Pixel calculator featuring extensive unit and UI tests linked to CI/CD.",
-    "description_ar": "نسخة برمجية مطابقة لحاسبة Google Pixel، مدعومة باختبارات وحدة وواجهة مستخدم (UI Tests) شاملة متصلة بمسارات CI/CD.",
-    "overview_en": "",
-    "overview_ar": "",
-    "challenge_en": "",
-    "challenge_ar": "",
-    "architecture_en": "",
-    "architecture_ar": "",
-    "impact_en": "",
-    "impact_ar": "",
-    "tech_stack": [],
-    "repoUrl": "https://github.com/IronManYG/MaterialCalculator"
   },
   {
     "id": "translator-kmm",

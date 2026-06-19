@@ -371,30 +371,30 @@ https://ironmanyg.github.io/hussain-portfolio/translator-kmm/
 **Skills (top 5):** Kotlin Multiplatform, Ktor, SQLDelight, iOS Development, Android SDK
 **Start:** February 2023 · **End:** April 2023 · **Currently working:** No · **Associated with:** (leave blank)
 
-#### 8. Material Calculator
+#### 8. Sifr — Material 3 Calculator
 
 **Project name**
 
 ```text
-Material Calculator
+Sifr — Material 3 Calculator
 ```
 
 **Description**
 
 ```text
-Pixel-style calculator with unit and UI tests verified by a CI/CD pipeline.
+Sifr (صفر) — a modernized, deeply customizable Material 3 calculator for Android, live on the Google Play Store. Basic + scientific modes, built-in currency/unit/tip/date converters, five hand-crafted palettes plus Material You, and a live in-app language switch across 11 languages with full right-to-left support. Built on a hand-written recursive-descent expression engine with IEEE-754 precision cleanup.
 
-Stack: Kotlin, Android SDK, JUnit, Espresso, CI/CD
+Stack: Kotlin, Jetpack Compose, MVI, Koin, Navigation 3, Room, DataStore, Material 3
 ```
 
 **Media — Site URL**
 
 ```text
-https://ironmanyg.github.io/hussain-portfolio/material-calculator/
+https://ironmanyg.github.io/hussain-portfolio/sifr/
 ```
 
-**Skills (top 5):** Kotlin, Android SDK, JUnit, Espresso, CI/CD
-**Start:** December 2022 · **End:** December 2022 · **Currently working:** No · **Associated with:** (leave blank)
+**Skills (top 5):** Kotlin, Jetpack Compose, MVI, Koin, Material Design 3
+**Start:** December 2022 · **Currently working:** Yes · **Associated with:** (leave blank)
 
 #### 9. Qodem
 
@@ -647,7 +647,7 @@ Verified Nanodegree program from Udacity (Feb 2022). Credential publicly verifia
 
 #### Companion entry — LinkedIn Education (keep both, pragmatic reason)
 
-> **Why duplicate.** LinkedIn's Project "Associated with" links bind to **Education** and **Experience** entries — not to **Certifications**. Deleting the Education entry breaks the project associations on the Nanodegree-era projects (Asteroid Radar, Maps, Material Calculator, etc.). Keeping the Nanodegree in *both* sections is the practical move; the Education entry is what carries the project linkages.
+> **Why duplicate.** LinkedIn's Project "Associated with" links bind to **Education** and **Experience** entries — not to **Certifications**. Deleting the Education entry breaks the project associations on the Nanodegree-era projects (Asteroid Radar, Maps, Sifr — formerly Material Calculator, etc.). Keeping the Nanodegree in *both* sections is the practical move; the Education entry is what carries the project linkages.
 
 LinkedIn Education form copy blocks:
 

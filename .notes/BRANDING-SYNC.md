@@ -2,13 +2,13 @@
 
 Single source of truth for every cross-surface brand field. When you change a row, walk down it and update each surface, then bump the "Last synced" date.
 
-## Surface status snapshot (2026-05-07)
+## Surface status snapshot (2026-05-07 · Sifr rebrand 2026-06-19 — see [Sifr rebrand sync](#sifr-rebrand-sync-2026-06-19))
 
 | Surface | Status | Notes |
 |---|---|---|
 | Site (EN + AR) | ✅ in sync | Researcher 2017–2022 timeline; OG meta fixed; cert titles renamed to official PL Coding names; deployed via PR #2 (merge `2a0267f`) on 2026-05-07. |
 | CV variants (4 sources) | ✅ available | `_A.html` (2-page polished), `_C.html` (2-page conservative), `_compact_D.html` (1-page readable), `_compact_E.html` (1-page + impact stats). Chirp pills now include `WebSockets` / `JWT` / `PostgreSQL`; Runique adds `Health Services` (variants A and C only). |
-| CV PDFs (both) | ✅ current (2026-05-07) | `Hussain_Gaddal_CV.pdf` re-exported from variant C; `Hussain_Gaddal_CV_compact.pdf` from variant D. Re-export via `msedge.exe --headless=new --print-to-pdf="..." "file:///..."` (or Chrome Ctrl+P) when canonical content changes. |
+| CV PDFs (both) | ⚠️ stale (2026-06-19) | Sources updated with the Sifr entry — **re-export pending**. `Hussain_Gaddal_CV.pdf` from variant C; `Hussain_Gaddal_CV_compact.pdf` from variant D. Re-export via `msedge.exe --headless=new --print-to-pdf="..." "file:///..."` (or Chrome Ctrl+P). |
 | GitHub bio / blog / location | ✅ live | Pushed via `gh api -X PATCH user` on 2026-05-06 |
 | GitHub profile README (`IronManYG/IronManYG`) | ✅ live | Repo created 2026-05-06; README v3 with `data class` + `@Composable` |
 | GitHub repo descriptions | ✅ done (~16 repos) | All previously listed + `chirp-api`, `Maktabati` (descriptions + homepages added 2026-05-07), plus the 5 unpopulated repos tagged in §7: NutriSport, NoteMark, SpendLess, HabitTracker, MyDiary. |
@@ -19,6 +19,23 @@ Single source of truth for every cross-surface brand field. When you change a ro
 | LinkedIn | ✅ done (2026-05-07) | §1–§10 all pasted (incl. Education companion entry for Udacity Nanodegree). Project "Associated with" links restored after the Education re-add (Asteroid Radar / Maps / Material Calculator etc.). |
 | Notion redirect embeds | ✅ done (2026-05-07) | All 18 redirect URLs embedded into the legacy Notion site. Project + CV buttons fixed (per-project URLs and CV target both 404'd; commit `5a364d1`) and re-tested live from inside Notion. |
 | Brand images | ✅ reviewed (2026-06-10) — LinkedIn upload pending | All 4 reviewed at full size and approved: OG / GitHub hero / Notion hero kept as generated; LinkedIn banner iterated to v2 (tiles +25%, `one Kotlin codebase / every screen` tagline) and re-rendered. GitHub hero SHIPPED 2026-06-10: hotlinked atop the `IronManYG/IronManYG` README (commit `b7118b6`) from the live portfolio URL — auto-updates on regenerate + deploy. Sources in `brand/`, regenerate with `./brand/generate.sh`, outputs in `src/assets/img/branding/`. OG ships automatically via `<meta og:image>` (`.jpg`, WhatsApp-safe size). STILL MANUAL: upload `linkedin_banner.png` to LinkedIn (check desktop + mobile crop), optionally add `notion_redirect_hero.png` to Notion pages. See [`IMAGE-GENERATION-GUIDE.md`](./IMAGE-GENERATION-GUIDE.md). |
+
+## Sifr rebrand sync (2026-06-19)
+
+`MaterialCalculator` was renamed to **Sifr** ([`github.com/IronManYG/Sifr`](https://github.com/IronManYG/Sifr)) and majorly updated — now **live on Google Play** (v1.3.0, with a v2.0 redesign batched in-repo). Cross-surface propagation:
+
+**Done in-repo (ships with the next build/commit):**
+- `projects.json` — the old `material-calculator` stub is replaced by a full **Sifr** case study (EN + AR), promoted to a featured **hero** card (2nd `feature_card`, right after Chirp). Slug `material-calculator` → `sifr`. Added a `playUrl` field + a "Get it on Google Play" CTA in both detail templates; `prodSlugs` updated in `projects.njk` + `ar/projects.njk`.
+- Project card images: `sifr-{en,ar}-{light,dark}.png` (1600×900). Dark slots = Sifr v2.0 `marketing/{en,ar}/portfolio-android/hero-single` renders; light slots = user-provided **Layl Light** `dot-grid/portfolio-android-hero-single` renders (2026-06-20). All four are distinct, so the card swaps correctly on theme toggle.
+- Social kit (`src/social/`): `github.md` (Sifr description + homepage + topics `gh` commands; topics-table row), `linkedin.md` (project #8 → "Sifr — Material 3 Calculator"), `notion.md` (Sifr redirect URL), `github-profile-readme.md` (`Now()` line + a "what I'm working on" bullet).
+- CVs: Sifr added as project #2 (after Maktabati) in `_A`, `_C`, `_compact_D`, `_compact_E`.
+
+**STILL MANUAL:**
+- [ ] **Deploy** the site so `/sifr/` + `/ar/sifr/` go live (old `/material-calculator/` will 404 — add a redirect only if inbound links matter).
+- [ ] **GitHub:** run the Sifr `gh api` description / homepage / topics commands (`github.md` §4); re-pin **Sifr** among the 6 pinned repos.
+- [ ] **LinkedIn:** paste the updated project #8 ("Sifr — Material 3 Calculator"); update its skills + dates.
+- [ ] **Notion:** embed the new `/notion/projects/sifr/` redirect; remove the old material-calculator embed.
+- [ ] **CV PDFs:** re-export `Hussain_Gaddal_CV.pdf` (variant C) + `Hussain_Gaddal_CV_compact.pdf` (variant D) — both now include Sifr.
 
 ## Pending quality checks (after the manual surface work above)
 

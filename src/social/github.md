@@ -94,13 +94,14 @@ Pinning is GitHub UI only — no API support without a special GraphQL token. Cu
 
 ---
 
-## 4. Repo descriptions, topics, and homepages — ✅ done 2026-05-06
+## 4. Repo descriptions, topics, and homepages — ✅ done 2026-05-06 · Sifr added 2026-06-19
 
 All 6 pinned repos (and PlantPediaZ) now carry: description, topic tags (lowercase, hyphens), and a `homepage` link to the matching portfolio detail page so the GitHub repo card surfaces the rich writeup.
 
 | Repo | Topics |
 |---|---|
 | Chirp | `android`, `chat-app`, `clean-architecture`, `cmp`, `compose-multiplatform`, `cross-platform`, `desktop`, `firebase`, `ios`, `jetpack-compose`, `kmp`, `koin`, `kotlin`, `kotlin-multiplatform`, `ktor`, `offline-first`, `real-time`, `room-database`, `websockets` |
+| Sifr | `android`, `calculator`, `datastore`, `google-play`, `jetpack-compose`, `koin`, `kotlin`, `localization`, `material-3`, `material-you`, `mvi`, `navigation3`, `room-database`, `rtl`, `scientific-calculator` |
 | EchoJournal | `android`, `audio-recording`, `clean-architecture`, `jetpack-compose`, `journaling`, `koin`, `kotlin`, `material-design-3`, `mvi`, `room-database` |
 | ScribbleDash | `android`, `canvas`, `clean-architecture`, `drawing-app`, `jetpack-compose`, `koin`, `kotlin`, `material-design-3`, `mvi` |
 | Runique | `android`, `clean-architecture`, `fitness-tracker`, `gps`, `jetpack-compose`, `koin`, `kotlin`, `ktor`, `maps-sdk`, `multi-module`, `mvi`, `oauth`, `room-database`, `running-tracker`, `wear-os` |
@@ -111,9 +112,6 @@ All 6 pinned repos (and PlantPediaZ) now carry: description, topic tags (lowerca
 Older repo descriptions previously set:
 
 ```bash
-gh api -X PATCH repos/IronManYG/MaterialCalculator \
-  -f description="Pixel-style calculator with unit and UI tests verified by a CI/CD pipeline."
-
 gh api -X PATCH repos/IronManYG/dev.gaddal.qodem-api \
   -f description="Qodem backend (Kotlin/Ktor) — blood donation API."
 
@@ -134,6 +132,21 @@ gh api -X PATCH repos/IronManYG/chirp-api \
 gh api -X PATCH repos/IronManYG/Maktabati \
   -f description="In-house digital archive viewer (Kay Technology) — multi-module Clean Architecture, Jetpack Compose UI, Barteksc PDF Viewer for 1000+ page institutional documents, DownloadX + Room for resumable encrypted 10GB+ syncs." \
   -f homepage="https://ironmanyg.github.io/hussain-portfolio/maktabati/"
+```
+
+Sifr (renamed from `MaterialCalculator`, major v1.3/v2.0 update) added 2026-06-19 — set description + homepage, then apply the topics from the table above:
+
+```bash
+gh api -X PATCH repos/IronManYG/Sifr \
+  -f description="Sifr (صفر) — a modernized, deeply customizable Material 3 calculator for Android, live on Google Play. Basic + scientific modes, built-in converters, five hand-crafted palettes plus Material You, and full RTL across 11 languages. MVI · Koin · Navigation 3 · Room · DataStore." \
+  -f homepage="https://ironmanyg.github.io/hussain-portfolio/sifr/"
+
+gh api -X PUT repos/IronManYG/Sifr/topics \
+  -f 'names[]=android' -f 'names[]=calculator' -f 'names[]=scientific-calculator' \
+  -f 'names[]=kotlin' -f 'names[]=jetpack-compose' -f 'names[]=material-3' \
+  -f 'names[]=material-you' -f 'names[]=mvi' -f 'names[]=koin' \
+  -f 'names[]=navigation3' -f 'names[]=room-database' -f 'names[]=datastore' \
+  -f 'names[]=localization' -f 'names[]=rtl' -f 'names[]=google-play'
 ```
 
 To replicate the topic + homepage pattern on a new repo:

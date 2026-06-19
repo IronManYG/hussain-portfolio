@@ -110,10 +110,10 @@ https://ironmanyg.github.io/hussain-portfolio/notion/projects/plantpediaz/
 https://ironmanyg.github.io/hussain-portfolio/notion/projects/todo-maps/
 ```
 
-### Material Calculator
+### Sifr
 
 ```text
-https://ironmanyg.github.io/hussain-portfolio/notion/projects/material-calculator/
+https://ironmanyg.github.io/hussain-portfolio/notion/projects/sifr/
 ```
 
 ### Translator KMM
