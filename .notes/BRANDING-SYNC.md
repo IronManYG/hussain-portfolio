@@ -31,11 +31,11 @@ Single source of truth for every cross-surface brand field. When you change a ro
 - CVs: Sifr added as project #2 (after Maktabati) in `_A`, `_C`, `_compact_D`, `_compact_E`.
 
 **STILL MANUAL:**
-- [ ] **Deploy** the site so `/sifr/` + `/ar/sifr/` go live (old `/material-calculator/` will 404 — add a redirect only if inbound links matter).
-- [ ] **GitHub:** run the Sifr `gh api` description / homepage / topics commands (`github.md` §4); re-pin **Sifr** among the 6 pinned repos.
+- [x] **Deploy** — shipped via PR #4 (merge `58db044`) 2026-06-20; `/sifr/` live (200), old `/material-calculator/` 404s.
+- [x] **CV PDFs** — re-exported (both now include Sifr; committed in PR #4).
+- [x] **GitHub repo metadata** — description + homepage + 15 topics applied via `gh api` 2026-06-20. ⏳ Still: **re-pin Sifr** among the pinned repos (web UI only).
 - [ ] **LinkedIn:** paste the updated project #8 ("Sifr — Material 3 Calculator"); update its skills + dates.
 - [ ] **Notion:** embed the new `/notion/projects/sifr/` redirect; remove the old material-calculator embed.
-- [ ] **CV PDFs:** re-export `Hussain_Gaddal_CV.pdf` (variant C) + `Hussain_Gaddal_CV_compact.pdf` (variant D) — both now include Sifr.
 
 ## Pending quality checks (after the manual surface work above)
 
