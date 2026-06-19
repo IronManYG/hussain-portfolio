@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content review — pick your copy</title>
+<style>
+  :root{
+    --bg:#15140f; --panel:#1c1b16; --panel2:#252319; --line:#3a3830;
+    --text:#e7e3d8; --dim:#a39d8c; --accent:#3fb6a8; --accentdim:#2d8377;
+    --old:#c98a5a; --new:#79c0ff; --human:#a3e635;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;}
+  header{position:sticky;top:0;z-index:20;background:rgba(21,20,15,.96);
+    border-bottom:1px solid var(--line);padding:16px 20px;backdrop-filter:blur(8px)}
+  header h1{margin:0 0 4px;font-size:18px}
+  header p{margin:0;color:var(--dim);font-size:13px}
+  .wrap{max-width:1080px;margin:0 auto;padding:20px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 0;font-size:12px;color:var(--dim)}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .page-h{font-size:20px;margin:34px 0 6px;color:var(--accent);
+    border-bottom:1px solid var(--line);padding-bottom:6px}
+  .sec-h{font-size:14px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--dim);margin:22px 0 8px}
+  .item{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:14px;margin:0 0 14px}
+  .item-label{font-weight:600;font-size:14px;margin-bottom:2px}
+  .item-note{font-size:12.5px;color:var(--dim);margin-bottom:10px}
+  .item-note.warn{color:#e0b25a}
+  .opts{display:grid;gap:8px}
+  @media(min-width:760px){.opts.cols-2{grid-template-columns:1fr 1fr}
+    .opts.cols-3{grid-template-columns:1fr 1fr 1fr}}
+  .opt{border:2px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;
+    background:var(--panel2);transition:border-color .12s,background .12s;position:relative}
+  .opt:hover{border-color:var(--accentdim)}
+  .opt.sel{border-color:var(--accent);background:rgba(63,182,168,.10)}
+  .opt .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;
+    display:inline-flex;align-items:center;gap:5px;margin-bottom:6px}
+  .opt[data-k=old] .tag{color:var(--old)}
+  .opt[data-k=new] .tag{color:var(--new)}
+  .opt[data-k=human] .tag{color:var(--human)}
+  .opt[data-k=removed] .tag{color:#d97777}
+  .opt .en{font-size:14px}
+  .opt .ar{font-size:14px;direction:rtl;text-align:right;margin-top:7px;
+    padding-top:7px;border-top:1px dashed var(--line);
+    font-family:"Segoe UI","Noto Sans Arabic",Tahoma,sans-serif}
+  .opt .muted{color:var(--dim);font-style:italic}
+  .opt em{color:var(--accent);font-style:normal;font-weight:600}
+  .opt b,.opt strong{color:var(--text);font-weight:700}
+  .note-wrap{margin-top:10px}
+  .note-input{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);
+    border-radius:8px;padding:8px 10px;font:13px/1.5 inherit;outline:none}
+  .note-input:focus{border-color:var(--accent)}
+  .note-input.has{border-color:var(--human)}
+  .note-input::placeholder{color:var(--dim)}
+  .check{position:absolute;top:9px;right:10px;width:18px;height:18px;border-radius:50%;
+    border:2px solid var(--line);display:grid;place-items:center;font-size:11px}
+  .opt.sel .check{border-color:var(--accent);background:var(--accent);color:#10211e}
+  .opt .ar .check{right:auto;left:10px}
+  .bar{position:fixed;bottom:0;left:0;right:0;background:rgba(28,27,22,.97);
+    border-top:1px solid var(--line);padding:12px 20px;display:flex;gap:12px;
+    align-items:center;justify-content:center;z-index:30;backdrop-filter:blur(8px)}
+  button.act{background:var(--accent);color:#10211e;border:0;border-radius:8px;
+    padding:10px 18px;font-weight:700;font-size:14px;cursor:pointer}
+  button.ghost{background:transparent;color:var(--text);border:1px solid var(--line);
+    border-radius:8px;padding:10px 16px;font-size:13px;cursor:pointer}
+  .count{color:var(--dim);font-size:13px}
+  dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);
+    border-radius:12px;max-width:760px;width:92%;padding:0}
+  dialog::backdrop{background:rgba(0,0,0,.6)}
+  .dlg-h{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;
+    justify-content:space-between;align-items:center}
+  .dlg-h h3{margin:0;font-size:15px}
+  textarea{width:100%;min-height:340px;background:var(--bg);color:var(--text);
+    border:0;border-radius:0 0 12px 12px;padding:16px;font:12.5px/1.5 ui-monospace,Menlo,monospace;resize:vertical}
+  .pad{height:80px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Portfolio copy review — pick your wording</h1>
+  <p>Tap one box per row: <b style="color:var(--old)">OLD</b> (current live site) ·
+     <b style="color:var(--new)">NEW</b> (redesign draft) ·
+     <b style="color:var(--human)">HUMAN</b> (de-AI'd rewrite). Each box shows EN + the Arabic mirror — one pick covers both. Optional: drop a <b>note</b> under any row (a tweak, an edit, or why). Then hit <b>Export choices</b> and paste the result back to me — your notes ride along.</p>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--old)"></i>OLD = what's on <code>main</code> today</span>
+    <span><i class="dot" style="background:var(--new)"></i>NEW = the redesign copy I wrote</span>
+    <span><i class="dot" style="background:var(--human)"></i>HUMAN = rewritten to not sound AI-generated</span>
+  </div>
+</header>
+<div class="wrap" id="app"></div>
+<div class="pad"></div>
+
+<div class="bar">
+  <span class="count" id="count">0 / 0 chosen</span>
+  <button class="ghost" onclick="pickAll('human')">Select all HUMAN</button>
+  <button class="ghost" onclick="pickAll('new')">Select all NEW</button>
+  <button class="act" onclick="exportChoices()">Export choices ▸</button>
+</div>
+
+<dialog id="dlg">
+  <div class="dlg-h"><h3>Your choices — copy this and paste it back to me</h3>
+    <button class="ghost" onclick="copyOut()">Copy</button></div>
+  <textarea id="out" readonly></textarea>
+</dialog>
+
+<script>
+/* Each item: id, page, section, label, note(+warn), and options.
+   An option = {en, ar}. ar may be "" (no AR change) → shows muted note.
+   default = which key starts selected. */
+const DATA = [
+{p:"1 · Homepage", s:"Hero", id:"h_badge", label:"Hero badge", note:"HUMAN drops “senior” — your title stays “Android Developer”.", warn:true, def:"new", o:{
+  old:{en:"Available for new opportunities", ar:"متاح لفرص عمل جديدة"},
+  new:{en:"Open to senior Android & KMP roles · Riyadh", ar:"متاح لأدوار متقدّمة في أندرويد و KMP · الرياض"},
+  human:{en:"Open to Android & KMP roles · Riyadh", ar:"متاح لأدوار أندرويد و KMP · الرياض"}}},
+
+{p:"1 · Homepage", s:"Hero", id:"h_greeting", label:"Hero greeting / signature", note:"NEW reads as a sign-off line; HUMAN keeps a plain intro.", def:"new", o:{
+  old:{en:"I'm Hussain Gaddal.", ar:"أنا حسين قدال."},
+  new:{en:"— Hussain Gaddal", ar:"— حسين قدّال"},
+  human:{en:"I'm Hussain Gaddal.", ar:"أنا حسين قدّال."}}},
+
+{p:"1 · Homepage", s:"Hero", id:"h_headline", label:"Hero H1 (the big line)", note:"HUMAN removes the “just work / at scale” clichés.", def:"new", o:{
+  old:{en:"Android Developer.", ar:"مطوّر تطبيقات أندرويد."},
+  new:{en:"I build Android apps that <em>just work</em> at scale.", ar:"أبني تطبيقات أندرويد <em>تعمل بإتقان</em> على نطاق واسع."},
+  human:{en:"I build Android apps people <em>rely on</em> every day.", ar:"أبني تطبيقات أندرويد <em>يعتمد عليها</em> مستخدموها كل يوم."}}},
+
+{p:"1 · Homepage", s:"Hero", id:"h_subtitle", label:"Hero subtitle", note:"HUMAN breaks the comma-stacked cadence into plainer sentences.", def:"new", o:{
+  old:{en:"I build large-scale, multi-platform apps that hold up in production. My work pairs clean system architecture with native mobile performance using Kotlin Multiplatform.", ar:"أبني تطبيقات تعمل بكفاءة — واسعة النطاق، متعددة المنصات، ومصممة لتدوم. يتمحور عملي حول دمج معمارية الأنظمة النظيفة مع الأداء الأصلي لتطبيقات الجوال باستخدام Kotlin Multiplatform."},
+  new:{en:"Android Developer, 4+ years shipping multi-module Kotlin & Compose apps. Currently leading the Android product at <strong>Kay Technology</strong>, exploring KMP & Ktor on the side.", ar:"مطوّر أندرويد بخبرة تتجاوز ٤ سنوات في بناء تطبيقات Kotlin و Compose متعددة الوحدات. أقود حالياً منتج الأندرويد في <strong>كيه لتقنية المعلومات</strong>، وأستكشف KMP و Ktor في وقتي الخاص."},
+  human:{en:"I've spent 4+ years building multi-module Kotlin and Compose apps. Right now I lead Android at <strong>Kay Technology</strong>, and I work with Kotlin Multiplatform and Ktor in my own time.", ar:"قضيتُ أكثر من ٤ سنوات في بناء تطبيقات Kotlin و Compose متعددة الوحدات. أقود حاليًا تطوير الأندرويد في <strong>كيه لتقنية المعلومات</strong>، وأعمل على Kotlin Multiplatform و Ktor في وقتي الخاص."}}},
+
+{p:"1 · Homepage", s:"Hero", id:"h_btn_work", label:"Hero primary button", note:"", def:"new", o:{
+  old:{en:"View Featured Projects", ar:"عرض المشاريع المميزة"},
+  new:{en:"View selected work", ar:"عرض الأعمال"},
+  human:{en:"View my work", ar:"عرض أعمالي"}}},
+
+{p:"1 · Homepage", s:"Facts strip (new section)", id:"f_opento", label:"Fact: “Open to …”", note:"HUMAN drops “senior”.", warn:true, def:"new", o:{
+  new:{en:"Senior Android / KMP / full-stack Kotlin", ar:"أندرويد متقدّم · KMP · Kotlin متكامل"},
+  human:{en:"Android · KMP · full-stack Kotlin", ar:"أندرويد · KMP · Kotlin متكامل"}}},
+
+{p:"1 · Homepage", s:"Facts strip (new section)", id:"f_last", label:"Fact: “Last shipped”", note:"Confirm Chirp is your latest — memory notes Sifr/Material Calculator may be newer on Play.", warn:true, def:"new", o:{
+  new:{en:"Chirp · 2025", ar:"Chirp · ٢٠٢٥"},
+  human:{en:"Sifr · 2025", ar:"Sifr · ٢٠٢٥"}}},
+
+{p:"1 · Homepage", s:"About teaser", id:"at_title", label:"About-teaser heading", note:"HUMAN drops the “at the intersection of” cliché. (AR OLD/NEW text was identical — only styling differed.)", def:"new", o:{
+  old:{en:"Building the Intersection of Systems and UX.", ar:"أبني حلقة الوصل بين هندسة الأنظمة وتجربة المستخدم."},
+  new:{en:"Building at the intersection of <em>systems</em> and <em>UX</em>.", ar:"أبني حلقة الوصل بين <em>هندسة الأنظمة</em> و<em>تجربة المستخدم</em>."},
+  human:{en:"Solid <em>systems</em>, and apps that feel <em>right</em> to use.", ar:"أنظمة <em>متينة</em>، وتطبيقات <em>مريحة</em> في الاستخدام."}}},
+
+{p:"1 · Homepage", s:"Selected work", id:"sw_heading", label:"Selected-work heading", note:"", def:"new", o:{
+  old:{en:"Featured Projects", ar:"مشاريع مميزة"},
+  new:{en:"Work that shipped.", ar:"أعمال أطلقتها فعلاً."},
+  human:{en:"Things I've shipped.", ar:"أعمال أطلقتُها."}}},
+
+{p:"2 · Projects index", s:"Header", id:"pi_heading", label:"Projects page heading", note:"", def:"new", o:{
+  old:{en:"All Projects", ar:"كافة المشاريع"},
+  new:{en:"Twelve projects, <em>three</em> that mattered.", ar:"اثنا عشر مشروعاً، <em>ثلاثة</em> منها صنعت فرقاً."},
+  human:{en:"Twelve projects. <em>Three</em> taught me the most.", ar:"اثنا عشر مشروعًا، <em>ثلاثة</em> منها علّمتني أكثر."}}},
+
+{p:"2 · Projects index", s:"Header", id:"pi_desc", label:"Projects page description", note:"HUMAN kills the “not X, but Y” antithesis, the em-dash, and the “I'd defend in an interview” line.", def:"new", o:{
+  old:{en:"An archive of my professional work, community challenges, and personal experiments.", ar:"أرشيف يضم أعمالي الاحترافية، وتحديات المجتمع التقني، وتجاربي البرمجية الشخصية."},
+  new:{en:"Production Android work I shipped to real users, multiplatform builds I'd defend in an interview, and smaller tools I built to learn — sorted by what they taught me, not by which library I imported.", ar:"أعمال أندرويد إنتاجية أطلقتُها لمستخدمين حقيقيين، ومشاريع متعددة المنصات أدافع عنها في المقابلات، وأدوات أصغر بنيتُها للتعلّم — مُرتَّبة بما علّمتني، لا بمكتباتها."},
+  human:{en:"Production apps I shipped to real users, a few multiplatform builds, and small tools I made to learn something. Ordered by how much they taught me.", ar:"تطبيقات إنتاجية أطلقتُها لمستخدمين حقيقيين، وبعض المشاريع متعددة المنصات، وأدوات صغيرة بنيتُها للتعلّم. مُرتَّبة حسب ما علّمتني."}}},
+
+{p:"2 · Projects index", s:"Featured Chirp card (new)", id:"fr_chirp", label:"Chirp featured blurb", note:"HUMAN un-stacks the fragment list into real sentences.", def:"new", o:{
+  new:{en:"Solo build. <b>Compose Multiplatform</b> UI shared across Android, iOS & Desktop, a <b>Spring Boot</b> backend over <b>Ktor</b> + WebSockets, Room for offline-first cache, and Koin for DI. Real-time messages with an offline queue and automatic resync.", ar:"عمل فردي. واجهة <b>Compose Multiplatform</b> مشتركة بين أندرويد و iOS وسطح المكتب، وخادم <b>Spring Boot</b> عبر <b>Ktor</b> و WebSockets، و Room للتخزين دون اتصال، و Koin لحقن التبعيات. رسائل فورية مع طابور دون اتصال ومزامنة تلقائية."},
+  human:{en:"A solo build. The <b>Compose Multiplatform</b> UI is shared across Android, iOS, and desktop. Behind it sits a <b>Spring Boot</b> backend over <b>Ktor</b> and WebSockets, with Room for offline caching and Koin for DI. Messages send in real time, queue when you're offline, and resync on their own.", ar:"عمل فردي. واجهة <b>Compose Multiplatform</b> واحدة تعمل على أندرويد و iOS وسطح المكتب. خلفها خادم <b>Spring Boot</b> يعمل عبر <b>Ktor</b> و WebSockets، مع Room للتخزين دون اتصال و Koin لحقن التبعيات. الرسائل تُرسَل فوريًا، وتنتظر في طابور حين تنقطع الشبكة، ثم تتزامن وحدها."}}},
+
+{p:"3 · About page", s:"Hero", id:"ah_headline", label:"About page headline", note:"HUMAN swaps “hold up at scale” for something concrete.", def:"new", o:{
+  old:{en:"About Me", ar:"نبذة عني"},
+  new:{en:"Four years building Android apps that <em>hold up at scale</em>.", ar:"أربع سنوات في بناء تطبيقات أندرويد <em>تصمد على نطاق واسع</em>."},
+  human:{en:"Four years building Android apps that people <em>use every day</em>.", ar:"أربع سنوات في بناء تطبيقات أندرويد <em>يستخدمها الناس يوميًا</em>."}}},
+
+{p:"3 · About page", s:"Hero", id:"ah_lede", label:"About page lede", note:"HUMAN trims the tricolon.", def:"new", o:{
+  old:{en:"I'm an Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale.", ar:"أنا مطور أندرويد، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة كيه لتقنية المعلومات في بناء تطبيقات مخصصة للإنتاج الفعلي."},
+  new:{en:"I'm <strong>Hussain Gaddal</strong>, an Android Developer based in <strong>Riyadh</strong>. I work in Kotlin & Compose across multi-module architectures, set the engineering standards at <strong>Kay Technology</strong>, and explore Kotlin Multiplatform on the side.", ar:"أنا <strong>حسين قدّال</strong>، مطوّر أندرويد مقيم في <strong>الرياض</strong>. أعمل بـ Kotlin و Compose على معماريات متعددة الوحدات، وأضع المعايير الهندسية في <strong>كيه لتقنية المعلومات</strong>، وأستكشف Kotlin Multiplatform على الهامش."},
+  human:{en:"I'm <strong>Hussain Gaddal</strong>, an Android developer in <strong>Riyadh</strong>. I build large, multi-module apps in Kotlin and Compose, and I set the engineering standards at <strong>Kay Technology</strong>. On the side, I build with Kotlin Multiplatform.", ar:"أنا <strong>حسين قدّال</strong>، مطوّر أندرويد في <strong>الرياض</strong>. أبني تطبيقات كبيرة متعددة الوحدات بـ Kotlin و Compose، وأضع المعايير الهندسية في <strong>كيه لتقنية المعلومات</strong>. وعلى الهامش، أعمل مع Kotlin Multiplatform."}}},
+
+{p:"3 · About page", s:"Certifications", id:"cert_heading", label:"Certifications heading", note:"NEW “Always learning” is a mild cliché; HUMAN is plainer. OLD also had a descriptive sentence that NEW dropped.", def:"new", o:{
+  old:{en:"Certifications", ar:"الشهادات"},
+  new:{en:"Always learning", ar:"تعلّم مستمر"},
+  human:{en:"Courses I've taken.", ar:"دورات أكملتُها."}}},
+
+{p:"5 · Footer / Contact", s:"Footer", id:"ft_title", label:"Footer tagline", note:"HUMAN drops both the “that lasts” cliché and the “Let’s …” opener (a flagged AI-ism); turns it into a direct invitation.", def:"new", o:{
+  old:{en:"Let's build something great.", ar:"دعنا نبني شيئاً رائعاً."},
+  new:{en:"Let's build something that lasts.", ar:"لنبنِ شيئاً يدوم."},
+  human:{en:"Have a project in mind?", ar:"لديك مشروع في بالك؟"}}},
+
+{p:"5 · Footer / Contact", s:"Footer", id:"ft_desc", label:"Footer description", note:"HUMAN drops “senior” and the tricolon.", warn:true, def:"new", o:{
+  old:{en:"Looking for a developer to build your mobile infrastructure or create Cross-Platform solutions? Let's connect.", ar:"هل تبحث عن مهندس برمجيات لبناء البنية التحتية لتطبيقات المحمول أو تطوير حلول متعددة المنصات؟ دعنا نتواصل."},
+  new:{en:"Open to senior Android, KMP, and full-stack Kotlin roles. Based in Riyadh, working remotely or on-site.", ar:"متاح لأدوار متقدّمة في أندرويد و KMP و Kotlin المتكامل. مقرّي الرياض، وأعمل عن بُعد أو في الموقع."},
+  human:{en:"I'm open to Android, KMP, and full-stack Kotlin roles. I'm based in Riyadh and work remotely or on-site.", ar:"متاح لأدوار في أندرويد و KMP و Kotlin المتكامل. مقرّي الرياض، وأعمل عن بُعد أو في الموقع."}}},
+
+{p:"5 · Footer / Contact", s:"Footer", id:"ft_btn", label:"Contact button", note:"", def:"new", o:{
+  old:{en:"Contact Me", ar:"تواصل معي"},
+  new:{en:"Say hello", ar:"لنتواصل"},
+  human:{en:"Email me", ar:"راسلني"}}},
+
+{p:"5 · Footer / Contact", s:"Footer", id:"ft_phone", label:"Phone number", note:"NEW removed it (email/mailto only). Choose whether to keep it gone or restore it.", warn:true, def:"removed", o:{
+  removed:{en:"(removed — no phone shown)", ar:""},
+  old:{en:"+966 53 851 7374", ar:"+966 53 851 7374"}}},
+
+{p:"6 · Top nav", s:"Labels", id:"nav_expertise", label:"Nav: Expertise → Skills", note:"Same #expertise section, different label.", def:"new", o:{
+  old:{en:"Expertise", ar:"الكفاءات التقنية"},
+  new:{en:"Skills", ar:"المهارات"}}},
+
+{p:"6 · Top nav", s:"Labels", id:"nav_experience", label:"Nav: Experience link", note:"", def:"new", o:{
+  old:{en:"Experience / CV", ar:"الخبرات / السيرة الذاتية"},
+  new:{en:"Experience", ar:"الخبرة"}}},
+];
+
+const KORDER=["old","new","human","removed"];
+const KLABEL={old:"OLD",new:"NEW (live draft)",human:"HUMAN",removed:"REMOVED"};
+const picks={};
+const notes={};
+const app=document.getElementById('app');
+let lastPage="",lastSec="";
+DATA.forEach(it=>{
+  if(it.p!==lastPage){const h=document.createElement('div');h.className='page-h';h.textContent=it.p;app.appendChild(h);lastPage=it.p;lastSec="";}
+  if(it.s!==lastSec){const h=document.createElement('div');h.className='sec-h';h.textContent=it.s;app.appendChild(h);lastSec=it.s;}
+  const card=document.createElement('div');card.className='item';
+  const keys=KORDER.filter(k=>it.o[k]);
+  card.innerHTML=`<div class="item-label">${it.label}</div>${it.note?`<div class="item-note${it.warn?' warn':''}">${it.warn?'⚠️ ':''}${it.note}</div>`:''}`;
+  const opts=document.createElement('div');opts.className='opts cols-'+Math.min(keys.length,3);
+  keys.forEach(k=>{
+    const o=it.o[k];const div=document.createElement('div');div.className='opt';div.dataset.k=k;div.dataset.id=it.id;div.dataset.key=k;
+    div.innerHTML=`<div class="check">✓</div><div class="tag">${KLABEL[k]}</div>`+
+      `<div class="en">${o.en}</div>`+
+      (o.ar?`<div class="ar">${o.ar}</div>`:`<div class="en muted" style="margin-top:6px">— no Arabic change —</div>`);
+    div.onclick=()=>{picks[it.id]=k;[...opts.children].forEach(c=>c.classList.remove('sel'));div.classList.add('sel');updateCount();};
+    opts.appendChild(div);
+    if(k===it.def){picks[it.id]=k;div.classList.add('sel');}
+  });
+  card.appendChild(opts);
+  const nw=document.createElement('div');nw.className='note-wrap';
+  const ni=document.createElement('input');ni.type='text';ni.className='note-input';
+  ni.placeholder='✎ Optional note about your pick — a tweak, an edit, or why…';
+  ni.oninput=()=>{notes[it.id]=ni.value.trim();ni.classList.toggle('has',!!ni.value.trim());};
+  nw.appendChild(ni);card.appendChild(nw);
+  app.appendChild(card);
+});
+
+function updateCount(){
+  const changed=DATA.filter(it=>picks[it.id]!==it.def).length;
+  document.getElementById('count').textContent=`${changed} changed · ${DATA.length} rows`;
+}
+function pickAll(k){
+  DATA.forEach(it=>{const key=it.o[k]?k:it.def;picks[it.id]=key;
+    document.querySelectorAll(`.opt[data-id="${it.id}"]`).forEach(c=>c.classList.toggle('sel',c.dataset.key===key));});
+  updateCount();
+}
+function stripTags(s){return s.replace(/<[^>]+>/g,'').replace(/&amp;/g,'&');}
+function exportChoices(){
+  let lines=["# My copy picks — apply these (EN + AR mirror).",""];
+  DATA.forEach(it=>{
+    const k=picks[it.id];const o=it.o[k];const flag=(k!==it.def)?"  ← CHANGED":"";
+    lines.push(`[${it.id}] ${it.label}: ${KLABEL[k].split(' ')[0]}${flag}`);
+    lines.push(`   EN: ${stripTags(o.en)}`);
+    if(o.ar)lines.push(`   AR: ${stripTags(o.ar)}`);
+    if(notes[it.id])lines.push(`   NOTE: ${notes[it.id]}`);
+    lines.push("");
+  });
+  const noted=Object.values(notes).filter(Boolean).length;
+  lines.push(`# ${DATA.filter(it=>picks[it.id]!==it.def).length} changed · ${noted} with notes`);
+  lines.push("# (anything marked CHANGED differs from the current draft; NOTE = my tweak/instruction for that pick)");
+  document.getElementById('out').value=lines.join("\n");
+  document.getElementById('dlg').showModal();
+}
+function copyOut(){const t=document.getElementById('out');t.select();
+  navigator.clipboard.writeText(t.value).then(()=>{},()=>{document.execCommand('copy');});}
+updateCount();
+</script>
+</body>
+</html>
