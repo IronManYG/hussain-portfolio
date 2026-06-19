@@ -17,14 +17,16 @@ eleventyExcludeFromCollections: true
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Desert Oasis palette — mirrors the site's --rt-* tokens (src/css/styles.css) */
         :root {
-            --navy: #004AAD;
-            --navy-dark: #003280;
-            --ink: #0A0A0A;
-            --muted: #4A5568;
-            --bg: #FFFFFF;
-            --bg-soft: #F8FAFC;
-            --border: #E2E8F0;
+            --accent: #0e6b62;       /* deep teal — --rt-accent */
+            --accent-hover: #0a564e; /* darker teal for hover */
+            --ink: #1c1c1f;          /* --rt-text */
+            --muted: #6b6661;        /* --rt-muted */
+            --bg: #ffffff;           /* card surface — --rt-surface */
+            --bg-soft: #f5efe6;      /* warm sandstone page — --rt-bg */
+            --border: #e3dccf;       /* --rt-border */
+            --btn-text: #ffffff;     /* --rt-btn-text */
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { height: 100%; }
@@ -42,7 +44,7 @@ eleventyExcludeFromCollections: true
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 74, 173, 0.08);
+            box-shadow: 0 8px 32px rgba(14, 107, 98, 0.10);
             display: grid;
             grid-template-columns: 1fr 1px 1fr;
             max-width: 880px;
@@ -58,7 +60,7 @@ eleventyExcludeFromCollections: true
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--navy);
+            color: var(--accent);
             margin-bottom: 12px;
         }
         h1 {
@@ -80,8 +82,8 @@ eleventyExcludeFromCollections: true
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: var(--navy);
-            color: #fff;
+            background: var(--accent);
+            color: var(--btn-text);
             text-decoration: none;
             padding: 12px 20px;
             border-radius: 10px;
@@ -91,7 +93,7 @@ eleventyExcludeFromCollections: true
             align-self: flex-start;
         }
         .pane-ar .btn { align-self: flex-end; }
-        .btn:hover { background: var(--navy-dark); transform: translateY(-1px); }
+        .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
         .btn-arrow { font-size: 16px; }
         .footer {
             grid-column: 1 / -1;
@@ -104,7 +106,7 @@ eleventyExcludeFromCollections: true
             font-size: 12px;
             color: var(--muted);
         }
-        .footer a { color: var(--navy); text-decoration: none; }
+        .footer a { color: var(--accent); text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
 
         @media (max-width: 720px) {
@@ -117,11 +119,14 @@ eleventyExcludeFromCollections: true
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --ink: #F8FAFC;
-                --muted: #94A3B8;
-                --bg: #0F172A;
-                --bg-soft: #020617;
-                --border: #1E293B;
+                --accent: #3eb3a4;       /* brighter teal — dark --rt-accent */
+                --accent-hover: #5ac4b6;
+                --ink: #ece5d5;          /* dark --rt-text */
+                --muted: #9c9483;        /* dark --rt-muted */
+                --bg: #1c1b16;           /* dark --rt-surface */
+                --bg-soft: #15140f;      /* dark --rt-bg (warm near-black) */
+                --border: #2e2c22;       /* dark --rt-border */
+                --btn-text: #0c0e12;     /* dark --rt-btn-text (dark text on bright accent) */
             }
         }
     </style>
