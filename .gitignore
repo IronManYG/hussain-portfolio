@@ -30,3 +30,15 @@ linkedin/
 # Redesign working files (mockups, Figma exports, briefs) — not published, kept private
 design/
 
+# Non-published working/source files — kept out of the deployed repo
+src/social/
+src/cv/*_A.html
+src/cv/*_C.html
+src/cv/*_compact_D.html
+src/cv/*_compact_E.html
+src/cv/*_old.html
+src/cv/blue-swatches.html
+brand/
+src/_data/image_prompts.json
+.notes/
+
