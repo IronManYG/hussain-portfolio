@@ -42,11 +42,6 @@ module.exports = function(eleventyConfig) {
   // self-destruct version at the same URL is what removes it.
   eleventyConfig.addPassthroughCopy("src/sw.js");
 
-  // Note: src/social/ is excluded via .eleventyignore — working/reference content
-  // for the maintainer (LinkedIn / GitHub / Notion / CV ready-to-paste copy +
-  // image prompts) that lives in src/ for proximity to the data it references
-  // but isn't published.
-
   return {
     dir: {
       input: "src",
