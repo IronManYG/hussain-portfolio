@@ -36,6 +36,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/cv");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/manifest.json");
+  eleventyConfig.addPassthroughCopy("src/manifest.ar.json");
   // sw.js must keep shipping even though nothing registers it anymore:
   // returning visitors still have the old v3 worker installed, and the
   // self-destruct version at the same URL is what removes it.
