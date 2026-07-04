@@ -1,0 +1,145 @@
+{%- set t = locales[locale] -%}
+{%- set isRtl = locale == 'ar' -%}
+{%- set base = '/ar' if isRtl else '' -%}
+{% set nonTech = nonTechTags %}
+{% set pTitle = project['title_' + locale] %}
+
+<article class="max-w-4xl mx-auto px-6 pt-32 pb-20 lg:pt-40">
+    <!-- Breadcrumb -->
+    <nav aria-label="{{ 'مسار التنقل' if isRtl else 'breadcrumb' }}" class="font-mono text-xs text-rt-muted mb-8">
+        <a href="{{ (base + '/projects/') | url }}" class="hover:text-rt-accent transition-colors">{{ t.breadcrumb_projects }}</a>
+        <span aria-hidden="true" class="mx-2">/</span>
+        <span aria-current="page" class="text-rt-text">{{ pTitle }}</span>
+    </nav>
+
+    <!-- Hero -->
+    <header class="mb-10">
+        <div class="flex flex-wrap gap-2 mb-5 font-mono">
+            {% for tag in project.tags %}<span class="text-[11px] px-2.5 py-1 rounded-full bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endfor %}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5">{{ pTitle }}</h1>
+        <p class="text-lg sm:text-xl text-rt-muted leading-relaxed max-w-3xl">{{ project['description_' + locale] }}</p>
+
+        <!-- Meta strip — only rows that exist -->
+        {% set typeTag = null %}{% for tag in project.tags %}{% if tag in nonTech and not typeTag %}{% set typeTag = tag %}{% endif %}{% endfor %}
+        <dl class="flex flex-wrap gap-x-10 gap-y-4 mt-8 pt-6 border-t border-rt-border">
+            {% if project.year %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">{{ 'السنة' if isRtl else 'Year' }}</dt><dd class="text-sm text-rt-text mt-1"><bdi>{{ project.year | locNum(locale) }}</bdi></dd></div>{% endif %}
+            {% if typeTag %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">{{ 'النوع' if isRtl else 'Type' }}</dt><dd class="text-sm text-rt-text mt-1">{{ typeTag }}</dd></div>{% endif %}
+        </dl>
+    </header>
+
+    <!-- Hero visual -->
+    {% if project.grid.images %}
+    <div class="mb-12 rounded-2xl overflow-hidden border border-rt-border bg-rt-subtle">
+        <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" width="1600" height="900" decoding="async" class="w-full h-auto object-contain dark:hidden">
+        <img src="{{ project.grid.images[locale].dark | url }}" alt="{{ pTitle }}" width="1600" height="900" decoding="async" class="w-full h-auto object-contain hidden dark:block">
+    </div>
+    {% elif project.grid.image %}
+    <div class="mb-12 rounded-2xl overflow-hidden border border-rt-border bg-rt-subtle">
+        <img src="{{ project.grid.image | url }}" alt="{{ pTitle }}" decoding="async" class="w-full h-auto object-contain">
+    </div>
+    {% elif project.grid.icon %}
+    <div class="mb-12 rounded-2xl h-72 border border-rt-border bg-rt-subtle flex items-center justify-center">
+        <i class="ph {{ project.grid.icon }} text-8xl text-rt-accent" aria-hidden="true"></i>
+    </div>
+    {% endif %}
+
+    <!-- Impact stat strip (only if present, e.g. featured case study) -->
+    {% if project['featured_stats_' + locale] %}
+    <div class="grid grid-cols-3 border border-rt-border rounded-xl bg-rt-surface mb-12 overflow-hidden">
+        {% for s in project['featured_stats_' + locale] %}
+        <div class="px-5 py-5 {% if not loop.first %}border-s border-rt-border{% endif %}">
+            <div class="text-2xl sm:text-3xl font-bold tracking-tight leading-none"><bdi>{{ s.v }}</bdi></div>
+            <div class="font-mono text-[10px] uppercase tracking-wide text-rt-muted mt-2">{{ s.k }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Overview -->
+    {% if project['overview_' + locale] %}
+    <section data-reveal class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t.project_overview }}</h2>
+        <div class="rt-prose max-w-none">{{ project['overview_' + locale] | safe }}</div>
+    </section>
+    {% endif %}
+
+    <!-- Challenge -->
+    {% if project['challenge_' + locale] %}
+    <section data-reveal class="mb-12 border-s-2 border-rt-accent bg-rt-surface rounded-e-xl rounded-s-sm p-6 sm:p-8">
+        <h2 class="text-2xl font-bold tracking-tight mb-4">{{ t.project_challenge }}</h2>
+        <div class="rt-prose max-w-none">{{ project['challenge_' + locale] | safe }}</div>
+    </section>
+    {% endif %}
+
+    <!-- Architecture -->
+    {% if project['architecture_' + locale] %}
+    <section data-reveal class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t.project_architecture }}</h2>
+        <div class="rt-prose max-w-none">{{ project['architecture_' + locale] | safe }}</div>
+    </section>
+    {% endif %}
+
+    <!-- Impact -->
+    {% if project['impact_' + locale] %}
+    <section data-reveal class="mb-12 bg-rt-subtle border border-rt-border rounded-xl p-6 sm:p-8">
+        <h2 class="text-2xl font-bold tracking-tight mb-4 flex items-center gap-2"><i class="ph ph-trophy text-rt-accent" aria-hidden="true"></i> {{ t.project_impact }}</h2>
+        <div class="rt-prose max-w-none">{{ project['impact_' + locale] | safe }}</div>
+    </section>
+    {% endif %}
+
+    <!-- Tech stack -->
+    {% if project.tech_stack and project.tech_stack.length > 0 %}
+    <section data-reveal class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-5">{{ t.project_tech_stack }}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {% for tech in project.tech_stack %}
+            <div class="rt-card border border-rt-border rounded-lg bg-rt-surface p-4 transition-all duration-300">
+                <span class="block font-mono text-[10px] uppercase tracking-[0.08em] text-rt-muted mb-1">{{ tech.label }}</span>
+                <span class="text-sm font-semibold text-rt-text">{{ tech.value }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Store + Repo CTAs -->
+    {% if project.playUrl or project.repoUrl %}
+    <div class="flex flex-wrap gap-3 mb-4">
+        {% if project.playUrl %}
+        <a href="{{ project.playUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-3 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">
+            <i class="ph ph-google-play-logo"></i> {{ 'حمّله من Google Play' if isRtl else 'Get it on Google Play' }}
+        </a>
+        {% endif %}
+        {% if project.repoUrl %}
+        <a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-5 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+            <i class="ph ph-github-logo"></i> {{ 'اطّلع على الكود في GitHub' if isRtl else 'View source on GitHub' }}
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Prev / Next -->
+    {% set prevProject = projects[pagination.pageNumber - 1] %}
+    {% set nextProject = projects[pagination.pageNumber + 1] %}
+    <nav class="flex flex-col sm:flex-row gap-4 sm:gap-0 sm:justify-between mt-12 pt-8 border-t border-rt-border" aria-label="{{ 'التنقل بين المشاريع' if isRtl else 'Project navigation' }}">
+        {% if prevProject %}
+        <a href="{{ (base + '/' + prevProject.slug + '/') | url }}" class="group flex items-start gap-3 text-start max-w-sm" rel="prev">
+            <span class="font-mono mt-0.5 transition-transform {{ 'group-hover:translate-x-1' if isRtl else 'group-hover:-translate-x-1' }}" aria-hidden="true">{{ '→' if isRtl else '←' }}</span>
+            <span>
+                <span class="block font-mono text-[10px] uppercase tracking-wider text-rt-muted">{{ t.nav_prev_project }}</span>
+                <span class="block text-base font-semibold group-hover:text-rt-accent transition-colors">{{ prevProject['title_' + locale] }}</span>
+            </span>
+        </a>
+        {% else %}<span></span>{% endif %}
+        {% if nextProject %}
+        <a href="{{ (base + '/' + nextProject.slug + '/') | url }}" class="group flex items-start gap-3 text-end max-w-sm" rel="next">
+            <span>
+                <span class="block font-mono text-[10px] uppercase tracking-wider text-rt-muted">{{ t.nav_next_project }}</span>
+                <span class="block text-base font-semibold group-hover:text-rt-accent transition-colors">{{ nextProject['title_' + locale] }}</span>
+            </span>
+            <span class="font-mono mt-0.5 transition-transform {{ 'group-hover:-translate-x-1' if isRtl else 'group-hover:translate-x-1' }}" aria-hidden="true">{{ '←' if isRtl else '→' }}</span>
+        </a>
+        {% endif %}
+    </nav>
+</article>

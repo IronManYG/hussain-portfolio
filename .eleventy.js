@@ -8,6 +8,15 @@ module.exports = function(eleventyConfig) {
     return String(value).replace(/[0-9]/g, (d) => arabicIndic[d]);
   });
 
+  // Locale-aware variant for the shared page bodies: Arabic-Indic digits when
+  // the page locale is "ar", the value untouched otherwise.
+  // Usage: `{{ project.year | locNum(locale) }}`.
+  eleventyConfig.addFilter("locNum", (value, locale) => {
+    if (locale !== "ar") return value;
+    if (value === undefined || value === null) return value;
+    return String(value).replace(/[0-9]/g, (d) => arabicIndic[d]);
+  });
+
   // Default locale for every template; src/ar/ar.11tydata.json overrides it
   // to "ar" for the Arabic directory. The shared base_rt.njk layout derives
   // dir/rtl, URL prefix, and UI strings (locales.json) from this.
