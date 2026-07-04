@@ -61,6 +61,8 @@
 </head>
 <body class="bg-rt-bg text-rt-text font-display antialiased selection:bg-rt-accent/25 selection:text-rt-text">
 
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[110] focus:bg-rt-accent focus:text-rt-btn-text focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg">تخطَّ إلى المحتوى</a>
+
     <!-- Whole-page green ambiance + film-grain atmosphere (behind content). -->
     <div class="page-glow" aria-hidden="true"></div>
     <div class="grain-overlay" aria-hidden="true"></div>
@@ -105,9 +107,9 @@
                     <i class="ph ph-github-logo text-base"></i> {{ locales.ar.btn_view_code }}
                 </a>
                 {% endif %}
-                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-1" aria-label="GitHub"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-1" aria-label="LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
-                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-1" aria-label="تبديل الوضع الداكن">
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-2" aria-label="GitHub"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-2" aria-label="LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-2" aria-label="تبديل الوضع الداكن" data-label-light="التبديل إلى الوضع الفاتح" data-label-dark="التبديل إلى الوضع الداكن">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
                 <a href="{{ page.url | replace('/ar/', '/') | url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="Switch to English">EN / ع</a>
@@ -151,7 +153,7 @@
     </div>
     {% endif %}
 
-    <main class="relative z-10">
+    <main id="main-content" class="relative z-10">
         {{ content | safe }}
     </main>
 

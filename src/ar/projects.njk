@@ -14,7 +14,10 @@ seo_description: "أعمال أندرويد إنتاجية، وتجارب Kotlin
             <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-2xl">كافة المشاريع</h1>
             <p class="text-lg text-rt-muted leading-relaxed max-w-2xl mt-5">أرشيف يضم أعمالي الاحترافية، وتحديات المجتمع التقني، وتجاربي الشخصية — تطبيقات إنتاجية، ومشاريع متعددة المنصات، وأدوات صغيرة بنيتُها للتعلّم. مُرتَّبة حسب ما علّمتني.</p>
         </div>
-        <div class="font-mono text-xs text-rt-muted shrink-0"><bdi><b class="text-rt-text font-semibold">١٢ مشروعاً</b> · ٢٠٢٠ — ٢٠٢٥</bdi></div>
+        {# Count is computed; the range end is the newest data year. The 2020
+           start predates the dated entries (early projects carry no year). #}
+        {% set years = [] %}{% for p in projects %}{% if p.year %}{% set years = (years.push(p.year), years) %}{% endif %}{% endfor %}
+        <div class="font-mono text-xs text-rt-muted shrink-0"><bdi><b class="text-rt-text font-semibold">{{ projects | length | arNum }} مشروعاً</b> · {{ "2020" | arNum }} — {{ years | sort | last | arNum }}</bdi></div>
     </div>
 
     <!-- Filters -->
@@ -29,17 +32,20 @@ seo_description: "أعمال أندرويد إنتاجية، وتجارب Kotlin
 
 <!-- ───────── Featured project ───────── -->
 {% for project in projects %}{% if project.feature_card %}
-<section class="max-w-7xl mx-auto px-6 pb-12">
+{% set tl = project.tags | join('|') | lower %}
+{% set isMp = ('multiplatform' in tl) or ('kmm' in tl) or ('kmp' in tl) or ('cmp' in tl) or ('wear os' in tl) %}
+{% set isProd = project.slug in prodSlugs %}
+<section class="featured-card-wrapper max-w-7xl mx-auto px-6 pb-12" data-multiplatform="{{ 'true' if isMp else 'false' }}" data-production="{{ 'true' if isProd else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
     <div data-reveal class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
         <a href="{{ ('/ar/' + project.slug + '/') | url }}" class="group relative block aspect-video md:aspect-auto md:min-h-[340px] overflow-hidden bg-rt-subtle" aria-label="{{ project.title_ar }} — دراسة حالة">
             <span class="absolute top-4 right-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">مميَّز</span>
             {% if project.grid.images %}
             <img src="{{ project.grid.images.ar.light | url }}" alt="{{ project.title_ar }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
-            <img src="{{ project.grid.images.ar.dark | url }}" alt="{{ project.title_ar }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
+            <img src="{{ project.grid.images.ar.dark | url }}" alt="" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
             {% endif %}
         </a>
         <div class="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
-            <div class="font-mono text-[11px] uppercase tracking-[0.12em] text-rt-accent mb-3"><bdi>{{ project.year | arNum }}</bdi> · متعدد المنصات</div>
+            <div class="font-mono text-[11px] uppercase tracking-[0.12em] text-rt-accent mb-3"><bdi>{{ project.year | arNum }}</bdi>{% if project.feature_label_ar %} · {{ project.feature_label_ar }}{% endif %}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3"><a href="{{ ('/ar/' + project.slug + '/') | url }}" class="hover:text-rt-accent transition-colors">{{ project.title_ar }}</a></h2>
             <p class="text-sm text-rt-muted leading-relaxed mb-6">{{ project.featured_role_ar | safe }}</p>
             {% if project.featured_stats_ar %}
