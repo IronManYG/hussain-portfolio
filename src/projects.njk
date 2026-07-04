@@ -3,7 +3,7 @@ layout: base_rt.njk
 title: "All Projects | Hussain Gaddal"
 seo_description: "Production Android work, Kotlin Multiplatform experiments, and open-source builds by Hussain Gaddal — filterable by what they shipped, not which library they imported."
 ---
-{% set nonTech = ["Course Challenge", "Course Project", "Community Challenge", "Personal", "Personal Project", "Professional", "Institution", "Android"] %}
+{% set nonTech = nonTechTags.concat(["Android"]) %}
 {% set prodSlugs = ["maktabati", "sifr", "qodem"] %}
 
 <!-- ───────── Head + filters ───────── -->

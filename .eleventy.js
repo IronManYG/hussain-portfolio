@@ -8,6 +8,14 @@ module.exports = function(eleventyConfig) {
     return String(value).replace(/[0-9]/g, (d) => arabicIndic[d]);
   });
 
+  // Tags that describe a project's provenance, not its tech — templates use
+  // this to pick the "Type" meta row and to exclude these from tech-chip
+  // lists. Single source of truth (was copy-pasted per template).
+  eleventyConfig.addGlobalData("nonTechTags", [
+    "Course Challenge", "Course Project", "Community Challenge",
+    "Personal", "Personal Project", "Professional", "Institution"
+  ]);
+
   // Passthrough copy for static assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/js");
