@@ -20,16 +20,18 @@ export function initTheme() {
         return isDark;
     };
 
+    // Labels come from data-label-* on the button so each layout supplies
+    // its own language (the Arabic pages must not get English labels).
     const updateThemeIcon = () => {
         if (!themeIcon || !themeToggleBtn) return;
         if (document.documentElement.classList.contains('dark')) {
             themeIcon.classList.remove('ph-moon');
             themeIcon.classList.add('ph-sun');
-            themeToggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
+            themeToggleBtn.setAttribute('aria-label', themeToggleBtn.dataset.labelLight || 'Switch to Light Mode');
         } else {
             themeIcon.classList.remove('ph-sun');
             themeIcon.classList.add('ph-moon');
-            themeToggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
+            themeToggleBtn.setAttribute('aria-label', themeToggleBtn.dataset.labelDark || 'Switch to Dark Mode');
         }
     };
 

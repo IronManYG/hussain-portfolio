@@ -74,6 +74,8 @@
 </head>
 <body class="bg-rt-bg text-rt-text font-display antialiased selection:bg-rt-accent/25 selection:text-rt-text">
 
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[110] focus:bg-rt-accent focus:text-rt-btn-text focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
     <!-- Whole-page green ambiance: several soft accent glows spread across the
          page, behind the content (opaque facts/cards/footer cover them, so the
          section bands stay clean — only the transparent hero + section
@@ -126,9 +128,9 @@
                     <i class="ph ph-github-logo text-base"></i> {{ locales.en.btn_view_code }}
                 </a>
                 {% endif %}
-                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-1" aria-label="GitHub Profile"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-1" aria-label="LinkedIn Profile"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
-                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-1" aria-label="Toggle Dark Mode">
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-2" aria-label="GitHub Profile"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-2" aria-label="LinkedIn Profile"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-2" aria-label="Toggle Dark Mode" data-label-light="Switch to Light Mode" data-label-dark="Switch to Dark Mode">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
                 <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="التبديل إلى العربية">EN / ع</a>
@@ -172,7 +174,7 @@
     </div>
     {% endif %}
 
-    <main class="relative z-10">
+    <main id="main-content" class="relative z-10">
         {{ content | safe }}
     </main>
 

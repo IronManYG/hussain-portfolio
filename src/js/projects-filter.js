@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('#project-filters .rt-chip[data-filter]');
-    const projectCards = document.querySelectorAll('.project-card-wrapper');
+    // Featured hero sections carry the same data-* flags as grid cards, so
+    // they filter (and count) together — otherwise "Production" excludes the
+    // one Play-store app just because it's featured.
+    const projectCards = document.querySelectorAll('.project-card-wrapper, .featured-card-wrapper');
     const emptyEl = document.getElementById('projects-empty');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
