@@ -1,22 +1,21 @@
 {
   "name": "hussain-portfolio",
   "version": "1.0.0",
-  "description": "> Personal portfolio website for **Hussain Gaddal**, Senior Android Developer with 4+ years of experience building production-grade mobile applications.",
-  "main": "main.js",
+  "description": "Personal portfolio website for Hussain Gaddal, Android Developer — Eleventy + Tailwind, bilingual EN/AR.",
   "scripts": {
     "start": "npm-run-all --parallel watch:*",
     "build": "npm-run-all build:*",
-    "build:css": "npx tailwindcss@3 -i ./src/css/styles.css -o ./_site/styles.css --minify",
-    "build:eleventy": "npx @11ty/eleventy",
-    "watch:css": "npx tailwindcss@3 -i ./src/css/styles.css -o ./_site/styles.css --watch",
-    "watch:eleventy": "npx @11ty/eleventy --serve"
+    "build:css": "tailwindcss -i ./src/css/styles.css -o ./_site/styles.css --minify",
+    "build:eleventy": "eleventy",
+    "watch:css": "tailwindcss -i ./src/css/styles.css -o ./_site/styles.css --watch",
+    "watch:eleventy": "eleventy --serve"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IronManYG/hussain-portfolio.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Hussain Gaddal",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {

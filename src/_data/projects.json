@@ -6,8 +6,10 @@
     "slug": "chirp",
     "featured": true,
     "feature_card": true,
+    "feature_label_en": "multiplatform",
+    "feature_label_ar": "متعدد المنصات",
     "year": "2025",
-    "shot": "/assets/img/projects/shots/chirp-shot.png",
+    "shot": "/assets/img/projects/shots/chirp-shot.webp",
     "card_impact_en": "100% shared logic · Android · iOS · Desktop",
     "card_impact_ar": "مشاركة كاملة للمنطق · أندرويد · iOS · سطح المكتب",
     "featured_role_en": "A solo build. One <b>Compose Multiplatform</b> UI runs on Android, iOS &amp; Desktop. The backend is a <b>Spring Boot</b> service with REST and WebSocket streams; the app reaches it through a <b>Ktor</b> client, caches messages in Room for offline use, and wires dependencies with Koin. Messages send in real time, queue when you're offline, and resync on their own.",
@@ -30,12 +32,12 @@
       "iconColor": "",
       "images": {
         "en": {
-          "light": "/assets/img/projects/chirp-en-light.png",
-          "dark": "/assets/img/projects/chirp-en-dark.png"
+          "light": "/assets/img/projects/chirp-en-light.webp",
+          "dark": "/assets/img/projects/chirp-en-dark.webp"
         },
         "ar": {
-          "light": "/assets/img/projects/chirp-ar-light.png",
-          "dark": "/assets/img/projects/chirp-ar-dark.png"
+          "light": "/assets/img/projects/chirp-ar-light.webp",
+          "dark": "/assets/img/projects/chirp-ar-dark.webp"
         }
       }
     },
@@ -98,6 +100,8 @@
     "slug": "sifr",
     "featured": true,
     "feature_card": true,
+    "feature_label_en": "production · google play",
+    "feature_label_ar": "إنتاجي · متجر Google Play",
     "year": "2026",
     "card_impact_en": "Live on Google Play · 5 palettes · 11 languages",
     "card_impact_ar": "منشور على Google Play · ٥ سمات · ١١ لغة",
@@ -121,12 +125,12 @@
       "iconColor": "",
       "images": {
         "en": {
-          "light": "/assets/img/projects/sifr-en-light.png",
-          "dark": "/assets/img/projects/sifr-en-dark.png"
+          "light": "/assets/img/projects/sifr-en-light.webp",
+          "dark": "/assets/img/projects/sifr-en-dark.webp"
         },
         "ar": {
-          "light": "/assets/img/projects/sifr-ar-light.png",
-          "dark": "/assets/img/projects/sifr-ar-dark.png"
+          "light": "/assets/img/projects/sifr-ar-light.webp",
+          "dark": "/assets/img/projects/sifr-ar-dark.webp"
         }
       }
     },
@@ -191,7 +195,7 @@
     "slug": "runique",
     "featured": true,
     "year": "2024",
-    "shot": "/assets/img/projects/shots/runique-shot.png",
+    "shot": "/assets/img/projects/shots/runique-shot.webp",
     "card_impact_en": "Sub-second watch ↔ phone sync",
     "card_impact_ar": "مزامنة لحظية بين الساعة والهاتف",
     "grid": {
@@ -202,12 +206,12 @@
       "iconColor": "",
       "images": {
         "en": {
-          "light": "/assets/img/projects/runique-en-light.png",
-          "dark": "/assets/img/projects/runique-en-dark.png"
+          "light": "/assets/img/projects/runique-en-light.webp",
+          "dark": "/assets/img/projects/runique-en-dark.webp"
         },
         "ar": {
-          "light": "/assets/img/projects/runique-ar-light.png",
-          "dark": "/assets/img/projects/runique-ar-dark.png"
+          "light": "/assets/img/projects/runique-ar-light.webp",
+          "dark": "/assets/img/projects/runique-ar-dark.webp"
         }
       }
     },
@@ -253,7 +257,7 @@
     "slug": "scribbledash",
     "featured": true,
     "year": "2025",
-    "shot": "/assets/img/projects/shots/scribbledash-shot.png",
+    "shot": "/assets/img/projects/shots/scribbledash-shot.webp",
     "card_impact_en": "Steady 60 FPS draw loop",
     "card_impact_ar": "حلقة رسم ثابتة ٦٠ إطار/ث",
     "grid": {
@@ -264,12 +268,12 @@
       "iconColor": "",
       "images": {
         "en": {
-          "light": "/assets/img/projects/scribbledash-en-light.png",
-          "dark": "/assets/img/projects/scribbledash-en-dark.png"
+          "light": "/assets/img/projects/scribbledash-en-light.webp",
+          "dark": "/assets/img/projects/scribbledash-en-dark.webp"
         },
         "ar": {
-          "light": "/assets/img/projects/scribbledash-ar-light.png",
-          "dark": "/assets/img/projects/scribbledash-ar-dark.png"
+          "light": "/assets/img/projects/scribbledash-ar-light.webp",
+          "dark": "/assets/img/projects/scribbledash-ar-dark.webp"
         }
       }
     },
@@ -319,7 +323,7 @@
     "slug": "echojournal",
     "featured": true,
     "year": "2025",
-    "shot": "/assets/img/projects/shots/echojournal-shot.png",
+    "shot": "/assets/img/projects/shots/echojournal-shot.webp",
     "grid": {
       "size": "md:col-span-6",
       "glow": "glow-blue",
@@ -328,12 +332,12 @@
       "iconColor": "",
       "images": {
         "en": {
-          "light": "/assets/img/projects/echojournal-en-light.png",
-          "dark": "/assets/img/projects/echojournal-en-dark.png"
+          "light": "/assets/img/projects/echojournal-en-light.webp",
+          "dark": "/assets/img/projects/echojournal-en-dark.webp"
         },
         "ar": {
-          "light": "/assets/img/projects/echojournal-ar-light.png",
-          "dark": "/assets/img/projects/echojournal-ar-dark.png"
+          "light": "/assets/img/projects/echojournal-ar-light.webp",
+          "dark": "/assets/img/projects/echojournal-ar-dark.webp"
         }
       }
     },
