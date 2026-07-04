@@ -8,6 +8,11 @@ module.exports = function(eleventyConfig) {
     return String(value).replace(/[0-9]/g, (d) => arabicIndic[d]);
   });
 
+  // Default locale for every template; src/ar/ar.11tydata.json overrides it
+  // to "ar" for the Arabic directory. The shared base_rt.njk layout derives
+  // dir/rtl, URL prefix, and UI strings (locales.json) from this.
+  eleventyConfig.addGlobalData("locale", "en");
+
   // Tags that describe a project's provenance, not its tech — templates use
   // this to pick the "Type" meta row and to exclude these from tech-chip
   // lists. Single source of truth (was copy-pasted per template).
