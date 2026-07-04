@@ -150,12 +150,14 @@
                 <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-2" aria-label="{{ t.theme_toggle_aria }}" data-label-light="{{ t.theme_label_light }}" data-label-dark="{{ t.theme_label_dark }}">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
+                {# Active language is bold + full text color; the target stays
+                   muted and brightens on hover, so the toggle reads as state,
+                   not just a button. #}
                 {% if isRtl %}
-                <a href="{{ enUrl | url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}">EN / ع</a>
+                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="group-hover:text-rt-text transition-colors">EN</span> / <span class="font-bold text-rt-text">ع</span></a>
                 {% else %}
-                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}">EN / ع</a>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="font-bold text-rt-text">EN</span> / <span class="group-hover:text-rt-text transition-colors">ع</span></a>
                 {% endif %}
-                {% if isHome %}
                 <button id="mobile-menu-btn" class="text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list" aria-hidden="true"></i>
                 </button>
