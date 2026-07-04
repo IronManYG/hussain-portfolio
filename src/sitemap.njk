@@ -1,0 +1,33 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+{#- Generated sitemap — static pages plus one entry per project (both locales),
+    always in sync with projects.json. Replaces the old hand-maintained
+    sitemap.xml, which listed retired .html URLs. -#}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- set host = "https://ironmanyg.github.io" %}
+{%- set staticPaths = ["/", "/projects/", "/about/"] %}
+{%- set paths = staticPaths %}
+{%- for project in projects %}
+  {%- set paths = (paths.push('/' + project.slug + '/'), paths) %}
+{%- endfor %}
+{%- for p in paths %}
+{%- set enLoc = host + (p | url) %}
+{%- set arLoc = host + (('/ar' + p) | url) %}
+  <url>
+    <loc>{{ enLoc }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ enLoc }}"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="{{ arLoc }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ enLoc }}"/>
+  </url>
+  <url>
+    <loc>{{ arLoc }}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ enLoc }}"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="{{ arLoc }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ enLoc }}"/>
+  </url>
+{%- endfor %}
+</urlset>

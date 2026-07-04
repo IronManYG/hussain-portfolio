@@ -14,8 +14,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/cv");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/manifest.json");
+  // sw.js must keep shipping even though nothing registers it anymore:
+  // returning visitors still have the old v3 worker installed, and the
+  // self-destruct version at the same URL is what removes it.
   eleventyConfig.addPassthroughCopy("src/sw.js");
-  eleventyConfig.addPassthroughCopy("src/sitemap.xml");
 
   // Note: src/social/ is excluded via .eleventyignore — working/reference content
   // for the maintainer (LinkedIn / GitHub / Notion / CV ready-to-paste copy +
