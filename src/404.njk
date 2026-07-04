@@ -1,0 +1,38 @@
+---
+layout: base_rt.njk
+title: "404 — Page not found | Hussain Gaddal"
+permalink: 404.html
+noindex: true
+eleventyExcludeFromCollections: true
+---
+{# GitHub Pages serves this for any missing path under /hussain-portfolio/ —
+   including the retired *.html URLs that may still live in old links and CVs.
+   One bilingual page for both locales, since the 404 URL carries no locale. #}
+<section class="min-h-[70vh] flex items-center pt-24">
+    <div class="max-w-3xl mx-auto px-6 py-16 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.12em] text-rt-muted mb-4">Error · خطأ</p>
+        <h1 class="font-mono text-7xl md:text-8xl font-bold tracking-tight text-rt-accent mb-8">404</h1>
+
+        <div class="mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">This page doesn't exist</h2>
+            <p class="text-rt-muted leading-relaxed">The link may be outdated — the site's URLs changed when it was redesigned. Everything is still here, just one click away.</p>
+        </div>
+
+        <div dir="rtl" lang="ar" class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">هذه الصفحة غير موجودة</h2>
+            <p class="text-rt-muted leading-relaxed">ربما يكون الرابط قديمًا — فقد تغيّرت روابط الموقع بعد إعادة تصميمه. كل المحتوى ما زال هنا، على بُعد نقرة واحدة.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a href="{{ '/' | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-6 py-3 rounded-[10px] hover:brightness-110 transition">
+                <i class="ph ph-house" aria-hidden="true"></i> Back to portfolio
+            </a>
+            <a href="{{ '/ar/' | url }}" lang="ar" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-6 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+                العودة إلى الموقع <i class="ph ph-house" aria-hidden="true"></i>
+            </a>
+            <a href="{{ '/projects/' | url }}" class="inline-flex items-center gap-2 border border-rt-border text-rt-text font-medium px-6 py-3 rounded-[10px] hover:border-rt-accent transition-colors">
+                <i class="ph ph-squares-four" aria-hidden="true"></i> All projects
+            </a>
+        </div>
+    </div>
+</section>
