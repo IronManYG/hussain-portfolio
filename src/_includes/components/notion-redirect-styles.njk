@@ -1,0 +1,119 @@
+{#- Shared inline styles for the Notion redirect cards (notion-redirect.njk +
+    notion-redirect-project.njk). These pages are standalone (no styles.css),
+    so the palette is mirrored here. Callers may set `h1Size` / `h1SizeMobile`
+    before including; defaults match the generic redirect card. -#}
+<style>
+    /* Desert Oasis palette — mirrors the site's --rt-* tokens (src/css/styles.css) */
+    :root {
+        --accent: #0e6b62;       /* deep teal — --rt-accent */
+        --accent-hover: #0a564e; /* darker teal for hover */
+        --ink: #1c1c1f;          /* --rt-text */
+        --muted: #6b6661;        /* --rt-muted */
+        --bg: #ffffff;           /* card surface — --rt-surface */
+        --bg-soft: #f5efe6;      /* warm sandstone page — --rt-bg */
+        --border: #e3dccf;       /* --rt-border */
+        --btn-text: #ffffff;     /* --rt-btn-text */
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+        font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+        color: var(--ink);
+        background: var(--bg-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        min-height: 100vh;
+    }
+    .card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(14, 107, 98, 0.10);
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+        max-width: 880px;
+        width: 100%;
+        overflow: hidden;
+    }
+    .pane { padding: 40px 32px; display: flex; flex-direction: column; }
+    .pane-en { text-align: left; }
+    .pane-ar { text-align: right; direction: rtl; }
+    .divider { background: var(--border); }
+    .eyebrow {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+    }
+    h1 {
+        font-size: {{ h1Size | default('24px') }};
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.25;
+        margin-bottom: 12px;
+    }
+    p {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 15px;
+        margin-bottom: 24px;
+        flex-grow: 1;
+    }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: var(--accent);
+        color: var(--btn-text);
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: background 0.15s ease, transform 0.15s ease;
+        align-self: flex-start;
+    }
+    .pane-ar .btn { align-self: flex-end; }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-arrow { font-size: 16px; }
+    .footer {
+        grid-column: 1 / -1;
+        padding: 14px 32px;
+        border-top: 1px solid var(--border);
+        background: var(--bg-soft);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: var(--muted);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* Stack vertically on narrow screens (Notion embeds are usually narrow) */
+    @media (max-width: 720px) {
+        .card { grid-template-columns: 1fr; }
+        .divider { height: 1px; width: 100%; }
+        .pane { padding: 28px 24px; }
+        h1 { font-size: {{ h1SizeMobile | default('20px') }}; }
+        p { font-size: 14px; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --accent: #3eb3a4;       /* brighter teal — dark --rt-accent */
+            --accent-hover: #5ac4b6;
+            --ink: #ece5d5;          /* dark --rt-text */
+            --muted: #9c9483;        /* dark --rt-muted */
+            --bg: #1c1b16;           /* dark --rt-surface */
+            --bg-soft: #15140f;      /* dark --rt-bg (warm near-black) */
+            --border: #2e2c22;       /* dark --rt-border */
+            --btn-text: #0c0e12;     /* dark --rt-btn-text (dark text on bright accent) */
+        }
+    }
+</style>

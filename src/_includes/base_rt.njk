@@ -86,7 +86,7 @@
          that flashed). Pairs with @view-transition in styles.css. -->
     <link rel="expect" href="#rt-render-ready" blocking="render">
 
-    <link rel="manifest" href="{{ '/manifest.json' | url }}">
+    <link rel="manifest" href="{{ ('/manifest.ar.json' if isRtl else '/manifest.json') | url }}">
     <meta name="theme-color" content="#15140f">
 </head>
 <body class="bg-rt-bg text-rt-text font-display antialiased selection:bg-rt-accent/25 selection:text-rt-text">
@@ -150,22 +150,26 @@
                 <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-2" aria-label="{{ t.theme_toggle_aria }}" data-label-light="{{ t.theme_label_light }}" data-label-dark="{{ t.theme_label_dark }}">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
+                {# Active language is bold + full text color; the target stays
+                   muted and brightens on hover, so the toggle reads as state,
+                   not just a button. #}
                 {% if isRtl %}
-                <a href="{{ enUrl | url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}">EN / ع</a>
+                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="group-hover:text-rt-text transition-colors">EN</span> / <span class="font-bold text-rt-text">ع</span></a>
                 {% else %}
-                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="font-mono text-xs hover:text-rt-text transition-colors border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}">EN / ع</a>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="font-bold text-rt-text">EN</span> / <span class="group-hover:text-rt-text transition-colors">ع</span></a>
                 {% endif %}
-                {% if isHome %}
                 <button id="mobile-menu-btn" class="text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list" aria-hidden="true"></i>
                 </button>
-                {% endif %}
             </div>
         </div>
     </nav>
 
-    {% if isHome %}
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay — rendered on every page so deep-link visitors
+         (recruiters usually land on a project page) can still reach About /
+         Projects on mobile. On sub-pages the section links point back to the
+         homepage sections; #contact stays local (the footer is on every page). -->
+    {% set anchorBase = '' if isHome else ((base + '/') | url) %}
     <div id="mobile-menu" class="mobile-menu-overlay" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" aria-hidden="true">
         <div class="mobile-menu-panel">
             <h2 id="mobile-menu-title" class="sr-only">{{ t.menu_title }}</h2>
@@ -178,9 +182,9 @@
                 </button>
             </div>
             <div class="flex flex-col space-y-6 text-lg font-medium">
-                <a href="#about" data-spy="about" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_about }}</a>
-                <a href="#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_work }}</a>
-                <a href="#expertise" data-spy="expertise" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_skills }}</a>
+                <a href="{{ anchorBase }}#about" data-spy="about" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_about }}</a>
+                <a href="{{ anchorBase }}#projects" data-spy="projects" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_work }}</a>
+                <a href="{{ anchorBase }}#expertise" data-spy="expertise" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_skills }}</a>
                 <a href="#contact" data-spy="contact" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_contact }}</a>
                 <hr class="border-rt-border" aria-hidden="true">
                 <a href="{{ (base + '/projects/') | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_projects }}</a>
@@ -193,7 +197,6 @@
             </div>
         </div>
     </div>
-    {% endif %}
 
     <main id="main-content" class="relative z-10">
         {{ content | safe }}
