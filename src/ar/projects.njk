@@ -3,7 +3,7 @@ layout: base_rt_ar.njk
 title: "كل المشاريع | حسين قدال"
 seo_description: "أعمال أندرويد إنتاجية، وتجارب Kotlin Multiplatform، ومشاريع مفتوحة المصدر من حسين قدال — مُصنَّفة بما أنجزته لا بمكتباتها."
 ---
-{% set nonTech = ["Course Challenge", "Course Project", "Community Challenge", "Personal", "Personal Project", "Professional", "Institution", "Android"] %}
+{% set nonTech = nonTechTags.concat(["Android"]) %}
 {% set prodSlugs = ["maktabati", "sifr", "qodem"] %}
 
 <!-- ───────── Head + filters ───────── -->
