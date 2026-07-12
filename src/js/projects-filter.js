@@ -1,28 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card-wrapper');
+    const filterButtons = document.querySelectorAll('#project-filters .rt-chip[data-filter]');
+    // Featured hero sections carry the same data-* flags as grid cards, so
+    // they filter (and count) together — otherwise "Production" excludes the
+    // one Play-store app just because it's featured.
+    const projectCards = document.querySelectorAll('.project-card-wrapper, .featured-card-wrapper');
     const emptyEl = document.getElementById('projects-empty');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const matchesFilter = (filter, tags) => {
+    // Category filtering driven by data-* flags on each card wrapper
+    // (data-multiplatform / data-production / data-opensource = "true"|"false").
+    const matchesFilter = (filter, card) => {
         if (filter === 'all') return true;
-        if (filter === 'kmp') return tags.some(t => t.includes('kotlin multiplatform') || t === 'kmm' || t === 'kmp');
-        if (filter === 'cmp') return tags.some(t => t.includes('compose multiplatform') || t === 'cmp');
-        if (filter === 'firebase') return tags.some(t => t.includes('firebase'));
-        if (filter === 'wear os') return tags.some(t => t === 'wear os');
-        if (filter === 'android') return !tags.some(t => t.includes('multiplatform') || t === 'kmm' || t === 'kmp');
-        return tags.some(t => t.includes(filter));
+        return card.getAttribute('data-' + filter) === 'true';
     };
 
     const updateFilterCounts = () => {
         filterButtons.forEach(btn => {
             const filter = btn.getAttribute('data-filter');
             let count = 0;
-            projectCards.forEach(card => {
-                const tags = (card.getAttribute('data-tags') || '').split(',').map(t => t.trim());
-                if (matchesFilter(filter, tags)) count++;
-            });
-            const countEl = btn.querySelector('.filter-count');
+            projectCards.forEach(card => { if (matchesFilter(filter, card)) count++; });
+            const countEl = btn.querySelector('.rt-chip-count');
             if (countEl) countEl.textContent = count;
         });
     };
@@ -30,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyFilter = (filterValue) => {
         let visibleCount = 0;
         projectCards.forEach(card => {
-            const cardTags = (card.getAttribute('data-tags') || '').split(',').map(t => t.trim());
-            const matches = matchesFilter(filterValue, cardTags);
+            const matches = matchesFilter(filterValue, card);
             card.style.display = matches ? '' : 'none';
             if (matches) visibleCount++;
         });
@@ -57,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => {
-                btn.classList.remove('active');
+                btn.classList.remove('is-active');
                 btn.setAttribute('aria-pressed', 'false');
             });
-            button.classList.add('active');
+            button.classList.add('is-active');
             button.setAttribute('aria-pressed', 'true');
             animateAndApply(button.getAttribute('data-filter'));
         });

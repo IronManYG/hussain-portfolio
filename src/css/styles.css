@@ -1,3 +1,267 @@
+/* ============================================================
+   SELF-HOSTED FONTS — fonts live in src/assets/fonts/ (passthrough-
+   copied) and these @font-face rules sit in the render-blocking
+   styles.css, so the real fonts are known at first paint. With the
+   critical weights <link rel=preload>-ed in the page <head>, text and
+   icons paint in their final form immediately — no Google-Fonts /
+   unpkg round-trip, no fallback->webfont swap (the FOUT flash that
+   showed as a blank content-paint gap on every page navigation).
+   url()s are RELATIVE so they resolve under the /hussain-portfolio/
+   pathPrefix. Phosphor is subsetted to the 28 icons actually used. */
+
+@font-face {
+  font-family: "Phosphor";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(assets/fonts/Phosphor-regular-subset.woff2) format("woff2");
+}
+.ph {
+  display: inline-block;
+  font-family: "Phosphor" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ph.ph-arrow-left:before { content: "\e058"; }
+.ph.ph-arrow-right:before { content: "\e06c"; }
+.ph.ph-arrow-up:before { content: "\e08e"; }
+.ph.ph-arrow-up-right:before { content: "\e092"; }
+.ph.ph-books:before { content: "\e758"; }
+.ph.ph-calculator:before { content: "\e538"; }
+.ph.ph-code:before { content: "\e1bc"; }
+.ph.ph-database:before { content: "\e1de"; }
+.ph.ph-download:before { content: "\e20a"; }
+.ph.ph-drop:before { content: "\e210"; }
+.ph.ph-envelope-simple:before { content: "\e218"; }
+.ph.ph-file-pdf:before { content: "\e702"; }
+.ph.ph-github-logo:before { content: "\e576"; }
+.ph.ph-hard-drive:before { content: "\e29e"; }
+.ph.ph-layout:before { content: "\e6d6"; }
+.ph.ph-leaf:before { content: "\e2da"; }
+.ph.ph-linkedin-logo:before { content: "\e2ee"; }
+.ph.ph-list:before { content: "\e2f0"; }
+.ph.ph-map-pin:before { content: "\e316"; }
+.ph.ph-moon:before { content: "\e330"; }
+.ph.ph-paper-plane-tilt:before { content: "\e398"; }
+.ph.ph-phone:before { content: "\e3b8"; }
+.ph.ph-planet:before { content: "\e652"; }
+.ph.ph-stack:before { content: "\e466"; }
+.ph.ph-sun:before { content: "\e472"; }
+.ph.ph-translate:before { content: "\e4a2"; }
+.ph.ph-trophy:before { content: "\e67e"; }
+.ph.ph-x:before { content: "\e4f6"; }
+
+/* IBMPlexSansArabic 300 arabic */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-300-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* IBMPlexSansArabic 300 latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-300-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBMPlexSansArabic 300 latin */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-300-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* IBMPlexSansArabic 400 arabic */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-400-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* IBMPlexSansArabic 400 latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBMPlexSansArabic 400 latin */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* IBMPlexSansArabic 500 arabic */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-500-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* IBMPlexSansArabic 500 latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBMPlexSansArabic 500 latin */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* IBMPlexSansArabic 600 arabic */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-600-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* IBMPlexSansArabic 600 latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBMPlexSansArabic 600 latin */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* IBMPlexSansArabic 700 arabic */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-700-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* IBMPlexSansArabic 700 latin-ext */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-700-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* IBMPlexSansArabic 700 latin */
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/IBMPlexSansArabic-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* JetBrainsMono 400 latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/JetBrainsMono-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* JetBrainsMono 400 latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/JetBrainsMono-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* JetBrainsMono 500 latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/JetBrainsMono-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* JetBrainsMono 500 latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/JetBrainsMono-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* JetBrainsMono 700 latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/JetBrainsMono-700-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* JetBrainsMono 700 latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/JetBrainsMono-700-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Cross-document View Transitions — hold the OUTGOING page during same-origin
+   navigation, then crossfade to the incoming page. The hold prevents the blank
+   flash; `<link rel=expect blocking=render>` in the page head delays the new
+   page's first render until its body is parsed, so the fade lands on a complete
+   frame, never a half-painted one (that guarantee is what made a real crossfade
+   viable again — it used to fade into a near-black still-rendering frame).
+   140ms is short enough that navigation still reads as instant. Reduced motion
+   keeps the hold but swaps in 1ms. */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 140ms; }
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) { animation-duration: 1ms; }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,34 +269,66 @@
 
 @layer base {
     :root {
-        --color-ide-bg: 248 250 252;
-        --color-ide-bg-darker: 241 245 249;
-        --color-ide-surface: 255 255 255;
-        --color-ide-surface-hover: 226 232 240;
-        --color-ide-border: 203 213 225;
         --color-text-main: 51 65 85;
         --color-text-muted: 100 116 139;
         --color-text-dim: 148 163 184;
         --color-text-strong: 15 23 42;
+
+        /* Riyadh Terra — light (redesign tokens; coexist with ide-* until migration done) */
+        --rt-bg: 245 239 230;        /* #f5efe6 warm sandstone */
+        --rt-surface: 255 255 255;   /* #ffffff */
+        --rt-subtle: 235 228 215;    /* #ebe4d7 */
+        --rt-border: 227 220 207;    /* #e3dccf hairline */
+        --rt-text: 28 28 31;         /* #1c1c1f */
+        --rt-muted: 107 102 97;      /* #6b6661 */
+        --rt-accent: 14 107 98;      /* #0e6b62 deep teal */
+        --rt-accent-2: 196 107 58;   /* #c46b3a terracotta */
+        --rt-btn-text: 255 255 255;  /* #ffffff */
+        color-scheme: light;
     }
     .dark {
-        --color-ide-bg: 13 17 23;
-        --color-ide-bg-darker: 10 13 17;
-        --color-ide-surface: 22 27 34;
-        --color-ide-surface-hover: 33 38 45;
-        --color-ide-border: 48 54 61;
         --color-text-main: 230 237 243;
         --color-text-muted: 156 163 175;
         --color-text-dim: 107 114 128;
         --color-text-strong: 255 255 255;
+
+        /* Riyadh Terra — dark */
+        --rt-bg: 21 20 15;           /* #15140f warm near-black */
+        --rt-surface: 28 27 22;      /* #1c1b16 */
+        --rt-subtle: 37 35 25;       /* #252319 */
+        --rt-border: 46 44 34;       /* #2e2c22 */
+        --rt-text: 236 229 213;      /* #ece5d5 */
+        --rt-muted: 156 148 131;     /* #9c9483 */
+        --rt-accent: 62 179 164;     /* #3eb3a4 brighter teal */
+        --rt-accent-2: 221 141 82;   /* #dd8d52 */
+        --rt-btn-text: 12 14 18;     /* #0c0e12 dark text on bright accent */
+        color-scheme: dark;
+    }
+
+    /* Paint the themed background on <html> itself (not just <body>). The inline
+       head script sets .dark before first paint, so the canvas is already the
+       right colour — no white frame flashes between page loads, even in
+       browsers without cross-document View Transitions. */
+    html {
+        background-color: rgb(var(--rt-bg));
     }
 
     body {
         font-family: 'IBM Plex Sans Arabic', sans-serif;
-        background-color: rgb(var(--color-ide-bg));
+        background-color: rgb(var(--rt-bg));
         color: rgb(var(--color-text-main));
         overflow-x: hidden;
         transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Instant theme swap: while .theme-switching is on <html> (one frame during
+       toggle), kill every transition so colors snap together. Prevents the
+       project names recoloring (150ms) ahead of the card/page bg (300ms),
+       which made them briefly wash out. Hover transitions are unaffected. */
+    html.theme-switching *,
+    html.theme-switching *::before,
+    html.theme-switching *::after {
+        transition: none !important;
     }
 
     /* Prevent any section from bleeding outside viewport on mobile */
@@ -68,12 +364,24 @@
         letter-spacing: normal;
     }
 
+    /* RTL polish: Arabic is cursive — never letter-space it (breaks letter
+       joins) and uppercase is a no-op, so neutralize the utility classes the
+       redesigned layout uses (tracking-*, uppercase). Also drop the accented
+       hero <em> italic, which Arabic fonts render as an awkward synthetic slant
+       (keep its accent colour + weight from .rt-em em). */
+    html[dir="rtl"] [class*="tracking-"] { letter-spacing: 0 !important; }
+    html[dir="rtl"] .uppercase { text-transform: none; }
+    html[dir="rtl"] .rt-em em { font-style: normal; }
+    /* JetBrains Mono has no Arabic glyphs — fall back to IBM Plex Sans Arabic
+       for Arabic runs while keeping Latin/numerals monospaced. */
+    html[dir="rtl"] .font-mono { font-family: 'JetBrains Mono', 'IBM Plex Sans Arabic', system-ui, monospace; }
+
     code, pre {
         font-family: 'JetBrains Mono', monospace;
     }
 
     :focus-visible {
-        outline: 2px solid #7F52FF;
+        outline: 2px solid rgb(var(--rt-accent));
         outline-offset: 2px;
         border-radius: 4px;
     }
@@ -92,96 +400,6 @@
 }
 
 @layer components {
-    .bento-card {
-        @apply relative rounded-2xl bg-ide-surface border border-ide-border overflow-hidden transition-all duration-300;
-    }
-
-    .bento-card:hover {
-        @apply border-kotlin-purple/50 shadow-[0_0_20px_rgba(127,82,255,0.15)] transform -translate-y-1;
-    }
-
-    .gradient-text {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-kotlin-purple to-kotlin-orange;
-    }
-
-    .btn-primary {
-        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-kotlin-purple to-kotlin-orange hover:opacity-90 transition-opacity;
-    }
-
-    .btn-secondary {
-        @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium text-ide-text-main bg-ide-surface border border-ide-border hover:bg-ide-surface-hover transition-colors;
-    }
-    
-    .tech-pill {
-        @apply px-3 py-1 text-xs font-mono rounded-full bg-ide-surface-hover text-ide-text-muted border border-ide-border;
-    }
-
-    .filter-btn {
-        @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ide-border bg-ide-surface text-sm font-medium text-ide-text-muted hover:border-kotlin-purple/60 hover:text-ide-text-strong transition-all;
-    }
-    .filter-btn .filter-count {
-        @apply text-xs font-mono px-1.5 py-0.5 rounded-full bg-ide-surface-hover text-ide-text-dim min-w-[1.5rem] text-center transition-colors;
-    }
-    .filter-btn.active {
-        @apply border-kotlin-purple text-kotlin-purple bg-kotlin-purple/10 dark:text-white dark:bg-kotlin-purple/20;
-    }
-    .filter-btn.active .filter-count {
-        @apply bg-kotlin-purple/20 text-kotlin-purple dark:bg-kotlin-purple/30 dark:text-white;
-    }
-
-    .project-card-split .project-card-visual {
-        background:
-            radial-gradient(circle at 50% 30%, rgba(127,82,255,0.10), transparent 70%),
-            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
-    }
-    .dark .project-card-split .project-card-visual {
-        background:
-            radial-gradient(circle at 50% 30%, rgba(127,82,255,0.18), transparent 70%),
-            linear-gradient(135deg, #0a0d11, #161b22);
-    }
-    .project-card-split.glow-blue .project-card-visual {
-        background-image:
-            radial-gradient(circle at 50% 30%, rgba(121,192,255,0.20), transparent 70%),
-            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
-    }
-    .project-card-split.glow-orange .project-card-visual {
-        background-image:
-            radial-gradient(circle at 50% 30%, rgba(248,137,9,0.20), transparent 70%),
-            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
-    }
-    .project-card-split.glow-red .project-card-visual {
-        background-image:
-            radial-gradient(circle at 50% 30%, rgba(239,68,68,0.20), transparent 70%),
-            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
-    }
-    .project-card-split.glow-green .project-card-visual {
-        background-image:
-            radial-gradient(circle at 50% 30%, rgba(34,197,94,0.20), transparent 70%),
-            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
-    }
-    .project-card-split.glow-purple .project-card-visual {
-        background-image:
-            radial-gradient(circle at 50% 30%, rgba(127,82,255,0.20), transparent 70%),
-            linear-gradient(135deg, rgb(var(--color-ide-bg-darker)), rgb(var(--color-ide-surface)));
-    }
-
-    .project-hero-glow {
-        position: relative;
-        background: radial-gradient(ellipse at top, rgba(127,82,255,0.10), transparent 60%), rgb(var(--color-ide-bg-darker));
-    }
-    .project-hero-glow::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        pointer-events: none;
-        padding: 1px;
-        background: linear-gradient(135deg, rgba(127,82,255,0.45), transparent 40%, rgba(231,98,79,0.35));
-        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-        -webkit-mask-composite: xor;
-                mask-composite: exclude;
-    }
-
     .glass-noise {
         position: relative;
     }
@@ -200,6 +418,256 @@
         display: inline-block;
         transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     }
+
+    /* Grain — behind content (z-5 < main z-10), so opaque bands (facts/cards/
+       footer) cover it and keep exact token colors; it shows through the
+       transparent hero + section backgrounds.
+
+       SELF-CONTAINED via background-blend-mode: the speckle blends against this
+       layer's OWN background-color (the theme bg), NOT the page behind it. That
+       makes it immune to sibling compositing — earlier the animated .page-glow
+       (a GPU/will-change layer) broke the old mix-blend-mode:overlay grain,
+       which depends on a shared backdrop. This approach can't be broken that
+       way, and it drops the whole-page mix-blend that also hurt nav smoothness.
+
+       BLEND MODE IS PER-THEME, and that matters: `overlay` mathematically can't
+       lift a near-black background (result ≈ 0.16×speckle → invisible, measured
+       sd ~1.2), which is why earlier opacity "boosts" never showed. So:
+         • LIGHT → `multiply` a warm-grey speckle DARKENS the sandstone bg
+           ([236,228,212] → ~[219,208,187], sd ~4.7).
+         • DARK  → `screen` a warm-white speckle LIFTS the near-black bg
+           ([21,20,15] → ~[49,48,41], sd ~6.4 — matches the session-2 target).
+       Alphas tuned by canvas-replicating the blend and measuring pixel stddev. */
+    .grain-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 5;
+        pointer-events: none;
+        background-color: rgb(var(--rt-bg));
+        background-size: 150px 150px;
+        background-blend-mode: multiply;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.42  0 0 0 0 0.34  0 0 0 0 0.20  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
+    }
+    .dark .grain-overlay {
+        background-size: 170px 170px;
+        background-blend-mode: screen;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.82  0 0 0 0.24 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
+    }
+
+    /* Whole-page green ambiance — the hero's corner glow, now spread across the
+       page as several teal radials (same ~0.26 accent + soft `transparent 65%`
+       falloff as the old hero `.mock-hero::before`). Behind content (z-6, below
+       main z-10, above grain z-5), so opaque bands (facts/cards/footer) cover
+       it and only the transparent hero + section backgrounds pick up the green.
+       Fixed → the glows stay distributed across the viewport as the page
+       scrolls, covering the whole page. Theme-aware via --rt-accent. */
+    .page-glow {
+        position: fixed;
+        inset: 0;
+        z-index: 6;
+        pointer-events: none;
+        /* Slightly over-scaled so the slow drift never exposes a hard edge. */
+        transform: scale(1.1);
+        background:
+            radial-gradient(460px circle at 88% 6%,  rgb(var(--rt-accent) / 0.26), transparent 65%),
+            radial-gradient(420px circle at 8% 26%,  rgb(var(--rt-accent) / 0.20), transparent 65%),
+            radial-gradient(440px circle at 98% 54%, rgb(var(--rt-accent) / 0.22), transparent 65%),
+            radial-gradient(440px circle at 26% 76%, rgb(var(--rt-accent) / 0.20), transparent 65%),
+            radial-gradient(420px circle at 78% 98%, rgb(var(--rt-accent) / 0.20), transparent 65%);
+    }
+    /* Drifting green ambiance — feels alive without distracting. Transform-only
+       (GPU compositing, no repaint). Disabled for users who ask for reduced
+       motion. */
+    @keyframes glow-drift {
+        0%   { transform: scale(1.12) translate3d(0, 0, 0); }
+        25%  { transform: scale(1.18) translate3d(-3.4%, 2.6%, 0); }
+        50%  { transform: scale(1.14) translate3d(3%, -2.2%, 0); }
+        75%  { transform: scale(1.2) translate3d(2.2%, 3.2%, 0); }
+        100% { transform: scale(1.12) translate3d(0, 0, 0); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+        .page-glow {
+            animation: glow-drift 8s ease-in-out infinite;
+            will-change: transform;
+        }
+    }
+    /* On phones the radials are wider than the viewport and overlap into a
+       heavy wash — soften the whole layer. */
+    @media (max-width: 768px) {
+        .page-glow { opacity: 0.5; }
+    }
+
+    /* Promote stacked card thumbnails to their own compositor layer so the
+       light/dark opacity swap is GPU-only — no repaint flash / name flicker. */
+    .rt-thumb {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        will-change: opacity;
+    }
+
+    /* Riyadh Terra hero emphasis — accent the <em> words in the H1 */
+    .rt-em em {
+        font-style: italic;
+        font-weight: 500;
+        color: rgb(var(--rt-accent));
+    }
+    /* Phone-frame screenshot for project cards */
+    .rt-phone {
+        border-radius: 22px;
+        border: 5px solid rgb(var(--rt-border));
+        background: rgb(var(--rt-border));
+        box-shadow: 0 30px 60px -25px rgba(0,0,0,.5);
+        overflow: hidden;
+    }
+    .rt-card:hover {
+        transform: translateY(-3px);
+        border-color: rgb(var(--rt-accent));
+        box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
+    }
+
+    /* About timeline — a single vertical rail with one dot per role; the
+       current role gets an accent halo. Bullets are marked with an arrow that
+       points into the line of reading (→ LTR, ← RTL). Logical flips for RTL. */
+    .rt-tl { position: relative; padding-left: 28px; }
+    .rt-tl::before {
+        content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px;
+        width: 2px; background: rgb(var(--rt-border));
+    }
+    .rt-tl-item::before {
+        content: ""; position: absolute; left: -23px; top: 6px;
+        width: 12px; height: 12px; border-radius: 50%;
+        background: rgb(var(--rt-accent));
+        box-shadow: 0 0 0 4px rgb(var(--rt-bg));
+    }
+    .rt-tl-item.is-current::before {
+        box-shadow: 0 0 0 4px rgb(var(--rt-bg)), 0 0 0 8px rgb(var(--rt-accent) / 0.30);
+    }
+    .rt-tl-bullet { position: relative; padding-left: 18px; }
+    .rt-tl-bullet::before {
+        content: "→"; position: absolute; left: 0; top: 0;
+        color: rgb(var(--rt-accent));
+        font-family: 'JetBrains Mono', monospace; font-weight: 600;
+    }
+    .rt-tl-bullet b, .rt-tl-bullet strong { color: rgb(var(--rt-text)); font-weight: 600; }
+
+    html[dir="rtl"] .rt-tl { padding-left: 0; padding-right: 28px; }
+    html[dir="rtl"] .rt-tl::before { left: auto; right: 9px; }
+    html[dir="rtl"] .rt-tl-item::before { left: auto; right: -23px; }
+    html[dir="rtl"] .rt-tl-bullet { padding-left: 0; padding-right: 18px; }
+    html[dir="rtl"] .rt-tl-bullet::before { left: auto; right: 0; content: "←"; }
+
+    /* Riyadh Terra filter chips (Projects index) */
+    .rt-chip {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        padding: 6px 12px; border-radius: 999px;
+        border: 1px solid rgb(var(--rt-border));
+        color: rgb(var(--rt-muted));
+        background: transparent;
+        transition: color .15s, border-color .15s, background .15s, transform .1s;
+    }
+    .rt-chip:hover { color: rgb(var(--rt-text)); border-color: rgb(var(--rt-accent) / 0.5); }
+    .rt-chip:active { transform: scale(0.95); }
+    .rt-chip.is-active {
+        color: rgb(var(--rt-btn-text));
+        background: rgb(var(--rt-accent));
+        border-color: rgb(var(--rt-accent));
+    }
+    .rt-chip-count { font-size: 10px; opacity: 0.7; }
+
+    /* Riyadh Terra prose — re-skins the project case-study HTML (which still
+       carries legacy ide and kotlin color classes from projects.json) to the
+       Terra tokens via higher-specificity overrides, so no data rewrite is
+       needed. Drop these overrides once the prose strings are migrated. */
+    .rt-prose { color: rgb(var(--rt-muted)); line-height: 1.75; }
+    .rt-prose p { margin-bottom: 1rem; }
+    .rt-prose p:last-child { margin-bottom: 0; }
+    .rt-prose ul { list-style: disc; padding-inline-start: 1.25rem; margin: 0.5rem 0 1rem; }
+    .rt-prose ol { list-style: decimal; padding-inline-start: 1.25rem; margin: 0.5rem 0 1rem; }
+    .rt-prose li { margin-bottom: 0.4rem; }
+    .rt-prose h3 { font-weight: 600; font-size: 1.2rem; margin: 1.6rem 0 0.5rem; }
+    .rt-prose strong, .rt-prose b, .rt-prose h3 { color: rgb(var(--rt-text)); font-weight: 600; }
+    .rt-prose em { font-style: italic; }
+    .rt-prose a { color: rgb(var(--rt-accent)); text-decoration: underline; text-underline-offset: 2px; }
+    .rt-prose code {
+        color: rgb(var(--rt-accent));
+        font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+        background: rgb(var(--rt-subtle)); border: 1px solid rgb(var(--rt-border));
+        padding: 0.1em 0.35em; border-radius: 4px;
+    }
+    html[dir="rtl"] .rt-prose ul, html[dir="rtl"] .rt-prose ol { list-style-position: inside; }
+
+    /* Active nav link indicator — an accent underline that grows in from the
+       leading edge (matches the old topbar), toggled by nav.js scroll-spy on
+       the homepage section links. Logical inset → grows left→right in LTR,
+       right→left in RTL. */
+    .rt-nav-link { position: relative; padding-bottom: 4px; }
+    .rt-nav-link::after {
+        content: ""; position: absolute; inset-inline-start: 0; bottom: 0;
+        width: 0; height: 2px; border-radius: 2px;
+        background: rgb(var(--rt-accent));
+        transition: width 0.3s ease;
+    }
+    .rt-nav-link.is-active { color: rgb(var(--rt-text)); }
+    .rt-nav-link.is-active::after { width: 100%; }
+    /* Mobile menu active row — accent bar on the leading edge (auto-flips RTL). */
+    .mobile-nav-link.is-active {
+        color: rgb(var(--rt-text));
+        border-inline-start: 3px solid rgb(var(--rt-accent));
+        padding-inline-start: 0.75rem;
+    }
+
+    /* Back-to-top floating button */
+    .rt-fab {
+        position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 40;
+        width: 2.75rem; height: 2.75rem; border-radius: 9999px;
+        display: flex; align-items: center; justify-content: center;
+        background: rgb(var(--rt-accent)); color: rgb(var(--rt-btn-text));
+        box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+        opacity: 0; pointer-events: none; transform: translateY(8px) scale(0.9);
+        transition: opacity .3s, transform .3s, filter .2s;
+    }
+    .rt-fab.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+    .rt-fab:hover { filter: brightness(1.1); transform: translateY(-2px) scale(1); }
+    html[dir="rtl"] .rt-fab { right: auto; left: 1.75rem; }
+
+    /* ── Entrance animations (scroll reveals + hero stagger) ──────────────
+       The hidden states only apply when JS is running (html.js, set by an
+       inline head script) AND the user allows motion — no-JS and
+       reduced-motion visitors get the page complete at first paint, so
+       nothing can ever be hidden forever. transform is translateY-only:
+       nothing to flip for RTL. */
+    @media (prefers-reduced-motion: no-preference) {
+        /* Scroll reveal: reveal.js adds .is-revealed on first intersection.
+           --reveal-delay staggers siblings (set by reveal.js per grid). */
+        html.js [data-reveal] {
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        html.js [data-reveal].is-revealed {
+            opacity: 1;
+            transform: none;
+            transition:
+                opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+            transition-delay: calc(var(--reveal-delay, 0) * 70ms);
+        }
+
+        /* Hero entrance — one-shot stagger on page load. Keyed off
+           html.is-shown, which the head script only sets once the page is
+           actually displayed (after `prerenderingchange` for Speculation-Rules
+           prerenders — otherwise the animation would play invisibly before
+           the user ever clicks). */
+        html.js [data-hero] { opacity: 0; }
+        html.js.is-shown [data-hero] {
+            animation: rt-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: calc(var(--hero-step, 0) * 70ms);
+        }
+    }
+    @keyframes rt-rise {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: none; }
+    }
 }
 
 /* Custom Scrollbar */
@@ -210,7 +678,7 @@
     background: transparent; 
 }
 ::-webkit-scrollbar-thumb {
-    background: rgb(var(--color-ide-border)); 
+    background: rgb(var(--rt-border)); 
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -226,11 +694,17 @@
     backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    /* visibility (delayed until the fade-out finishes) removes the closed
+       menu's links from the tab order — opacity alone leaves 9 invisible
+       links keyboard-focusable behind the page. */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
 .mobile-menu-overlay.active {
     opacity: 1;
     pointer-events: auto;
+    visibility: visible;
+    transition: opacity 0.3s ease;
 }
 .mobile-menu-panel {
     position: absolute;
@@ -239,56 +713,14 @@
     width: 80%;
     max-width: 320px;
     height: 100%;
-    background: rgb(var(--color-ide-bg));
-    border-left: 1px solid rgb(var(--color-ide-border));
+    background: rgb(var(--rt-bg));
+    border-left: 1px solid rgb(var(--rt-border));
     padding: 2rem;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mobile-menu-overlay.active .mobile-menu-panel {
     transform: translateX(0);
-}
-
-/* Active Nav Link */
-.nav-link {
-    position: relative;
-    padding-bottom: 4px;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(to right, #7F52FF, #E7624F);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-.nav-link.active {
-    color: rgb(var(--color-text-strong));
-}
-.nav-link.active::after {
-    width: 100%;
-}
-.mobile-nav-link.active {
-    color: rgb(var(--color-text-strong));
-    padding-left: 0.75rem;
-    border-left: 3px solid #7F52FF;
-}
-
-/* Back to Top visible state */
-#back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Gradient Text light mode enhancement */
-.gradient-text {
-    filter: brightness(1);
-}
-.dark .gradient-text {
-    filter: brightness(1.15);
 }
 
 /* Code blocks always LTR, even in Arabic version */
@@ -308,175 +740,6 @@ pre {
     overflow-wrap: break-word;
 }
 
-/* Premium Visual Utilities */
-.shadow-kotlin-glow {
-    box-shadow: 0 0 20px -5px rgba(127, 82, 255, 0.4);
-}
-
-.hero-avatar-container {
-    position: relative;
-    width: 320px;
-    height: 320px;
-}
-
-.hero-avatar-container::before {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #7F52FF, #E7624F);
-    opacity: 0.2;
-    filter: blur(20px);
-    animation: pulse-glow 4s ease-in-out infinite;
-}
-
-.hero-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: left center;
-    border-radius: 50%;
-    border: 4px solid rgba(127, 82, 255, 0.2);
-    position: relative;
-    z-index: 10;
-}
-
-@keyframes pulse-glow {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(1.05); }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-    animation: float 6s ease-in-out infinite;
-}
-
-
-/* --- Phase 5: Final Polish & Accessibility --- */
-
-/* Skill Bars */
-.skill-bar-container {
-    height: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 12px;
-    position: relative;
-}
-
-.skill-progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(90deg, #7F52FF, #F88909);
-    width: 0%;
-    transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-/* Micro-animations for Expertise Cards */
-.expertise-card {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.expertise-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #7F52FF, transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.expertise-card:hover::before {
-    opacity: 1;
-}
-
-.expertise-card i {
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.expertise-card:hover i {
-    transform: scale(1.2) rotate(-8deg);
-}
-
-/* Project-specific Hover Glows */
-.bento-card {
-    transition: all 0.4s ease;
-}
-
-/* Specific glows per project */
-.bento-card.glow-blue:hover {
-    border-color: rgba(121, 192, 255, 0.5);
-    box-shadow: 0 10px 40px -15px rgba(121, 192, 255, 0.3);
-}
-
-.bento-card.glow-red:hover {
-    border-color: rgba(239, 68, 68, 0.5);
-    box-shadow: 0 10px 40px -15px rgba(239, 68, 68, 0.3);
-}
-
-.bento-card.glow-orange:hover {
-    border-color: rgba(248, 137, 9, 0.5);
-    box-shadow: 0 10px 40px -15px rgba(248, 137, 9, 0.3);
-}
-
-/* Radar Chart Styling */
-.radar-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.radar-chart {
-    width: 100%;
-    height: auto;
-    overflow: visible;
-    filter: drop-shadow(0 0 10px rgba(127, 82, 255, 0.2));
-}
-
-.radar-grid {
-    stroke: rgb(var(--color-ide-border));
-    stroke-width: 1;
-    fill: none;
-    opacity: 0.3;
-}
-
-.radar-axis {
-    stroke: rgb(var(--color-ide-border));
-    stroke-width: 1;
-    opacity: 0.5;
-}
-
-.radar-area {
-    fill: rgba(127, 82, 255, 0.2);
-    stroke: #7F52FF;
-    stroke-width: 2;
-    transition: all 1s ease;
-}
-
-.radar-label {
-    font-size: 10px;
-    font-weight: 600;
-    fill: rgb(var(--color-text-muted));
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase;
-}
-
-.dark .radar-area {
-    fill: rgba(127, 82, 255, 0.3);
-}
-
 /* Filter card transition */
 .project-card-wrapper {
     transition: opacity 200ms ease, transform 200ms ease;
@@ -484,16 +747,4 @@ pre {
 .project-card-wrapper.card-fade-out {
     opacity: 0;
     transform: scale(0.96);
-}
-
-/* Hero Canvas Background */
-.particles-bg {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
 }

@@ -1,195 +1,142 @@
 {
+  "_note": "Riyadh Terra About page. Shape: hero (eyebrow/headline/lede/ctas/quick-facts) → experience (vertical timeline, metric-led bullets, current role flagged) → certifications (compressed strip). Content mirrors profile.json + the CV (40/25/15/50/30 metrics) and the curated 6-cert list. headline/lede/quick.v/total/bullets[].text/certs[].note render with `| safe` (allow <em>/<strong>/<b>/<a>).",
   "en": {
     "hero": {
-      "title": "About <span class=\"gradient-text\">Me</span>",
-      "subtitle": "I'm an Android Developer who cares about how software is put together. Over the last 4+ years at Kay Technology, I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and shipped features that hold up at scale."
+      "eyebrow": "About",
+      "headline": "Four years building large Android apps in <em>Kotlin &amp; Compose</em>.",
+      "lede": "I'm <strong>Hussain Gaddal</strong>, an Android developer in <strong>Riyadh</strong> who cares about how software is put together. Over the last 4+ years at <strong>Kay Technology</strong> I've migrated a legacy codebase to Kotlin and Compose, designed multi-module architectures, and set the engineering standards. Kotlin Multiplatform is now a big part of my work too.",
+      "personal": "Outside work I 3D print — designing my own parts and fixing broken gadgets — read across topics, and unwind with classic strategy games like <strong>Age of Empires</strong> and <strong>Red Alert</strong>. And yes, the <strong>IronManYG</strong> handle is exactly what it sounds like — that first Iron Man film is a big part of why I wanted to build technology.",
+      "cta_work": "View selected work",
+      "cta_cv": "Download CV",
+      "cta_contact": "Contact me",
+      "portrait_alt": "Hussain Gaddal — Android Developer in Riyadh",
+      "quick": [
+        { "k": "Experience", "v": "4+ years" },
+        { "k": "Based in", "v": "Riyadh, KSA" },
+        { "k": "Current", "v": "Android Developer · Kay Technology" },
+        { "k": "Stack", "v": "Kotlin · Compose · KMP" },
+        { "k": "Languages", "v": "Arabic · English" },
+        { "k": "Links", "v": "<a href=\"https://github.com/IronManYG\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hover:text-rt-accent transition-colors\">github</a> · <a href=\"https://www.linkedin.com/in/hussaingaddal/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hover:text-rt-accent transition-colors\">linkedin</a>" }
+      ]
     },
     "experience": {
-      "section_label": "experience",
-      "heading_timeline": "Timeline()",
-      "description": "My professional journey in software engineering.",
+      "eyebrow": "Experience",
+      "heading": "How I got here",
+      "total": "<b>8+ years</b> at Kay Technology · <b>4+</b> in Android",
       "items": [
         {
+          "current": true,
           "role": "Android Developer",
-          "company": "@ Kay Technology",
-          "color": "text-kotlin-orange",
-          "date_location": "Mar 2022 - Present | Riyadh, Saudi Arabia",
-          "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
-          "details": [
-            "Took <strong class=\"text-ide-text-strong\">full technical ownership</strong> of the Android product. Led the migration from a legacy Java/XML codebase to Kotlin and Jetpack Compose, cutting crash rates by <strong class=\"text-ide-text-strong\">40%</strong>.",
-            "Built reusable internal SDKs and core modules for authentication, search, and download management, speeding up the team's delivery by <strong class=\"text-ide-text-strong\">25%</strong>.",
-            "Designed UIs with <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>, Coil, and Lottie animations, increasing user session duration by <strong class=\"text-ide-text-strong\">15%</strong>.",
-            "Set architectural standards (Clean Architecture, MVI) and built a <strong class=\"text-ide-text-strong\">Bitrise CI/CD pipeline</strong>, cutting developer onboarding time by <strong class=\"text-ide-text-strong\">50%</strong>.",
-            "Built and maintained lightweight Ktor micro-services for authentication and content delivery, improving API response times by <strong class=\"text-ide-text-strong\">30%</strong>."
+          "at": "Kay Technology",
+          "when": "2022 — Present · Riyadh",
+          "bullets": [
+            { "metric": "−40%", "text": "Took <b>full technical ownership</b> of the Android product and led the migration from a legacy Java/XML codebase to Kotlin and Jetpack Compose — cutting crash rates by <b>40%</b>." },
+            { "metric": "+25%", "text": "Built reusable in-house SDKs and core modules for auth, search, and download management — speeding up the team's delivery by <b>25%</b>." },
+            { "metric": "+15%", "text": "Designed UIs in <b>Material 3 Compose</b> with Coil and Lottie — increasing user session duration by <b>15%</b>." },
+            { "metric": "−50%", "text": "Set the architecture standards (Clean Architecture, MVI) and built a <b>Bitrise CI/CD</b> pipeline — cutting developer onboarding time by <b>50%</b>." },
+            { "metric": "+30%", "text": "Built and maintained lightweight <b>Ktor</b> services for auth and content delivery — improving API response times by <b>30%</b>." }
           ]
         },
         {
           "role": "Researcher",
-          "company": "@ Kay Technology",
-          "color": "text-kotlin-orange",
-          "date_location": "Sep 2017 - Mar 2022 | Riyadh, Saudi Arabia",
-          "node_color": "bg-[#A3E635] ring-[#A3E635]/20 border-ide-bg",
-          "details": [
-            "Co-built <strong class=\"text-ide-text-strong\">Kay Scanner</strong>, a device that scans physical books without human page-flipping. Worked across hardware control, image capture, and software automation around the scan pipeline.",
-            "Helped deliver <strong class=\"text-ide-text-strong\">Kay Labs</strong>, a 3D-printing lab partnered with Imam Muhammad bin Saud University (College of Computer & Information Sciences), equipped with Ultimaker hardware so students could prototype their CS coursework projects.",
-            "Hands-on with Fusion 360, Ultimaker hardware, and Cura slicing. The prototyping work led into mobile engineering at Kay Tech in 2022."
+          "at": "Kay Technology",
+          "when": "2017 — 2022 · Riyadh",
+          "bullets": [
+            { "text": "Co-built <b>Kay Scanner</b>, a device that scans physical books without human page-flipping. I wrote its <b>Arduino/C++</b> firmware across hardware control, image capture, and scan-pipeline automation — the motor and servo that move the cradle, the cameras that capture each page, and the suction fans that flip pages, looping through a whole book on its own. Controlling a real machine in code is what got me into programming." },
+            { "text": "Helped deliver <b>Kay Labs</b>, a 3D-printing lab partnered with Imam Muhammad bin Saud University, equipped with Ultimaker hardware so students could prototype their CS coursework." },
+            { "text": "Hands-on with Fusion 360, Ultimaker hardware, and Cura — this prototyping work led into mobile engineering at Kay Tech in 2022." }
           ]
         },
         {
-          "role": "Bachelor (Honors) of Electrical Engineering",
-          "company": "@ Academy of Engineering Sciences",
-          "color": "text-kotlin-purple",
-          "date_location": "2011 - 2016",
-          "node_color": "bg-kotlin-purple ring-kotlin-purple/20 border-ide-bg",
-          "details": [
-            "Finished an engineering program that built a strong foundation in systems thinking, problem-solving, and analytical skills, which helps me architect reliable software systems."
+          "role": "Bachelor (Honors), Electrical Engineering",
+          "at": "Academy of Engineering Sciences",
+          "when": "2011 — 2016",
+          "bullets": [
+            { "text": "A heavy-maths engineering degree. It taught me to break a problem down before building — the same instinct I use to architect software now." }
           ]
         }
       ]
     },
     "certifications": {
-      "section_label": "Certifications.*",
-      "description": "These courses shaped how I think about architecture and cross-platform development.",
+      "eyebrow": "Certifications",
+      "heading": "Courses I've taken.",
       "items": [
-        {
-          "icon": "ph-certificate text-kotlin-orange",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "title": "Building Industry-Level Compose Multiplatform Apps",
-          "description": "Advanced tracks for Desktop, Android, and iOS, created in collaboration with <strong>JetBrains</strong>.",
-          "provider_year": "PL Coding | 2025"
-        },
-        {
-          "icon": "ph-shield-check text-[#79C0FF]",
-          "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "Building Industry-Level Kotlin Backends With Spring Boot",
-          "description": "JetBrains-partnered course on server-side Kotlin architecture, REST design, and database management.",
-          "provider_year": "PL Coding | 2025"
-        },
-        {
-          "icon": "ph-code text-kotlin-purple",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "title": "The Essentials of Industry-Level Android App Development",
-          "description": "Production-grade Android patterns covering multi-module architecture, dependency injection, and CI/CD.",
-          "provider_year": "PL Coding | 2024"
-        },
-        {
-          "icon": "ph-watch text-kotlin-orange",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "title": "Building Industry-Level Wear OS Apps",
-          "description": "Wear OS development with Health Services API, Tiles, and cross-device sync.",
-          "provider_year": "PL Coding | 2024"
-        },
-        {
-          "icon": "ph-git-branch text-[#79C0FF]",
-          "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "Professional App Development With CI/CD",
-          "description": "Automated build, test, and deployment pipelines with Bitrise for continuous integration and delivery.",
-          "provider_year": "PL Coding | 2022"
-        },
-        {
-          "icon": "ph-android-logo text-[#A3E635]",
-          "borderHover": "hover:border-[#A3E635]/50",
-          "title": "Android Kotlin Developer Nanodegree",
-          "description": "Program covering core Android SDK principles, lifecycle management, and common design patterns.",
-          "provider_year": "Udacity | 2022"
-        }
+        { "by": "PL Coding", "year": "2025", "name": "Building Industry-Level Compose Multiplatform Apps", "note": "Production CMP across Android, iOS &amp; Desktop — built in collaboration with JetBrains." },
+        { "by": "PL Coding", "year": "2025", "name": "Industry-Level Kotlin Backends with Spring Boot", "note": "Server-side Kotlin: REST design, persistence, and architecture — JetBrains-partnered." },
+        { "by": "PL Coding", "year": "2024", "name": "The Essentials of Industry-Level Android Development", "note": "Multi-module architecture, dependency injection, and CI/CD for production Android." },
+        { "by": "PL Coding", "year": "2024", "name": "Building Industry-Level Wear OS Apps", "note": "Wear OS with Health Services API, Tiles, and cross-device sync." },
+        { "by": "PL Coding", "year": "2022", "name": "Professional App Development with CI/CD", "note": "Automated build, test, and release pipelines with Bitrise." },
+        { "by": "Udacity", "year": "2022", "name": "Android Kotlin Developer Nanodegree", "note": "Core Android SDK, lifecycle management, and common design patterns." }
       ]
     }
   },
   "ar": {
     "hero": {
-      "title": "نبذة <span class=\"gradient-text\">عني</span>",
-      "subtitle": "أنا مطور أندرويد، أهتم بشدة بجودة بناء وهندسة البرمجيات. قضيت أكثر من 4 سنوات في شركة <strong>كيه لتقنية المعلومات</strong> في بناء تطبيقات مخصصة للإنتاج الفعلي — انتقالاً من الأكواد القديمة (Legacy Codebases) إلى بيئات حديثة، وتصميم معماريات متعددة الوحدات (Multi-module)، وإطلاق ميزات برمجية قادرة على العمل بكفاءة وموثوقية على النطاق الواسع."
+      "eyebrow": "نبذة",
+      "headline": "أربع سنوات في بناء تطبيقات أندرويد كبيرة بـ <em>Kotlin و Compose</em>.",
+      "lede": "أنا <strong>حسين قدّال</strong>، مطوّر أندرويد في <strong>الرياض</strong> يهتم بطريقة بناء البرمجيات وهندستها. على مدى أكثر من ٤ سنوات في <strong>كيه لتقنية المعلومات</strong>، نقلتُ بيئة عمل قديمة إلى Kotlin و Compose، وصمّمتُ معماريات متعددة الوحدات، ووضعتُ المعايير الهندسية. وأصبح Kotlin Multiplatform اليوم جزءاً كبيراً من عملي.",
+      "personal": "خارج العمل، أطبع نماذجي ثلاثية الأبعاد — أصمّم قطعي الخاصة وأُصلّح الأجهزة المعطّلة — وأقرأ في مجالات شتّى، وأستجمّ بألعاب الاستراتيجية الكلاسيكية مثل <strong>Age of Empires</strong> و <strong>Red Alert</strong>. ونعم، اسم <strong>IronManYG</strong> هو تمامًا ما يبدو عليه؛ فيلم Iron Man الأول جزءٌ كبير من سبب رغبتي في بناء التقنية.",
+      "cta_work": "المشاريع المختارة",
+      "cta_cv": "تنزيل السيرة",
+      "cta_contact": "تواصل معي",
+      "portrait_alt": "حسين قدال — مطوّر أندرويد في الرياض",
+      "quick": [
+        { "k": "الخبرة", "v": "+٤ سنوات" },
+        { "k": "المقر", "v": "الرياض، السعودية" },
+        { "k": "الحالي", "v": "مطوّر أندرويد · كيه لتقنية المعلومات" },
+        { "k": "التقنيات", "v": "Kotlin · Compose · KMP" },
+        { "k": "اللغات", "v": "العربية · الإنجليزية" },
+        { "k": "الروابط", "v": "<a href=\"https://github.com/IronManYG\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hover:text-rt-accent transition-colors\">github</a> · <a href=\"https://www.linkedin.com/in/hussaingaddal/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"hover:text-rt-accent transition-colors\">linkedin</a>" }
+      ]
     },
     "experience": {
-      "section_label": "experience",
-      "heading_timeline": "Timeline()",
-      "description": "مسيرتي المهنية في هندسة البرمجيات.",
+      "eyebrow": "المسيرة",
+      "heading": "كيف وصلتُ إلى هنا",
+      "total": "<b>+٨ سنوات</b> في كيه لتقنية المعلومات · <b>+٤</b> في الأندرويد",
       "items": [
         {
-          "role": "مطور أندرويد",
-          "company": "@ كيه لتقنية المعلومات",
-          "color": "text-kotlin-orange",
-          "date_location": "مارس 2022 - الحاضر | الرياض، السعودية",
-          "node_color": "bg-[#79C0FF] ring-[#79C0FF]/20 border-ide-bg",
-          "details": [
-            "توليت <strong class=\"text-ide-text-strong\">القيادة التقنية الكاملة</strong> لمنتج الأندرويد. أدرت عملية الانتقال من بيئة عمل قديمة مبنية بـ Java/XML إلى معمارية حديثة باستخدام Kotlin و Jetpack Compose، مما أدى إلى <strong class=\"text-ide-text-strong\">انخفاض معدلات الانهيار بنسبة 40%</strong>.",
-            "بنيت حزماً برمجية داخلية (SDKs) ووحدات أساسية قابلة لإعادة الاستخدام لخدمات المصادقة، والبحث، وإدارة التنزيلات، مما سرّع من وتيرة إنجاز الفريق بنسبة <strong class=\"text-ide-text-strong\">25%</strong>.",
-            "صممت واجهات مستخدم تفاعلية وجذابة باستخدام <strong class=\"text-ide-text-strong\">Material 3 Compose</strong>، بالإضافة إلى مكتبات Coil وتأثيرات Lottie الحركية، مما زاد من مدة جلسة المستخدم بنسبة <strong class=\"text-ide-text-strong\">15%</strong>.",
-            "وضعت معايير معمارية واضحة (Clean Architecture, MVI) وأسست مسار تكامل وتسليم مستمر (<strong class=\"text-ide-text-strong\">Bitrise CI/CD</strong>)، مما قلص من وقت تأهيل المطورين الجدد بنسبة <strong class=\"text-ide-text-strong\">50%</strong>.",
-            "برمجت وأدرت خدمات مصغرة (Micro-services) خفيفة باستخدام Ktor للمصادقة وتوصيل المحتوى، مما أدى إلى تحسين سرعة استجابة الـ API بنسبة <strong class=\"text-ide-text-strong\">30%</strong>."
+          "current": true,
+          "role": "مطوّر أندرويد",
+          "at": "كيه لتقنية المعلومات",
+          "when": "٢٠٢٢ — الحاضر · الرياض",
+          "bullets": [
+            { "metric": "−٤٠٪", "text": "توليت <b>القيادة التقنية الكاملة</b> لمنتج الأندرويد، وقُدت الانتقال من Java/XML إلى Kotlin و Jetpack Compose — مع انخفاض معدلات الانهيار بنسبة <b>٤٠٪</b>." },
+            { "metric": "+٢٥٪", "text": "بنيت حِزماً داخلية (SDKs) ووحدات أساسية للمصادقة والبحث وإدارة التنزيلات — مع تسريع إنجاز الفريق بنسبة <b>٢٥٪</b>." },
+            { "metric": "+١٥٪", "text": "صممت واجهات بـ <b>Material 3 Compose</b> مع Coil و Lottie — مع زيادة مدة جلسة المستخدم بنسبة <b>١٥٪</b>." },
+            { "metric": "−٥٠٪", "text": "وضعت المعايير المعمارية (Clean Architecture، MVI) وأسست مسار <b>Bitrise CI/CD</b> — مع تقليص وقت تأهيل المطورين بنسبة <b>٥٠٪</b>." },
+            { "metric": "+٣٠٪", "text": "برمجت وأدرت خدمات <b>Ktor</b> خفيفة للمصادقة وتوصيل المحتوى — مع تحسين سرعة استجابة الـ API بنسبة <b>٣٠٪</b>." }
           ]
         },
         {
           "role": "باحث",
-          "company": "@ كيه لتقنية المعلومات",
-          "color": "text-kotlin-orange",
-          "date_location": "سبتمبر 2017 - مارس 2022 | الرياض، السعودية",
-          "node_color": "bg-[#A3E635] ring-[#A3E635]/20 border-ide-bg",
-          "details": [
-            "شاركت في بناء <strong class=\"text-ide-text-strong\">Kay Scanner</strong>، جهاز يقوم بمسح الكتب الورقية ضوئياً دون الحاجة لتقليب الصفحات يدوياً. عملت على التحكم بالجهاز، والتقاط الصور، وأتمتة البرمجيات حول مسار المسح.",
-            "ساهمت في إطلاق <strong class=\"text-ide-text-strong\">Kay Labs</strong>، معمل للطباعة ثلاثية الأبعاد بالشراكة مع جامعة الإمام محمد بن سعود الإسلامية (كلية علوم الحاسب والمعلومات)، مُجهّز بأجهزة Ultimaker لتمكين الطلاب من بناء النماذج الأولية لمشاريعهم البرمجية.",
-            "خبرة عملية مع Fusion 360 و Ultimaker و Cura. مرحلة النماذج الأولية هذه كانت مدخلي إلى هندسة تطبيقات الجوال في كيه لتقنية المعلومات عام 2022."
+          "at": "كيه لتقنية المعلومات",
+          "when": "٢٠١٧ — ٢٠٢٢ · الرياض",
+          "bullets": [
+            { "text": "شاركت في بناء <b>Kay Scanner</b>، جهاز يمسح الكتب الورقية دون تقليب الصفحات يدويًا. كتبتُ برنامجه الثابت بلغة <b>C++</b> على Arduino، شاملًا التحكم بالعتاد والتقاط الصور وأتمتة مسار المسح: المحرّك والمُوجِّه (Servo) اللذان يحرّكان مهد المسح، والكاميرتان اللتان تلتقطان كل صفحة، ومراوح الشفط التي تقلّب الصفحات، مع تكرار العملية تلقائيًا عبر الكتاب كله. التحكّم في آلة حقيقية عبر الكود هو ما جعلني أعشق البرمجة." },
+            { "text": "ساهمت في إطلاق <b>Kay Labs</b>، معمل للطباعة ثلاثية الأبعاد بالشراكة مع جامعة الإمام محمد بن سعود الإسلامية، مُجهّز بأجهزة Ultimaker لتمكين الطلاب من بناء نماذجهم البرمجية." },
+            { "text": "خبرة عملية مع Fusion 360 و Ultimaker و Cura — هذه المرحلة كانت مدخلي إلى هندسة تطبيقات الجوال في كيه لتقنية المعلومات عام ٢٠٢٢." }
           ]
         },
         {
           "role": "بكالوريوس (مع مرتبة الشرف) في الهندسة الكهربائية",
-          "company": "@ أكاديمية العلوم الهندسية",
-          "color": "text-kotlin-purple",
-          "date_location": "2011 - 2016",
-          "node_color": "bg-kotlin-purple ring-kotlin-purple/20 border-ide-bg",
-          "details": [
-            "أتممت برنامجاً هندسياً شاملاً، والذي أرسى لدي أساساً متيناً في طرق التفكير الهيكلي، وحل المشكلات، والمهارات التحليلية، وهي الأسس التي أستند إليها الآن في تصميم أنظمة برمجية موثوقة."
+          "at": "أكاديمية العلوم الهندسية",
+          "when": "٢٠١١ — ٢٠١٦",
+          "bullets": [
+            { "text": "شهادة هندسية بأساس رياضي قوي. علّمتني أن أُفكّك المشكلة قبل أن أبني، وهي العادة نفسها التي أصمّم بها البرمجيات اليوم." }
           ]
         }
       ]
     },
     "certifications": {
-      "section_label": "Certifications.*",
-      "description": "أحرص دائماً على تطوير مهاراتي — هذه الدورات صقلت طريقتي في التفكير حول معمارية البرمجيات والتطوير متعدد المنصات (Cross-platform).",
+      "eyebrow": "الشهادات",
+      "heading": "دورات أكملتُها.",
       "items": [
-        {
-          "icon": "ph-certificate text-kotlin-orange",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "title": "بناء تطبيقات Compose Multiplatform بمستوى احترافي",
-          "description": "اجتياز برامج تدريبية متقدمة لتطوير تطبيقات سطح المكتب، الأندرويد، والـ iOS (بمشاركة رسمية وتصميم من <strong>JetBrains</strong>).",
-          "provider_year": "PL Coding | 2025"
-        },
-        {
-          "icon": "ph-shield-check text-[#79C0FF]",
-          "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "بناء خدمات خلفية بلغة Kotlin بمستوى احترافي باستخدام Spring Boot",
-          "description": "دورة معتمدة بالشراكة مع <strong>JetBrains</strong> تركز على بناء خوادم Kotlin قابلة للتوسع وإدارة قواعد البيانات.",
-          "provider_year": "PL Coding | 2025"
-        },
-        {
-          "icon": "ph-code text-kotlin-purple",
-          "borderHover": "hover:border-kotlin-purple/50",
-          "title": "أساسيات تطوير تطبيقات أندرويد بمستوى احترافي",
-          "description": "تدريب شامل على أنماط تطوير تطبيقات الأندرويد الاحترافية الجاهزة للإنتاج، بما في ذلك المعمارية متعددة الوحدات وتطبيقات CI/CD.",
-          "provider_year": "PL Coding | 2024"
-        },
-        {
-          "icon": "ph-watch text-kotlin-orange",
-          "borderHover": "hover:border-kotlin-orange/50",
-          "title": "بناء تطبيقات Wear OS بمستوى احترافي",
-          "description": "تطوير Wear OS شاملاً Health Services API، Tiles، والمزامنة بين الأجهزة.",
-          "provider_year": "PL Coding | 2024"
-        },
-        {
-          "icon": "ph-git-branch text-[#79C0FF]",
-          "borderHover": "hover:border-[#79C0FF]/50",
-          "title": "التطوير الاحترافي للتطبيقات مع CI/CD",
-          "description": "أتمتة شاملة لدورات البناء والاختبار والنشر عبر Bitrise لضمان التكامل والتسليم المستمر الموثوق.",
-          "provider_year": "PL Coding | 2022"
-        },
-        {
-          "icon": "ph-android-logo text-[#A3E635]",
-          "borderHover": "hover:border-[#A3E635]/50",
-          "title": "Nanodegree لمطور الأندرويد مع لغة Kotlin",
-          "description": "برنامج متكامل يغطي المبادئ الأساسية لـ Android SDK، وإدارة دورة حياة التطبيق، وأنماط التصميم (Design Patterns).",
-          "provider_year": "Udacity | 2022"
-        }
+        { "by": "PL Coding", "year": "٢٠٢٥", "name": "بناء تطبيقات Compose Multiplatform بمستوى احترافي", "note": "تطبيقات إنتاجية للأندرويد و iOS وسطح المكتب — بالشراكة مع JetBrains." },
+        { "by": "PL Coding", "year": "٢٠٢٥", "name": "بناء خدمات Kotlin الخلفية باستخدام Spring Boot", "note": "خوادم Kotlin قابلة للتوسع: تصميم REST وإدارة قواعد البيانات — بالشراكة مع JetBrains." },
+        { "by": "PL Coding", "year": "٢٠٢٤", "name": "أساسيات تطوير تطبيقات أندرويد بمستوى احترافي", "note": "معمارية متعددة الوحدات وحقن التبعيات (DI) وتطبيقات CI/CD لإنتاج احترافي." },
+        { "by": "PL Coding", "year": "٢٠٢٤", "name": "بناء تطبيقات Wear OS بمستوى احترافي", "note": "تطوير Wear OS مع Health Services API و Tiles والمزامنة بين الأجهزة." },
+        { "by": "PL Coding", "year": "٢٠٢٢", "name": "التطوير الاحترافي للتطبيقات مع CI/CD", "note": "أتمتة مسارات البناء والاختبار والنشر باستخدام Bitrise." },
+        { "by": "Udacity", "year": "٢٠٢٢", "name": "Nanodegree لمطوّر الأندرويد مع Kotlin", "note": "أساسيات Android SDK وإدارة دورة حياة التطبيق وأنماط التصميم." }
       ]
     }
   }

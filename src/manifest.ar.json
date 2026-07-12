@@ -1,0 +1,32 @@
+{
+  "name": "حسين قدال | مطور تطبيقات أندرويد",
+  "short_name": "حسين قدال",
+  "description": "الموقع الشخصي لحسين قدال، مطور تطبيقات أندرويد.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./ar/",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#15140f",
+  "theme_color": "#15140f",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/branding/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/branding/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
