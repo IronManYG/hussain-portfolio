@@ -5,8 +5,10 @@
   "scripts": {
     "start": "npm-run-all --parallel watch:*",
     "build": "npm-run-all build:*",
+    "build:check": "node tools/check-icons.mjs",
     "build:css": "tailwindcss -i ./src/css/styles.css -o ./_site/styles.css --minify",
     "build:eleventy": "eleventy",
+    "icons:subset": "node tools/subset-icons.mjs",
     "watch:css": "tailwindcss -i ./src/css/styles.css -o ./_site/styles.css --watch",
     "watch:eleventy": "eleventy --serve"
   },

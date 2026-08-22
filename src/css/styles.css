@@ -7,7 +7,10 @@
    unpkg round-trip, no fallback->webfont swap (the FOUT flash that
    showed as a blank content-paint gap on every page navigation).
    url()s are RELATIVE so they resolve under the /hussain-portfolio/
-   pathPrefix. Phosphor is subsetted to the 28 icons actually used. */
+   pathPrefix. Phosphor is subsetted to the 31 icons actually used —
+   regenerate with `npm run icons:subset` (tools/subset-icons.mjs) after
+   adding a rule below; `npm run build` fails if a template uses a ph-*
+   class that has no rule here. */
 
 @font-face {
   font-family: "Phosphor";
@@ -40,7 +43,9 @@
 .ph.ph-envelope-simple:before { content: "\e218"; }
 .ph.ph-file-pdf:before { content: "\e702"; }
 .ph.ph-github-logo:before { content: "\e576"; }
+.ph.ph-google-play-logo:before { content: "\e294"; }
 .ph.ph-hard-drive:before { content: "\e29e"; }
+.ph.ph-house:before { content: "\e2c2"; }
 .ph.ph-layout:before { content: "\e6d6"; }
 .ph.ph-leaf:before { content: "\e2da"; }
 .ph.ph-linkedin-logo:before { content: "\e2ee"; }
@@ -50,6 +55,7 @@
 .ph.ph-paper-plane-tilt:before { content: "\e398"; }
 .ph.ph-phone:before { content: "\e3b8"; }
 .ph.ph-planet:before { content: "\e652"; }
+.ph.ph-squares-four:before { content: "\e464"; }
 .ph.ph-stack:before { content: "\e466"; }
 .ph.ph-sun:before { content: "\e472"; }
 .ph.ph-translate:before { content: "\e4a2"; }
