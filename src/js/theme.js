@@ -3,14 +3,21 @@ export function initTheme() {
     const themeIcon = document.getElementById('theme-icon');
     const root = document.documentElement;
 
-    // Project thumbnails are a <picture> whose dark <source> is keyed on the OS
-    // preference, so the browser downloads only the matching file. When an
-    // explicit choice disagrees with the OS, that source has to be re-pointed:
-    // rewriting img.src would do nothing, because a matching <source> always
-    // wins over it. 'all' forces the dark file, 'not all' never matches.
-    const syncThemeImages = (isDark) => {
+    // Two things resolve the theme in CSS rather than JS, so they cost nothing
+    // for the many visitors whose choice matches their OS:
+    //   - thumbnails are a <picture> whose dark <source> is media-keyed, so the
+    //     browser downloads only the matching file;
+    //   - theme-color ships as a media-scoped pair.
+    // Both are keyed on prefers-color-scheme, so an explicit choice that
+    // disagrees with the OS has to re-point them. Flipping `media` is what does
+    // it: rewriting img.src would do nothing, because a matching <source>
+    // always wins over it. 'all' always matches, 'not all' never does.
+    const syncThemeMedia = (isDark) => {
         document.querySelectorAll('source[data-thumb-dark]').forEach((source) => {
             source.media = isDark ? 'all' : 'not all';
+        });
+        document.querySelectorAll('meta[data-theme-color]').forEach((meta) => {
+            meta.media = (meta.dataset.themeColor === 'dark') === isDark ? 'all' : 'not all';
         });
     };
 
@@ -22,7 +29,7 @@ export function initTheme() {
         const isDark = typeof toDark === 'boolean'
             ? root.classList.toggle('dark', toDark)
             : root.classList.toggle('dark');
-        syncThemeImages(isDark);
+        syncThemeMedia(isDark);
         // Force a reflow so the no-transition state is committed before paint…
         void root.offsetWidth;
         // …then restore transitions after the new colors have painted.
@@ -47,15 +54,15 @@ export function initTheme() {
         }
     };
 
-    // The <source> media queries above resolved against the OS preference while
-    // the page parsed. If the theme the head script settled on disagrees with
-    // it — an explicit choice saved from a previous visit — the thumbnails are
-    // showing the wrong variant, so correct them once. Visitors whose choice
-    // matches the OS (and everyone who never toggled) stay on the pure-CSS
-    // path and never fetch a second image.
+    // Those media queries resolved against the OS preference while the page
+    // parsed. If the theme the head script settled on disagrees with it — an
+    // explicit choice saved from a previous visit — the thumbnails and the
+    // browser chrome are showing the wrong variant, so correct them once.
+    // Visitors whose choice matches the OS (and everyone who never toggled)
+    // stay on the pure-CSS path and never fetch a second image.
     const osPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (root.classList.contains('dark') !== !!osPrefersDark) {
-        syncThemeImages(root.classList.contains('dark'));
+        syncThemeMedia(root.classList.contains('dark'));
     }
 
     if (themeToggleBtn && themeIcon) {

@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "src/css/styles.css"
+        ],
+        "createdAt": "2026-08-22T16:51:17.937Z",
+        "reason": "user confirmed: .mobile-nav-link.is-active is an active-row state indicator, not the always-on card decoration this rule targets; it only paints on .is-active and mirrors in RTL via the logical property. Scoped to the stylesheet because side-tab has no extractable value, so a value-scoped ignore cannot match."
+      }
+    ]
+  }
+}

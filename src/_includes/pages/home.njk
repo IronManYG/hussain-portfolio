@@ -64,7 +64,7 @@
             {% for p in h.about.paragraphs.slice(0, 3) %}
             <p class="text-rt-muted leading-relaxed{% if not loop.last %} mb-4{% endif %}">{{ p | safe }}</p>
             {% endfor %}
-            <a href="{{ (base + '/about/') | url }}" class="inline-flex items-center gap-2 text-sm text-rt-accent hover:brightness-110 transition mt-6">
+            <a href="{{ (base + '/about/') | url }}" class="inline-flex items-center gap-2 py-1 text-sm text-rt-accent hover:brightness-110 transition mt-6">
                 {{ 'المزيد عنّي' if isRtl else 'More about me' }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span>
             </a>
         </div>
@@ -78,7 +78,7 @@
             <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ h.featured_projects.section_label }}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ h.featured_projects.title }}</h2>
         </div>
-        <a href="{{ (base + '/projects/') | url }}" class="hidden sm:inline-flex items-center gap-2 text-sm text-rt-accent hover:brightness-110 transition">
+        <a href="{{ (base + '/projects/') | url }}" class="hidden sm:inline-flex items-center gap-2 py-1 text-sm text-rt-accent hover:brightness-110 transition">
             {{ t.breadcrumb_projects }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span>
         </a>
     </div>
@@ -151,7 +151,7 @@
     </div>
 
     <div class="mt-10 text-center sm:hidden">
-        <a href="{{ (base + '/projects/') | url }}" class="inline-flex items-center gap-2 text-sm text-rt-accent">{{ t.breadcrumb_projects }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span></a>
+        <a href="{{ (base + '/projects/') | url }}" class="inline-flex items-center gap-2 py-1 text-sm text-rt-accent">{{ t.breadcrumb_projects }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span></a>
     </div>
 </section>
 
