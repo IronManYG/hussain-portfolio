@@ -164,9 +164,9 @@
                    muted and brightens on hover, so the toggle reads as state,
                    not just a button. #}
                 {% if isRtl %}
-                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="group-hover:text-rt-text transition-colors">EN</span> / <span class="font-bold text-rt-text">ع</span></a>
+                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span lang="en" class="group-hover:text-rt-text transition-colors">EN</span> / <span lang="ar" class="font-bold text-rt-text">ع</span></a>
                 {% else %}
-                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="font-bold text-rt-text">EN</span> / <span class="group-hover:text-rt-text transition-colors">ع</span></a>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span lang="en" class="font-bold text-rt-text">EN</span> / <span lang="ar" class="group-hover:text-rt-text transition-colors">ع</span></a>
                 {% endif %}
                 <button id="mobile-menu-btn" class="rt-tap text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list" aria-hidden="true"></i>
