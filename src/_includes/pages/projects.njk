@@ -62,7 +62,10 @@
             </div>
             <div class="flex flex-wrap items-center gap-4">
                 <a href="{{ (base + '/' + project.slug + '/') | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-2.5 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">{{ 'اقرأ دراسة الحالة' if isRtl else 'Read case study' }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span></a>
-                {% if project.repoUrl %}<a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-rt-muted hover:text-rt-accent transition-colors">GitHub ↗</a>{% endif %}
+                {# py-1: sits beside the case-study button as its own CTA, so it
+                   needs to clear the 24px target floor rather than lean on the
+                   inline-text exception. #}
+                {% if project.repoUrl %}<a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center py-1 font-mono text-xs text-rt-muted hover:text-rt-accent transition-colors">GitHub ↗</a>{% endif %}
             </div>
         </div>
     </div>
