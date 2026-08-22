@@ -42,3 +42,14 @@ brand/
 src/_data/image_prompts.json
 .notes/
 
+
+# Impeccable design-skill install (npx impeccable install). The .claude/ copy is
+# already covered above; these are the GitHub Copilot copies of the same skill
+# and agents — local tooling, not part of the site.
+.github/agents/
+.github/hooks/
+.github/skills/
+
+# Impeccable detector cache (per-machine). The shared config.json IS committed,
+# so the reviewed ignore-values travel with the repo.
+.impeccable/hook.cache.json

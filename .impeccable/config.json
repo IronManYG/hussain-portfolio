@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "border-inline-start: 3px solid",
+        "createdAt": "2026-08-22T16:33:05.149Z",
+        "reason": "user confirmed: intentional active-row state indicator on .mobile-nav-link.is-active, not card decoration; only applies on .is-active and mirrors correctly in RTL via the logical property"
+      }
+    ]
+  }
+}
