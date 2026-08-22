@@ -145,20 +145,20 @@
                     <i class="ph ph-github-logo text-base"></i> {{ t.btn_view_code }}
                 </a>
                 {% endif %}
-                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-2" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-2" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
-                <button id="theme-toggle" class="text-xl hover:text-rt-text transition-colors p-2" aria-label="{{ t.theme_toggle_aria }}" data-label-light="{{ t.theme_label_light }}" data-label-dark="{{ t.theme_label_dark }}">
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="rt-tap hidden md:inline-flex text-xl hover:text-rt-text transition-colors p-2" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="rt-tap hidden md:inline-flex text-xl hover:text-rt-accent transition-colors p-2" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+                <button id="theme-toggle" class="rt-tap text-xl hover:text-rt-text transition-colors p-2" aria-label="{{ t.theme_toggle_aria }}" data-label-light="{{ t.theme_label_light }}" data-label-dark="{{ t.theme_label_dark }}">
                     <i class="ph ph-moon" id="theme-icon"></i>
                 </button>
                 {# Active language is bold + full text color; the target stays
                    muted and brightens on hover, so the toggle reads as state,
                    not just a button. #}
                 {% if isRtl %}
-                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="group-hover:text-rt-text transition-colors">EN</span> / <span class="font-bold text-rt-text">ع</span></a>
+                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="group-hover:text-rt-text transition-colors">EN</span> / <span class="font-bold text-rt-text">ع</span></a>
                 {% else %}
-                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="font-bold text-rt-text">EN</span> / <span class="group-hover:text-rt-text transition-colors">ع</span></a>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span class="font-bold text-rt-text">EN</span> / <span class="group-hover:text-rt-text transition-colors">ع</span></a>
                 {% endif %}
-                <button id="mobile-menu-btn" class="text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="mobile-menu">
+                <button id="mobile-menu-btn" class="rt-tap text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list" aria-hidden="true"></i>
                 </button>
             </div>
@@ -177,7 +177,7 @@
                 <span class="flex items-center gap-2.5" aria-hidden="true">
                     <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]">HG</span>
                 </span>
-                <button id="mobile-menu-close" class="text-2xl text-rt-muted hover:text-rt-text transition-colors p-1" aria-label="{{ t.menu_close }}">
+                <button id="mobile-menu-close" class="rt-tap text-2xl text-rt-muted hover:text-rt-text transition-colors p-1" aria-label="{{ t.menu_close }}">
                     <i class="ph ph-x" aria-hidden="true"></i>
                 </button>
             </div>
@@ -191,9 +191,9 @@
                 <a href="{{ (base + '/about/') | url }}" class="mobile-nav-link text-rt-muted hover:text-rt-text transition-colors">{{ t.nav_experience }}</a>
             </div>
             <div class="mt-8 pt-6 border-t border-rt-border flex items-center gap-6 text-rt-muted">
-                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo"></i></a>
-                <a href="mailto:hussain.yg2010@gmail.com" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_email }}"><i class="ph ph-envelope-simple"></i></a>
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-text transition-colors" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="mailto:hussain.yg2010@gmail.com" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_email }}"><i class="ph ph-envelope-simple"></i></a>
             </div>
         </div>
     </div>
@@ -220,8 +220,8 @@
             <div class="flex flex-wrap justify-center items-center gap-6 text-rt-muted mb-10">
                 <span class="flex items-center gap-2 font-mono text-sm"><i class="ph ph-map-pin text-rt-accent"></i> {{ t.footer_location }}</span>
                 <span class="h-1 w-1 rounded-full bg-rt-border hidden sm:block" aria-hidden="true"></span>
-                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-text transition-colors" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo"></i></a>
-                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo"></i></a>
+                <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-text transition-colors" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo"></i></a>
+                <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo"></i></a>
             </div>
             <p class="font-mono text-xs text-rt-muted border-t border-rt-border pt-8">&copy; <span id="copyright-year"></span> {{ t.copyright_name }}.</p>
         </div>

@@ -619,6 +619,35 @@
         padding-inline-start: 0.75rem;
     }
 
+    /* Comfortable touch target for icon-only controls. The icons keep their
+       drawn size; only the hit area grows, so nothing shifts visually. These
+       sit in the top corner and the footer where a mis-tap is most costly —
+       the theme, language and menu buttons measured 24-36px on a phone, and
+       the menu button exists only on mobile. WCAG 2.5.8 asks 24x24; 44x44 is
+       the platform guidance for primary controls. */
+    .rt-tap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* The language toggle is a visible bordered pill, so growing it to 44px
+       would make it read as a chunky button beside the icon controls. Expand
+       only the hit area with a transparent overlay and leave the pill alone. */
+    #lang-toggle { position: relative; }
+    #lang-toggle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        min-width: 44px;
+        height: 44px;
+    }
+
     /* Back-to-top floating button */
     .rt-fab {
         position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 40;
