@@ -43,7 +43,11 @@
     <meta name="twitter:description" content="{{ seo_description | default(description) | default(t.site_desc_default) }}">
 
     <script>
-        const savedTheme = localStorage.getItem('theme');
+        // localStorage throws in Safari Private Browsing and when site data is
+        // blocked; without the guard the throw also skipped the js/is-shown
+        // gates below, which arm the entrance animations.
+        let savedTheme = null;
+        try { savedTheme = localStorage.getItem('theme'); } catch (e) { /* no persisted choice available */ }
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const useDark = savedTheme ? savedTheme === 'dark' : prefersDark;
         document.documentElement.classList.toggle('dark', useDark);
@@ -229,7 +233,7 @@
                 <a href="https://github.com/IronManYG" target="_blank" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-text transition-colors" aria-label="{{ t.aria_github }}"><i class="ph ph-github-logo"></i></a>
                 <a href="https://www.linkedin.com/in/hussaingaddal/" target="_blank" rel="noopener noreferrer" class="rt-tap text-2xl hover:text-rt-accent transition-colors" aria-label="{{ t.aria_linkedin }}"><i class="ph ph-linkedin-logo"></i></a>
             </div>
-            <p class="font-mono text-xs text-rt-muted border-t border-rt-border pt-8">&copy; <span id="copyright-year"></span> {{ t.copyright_name }}.</p>
+            <p class="font-mono text-xs text-rt-muted border-t border-rt-border pt-8">&copy; <bdi>{{ "2025" | locNum(locale) }}{% if buildYear > 2025 %}–{{ buildYear | locNum(locale) }}{% endif %}</bdi> {{ t.copyright_name }}.</p>
         </div>
     </footer>
 
@@ -251,8 +255,6 @@
         initMenu();
         initNav();
         initReveal();
-        const yr = document.getElementById('copyright-year');
-        if (yr) yr.textContent = "2025–2026";
     </script>
 
     <!-- Speculation Rules: prerender same-origin pages on hover/touch intent so

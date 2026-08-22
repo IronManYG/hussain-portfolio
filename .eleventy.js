@@ -17,6 +17,11 @@ module.exports = function(eleventyConfig) {
     return String(value).replace(/[0-9]/g, (d) => arabicIndic[d]);
   });
 
+  // Footer copyright range end. Rendered at build time because the year was
+  // hardcoded in a JS string ("2025–2026") that would have gone stale on its
+  // own, and no-JS visitors saw an empty span next to the ©.
+  eleventyConfig.addGlobalData("buildYear", new Date().getFullYear());
+
   // Default locale for every template; src/ar/ar.11tydata.json overrides it
   // to "ar" for the Arabic directory. The shared base_rt.njk layout derives
   // dir/rtl, URL prefix, and UI strings (locales.json) from this.
