@@ -30,9 +30,16 @@
 
     <!-- Hero visual -->
     {% if project.grid.images %}
+    {# Above the fold and almost always the LCP element, so it stays eager and
+       gets fetchpriority. It was previously a dark:hidden / hidden dark:block
+       pair — display:none does not cancel the download, so every visitor paid
+       for two 1600x900 images and saw one, both competing for the LCP. Also
+       fixes the duplicate alt: the pair announced the title twice. #}
     <div class="mb-12 rounded-2xl overflow-hidden border border-rt-border bg-rt-subtle">
-        <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" width="1600" height="900" decoding="async" class="w-full h-auto object-contain dark:hidden">
-        <img src="{{ project.grid.images[locale].dark | url }}" alt="{{ pTitle }}" width="1600" height="900" decoding="async" class="w-full h-auto object-contain hidden dark:block">
+        <picture>
+            <source data-thumb-dark media="(prefers-color-scheme: dark)" srcset="{{ project.grid.images[locale].dark | url }}">
+            <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" width="1600" height="900" decoding="async" fetchpriority="high" class="w-full h-auto object-contain">
+        </picture>
     </div>
     {% elif project.grid.image %}
     <div class="mb-12 rounded-2xl overflow-hidden border border-rt-border bg-rt-subtle">

@@ -92,9 +92,16 @@
         <!-- Feature card (span-12, 2-col, whole thumbnail visible) -->
         <a data-reveal href="{{ (base + '/' + project.slug + '/') | url }}" class="rt-card group md:col-span-12 grid md:grid-cols-[1.4fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <div class="relative aspect-video overflow-hidden bg-rt-subtle">
+                {# One <img>, not a stacked light/dark pair: both halves of a
+                   pair download even when one is hidden, which doubled the
+                   thumbnail payload. <source> resolves the theme in CSS, so
+                   only the matching file is ever fetched; theme.js re-points
+                   it for anyone whose explicit choice differs from their OS. #}
                 {% if project.grid.images %}
-                <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
-                <img src="{{ project.grid.images[locale].dark | url }}" alt="" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
+                <picture>
+                    <source data-thumb-dark media="(prefers-color-scheme: dark)" srcset="{{ project.grid.images[locale].dark | url }}">
+                    <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+                </picture>
                 {% endif %}
             </div>
             <div class="p-6 sm:p-8 flex flex-col justify-center">
@@ -114,9 +121,16 @@
         <!-- Standard card (span-4) -->
         <a data-reveal href="{{ (base + '/' + project.slug + '/') | url }}" class="rt-card group md:col-span-4 flex flex-col border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <div class="relative aspect-video overflow-hidden bg-rt-subtle">
+                {# One <img>, not a stacked light/dark pair: both halves of a
+                   pair download even when one is hidden, which doubled the
+                   thumbnail payload. <source> resolves the theme in CSS, so
+                   only the matching file is ever fetched; theme.js re-points
+                   it for anyone whose explicit choice differs from their OS. #}
                 {% if project.grid.images %}
-                <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-100 dark:opacity-0">
-                <img src="{{ project.grid.images[locale].dark | url }}" alt="" loading="lazy" decoding="async" class="rt-thumb absolute inset-0 w-full h-full object-cover opacity-0 dark:opacity-100">
+                <picture>
+                    <source data-thumb-dark media="(prefers-color-scheme: dark)" srcset="{{ project.grid.images[locale].dark | url }}">
+                    <img src="{{ project.grid.images[locale].light | url }}" alt="{{ pTitle }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover">
+                </picture>
                 {% endif %}
             </div>
             <div class="p-5 flex flex-col flex-1">

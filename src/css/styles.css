@@ -506,13 +506,6 @@
         .page-glow { opacity: 0.5; }
     }
 
-    /* Promote stacked card thumbnails to their own compositor layer so the
-       light/dark opacity swap is GPU-only — no repaint flash / name flicker. */
-    .rt-thumb {
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        will-change: opacity;
-    }
 
     /* Riyadh Terra hero emphasis — accent the <em> words in the H1 */
     .rt-em em {

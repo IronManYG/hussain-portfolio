@@ -3,6 +3,17 @@ export function initTheme() {
     const themeIcon = document.getElementById('theme-icon');
     const root = document.documentElement;
 
+    // Project thumbnails are a <picture> whose dark <source> is keyed on the OS
+    // preference, so the browser downloads only the matching file. When an
+    // explicit choice disagrees with the OS, that source has to be re-pointed:
+    // rewriting img.src would do nothing, because a matching <source> always
+    // wins over it. 'all' forces the dark file, 'not all' never matches.
+    const syncThemeImages = (isDark) => {
+        document.querySelectorAll('source[data-thumb-dark]').forEach((source) => {
+            source.media = isDark ? 'all' : 'not all';
+        });
+    };
+
     // Swap the theme with transitions suppressed for one frame, so colors snap
     // instantly. Without this, the card/page background (300ms) lags the name
     // color (150ms) and the project names briefly wash out — a visible flicker.
@@ -11,6 +22,7 @@ export function initTheme() {
         const isDark = typeof toDark === 'boolean'
             ? root.classList.toggle('dark', toDark)
             : root.classList.toggle('dark');
+        syncThemeImages(isDark);
         // Force a reflow so the no-transition state is committed before paint…
         void root.offsetWidth;
         // …then restore transitions after the new colors have painted.
@@ -34,6 +46,17 @@ export function initTheme() {
             themeToggleBtn.setAttribute('aria-label', themeToggleBtn.dataset.labelDark || 'Switch to Dark Mode');
         }
     };
+
+    // The <source> media queries above resolved against the OS preference while
+    // the page parsed. If the theme the head script settled on disagrees with
+    // it — an explicit choice saved from a previous visit — the thumbnails are
+    // showing the wrong variant, so correct them once. Visitors whose choice
+    // matches the OS (and everyone who never toggled) stay on the pure-CSS
+    // path and never fetch a second image.
+    const osPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (root.classList.contains('dark') !== !!osPrefersDark) {
+        syncThemeImages(root.classList.contains('dark'));
+    }
 
     if (themeToggleBtn && themeIcon) {
         updateThemeIcon();
