@@ -398,12 +398,23 @@
         outline: none;
     }
 
+    /* Reduced motion removes travel, not feedback.
+       This used to flatten `transition-duration` on every element to 0.01ms,
+       which also killed hover, focus and theme-swap colour changes — those
+       carry state, pose no vestibular risk, and losing them made the UI read
+       as unresponsive rather than calm. The entrance reveals and the page-glow
+       drift are already gated behind (prefers-reduced-motion: no-preference),
+       so nothing here needs to flatten them a second time.
+       What still goes: looping animation, and transitions that move or resize
+       (transform, width) — allow-listing the properties is what drops them.
+       scroll-behavior stays forced, or html.scroll-smooth animates every
+       in-page jump. */
     @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
             scroll-behavior: auto !important;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, filter, backdrop-filter !important;
         }
     }
 }
