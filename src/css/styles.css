@@ -286,7 +286,10 @@
         --rt-subtle: 235 228 215;    /* #ebe4d7 */
         --rt-border: 227 220 207;    /* #e3dccf hairline */
         --rt-text: 28 28 31;         /* #1c1c1f */
-        --rt-muted: 107 102 97;      /* #6b6661 */
+        --rt-muted: 106 101 96;      /* #6a6560 — 4.56:1 on --rt-subtle (WCAG AA).
+                                        Do not lighten: #6b6661 measured 4.49:1
+                                        against --rt-subtle and failed AA on 20
+                                        elements (chips, facts strip, footer). */
         --rt-accent: 14 107 98;      /* #0e6b62 deep teal */
         --rt-accent-2: 196 107 58;   /* #c46b3a terracotta */
         --rt-btn-text: 255 255 255;  /* #ffffff */
