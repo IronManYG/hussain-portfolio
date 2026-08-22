@@ -708,20 +708,30 @@
     visibility: visible;
     transition: opacity 0.3s ease;
 }
+/* Anchored to the inline-end edge so the drawer opens on the same side as the
+   hamburger, which flex-reverses to the left in RTL. This was physical
+   (right/border-left/translateX) and never mirrored: Arabic visitors tapped a
+   button on the left and the menu flew in from the right. Insets and the
+   border are logical; transform is not direction-aware, so RTL flips its sign
+   explicitly. */
 .mobile-menu-panel {
     position: absolute;
     top: 0;
-    right: 0;
+    inset-inline-end: 0;
     width: 80%;
     max-width: 320px;
     height: 100%;
     background: rgb(var(--rt-bg));
-    border-left: 1px solid rgb(var(--rt-border));
+    border-inline-start: 1px solid rgb(var(--rt-border));
     padding: 2rem;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.mobile-menu-overlay.active .mobile-menu-panel {
+html[dir="rtl"] .mobile-menu-panel {
+    transform: translateX(-100%);
+}
+.mobile-menu-overlay.active .mobile-menu-panel,
+html[dir="rtl"] .mobile-menu-overlay.active .mobile-menu-panel {
     transform: translateX(0);
 }
 
