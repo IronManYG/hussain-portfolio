@@ -31,7 +31,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          # Single source of truth, shared with the other workflow and with
+          # `nvm use` locally — the version was duplicated in both files.
+          node-version-file: ".nvmrc"
           cache: npm
           
       # `ci` not `install`: `install` is free to resolve newer versions than
