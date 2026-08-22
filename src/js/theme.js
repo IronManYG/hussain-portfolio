@@ -1,4 +1,16 @@
 export function initTheme() {
+    // localStorage throws in Safari Private Browsing and wherever site data is
+    // blocked. The write sat before updateThemeIcon() in the click handler, so
+    // a throw left the icon and aria-label describing the opposite theme from
+    // the one actually on screen. Failing to persist is fine; failing loudly is
+    // not.
+    const readTheme = () => {
+        try { return localStorage.getItem('theme'); } catch (e) { return null; }
+    };
+    const writeTheme = (value) => {
+        try { localStorage.setItem('theme', value); } catch (e) { /* choice just won't survive the session */ }
+    };
+
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const root = document.documentElement;
@@ -70,7 +82,7 @@ export function initTheme() {
 
         themeToggleBtn.addEventListener('click', () => {
             const isDark = swapTheme();
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            writeTheme(isDark ? 'dark' : 'light');
             updateThemeIcon();
         });
     }
@@ -79,7 +91,7 @@ export function initTheme() {
     if (window.matchMedia) {
         const mql = window.matchMedia('(prefers-color-scheme: dark)');
         const onChange = (e) => {
-            if (localStorage.getItem('theme')) return;
+            if (readTheme()) return;
             swapTheme(e.matches);
             updateThemeIcon();
         };

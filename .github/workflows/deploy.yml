@@ -34,8 +34,12 @@ jobs:
           node-version: "24"
           cache: npm
           
+      # `ci` not `install`: `install` is free to resolve newer versions than
+      # package-lock.json pins, so a deploy could pick up a dependency change
+      # nobody committed. `ci` installs the lockfile exactly and fails if the
+      # two have drifted.
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build with Eleventy and Tailwind
         run: npm run build

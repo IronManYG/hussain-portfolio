@@ -2,7 +2,6 @@
 {%- set isRtl = locale == 'ar' -%}
 {%- set base = '/ar' if isRtl else '' -%}
 {% set nonTech = nonTechTags.concat(["Android"]) %}
-{% set prodSlugs = ["maktabati", "sifr", "qodem"] %}
 
 <!-- ───────── Head + filters ───────── -->
 <header class="max-w-7xl mx-auto px-6 pt-32 pb-10 lg:pt-40">
@@ -30,11 +29,8 @@
 
 <!-- ───────── Featured project ───────── -->
 {% for project in projects %}{% if project.feature_card %}
-{% set tl = project.tags | join('|') | lower %}
-{% set isMp = ('multiplatform' in tl) or ('kmm' in tl) or ('kmp' in tl) or ('cmp' in tl) or ('wear os' in tl) %}
-{% set isProd = project.slug in prodSlugs %}
 {% set pTitle = project['title_' + locale] %}
-<section class="featured-card-wrapper max-w-7xl mx-auto px-6 pb-12" data-multiplatform="{{ 'true' if isMp else 'false' }}" data-production="{{ 'true' if isProd else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
+<section class="featured-card-wrapper max-w-7xl mx-auto px-6 pb-12" data-multiplatform="{{ 'true' if project.multiplatform else 'false' }}" data-production="{{ 'true' if project.production else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
     <div data-reveal class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
         <a href="{{ (base + '/' + project.slug + '/') | url }}" class="group relative block aspect-video md:aspect-auto md:min-h-[340px] overflow-hidden bg-rt-subtle" aria-label="{{ pTitle }} — {{ 'دراسة حالة' if isRtl else 'case study' }}">
             <span class="absolute top-4 start-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">{{ 'مميَّز' if isRtl else 'Featured' }}</span>
@@ -66,7 +62,10 @@
             </div>
             <div class="flex flex-wrap items-center gap-4">
                 <a href="{{ (base + '/' + project.slug + '/') | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-2.5 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">{{ 'اقرأ دراسة الحالة' if isRtl else 'Read case study' }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span></a>
-                {% if project.repoUrl %}<a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-rt-muted hover:text-rt-accent transition-colors">GitHub ↗</a>{% endif %}
+                {# py-1: sits beside the case-study button as its own CTA, so it
+                   needs to clear the 24px target floor rather than lean on the
+                   inline-text exception. #}
+                {% if project.repoUrl %}<a href="{{ project.repoUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center py-1 font-mono text-xs text-rt-muted hover:text-rt-accent transition-colors">GitHub ↗</a>{% endif %}
             </div>
         </div>
     </div>
@@ -77,10 +76,7 @@
 <section class="max-w-7xl mx-auto px-6 pb-24">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="projects-grid">
         {% for project in projects %}{% if not project.feature_card %}
-        {% set tl = project.tags | join('|') | lower %}
-        {% set isMp = ('multiplatform' in tl) or ('kmm' in tl) or ('kmp' in tl) or ('cmp' in tl) or ('wear os' in tl) %}
-        {% set isProd = project.slug in prodSlugs %}
-        <div class="project-card-wrapper" data-multiplatform="{{ 'true' if isMp else 'false' }}" data-production="{{ 'true' if isProd else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
+        <div class="project-card-wrapper" data-multiplatform="{{ 'true' if project.multiplatform else 'false' }}" data-production="{{ 'true' if project.production else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
             <a data-reveal href="{{ (base + '/' + project.slug + '/') | url }}" class="rt-card group flex flex-col h-full border border-rt-border rounded-2xl bg-rt-surface p-6 transition-all duration-300">
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                     <h3 class="text-lg sm:text-xl font-bold tracking-tight group-hover:text-rt-accent transition-colors">{{ project['title_' + locale] }}</h3>

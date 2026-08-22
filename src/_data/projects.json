@@ -5,24 +5,43 @@
     "title_ar": "تطبيق Chirp للمراسلة",
     "slug": "chirp",
     "featured": true,
+    "production": false,
+    "multiplatform": true,
     "feature_card": true,
     "feature_label_en": "multiplatform",
     "feature_label_ar": "متعدد المنصات",
     "year": "2025",
-    "shot": "/assets/img/projects/shots/chirp-shot.webp",
     "card_impact_en": "100% shared logic · Android · iOS · Desktop",
     "card_impact_ar": "مشاركة كاملة للمنطق · أندرويد · iOS · سطح المكتب",
     "featured_role_en": "A solo build. One <b>Compose Multiplatform</b> UI runs on Android, iOS &amp; Desktop. The backend is a <b>Spring Boot</b> service with REST and WebSocket streams; the app reaches it through a <b>Ktor</b> client, caches messages in Room for offline use, and wires dependencies with Koin. Messages send in real time, queue when you're offline, and resync on their own.",
     "featured_role_ar": "عمل فردي. واجهة <b>Compose Multiplatform</b> واحدة تعمل على أندرويد و iOS وسطح المكتب. الخادم خدمة <b>Spring Boot</b> تقدّم واجهات REST وقنوات WebSocket؛ ويصل إليها التطبيق عبر عميل <b>Ktor</b>، ويخزّن الرسائل في Room للعمل دون اتصال، ويعتمد Koin لحقن التبعيات. الرسائل تُرسَل فوريًا، وتنتظر في طابور عند انقطاع الشبكة، ثم تتزامن تلقائيًا.",
     "featured_stats_en": [
-      { "v": "100%", "k": "shared logic" },
-      { "v": "3", "k": "platforms" },
-      { "v": "Live", "k": "WebSocket sync" }
+      {
+        "v": "100%",
+        "k": "shared logic"
+      },
+      {
+        "v": "3",
+        "k": "platforms"
+      },
+      {
+        "v": "Live",
+        "k": "WebSocket sync"
+      }
     ],
     "featured_stats_ar": [
-      { "v": "١٠٠٪", "k": "مشاركة المنطق" },
-      { "v": "٣", "k": "منصات" },
-      { "v": "فوري", "k": "مزامنة WebSocket" }
+      {
+        "v": "١٠٠٪",
+        "k": "مشاركة المنطق"
+      },
+      {
+        "v": "٣",
+        "k": "منصات"
+      },
+      {
+        "v": "فوري",
+        "k": "مزامنة WebSocket"
+      }
     ],
     "grid": {
       "size": "md:col-span-8",
@@ -99,6 +118,8 @@
     "title_ar": "صفر",
     "slug": "sifr",
     "featured": true,
+    "production": true,
+    "multiplatform": false,
     "feature_card": true,
     "feature_label_en": "production · google play",
     "feature_label_ar": "إنتاجي · متجر Google Play",
@@ -108,14 +129,32 @@
     "featured_role_en": "A solo, published Android app — live on the <b>Google Play Store</b>. Sifr pairs a hand-written <b>recursive-descent</b> expression engine (implicit multiplication, right-associative powers, factorials, IEEE-754 cleanup) with deep personalization: five hand-crafted palettes plus <b>Material You</b>, four keypad layouts, built-in currency / unit / tip / date tools, and a live in-app language switch across <b>11 languages</b> with full RTL. Built on <b>MVI</b> with Koin, Jetpack Navigation 3, Room &amp; DataStore.",
     "featured_role_ar": "تطبيق أندرويد فردي منشور — مُتاح على <b>متجر Google Play</b>. يجمع صِفر بين محرّك تعبيرات مكتوب يدويًا بأسلوب <b>recursive-descent</b> (ضرب ضمني، وأُسس يمينية الارتباط، ومضروب، وتنظيف دقّة IEEE-754) وتخصيص عميق: خمس سمات مصمَّمة يدويًا إضافةً إلى <b>Material You</b>، وأربعة تخطيطات للوحة المفاتيح، وأدوات مدمجة للعملات والوحدات والإكراميات والتواريخ، وتبديل لغة فوري داخل التطبيق عبر <b>١١ لغة</b> بدعم كامل للكتابة من اليمين لليسار. مبني على <b>MVI</b> مع Koin وJetpack Navigation 3 وRoom وDataStore.",
     "featured_stats_en": [
-      { "v": "Live", "k": "on Google Play" },
-      { "v": "11", "k": "languages" },
-      { "v": "5", "k": "palettes" }
+      {
+        "v": "Live",
+        "k": "on Google Play"
+      },
+      {
+        "v": "11",
+        "k": "languages"
+      },
+      {
+        "v": "5",
+        "k": "palettes"
+      }
     ],
     "featured_stats_ar": [
-      { "v": "منشور", "k": "على Google Play" },
-      { "v": "١١", "k": "لغة" },
-      { "v": "٥", "k": "سمات" }
+      {
+        "v": "منشور",
+        "k": "على Google Play"
+      },
+      {
+        "v": "١١",
+        "k": "لغة"
+      },
+      {
+        "v": "٥",
+        "k": "سمات"
+      }
     ],
     "grid": {
       "size": "md:col-span-8",
@@ -194,8 +233,9 @@
     "title_ar": "Runique",
     "slug": "runique",
     "featured": true,
+    "production": false,
+    "multiplatform": true,
     "year": "2024",
-    "shot": "/assets/img/projects/shots/runique-shot.webp",
     "card_impact_en": "Sub-second watch ↔ phone sync",
     "card_impact_ar": "مزامنة لحظية بين الساعة والهاتف",
     "grid": {
@@ -256,8 +296,9 @@
     "title_ar": "ScribbleDash",
     "slug": "scribbledash",
     "featured": true,
+    "production": false,
+    "multiplatform": false,
     "year": "2025",
-    "shot": "/assets/img/projects/shots/scribbledash-shot.webp",
     "card_impact_en": "Steady 60 FPS draw loop",
     "card_impact_ar": "حلقة رسم ثابتة ٦٠ إطار/ث",
     "grid": {
@@ -322,8 +363,9 @@
     "title_ar": "EchoJournal",
     "slug": "echojournal",
     "featured": true,
+    "production": false,
+    "multiplatform": false,
     "year": "2025",
-    "shot": "/assets/img/projects/shots/echojournal-shot.webp",
     "grid": {
       "size": "md:col-span-6",
       "glow": "glow-blue",
@@ -390,6 +432,8 @@
     "title_ar": "لوجستيات Qodem للتبرع",
     "slug": "qodem",
     "featured": false,
+    "production": true,
+    "multiplatform": false,
     "grid": {
       "size": "md:col-span-6",
       "glow": "glow-red",
@@ -434,6 +478,8 @@
     "title_ar": "مكتبتي",
     "slug": "maktabati",
     "featured": false,
+    "production": true,
+    "multiplatform": false,
     "grid": {
       "size": "",
       "glow": "glow-blue",
@@ -494,6 +540,8 @@
     "title_ar": "رادار الكويكبات",
     "slug": "asteroid-radar",
     "featured": false,
+    "production": false,
+    "multiplatform": false,
     "grid": {
       "size": "",
       "glow": "glow-orange",
@@ -525,6 +573,8 @@
     "title_ar": "موسوعة النباتات",
     "slug": "plantpediaz",
     "featured": false,
+    "production": false,
+    "multiplatform": false,
     "grid": {
       "size": "",
       "glow": "glow-green",
@@ -585,6 +635,8 @@
     "title_ar": "خرائط المهام",
     "slug": "todo-maps",
     "featured": false,
+    "production": false,
+    "multiplatform": false,
     "grid": {
       "size": "",
       "glow": "glow-blue",
@@ -616,6 +668,8 @@
     "title_ar": "المترجم (KMM)",
     "slug": "translator-kmm",
     "featured": false,
+    "production": false,
+    "multiplatform": true,
     "grid": {
       "size": "",
       "glow": "glow-blue",
@@ -647,6 +701,8 @@
     "title_ar": "مشروع ND940C3",
     "slug": "nd940c3",
     "featured": false,
+    "production": false,
+    "multiplatform": false,
     "grid": {
       "size": "",
       "glow": "glow-red",
