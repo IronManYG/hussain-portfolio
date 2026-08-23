@@ -1,9 +1,5 @@
 module.exports = {
-  content: [
-    "./src/**/*.{html,js,njk,md}",
-    "./src/_data/**/*.json",
-    "./.eleventy.js"
-  ],
+  content: ['./src/**/*.{html,js,njk,md}', './src/_data/**/*.json', './.eleventy.js'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -20,10 +16,10 @@ module.exports = {
         'rt-btn-text': 'rgb(var(--rt-btn-text) / <alpha-value>)',
       },
       fontFamily: {
-        'display': ['"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
-        'mono': ['"JetBrains Mono"', 'monospace'],
-      }
-    }
+        display: ['"IBM Plex Sans Arabic"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+    },
   },
   plugins: [],
-}
+};

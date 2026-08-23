@@ -60,12 +60,7 @@
         }
       }
     },
-    "tags": [
-      "Kotlin Multiplatform",
-      "Compose Multiplatform",
-      "Spring Boot",
-      "Course Challenge"
-    ],
+    "tags": ["Kotlin Multiplatform", "Compose Multiplatform", "Spring Boot", "Course Challenge"],
     "description_en": "A synchronized, real-time messaging application targeting Android, iOS, and Desktop with 100% shared business logic.",
     "description_ar": "تطبيق مراسلة متزامن يعمل في الوقت الفعلي لأنظمة Android وiOS وسطح المكتب، مع مشاركة المنطق البرمجي بنسبة 100٪.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>Chirp is a cross-platform messaging app built entirely in Kotlin. It uses Kotlin Multiplatform (KMP) for shared state management and Compose Multiplatform (CMP) for unified UI rendering across Android, iOS, and Desktop.</p>\n            </div>",
@@ -173,13 +168,7 @@
         }
       }
     },
-    "tags": [
-      "Play Store",
-      "Jetpack Compose",
-      "MVI",
-      "Material 3",
-      "Personal Project"
-    ],
+    "tags": ["Play Store", "Jetpack Compose", "MVI", "Material 3", "Personal Project"],
     "description_en": "A modernized, deeply customizable Material 3 calculator for Android, live on Google Play — basic and scientific modes, built-in converters, five hand-crafted palettes, and full RTL across 11 languages.",
     "description_ar": "حاسبة Material 3 عصرية وقابلة للتخصيص بعمق على أندرويد، منشورة على Google Play — أوضاع أساسية وعلمية، ومحوّلات مدمجة، وخمس سمات مصمَّمة يدويًا، ودعم كامل للكتابة من اليمين لليسار عبر ١١ لغة.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>Sifr (Arabic for \"zero\" — the root of the English word \"cipher\") is a Material 3 calculator for Android, published on the Google Play Store. It pairs a hand-written expression engine with deep personalization: basic and scientific modes, four built-in converters, five custom palettes plus Material You, and a live in-app language switch across 11 locales with full right-to-left support.</p>\n            </div>",
@@ -255,11 +244,7 @@
         }
       }
     },
-    "tags": [
-      "Wear OS",
-      "Room",
-      "Course Project"
-    ],
+    "tags": ["Wear OS", "Room", "Course Project"],
     "description_en": "Advanced running tracker syncing mobile and smartwatch.",
     "description_ar": "متتبع جري متقدم يزامن البيانات لحظياً بين الهاتف والساعة الذكية.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>Runique connects a phone companion app to a Wear OS smartwatch for live run tracking. Tracking a run end-to-end means continuous stream sync between the watch and the host phone, real-time geospatial data, map rendering, and the Android Health Services APIs.</p>\n            </div>",
@@ -318,11 +303,7 @@
         }
       }
     },
-    "tags": [
-      "Compose UI",
-      "Canvas API",
-      "Community Challenge"
-    ],
+    "tags": ["Compose UI", "Canvas API", "Community Challenge"],
     "description_en": "A highly interactive digital canvas drawing app exploring raw Android UI drawing performance in Jetpack Compose.",
     "description_ar": "تطبيق رسم تفاعلي متقدم عبر لوحة رقمية يستكشف الأداء الفائق للرسم الأصلي باستخدام Jetpack Compose.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>ScribbleDash is a drawing app that pushes Android's native drawing APIs through Jetpack Compose. Game modes like \"One Round Wonder\" raise the difficulty round by round, with real-time gesture capture, vector stroke rendering, and an Undo/Redo history stack.</p>\n            </div>",
@@ -383,11 +364,7 @@
         }
       }
     },
-    "tags": [
-      "MVI",
-      "Media SDK",
-      "Community Challenge"
-    ],
+    "tags": ["MVI", "Media SDK", "Community Challenge"],
     "description_en": "Material Design 3 audio journaling app with mood tagging.",
     "description_ar": "تطبيق تدوين صوتي يعتمد على تصميم Material 3، يتيح تصنيف المذكرات حسب الحالات المزاجية.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>EchoJournal was built for the <em>Pl Mobile Dev Campus</em> community challenge. It records voice logs and lets the user browse them as a filterable timeline tagged by mood and topic, with room to plug in AI transcription later.</p>\n            </div>",
@@ -441,11 +418,7 @@
       "icon": "ph-drop",
       "iconColor": "text-red-500"
     },
-    "tags": [
-      "Personal Project",
-      "Firebase Firestore",
-      "Google Maps"
-    ],
+    "tags": ["Personal Project", "Firebase Firestore", "Google Maps"],
     "description_en": "Streamlined blood donation coordination and bank locator.",
     "description_ar": "نظام مبسط لتنسيق عمليات التبرع بالدم وتحديد مواقع مراكز التبرع.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>Qodem makes voluntary blood donation easier to coordinate. Users find nearby donation centers from a live clinic map, book a slot, and verify their donation on-site through a generated QR code that doubles as a digital receipt.</p>\n            </div>",
@@ -487,11 +460,7 @@
       "icon": "ph-books",
       "iconColor": "text-blue-500"
     },
-    "tags": [
-      "Professional",
-      "PDF Management",
-      "Institution"
-    ],
+    "tags": ["Professional", "PDF Management", "Institution"],
     "description_en": "A digital library platform for researchers and institutions, with built-in PDF management and viewing.",
     "description_ar": "منصة مكتبة رقمية متكاملة مصممة للباحثين والمؤسسات، تقدم إمكانيات سلسة لاستعراض وإدارة المستندات بصيغة PDF.",
     "overview_en": "<div class=\"prose prose-invert max-w-none text-rt-muted leading-relaxed\">\n                <p>Maktabati was built in-house at Kay Technology as the digital-library product for researchers who need direct access to managed archives. It's an offline-capable document manager designed to keep memory use low even on long PDF reading sessions.</p>\n            </div>",
@@ -549,11 +518,7 @@
       "icon": "ph-planet",
       "iconColor": "text-orange-400"
     },
-    "tags": [
-      "Course Project",
-      "NASA API",
-      "Android"
-    ],
+    "tags": ["Course Project", "NASA API", "Android"],
     "description_en": "An app to view the asteroids detected by NASA that pass near Earth with sizes, velocity, and hazard tracking.",
     "description_ar": "تطبيق لعرض الكويكبات المكتشفة بواسطة وكالة ناسا، يوفر بيانات شاملة حول الحجم والسرعة وتقييم المخاطر عند مرورها بالقرب من كوكب الأرض.",
     "overview_en": "<p>Asteroid Radar shows the near-Earth asteroids detected by NASA. Pick a date range and browse every tracked asteroid with its size, velocity, distance from Earth, and whether it's potentially hazardous.</p>",
@@ -582,11 +547,7 @@
       "icon": "ph-leaf",
       "iconColor": "text-green-500"
     },
-    "tags": [
-      "Personal",
-      "MVI",
-      "Clean Architecture"
-    ],
+    "tags": ["Personal", "MVI", "Clean Architecture"],
     "description_en": "A reference guide to all plants and zombies in 'Plants vs. Zombies 2'.",
     "description_ar": "دليل رقمي شامل لجميع شخصيات 'Plants vs. Zombies 2'.",
     "overview_en": "<p>A reference guide to all plants and zombies in \"Plants vs. Zombies 2\", powered by the PVZ 2 API. PlantPedia Z was originally built on Clean Architecture with the Model-View-Intent (MVI) pattern.</p>",
@@ -644,11 +605,7 @@
       "icon": "ph-map-pin",
       "iconColor": "text-blue-500"
     },
-    "tags": [
-      "Course Project",
-      "Google Maps",
-      "Location Services"
-    ],
+    "tags": ["Course Project", "Google Maps", "Location Services"],
     "description_en": "To-do list app with Google Maps location services for geographical reminders.",
     "description_ar": "تطبيق قائمة مهام مدمج مع خدمات موقع خرائط جوجل لتقديم تذكيرات جغرافية مخصصة.",
     "overview_en": "<p>To-do list app that includes Google Maps and location services, to remind the user to do something when they are at a specific location.</p>",
@@ -677,11 +634,7 @@
       "icon": "ph-translate",
       "iconColor": "text-blue-400"
     },
-    "tags": [
-      "Personal",
-      "KMM",
-      "Translation"
-    ],
+    "tags": ["Personal", "KMM", "Translation"],
     "description_en": "A personal Kotlin Multiplatform project for shared translation logic across Android and iOS.",
     "description_ar": "مشروع شخصي متعدد المنصات (Multiplatform) لتنفيذ وحدات ترجمة قوية وموثوقة.",
     "overview_en": "",
@@ -710,11 +663,7 @@
       "icon": "ph-download",
       "iconColor": "text-red-500"
     },
-    "tags": [
-      "Personal",
-      "Animations",
-      "Notifications"
-    ],
+    "tags": ["Personal", "Animations", "Notifications"],
     "description_en": "Custom download app emphasizing Motion Layout, custom button drawing, and dynamic notifications.",
     "description_ar": "تطبيق تنزيلات مخصص يركز بقوة على أنماط Motion Layout، الرسوم التفاعلية للأزرار، والإشعارات الديناميكية.",
     "overview_en": "<p>This app downloads a file from the Internet by clicking on a custom-built button where the width of the button gets animated from left to right, text changes based on states, and a circle animates 0-360 degrees. Uses Motion Layout upon opening details via notification.</p>",
