@@ -5,7 +5,7 @@ name: CI
 # build:check catches) could only fail once it was already deploying.
 on:
   pull_request:
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
 
 permissions:
@@ -29,7 +29,7 @@ jobs:
         with:
           # Single source of truth, shared with the other workflow and with
           # `nvm use` locally — the version was duplicated in both files.
-          node-version-file: ".nvmrc"
+          node-version-file: '.nvmrc'
           cache: npm
 
       # `ci` not `install`: installs exactly what package-lock.json pins and
@@ -37,6 +37,13 @@ jobs:
       # dependency tree the deploy will use.
       - name: Install dependencies
         run: npm ci
+
+      # Formatting is checked before the build so a failure points at the
+      # real cause instead of surfacing as an unrelated diff later. Scope is
+      # JS/JSON/MD/YML only — see .prettierignore for why .njk and
+      # src/css/styles.css are excluded. Fix locally with `npm run format`.
+      - name: Check formatting
+        run: npm run format:check
 
       # Runs build:check (icon classes), build:css and build:eleventy.
       - name: Build

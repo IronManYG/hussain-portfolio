@@ -1,0 +1,40 @@
+# Build output and dependencies
+_site/
+node_modules/
+package-lock.json
+
+# Nunjucks templates. Prettier has no Nunjucks parser, and the third-party
+# Jinja plugins would reformat ~280 whitespace-sensitive class attributes
+# across the bilingual templates — including the RTL/letter-spacing
+# conditionals that took a while to get right. Not worth the risk for a
+# formatting-only win. See the note in README.md.
+*.njk
+
+# Working directories that aren't part of the site
+.playwright-mcp/
+.impeccable/
+.notes/
+design/
+brand/
+linkedin/
+src/social/
+
+# Fonts, images, PDFs — nothing Prettier should touch
+src/assets/
+src/cv/
+
+# styles.css is machine-parsed and must stay hand-formatted.
+#
+# tools/subset-icons.mjs finds icon codepoints with
+#   /\.ph\.ph-([a-z0-9-]+):before\s*\{\s*content:\s*"\\([0-9a-fA-F]+)"/g
+# which requires DOUBLE quotes. Prettier's singleQuote would rewrite
+# `content: "\e058"` to `content: '\e058'`, the regex would match zero
+# icons, and the next `npm run icons:subset` would silently generate an
+# empty font subset — while check-icons.mjs, which doesn't look at quotes,
+# still reported green. That is the same silent-icon-breakage class the
+# 2026-08 audit fixed.
+#
+# It would also expand the deliberately compact one-rule-per-line icon
+# block from 29 lines to 87. One hand-maintained file, already internally
+# consistent — nothing to gain, a real trap to lose.
+src/css/styles.css

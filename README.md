@@ -9,14 +9,14 @@
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| **SSG** | Eleventy (11ty) v3 |
-| **Templating** | Nunjucks (`.njk`) |
-| **Styling** | Tailwind CSS v3 + CSS custom properties (`--rt-*` tokens) |
-| **Logic** | Vanilla JavaScript, ES modules — no framework, no animation library |
-| **Icons** | Phosphor Icons — self-hosted, subsetted to the icons actually used |
-| **Fonts** | IBM Plex Sans Arabic · JetBrains Mono — self-hosted, subsetted per script |
+| Layer          | Technology                                                                |
+| -------------- | ------------------------------------------------------------------------- |
+| **SSG**        | Eleventy (11ty) v3                                                        |
+| **Templating** | Nunjucks (`.njk`)                                                         |
+| **Styling**    | Tailwind CSS v3 + CSS custom properties (`--rt-*` tokens)                 |
+| **Logic**      | Vanilla JavaScript, ES modules — no framework, no animation library       |
+| **Icons**      | Phosphor Icons — self-hosted, subsetted to the icons actually used        |
+| **Fonts**      | IBM Plex Sans Arabic · JetBrains Mono — self-hosted, subsetted per script |
 
 Everything on the critical path is self-hosted: no CDN, no webfont round-trip, no
 render-blocking third party.
@@ -108,11 +108,28 @@ npm run build
 
 Runs three steps in order:
 
-| Script | Does |
-|--------|------|
-| `build:check` | Fails if any `ph-*` class in the source has no rule in `styles.css` |
-| `build:css` | Compiles and minifies Tailwind into `_site/styles.css` |
-| `build:eleventy` | Renders every page into `_site/` |
+| Script           | Does                                                                |
+| ---------------- | ------------------------------------------------------------------- |
+| `build:check`    | Fails if any `ph-*` class in the source has no rule in `styles.css` |
+| `build:css`      | Compiles and minifies Tailwind into `_site/styles.css`              |
+| `build:eleventy` | Renders every page into `_site/`                                    |
+
+### Formatting
+
+```bash
+npm run format         # rewrite
+npm run format:check   # verify only — this is what CI runs
+```
+
+Prettier covers **JS, JSON, Markdown and YAML**. Two deliberate exclusions, both
+recorded with their reasoning in `.prettierignore`:
+
+| Excluded             | Why                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `*.njk`              | Prettier has no Nunjucks parser. The third-party Jinja plugins would reformat ~280 whitespace-sensitive `class` attributes across the bilingual templates, including the RTL and letter-spacing conditionals. `prettier-plugin-tailwindcss` is **not installed** for the same reason — it can't reach `.njk`, which is where every Tailwind class in this repo lives, and `styles.css` has no `@apply` for it to sort. It would do nothing here. |
+| `src/css/styles.css` | Machine-parsed. `subset-icons.mjs` matches `content: "\eXXXX"` with **double** quotes; Prettier's `singleQuote` would rewrite them, the regex would match zero icons, and the next `icons:subset` would silently generate an empty font — while `build:check` still reported green.                                                                                                                                                              |
+
+`prettier.config.js` carries the reasoning for each setting.
 
 ### Adding an icon
 
