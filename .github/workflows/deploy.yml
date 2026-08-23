@@ -2,7 +2,7 @@ name: Deploy Eleventy site to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -15,7 +15,7 @@ permissions:
 
 # Allow only one concurrent deployment
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 env:
@@ -27,15 +27,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           # Single source of truth, shared with the other workflow and with
           # `nvm use` locally — the version was duplicated in both files.
-          node-version-file: ".nvmrc"
+          node-version-file: '.nvmrc'
           cache: npm
-          
+
       # `ci` not `install`: `install` is free to resolve newer versions than
       # package-lock.json pins, so a deploy could pick up a dependency change
       # nobody committed. `ci` installs the lockfile exactly and fails if the
@@ -52,7 +52,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./_site"
+          path: './_site'
 
   deploy:
     environment:

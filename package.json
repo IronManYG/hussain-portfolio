@@ -8,6 +8,8 @@
     "build:check": "node tools/check-icons.mjs",
     "build:css": "tailwindcss -i ./src/css/styles.css -o ./_site/styles.css --minify",
     "build:eleventy": "eleventy",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "icons:subset": "node tools/subset-icons.mjs",
     "watch:css": "tailwindcss -i ./src/css/styles.css -o ./_site/styles.css --watch",
     "watch:eleventy": "eleventy --serve"
@@ -27,6 +29,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
     "npm-run-all2": "^9.0.3",
+    "prettier": "^3.9.6",
     "tailwindcss": "^3.4.19"
   }
 }

@@ -68,22 +68,31 @@ const problems = [];
 for (const [name, cp] of ours) {
   const want = upstream.get(name);
   if (!want) problems.push(`ph-${name}: not in ${PHOSPHOR_PKG}`);
-  else if (want !== cp) problems.push(`ph-${name}: styles.css says \\${cp}, upstream says \\${want}`);
+  else if (want !== cp)
+    problems.push(`ph-${name}: styles.css says \\${cp}, upstream says \\${want}`);
 }
 if (problems.length) fail(`Codepoint mismatch:\n  ${problems.join('\n  ')}`);
 console.log('✓ all codepoints match upstream');
 
 // --- 4. Subset ----------------------------------------------------------
-const unicodes = [...ours.values()].sort().map((cp) => `U+${cp.toUpperCase()}`).join(',');
+const unicodes = [...ours.values()]
+  .sort()
+  .map((cp) => `U+${cp.toUpperCase()}`)
+  .join(',');
 const before = statSync(OUT).size;
 
-execFileSync('python3', [
-  '-m', 'fontTools.subset',
-  join(upstreamDir, 'Phosphor.ttf'),
-  `--unicodes=${unicodes}`,
-  '--flavor=woff2',
-  `--output-file=${OUT}`,
-], { stdio: 'inherit' });
+execFileSync(
+  'python3',
+  [
+    '-m',
+    'fontTools.subset',
+    join(upstreamDir, 'Phosphor.ttf'),
+    `--unicodes=${unicodes}`,
+    '--flavor=woff2',
+    `--output-file=${OUT}`,
+  ],
+  { stdio: 'inherit' },
+);
 
 const after = statSync(OUT).size;
 console.log(`\n✓ ${OUT.replace(ROOT + '/', '')}`);

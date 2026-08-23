@@ -51,7 +51,9 @@ for (const file of walk(SRC)) {
 const missing = [...used.keys()].filter((c) => !declared.has(c)).sort();
 
 if (missing.length) {
-  console.error(`\n✗ ${missing.length} icon class(es) used but not declared in src/css/styles.css:\n`);
+  console.error(
+    `\n✗ ${missing.length} icon class(es) used but not declared in src/css/styles.css:\n`,
+  );
   for (const cls of missing) {
     console.error(`  .${cls}`);
     for (const f of used.get(cls)) console.error(`      ${f}`);
