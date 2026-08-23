@@ -4,7 +4,7 @@
 {%- set h = home[locale] -%}
 <!-- ───────── Hero ───────── -->
 <header class="relative max-w-7xl mx-auto px-6 pt-32 pb-16 lg:pt-40 lg:pb-24">
-    <div class="relative z-[1] grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
+    <div class="relative z-1 grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16 items-center">
         <!-- Copy -->
         <div>
             <div data-hero style="--hero-step:0" class="inline-flex items-center gap-2 font-mono text-xs text-rt-muted border border-rt-border bg-rt-surface px-3 py-1.5 rounded-full mb-6">
@@ -28,7 +28,7 @@
         <div data-hero style="--hero-step:5" class="rt-card border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
             <img src="{{ '/assets/img/hussain-portrait.webp' | url }}" alt="{{ 'حسين قدال — مطور تطبيقات أندرويد في الرياض' if isRtl else 'Hussain Gaddal — Android Developer in Riyadh' }}"
                  width="2400" height="1600" fetchpriority="high"
-                 class="w-full aspect-[4/5] object-cover" style="object-position: 28% 20%;">
+                 class="w-full aspect-4/5 object-cover" style="object-position: 28% 20%;">
             <div class="grid grid-cols-3 border-t border-rt-border">
                 {% for s in h.hero.stats %}
                 <div class="px-4 py-3.5 {% if not loop.last %}border-e border-rt-border{% endif %}">
@@ -57,7 +57,7 @@
 <section id="about" class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
     <div class="grid lg:grid-cols-[1fr_1.25fr] gap-10 lg:gap-16 items-start">
         <div data-reveal>
-            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-3">{{ h.about.section_label }}</div>
+            <div class="font-mono text-xs uppercase tracking-widest text-rt-muted mb-3">{{ h.about.section_label }}</div>
             <h2 class="rt-em text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight tracking-tight">{{ h.about.title | safe }}</h2>
         </div>
         <div data-reveal>
@@ -75,7 +75,7 @@
 <section id="projects" class="border-t border-rt-border max-w-7xl mx-auto px-6 py-20 lg:py-24">
     <div data-reveal class="flex items-end justify-between gap-6 mb-10">
         <div>
-            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ h.featured_projects.section_label }}</div>
+            <div class="font-mono text-xs uppercase tracking-widest text-rt-muted mb-2">{{ h.featured_projects.section_label }}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ h.featured_projects.title }}</h2>
         </div>
         <a href="{{ (base + '/projects/') | url }}" class="hidden sm:inline-flex items-center gap-2 py-1 text-sm text-rt-accent hover:brightness-110 transition">
@@ -159,7 +159,7 @@
 <section id="expertise" class="border-t border-rt-border">
     <div class="max-w-7xl mx-auto px-6 py-20 lg:py-24">
         <div data-reveal class="mb-10">
-            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-2">{{ h.expertise.section_label }}</div>
+            <div class="font-mono text-xs uppercase tracking-widest text-rt-muted mb-2">{{ h.expertise.section_label }}</div>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">{{ h.expertise.title }}</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

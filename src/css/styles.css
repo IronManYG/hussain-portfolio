@@ -12,216 +12,816 @@
    adding a rule below; `npm run build` fails if a template uses a ph-*
    class that has no rule here. */
 
-@font-face {
-  font-family: "Phosphor";
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url(assets/fonts/Phosphor-regular-subset.woff2) format("woff2");
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-rt-bg: rgb(var(--rt-bg));
+  --color-rt-surface: rgb(var(--rt-surface));
+  --color-rt-subtle: rgb(var(--rt-subtle));
+  --color-rt-border: rgb(var(--rt-border));
+  --color-rt-text: rgb(var(--rt-text));
+  --color-rt-muted: rgb(var(--rt-muted));
+  --color-rt-accent: rgb(var(--rt-accent));
+  --color-rt-accent-2: rgb(var(--rt-accent-2));
+  --color-rt-btn-text: rgb(var(--rt-btn-text));
+
+  --font-display: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
-.ph {
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility glass-noise {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.03;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility magnetic-wrap {
   display: inline-block;
-  font-family: "Phosphor" !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.ph.ph-arrow-left:before { content: "\e058"; }
-.ph.ph-arrow-right:before { content: "\e06c"; }
-.ph.ph-arrow-up:before { content: "\e08e"; }
-.ph.ph-books:before { content: "\e758"; }
-.ph.ph-code:before { content: "\e1bc"; }
-.ph.ph-database:before { content: "\e1de"; }
-.ph.ph-download:before { content: "\e20a"; }
-.ph.ph-drop:before { content: "\e210"; }
-.ph.ph-envelope-simple:before { content: "\e218"; }
-.ph.ph-file-pdf:before { content: "\e702"; }
-.ph.ph-github-logo:before { content: "\e576"; }
-.ph.ph-google-play-logo:before { content: "\e294"; }
-.ph.ph-hard-drive:before { content: "\e29e"; }
-.ph.ph-house:before { content: "\e2c2"; }
-.ph.ph-layout:before { content: "\e6d6"; }
-.ph.ph-leaf:before { content: "\e2da"; }
-.ph.ph-linkedin-logo:before { content: "\e2ee"; }
-.ph.ph-list:before { content: "\e2f0"; }
-.ph.ph-map-pin:before { content: "\e316"; }
-.ph.ph-moon:before { content: "\e330"; }
-.ph.ph-paper-plane-tilt:before { content: "\e398"; }
-.ph.ph-phone:before { content: "\e3b8"; }
-.ph.ph-planet:before { content: "\e652"; }
-.ph.ph-squares-four:before { content: "\e464"; }
-.ph.ph-stack:before { content: "\e466"; }
-.ph.ph-sun:before { content: "\e472"; }
-.ph.ph-translate:before { content: "\e4a2"; }
-.ph.ph-trophy:before { content: "\e67e"; }
-.ph.ph-x:before { content: "\e4f6"; }
+
+@utility grain-overlay {
+  /* Grain — behind content (z-5 < main z-10), so opaque bands (facts/cards/
+       footer) cover it and keep exact token colors; it shows through the
+       transparent hero + section backgrounds.
+
+       SELF-CONTAINED via background-blend-mode: the speckle blends against this
+       layer's OWN background-color (the theme bg), NOT the page behind it. That
+       makes it immune to sibling compositing — earlier the animated .page-glow
+       (a GPU/will-change layer) broke the old mix-blend-mode:overlay grain,
+       which depends on a shared backdrop. This approach can't be broken that
+       way, and it drops the whole-page mix-blend that also hurt nav smoothness.
+
+       BLEND MODE IS PER-THEME, and that matters: `overlay` mathematically can't
+       lift a near-black background (result ≈ 0.16×speckle → invisible, measured
+       sd ~1.2), which is why earlier opacity "boosts" never showed. So:
+         • LIGHT → `multiply` a warm-grey speckle DARKENS the sandstone bg
+           ([236,228,212] → ~[219,208,187], sd ~4.7).
+         • DARK  → `screen` a warm-white speckle LIFTS the near-black bg
+           ([21,20,15] → ~[49,48,41], sd ~6.4 — matches the session-2 target).
+       Alphas tuned by canvas-replicating the blend and measuring pixel stddev. */
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background-color: rgb(var(--rt-bg));
+  background-size: 150px 150px;
+  background-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.42  0 0 0 0 0.34  0 0 0 0 0.20  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
+  .dark & {
+    background-size: 170px 170px;
+    background-blend-mode: screen;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.82  0 0 0 0.24 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
+  }
+}
+
+@utility page-glow {
+  /* Whole-page green ambiance — the hero's corner glow, now spread across the
+       page as several teal radials (same ~0.26 accent + soft `transparent 65%`
+       falloff as the old hero `.mock-hero::before`). Behind content (z-6, below
+       main z-10, above grain z-5), so opaque bands (facts/cards/footer) cover
+       it and only the transparent hero + section backgrounds pick up the green.
+       Fixed → the glows stay distributed across the viewport as the page
+       scrolls, covering the whole page. Theme-aware via --rt-accent. */
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  /* Slightly over-scaled so the slow drift never exposes a hard edge. */
+  transform: scale(1.1);
+  background:
+    radial-gradient(
+      460px circle at 88% 6%,
+      rgb(var(--rt-accent) / 0.26),
+      transparent 65%
+    ),
+    radial-gradient(
+      420px circle at 8% 26%,
+      rgb(var(--rt-accent) / 0.2),
+      transparent 65%
+    ),
+    radial-gradient(
+      440px circle at 98% 54%,
+      rgb(var(--rt-accent) / 0.22),
+      transparent 65%
+    ),
+    radial-gradient(
+      440px circle at 26% 76%,
+      rgb(var(--rt-accent) / 0.2),
+      transparent 65%
+    ),
+    radial-gradient(
+      420px circle at 78% 98%,
+      rgb(var(--rt-accent) / 0.2),
+      transparent 65%
+    );
+  @media (prefers-reduced-motion: no-preference) {
+    animation: glow-drift 8s ease-in-out infinite;
+    will-change: transform;
+  }
+  @media (max-width: 768px) {
+    opacity: 0.5;
+  }
+}
+
+@utility rt-em {
+  /* Drifting green ambiance — feels alive without distracting. Transform-only
+       (GPU compositing, no repaint). Disabled for users who ask for reduced
+       motion. */
+  /* On phones the radials are wider than the viewport and overlap into a
+       heavy wash — soften the whole layer. */
+
+  /* Riyadh Terra hero emphasis — accent the <em> words in the H1 */
+  & em {
+    font-style: italic;
+    font-weight: 500;
+    color: rgb(var(--rt-accent));
+  }
+}
+
+@utility rt-card {
+  /* Phone-frame screenshot for project cards */
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgb(var(--rt-accent));
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@utility rt-tl {
+  /* About timeline — a single vertical rail with one dot per role; the
+       current role gets an accent halo. Bullets are marked with an arrow that
+       points into the line of reading (→ LTR, ← RTL). Logical flips for RTL. */
+  position: relative;
+  padding-left: 28px;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: rgb(var(--rt-border));
+  }
+
+  html[dir='rtl'] & {
+    padding-left: 0;
+    padding-right: 28px;
+  }
+  html[dir='rtl'] &::before {
+    left: auto;
+    right: 9px;
+  }
+}
+
+@utility rt-tl-item {
+  &::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgb(var(--rt-accent));
+    box-shadow: 0 0 0 4px rgb(var(--rt-bg));
+  }
+  &.is-current::before {
+    box-shadow:
+      0 0 0 4px rgb(var(--rt-bg)),
+      0 0 0 8px rgb(var(--rt-accent) / 0.3);
+  }
+  html[dir='rtl'] &::before {
+    left: auto;
+    right: -23px;
+  }
+}
+
+@utility rt-tl-bullet {
+  position: relative;
+  padding-left: 18px;
+  &::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: rgb(var(--rt-accent));
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  & b {
+    color: rgb(var(--rt-text));
+    font-weight: 600;
+  }
+  & strong {
+    color: rgb(var(--rt-text));
+    font-weight: 600;
+  }
+  html[dir='rtl'] & {
+    padding-left: 0;
+    padding-right: 18px;
+  }
+  html[dir='rtl'] &::before {
+    left: auto;
+    right: 0;
+    content: '←';
+  }
+}
+
+@utility rt-chip {
+  /* Riyadh Terra filter chips (Projects index) */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgb(var(--rt-border));
+  color: rgb(var(--rt-muted));
+  background: transparent;
+  transition:
+    color 0.15s,
+    border-color 0.15s,
+    background 0.15s,
+    transform 0.1s;
+  &:hover {
+    color: rgb(var(--rt-text));
+    border-color: rgb(var(--rt-accent) / 0.5);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+  &.is-active {
+    color: rgb(var(--rt-btn-text));
+    background: rgb(var(--rt-accent));
+    border-color: rgb(var(--rt-accent));
+  }
+}
+
+@utility rt-chip-count {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+@utility rt-prose {
+  /* Riyadh Terra prose — re-skins the project case-study HTML (which still
+       carries legacy ide and kotlin color classes from projects.json) to the
+       Terra tokens via higher-specificity overrides, so no data rewrite is
+       needed. Drop these overrides once the prose strings are migrated. */
+  color: rgb(var(--rt-muted));
+  line-height: 1.75;
+  & p {
+    margin-bottom: 1rem;
+  }
+  & p:last-child {
+    margin-bottom: 0;
+  }
+  & ul {
+    list-style: disc;
+    padding-inline-start: 1.25rem;
+    margin: 0.5rem 0 1rem;
+  }
+  & ol {
+    list-style: decimal;
+    padding-inline-start: 1.25rem;
+    margin: 0.5rem 0 1rem;
+  }
+  & li {
+    margin-bottom: 0.4rem;
+  }
+  & h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 1.6rem 0 0.5rem;
+  }
+  & strong {
+    color: rgb(var(--rt-text));
+    font-weight: 600;
+  }
+  & b {
+    color: rgb(var(--rt-text));
+    font-weight: 600;
+  }
+  & h3 {
+    color: rgb(var(--rt-text));
+    font-weight: 600;
+  }
+  & em {
+    font-style: italic;
+  }
+  & a {
+    color: rgb(var(--rt-accent));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  & code {
+    color: rgb(var(--rt-accent));
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: rgb(var(--rt-subtle));
+    border: 1px solid rgb(var(--rt-border));
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+  html[dir='rtl'] & ul {
+    list-style-position: inside;
+  }
+  html[dir='rtl'] & ol {
+    list-style-position: inside;
+  }
+}
+
+@utility rt-nav-link {
+  /* Active nav link indicator — an accent underline that grows in from the
+       leading edge (matches the old topbar), toggled by nav.js scroll-spy on
+       the homepage section links. Logical inset → grows left→right in LTR,
+       right→left in RTL. */
+  position: relative;
+  padding-bottom: 4px;
+  /* Full-width and scaled to nothing rather than grown from width: 0 —
+       animating width runs layout on every frame, scaleX is composited.
+       transform-origin takes no logical keyword, so RTL flips it by hand. */
+  &::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: rgb(var(--rt-accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  html[dir='rtl'] &::after {
+    transform-origin: right;
+  }
+  &.is-active {
+    color: rgb(var(--rt-text));
+  }
+  &.is-active::after {
+    transform: scaleX(1);
+  }
+}
+
+@utility mobile-nav-link {
+  /* Mobile menu active row — accent bar on the leading edge (auto-flips RTL). */
+  &.is-active {
+    color: rgb(var(--rt-text));
+    border-inline-start: 3px solid rgb(var(--rt-accent));
+    padding-inline-start: 0.75rem;
+  }
+}
+
+@utility rt-tap {
+  /* Comfortable touch target for icon-only controls. The icons keep their
+       drawn size; only the hit area grows, so nothing shifts visually. These
+       sit in the top corner and the footer where a mis-tap is most costly —
+       the theme, language and menu buttons measured 24-36px on a phone, and
+       the menu button exists only on mobile. WCAG 2.5.8 asks 24x24; 44x44 is
+       the platform guidance for primary controls. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+@utility rt-fab {
+  /* Back-to-top floating button */
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 40;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(var(--rt-accent));
+  color: rgb(var(--rt-btn-text));
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.9);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    filter 0.2s;
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px) scale(1);
+  }
+  html[dir='rtl'] & {
+    right: auto;
+    left: 1.75rem;
+  }
+
+  /* ── Entrance animations (scroll reveals + hero stagger) ──────────────
+       The hidden states only apply when JS is running (html.js, set by an
+       inline head script) AND the user allows motion — no-JS and
+       reduced-motion visitors get the page complete at first paint, so
+       nothing can ever be hidden forever. transform is translateY-only:
+       nothing to flip for RTL. */
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Phosphor';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(assets/fonts/Phosphor-regular-subset.woff2) format('woff2');
+  }
+  .ph {
+    display: inline-block;
+    font-family: 'Phosphor' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .ph.ph-arrow-left:before {
+    content: "\e058";
+  }
+  .ph.ph-arrow-right:before {
+    content: "\e06c";
+  }
+  .ph.ph-arrow-up:before {
+    content: "\e08e";
+  }
+  .ph.ph-books:before {
+    content: "\e758";
+  }
+  .ph.ph-code:before {
+    content: "\e1bc";
+  }
+  .ph.ph-database:before {
+    content: "\e1de";
+  }
+  .ph.ph-download:before {
+    content: "\e20a";
+  }
+  .ph.ph-drop:before {
+    content: "\e210";
+  }
+  .ph.ph-envelope-simple:before {
+    content: "\e218";
+  }
+  .ph.ph-file-pdf:before {
+    content: "\e702";
+  }
+  .ph.ph-github-logo:before {
+    content: "\e576";
+  }
+  .ph.ph-google-play-logo:before {
+    content: "\e294";
+  }
+  .ph.ph-hard-drive:before {
+    content: "\e29e";
+  }
+  .ph.ph-house:before {
+    content: "\e2c2";
+  }
+  .ph.ph-layout:before {
+    content: "\e6d6";
+  }
+  .ph.ph-leaf:before {
+    content: "\e2da";
+  }
+  .ph.ph-linkedin-logo:before {
+    content: "\e2ee";
+  }
+  .ph.ph-list:before {
+    content: "\e2f0";
+  }
+  .ph.ph-map-pin:before {
+    content: "\e316";
+  }
+  .ph.ph-moon:before {
+    content: "\e330";
+  }
+  .ph.ph-paper-plane-tilt:before {
+    content: "\e398";
+  }
+  .ph.ph-phone:before {
+    content: "\e3b8";
+  }
+  .ph.ph-planet:before {
+    content: "\e652";
+  }
+  .ph.ph-squares-four:before {
+    content: "\e464";
+  }
+  .ph.ph-stack:before {
+    content: "\e466";
+  }
+  .ph.ph-sun:before {
+    content: "\e472";
+  }
+  .ph.ph-translate:before {
+    content: "\e4a2";
+  }
+  .ph.ph-trophy:before {
+    content: "\e67e";
+  }
+  .ph.ph-x:before {
+    content: "\e4f6";
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-400-arabic.woff2) format('woff2');
+    unicode-range:
+      U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+      U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+      U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4,
+      U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24,
+      U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47,
+      U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59,
+      U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A,
+      U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89,
+      U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-400-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-400-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-500-arabic.woff2) format('woff2');
+    unicode-range:
+      U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+      U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+      U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4,
+      U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24,
+      U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47,
+      U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59,
+      U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A,
+      U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89,
+      U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-500-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-500-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-600-arabic.woff2) format('woff2');
+    unicode-range:
+      U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+      U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+      U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4,
+      U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24,
+      U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47,
+      U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59,
+      U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A,
+      U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89,
+      U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-600-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-600-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-700-arabic.woff2) format('woff2');
+    unicode-range:
+      U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1,
+      U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF,
+      U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4,
+      U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24,
+      U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47,
+      U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59,
+      U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A,
+      U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89,
+      U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-700-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans Arabic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(assets/fonts/IBMPlexSansArabic-700-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/JetBrainsMono-400-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(assets/fonts/JetBrainsMono-400-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(assets/fonts/JetBrainsMono-500-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(assets/fonts/JetBrainsMono-500-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(assets/fonts/JetBrainsMono-700-latin-ext.woff2) format('woff2');
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(assets/fonts/JetBrainsMono-700-latin.woff2) format('woff2');
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @view-transition {
+    navigation: auto;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 140ms;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 1ms;
+    }
+  }
+}
 
 /* IBMPlexSansArabic 400 arabic */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-400-arabic.woff2) format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
-}
 /* IBMPlexSansArabic 400 latin-ext */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-400-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* IBMPlexSansArabic 400 latin */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-400-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /* IBMPlexSansArabic 500 arabic */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-500-arabic.woff2) format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
-}
 /* IBMPlexSansArabic 500 latin-ext */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-500-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* IBMPlexSansArabic 500 latin */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-500-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /* IBMPlexSansArabic 600 arabic */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-600-arabic.woff2) format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
-}
 /* IBMPlexSansArabic 600 latin-ext */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-600-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* IBMPlexSansArabic 600 latin */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-600-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /* IBMPlexSansArabic 700 arabic */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-700-arabic.woff2) format('woff2');
-  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
-}
 /* IBMPlexSansArabic 700 latin-ext */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-700-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* IBMPlexSansArabic 700 latin */
-@font-face {
-  font-family: 'IBM Plex Sans Arabic';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(assets/fonts/IBMPlexSansArabic-700-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /* JetBrainsMono 400 latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(assets/fonts/JetBrainsMono-400-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* JetBrainsMono 400 latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(assets/fonts/JetBrainsMono-400-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /* JetBrainsMono 500 latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(assets/fonts/JetBrainsMono-500-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* JetBrainsMono 500 latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(assets/fonts/JetBrainsMono-500-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /* JetBrainsMono 700 latin-ext */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(assets/fonts/JetBrainsMono-700-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
 /* JetBrainsMono 700 latin */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(assets/fonts/JetBrainsMono-700-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 
 /* Cross-document View Transitions — hold the OUTGOING page during same-origin
    navigation, then crossfade to the incoming page. The hold prevents the blank
@@ -231,17 +831,6 @@
    viable again — it used to fade into a near-black still-rendering frame).
    140ms is short enough that navigation still reads as instant. Reduced motion
    keeps the hold but swaps in 1ms. */
-@view-transition { navigation: auto; }
-::view-transition-old(root),
-::view-transition-new(root) { animation-duration: 140ms; }
-@media (prefers-reduced-motion: reduce) {
-    ::view-transition-old(root),
-    ::view-transition-new(root) { animation-duration: 1ms; }
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 
 @layer base {
@@ -381,227 +970,12 @@
 }
 
 @layer components {
-    .glass-noise {
-        position: relative;
-    }
-
-    .glass-noise::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        opacity: 0.03;
-        pointer-events: none;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    .magnetic-wrap {
-        display: inline-block;
-        transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-
-    /* Grain — behind content (z-5 < main z-10), so opaque bands (facts/cards/
-       footer) cover it and keep exact token colors; it shows through the
-       transparent hero + section backgrounds.
-
-       SELF-CONTAINED via background-blend-mode: the speckle blends against this
-       layer's OWN background-color (the theme bg), NOT the page behind it. That
-       makes it immune to sibling compositing — earlier the animated .page-glow
-       (a GPU/will-change layer) broke the old mix-blend-mode:overlay grain,
-       which depends on a shared backdrop. This approach can't be broken that
-       way, and it drops the whole-page mix-blend that also hurt nav smoothness.
-
-       BLEND MODE IS PER-THEME, and that matters: `overlay` mathematically can't
-       lift a near-black background (result ≈ 0.16×speckle → invisible, measured
-       sd ~1.2), which is why earlier opacity "boosts" never showed. So:
-         • LIGHT → `multiply` a warm-grey speckle DARKENS the sandstone bg
-           ([236,228,212] → ~[219,208,187], sd ~4.7).
-         • DARK  → `screen` a warm-white speckle LIFTS the near-black bg
-           ([21,20,15] → ~[49,48,41], sd ~6.4 — matches the session-2 target).
-       Alphas tuned by canvas-replicating the blend and measuring pixel stddev. */
-    .grain-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 5;
-        pointer-events: none;
-        background-color: rgb(var(--rt-bg));
-        background-size: 150px 150px;
-        background-blend-mode: multiply;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='ng'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.42  0 0 0 0 0.34  0 0 0 0 0.20  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23ng)'/></svg>");
-    }
-    .dark .grain-overlay {
-        background-size: 170px 170px;
-        background-blend-mode: screen;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.82  0 0 0 0.24 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
-    }
-
-    /* Whole-page green ambiance — the hero's corner glow, now spread across the
-       page as several teal radials (same ~0.26 accent + soft `transparent 65%`
-       falloff as the old hero `.mock-hero::before`). Behind content (z-6, below
-       main z-10, above grain z-5), so opaque bands (facts/cards/footer) cover
-       it and only the transparent hero + section backgrounds pick up the green.
-       Fixed → the glows stay distributed across the viewport as the page
-       scrolls, covering the whole page. Theme-aware via --rt-accent. */
-    .page-glow {
-        position: fixed;
-        inset: 0;
-        z-index: 6;
-        pointer-events: none;
-        /* Slightly over-scaled so the slow drift never exposes a hard edge. */
-        transform: scale(1.1);
-        background:
-            radial-gradient(460px circle at 88% 6%,  rgb(var(--rt-accent) / 0.26), transparent 65%),
-            radial-gradient(420px circle at 8% 26%,  rgb(var(--rt-accent) / 0.20), transparent 65%),
-            radial-gradient(440px circle at 98% 54%, rgb(var(--rt-accent) / 0.22), transparent 65%),
-            radial-gradient(440px circle at 26% 76%, rgb(var(--rt-accent) / 0.20), transparent 65%),
-            radial-gradient(420px circle at 78% 98%, rgb(var(--rt-accent) / 0.20), transparent 65%);
-    }
-    /* Drifting green ambiance — feels alive without distracting. Transform-only
-       (GPU compositing, no repaint). Disabled for users who ask for reduced
-       motion. */
     @keyframes glow-drift {
         0%   { transform: scale(1.12) translate3d(0, 0, 0); }
         25%  { transform: scale(1.18) translate3d(-3.4%, 2.6%, 0); }
         50%  { transform: scale(1.14) translate3d(3%, -2.2%, 0); }
         75%  { transform: scale(1.2) translate3d(2.2%, 3.2%, 0); }
         100% { transform: scale(1.12) translate3d(0, 0, 0); }
-    }
-    @media (prefers-reduced-motion: no-preference) {
-        .page-glow {
-            animation: glow-drift 8s ease-in-out infinite;
-            will-change: transform;
-        }
-    }
-    /* On phones the radials are wider than the viewport and overlap into a
-       heavy wash — soften the whole layer. */
-    @media (max-width: 768px) {
-        .page-glow { opacity: 0.5; }
-    }
-
-
-    /* Riyadh Terra hero emphasis — accent the <em> words in the H1 */
-    .rt-em em {
-        font-style: italic;
-        font-weight: 500;
-        color: rgb(var(--rt-accent));
-    }
-    /* Phone-frame screenshot for project cards */
-    .rt-card:hover {
-        transform: translateY(-3px);
-        border-color: rgb(var(--rt-accent));
-        box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.35);
-    }
-
-    /* About timeline — a single vertical rail with one dot per role; the
-       current role gets an accent halo. Bullets are marked with an arrow that
-       points into the line of reading (→ LTR, ← RTL). Logical flips for RTL. */
-    .rt-tl { position: relative; padding-left: 28px; }
-    .rt-tl::before {
-        content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px;
-        width: 2px; background: rgb(var(--rt-border));
-    }
-    .rt-tl-item::before {
-        content: ""; position: absolute; left: -23px; top: 6px;
-        width: 12px; height: 12px; border-radius: 50%;
-        background: rgb(var(--rt-accent));
-        box-shadow: 0 0 0 4px rgb(var(--rt-bg));
-    }
-    .rt-tl-item.is-current::before {
-        box-shadow: 0 0 0 4px rgb(var(--rt-bg)), 0 0 0 8px rgb(var(--rt-accent) / 0.30);
-    }
-    .rt-tl-bullet { position: relative; padding-left: 18px; }
-    .rt-tl-bullet::before {
-        content: "→"; position: absolute; left: 0; top: 0;
-        color: rgb(var(--rt-accent));
-        font-family: 'JetBrains Mono', monospace; font-weight: 600;
-    }
-    .rt-tl-bullet b, .rt-tl-bullet strong { color: rgb(var(--rt-text)); font-weight: 600; }
-
-    html[dir="rtl"] .rt-tl { padding-left: 0; padding-right: 28px; }
-    html[dir="rtl"] .rt-tl::before { left: auto; right: 9px; }
-    html[dir="rtl"] .rt-tl-item::before { left: auto; right: -23px; }
-    html[dir="rtl"] .rt-tl-bullet { padding-left: 0; padding-right: 18px; }
-    html[dir="rtl"] .rt-tl-bullet::before { left: auto; right: 0; content: "←"; }
-
-    /* Riyadh Terra filter chips (Projects index) */
-    .rt-chip {
-        display: inline-flex; align-items: center; gap: 6px;
-        font-family: 'JetBrains Mono', monospace; font-size: 12px;
-        padding: 6px 12px; border-radius: 999px;
-        border: 1px solid rgb(var(--rt-border));
-        color: rgb(var(--rt-muted));
-        background: transparent;
-        transition: color .15s, border-color .15s, background .15s, transform .1s;
-    }
-    .rt-chip:hover { color: rgb(var(--rt-text)); border-color: rgb(var(--rt-accent) / 0.5); }
-    .rt-chip:active { transform: scale(0.95); }
-    .rt-chip.is-active {
-        color: rgb(var(--rt-btn-text));
-        background: rgb(var(--rt-accent));
-        border-color: rgb(var(--rt-accent));
-    }
-    .rt-chip-count { font-size: 10px; opacity: 0.7; }
-
-    /* Riyadh Terra prose — re-skins the project case-study HTML (which still
-       carries legacy ide and kotlin color classes from projects.json) to the
-       Terra tokens via higher-specificity overrides, so no data rewrite is
-       needed. Drop these overrides once the prose strings are migrated. */
-    .rt-prose { color: rgb(var(--rt-muted)); line-height: 1.75; }
-    .rt-prose p { margin-bottom: 1rem; }
-    .rt-prose p:last-child { margin-bottom: 0; }
-    .rt-prose ul { list-style: disc; padding-inline-start: 1.25rem; margin: 0.5rem 0 1rem; }
-    .rt-prose ol { list-style: decimal; padding-inline-start: 1.25rem; margin: 0.5rem 0 1rem; }
-    .rt-prose li { margin-bottom: 0.4rem; }
-    .rt-prose h3 { font-weight: 600; font-size: 1.2rem; margin: 1.6rem 0 0.5rem; }
-    .rt-prose strong, .rt-prose b, .rt-prose h3 { color: rgb(var(--rt-text)); font-weight: 600; }
-    .rt-prose em { font-style: italic; }
-    .rt-prose a { color: rgb(var(--rt-accent)); text-decoration: underline; text-underline-offset: 2px; }
-    .rt-prose code {
-        color: rgb(var(--rt-accent));
-        font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
-        background: rgb(var(--rt-subtle)); border: 1px solid rgb(var(--rt-border));
-        padding: 0.1em 0.35em; border-radius: 4px;
-    }
-    html[dir="rtl"] .rt-prose ul, html[dir="rtl"] .rt-prose ol { list-style-position: inside; }
-
-    /* Active nav link indicator — an accent underline that grows in from the
-       leading edge (matches the old topbar), toggled by nav.js scroll-spy on
-       the homepage section links. Logical inset → grows left→right in LTR,
-       right→left in RTL. */
-    .rt-nav-link { position: relative; padding-bottom: 4px; }
-    /* Full-width and scaled to nothing rather than grown from width: 0 —
-       animating width runs layout on every frame, scaleX is composited.
-       transform-origin takes no logical keyword, so RTL flips it by hand. */
-    .rt-nav-link::after {
-        content: ""; position: absolute; inset-inline-start: 0; bottom: 0;
-        width: 100%; height: 2px; border-radius: 2px;
-        background: rgb(var(--rt-accent));
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-    }
-    html[dir="rtl"] .rt-nav-link::after { transform-origin: right; }
-    .rt-nav-link.is-active { color: rgb(var(--rt-text)); }
-    .rt-nav-link.is-active::after { transform: scaleX(1); }
-    /* Mobile menu active row — accent bar on the leading edge (auto-flips RTL). */
-    .mobile-nav-link.is-active {
-        color: rgb(var(--rt-text));
-        border-inline-start: 3px solid rgb(var(--rt-accent));
-        padding-inline-start: 0.75rem;
-    }
-
-    /* Comfortable touch target for icon-only controls. The icons keep their
-       drawn size; only the hit area grows, so nothing shifts visually. These
-       sit in the top corner and the footer where a mis-tap is most costly —
-       the theme, language and menu buttons measured 24-36px on a phone, and
-       the menu button exists only on mobile. WCAG 2.5.8 asks 24x24; 44x44 is
-       the platform guidance for primary controls. */
-    .rt-tap {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 44px;
-        min-height: 44px;
     }
 
     /* The language toggle is a visible bordered pill, so growing it to 44px
@@ -617,54 +991,6 @@
         width: 100%;
         min-width: 44px;
         height: 44px;
-    }
-
-    /* Back-to-top floating button */
-    .rt-fab {
-        position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 40;
-        width: 2.75rem; height: 2.75rem; border-radius: 9999px;
-        display: flex; align-items: center; justify-content: center;
-        background: rgb(var(--rt-accent)); color: rgb(var(--rt-btn-text));
-        box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
-        opacity: 0; pointer-events: none; transform: translateY(8px) scale(0.9);
-        transition: opacity .3s, transform .3s, filter .2s;
-    }
-    .rt-fab.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
-    .rt-fab:hover { filter: brightness(1.1); transform: translateY(-2px) scale(1); }
-    html[dir="rtl"] .rt-fab { right: auto; left: 1.75rem; }
-
-    /* ── Entrance animations (scroll reveals + hero stagger) ──────────────
-       The hidden states only apply when JS is running (html.js, set by an
-       inline head script) AND the user allows motion — no-JS and
-       reduced-motion visitors get the page complete at first paint, so
-       nothing can ever be hidden forever. transform is translateY-only:
-       nothing to flip for RTL. */
-    @media (prefers-reduced-motion: no-preference) {
-        /* Scroll reveal: reveal.js adds .is-revealed on first intersection.
-           --reveal-delay staggers siblings (set by reveal.js per grid). */
-        html.js [data-reveal] {
-            opacity: 0;
-            transform: translateY(16px);
-        }
-        html.js [data-reveal].is-revealed {
-            opacity: 1;
-            transform: none;
-            transition:
-                opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-            transition-delay: calc(var(--reveal-delay, 0) * 70ms);
-        }
-
-        /* Hero entrance — one-shot stagger on page load. Keyed off
-           html.is-shown, which the head script only sets once the page is
-           actually displayed (after `prerenderingchange` for Speculation-Rules
-           prerenders — otherwise the animation would play invisibly before
-           the user ever clicks). */
-        html.js [data-hero] { opacity: 0; }
-        html.js.is-shown [data-hero] {
-            animation: rt-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-            animation-delay: calc(var(--hero-step, 0) * 70ms);
-        }
     }
     @keyframes rt-rise {
         from { opacity: 0; transform: translateY(14px); }
@@ -759,4 +1085,96 @@ pre {
 .project-card-wrapper.card-fade-out {
     opacity: 0;
     transform: scale(0.96);
+}
+
+/* ── Runtime-applied state and theme classes ─────────────────────────────
+   These are NOT utilities and must not be written as `@utility`. Every class
+   here is added to the DOM by JavaScript at runtime (theme.js sets .dark; the
+   inline head script sets .js and .is-shown; reveal.js sets .is-revealed;
+   nav.js and projects-filter.js set .is-active; .is-visible drives the FAB),
+   so none of them appear in the templates that Tailwind scans.
+
+   v4 only emits an `@utility` when it finds the class in scanned source. The
+   v4 upgrade tool converted all of these to `@utility` anyway, which silently
+   dropped `.is-shown` from the build entirely and halved the `[data-reveal]`
+   rules — the hero entrance and the scroll reveals both stopped working while
+   the build still exited 0. It also rewrote `html.js [data-reveal]` as
+   `&html [data-reveal]`, which is invalid CSS (a type selector cannot follow
+   a compound) and produced five `Unexpected token Ident("html")` warnings.
+
+   Kept as plain, flat CSS in the components layer, matching the v3 output. */
+@layer components {
+  .dark .grain-overlay {
+    background-size: 170px 170px;
+    background-blend-mode: screen;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='170' height='170'><filter id='nd'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.82  0 0 0 0.24 0'/></filter><rect width='100%25' height='100%25' filter='url(%23nd)'/></svg>");
+  }
+
+  .rt-tl-item.is-current::before {
+    box-shadow:
+      0 0 0 4px rgb(var(--rt-bg)),
+      0 0 0 8px rgb(var(--rt-accent) / 0.3);
+  }
+
+  .rt-chip.is-active {
+    color: rgb(var(--rt-btn-text));
+    background: rgb(var(--rt-accent));
+    border-color: rgb(var(--rt-accent));
+  }
+
+  .rt-nav-link.is-active {
+    color: rgb(var(--rt-text));
+  }
+  .rt-nav-link.is-active::after {
+    transform: scaleX(1);
+  }
+
+  /* Mobile menu active row — accent bar on the leading edge (auto-flips RTL). */
+  .mobile-nav-link.is-active {
+    color: rgb(var(--rt-text));
+    border-inline-start: 3px solid rgb(var(--rt-accent));
+    padding-inline-start: 0.75rem;
+  }
+
+  .rt-fab.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ── Entrance animations (scroll reveals + hero stagger) ──────────────
+     The hidden states only apply when JS is running (html.js, set by an
+     inline head script) AND the user allows motion — no-JS and
+     reduced-motion visitors get the page complete at first paint, so
+     nothing can ever be hidden forever. transform is translateY-only:
+     nothing to flip for RTL. */
+  @media (prefers-reduced-motion: no-preference) {
+    /* Scroll reveal: reveal.js adds .is-revealed on first intersection.
+       --reveal-delay staggers siblings (set by reveal.js per grid). */
+    html.js [data-reveal] {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    html.js [data-reveal].is-revealed {
+      opacity: 1;
+      transform: none;
+      transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: calc(var(--reveal-delay, 0) * 70ms);
+    }
+
+    /* Hero entrance — one-shot stagger on page load. Keyed off
+       html.is-shown, which the head script only sets once the page is
+       actually displayed (after `prerenderingchange` for Speculation-Rules
+       prerenders — otherwise the animation would play invisibly before
+       the user ever clicks). */
+    html.js [data-hero] {
+      opacity: 0;
+    }
+    html.js.is-shown [data-hero] {
+      animation: rt-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: calc(var(--hero-step, 0) * 70ms);
+    }
+  }
 }

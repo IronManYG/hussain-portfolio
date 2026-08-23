@@ -7,7 +7,7 @@
 <header class="max-w-7xl mx-auto px-6 pt-32 pb-10 lg:pt-40">
     <div class="flex items-end justify-between gap-6 flex-wrap">
         <div>
-            <div class="font-mono text-xs uppercase tracking-[0.1em] text-rt-muted mb-3">{{ 'أعمال مختارة' if isRtl else 'Selected work' }}</div>
+            <div class="font-mono text-xs uppercase tracking-widest text-rt-muted mb-3">{{ 'أعمال مختارة' if isRtl else 'Selected work' }}</div>
             <h1 class="rt-em text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight max-w-2xl">{{ 'كافة المشاريع' if isRtl else 'All Projects' }}</h1>
             <p class="text-lg text-rt-muted leading-relaxed max-w-2xl mt-5">{{ 'أرشيف يضم أعمالي الاحترافية، وتحديات المجتمع التقني، وتجاربي الشخصية — تطبيقات إنتاجية، ومشاريع متعددة المنصات، وأدوات صغيرة بنيتُها للتعلّم. مُرتَّبة حسب ما علّمتني.' if isRtl else 'An archive of my professional work, community challenges, and personal experiments — production apps, multiplatform builds, and small tools I made to learn. Ordered by how much they taught me.' }}</p>
         </div>
@@ -33,7 +33,7 @@
 <section class="featured-card-wrapper max-w-7xl mx-auto px-6 pb-12" data-multiplatform="{{ 'true' if project.multiplatform else 'false' }}" data-production="{{ 'true' if project.production else 'false' }}" data-opensource="{{ 'true' if project.repoUrl else 'false' }}">
     <div data-reveal class="rt-card grid md:grid-cols-[1.1fr_1fr] border border-rt-border rounded-2xl overflow-hidden bg-rt-surface transition-all duration-300">
         <a href="{{ (base + '/' + project.slug + '/') | url }}" class="group relative block aspect-video md:aspect-auto md:min-h-[340px] overflow-hidden bg-rt-subtle" aria-label="{{ pTitle }} — {{ 'دراسة حالة' if isRtl else 'case study' }}">
-            <span class="absolute top-4 start-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">{{ 'مميَّز' if isRtl else 'Featured' }}</span>
+            <span class="absolute top-4 inset-s-4 z-10 font-mono text-[10px] uppercase tracking-[0.14em] text-rt-btn-text bg-rt-accent px-2.5 py-1 rounded-full">{{ 'مميَّز' if isRtl else 'Featured' }}</span>
             {# Single <img> — see the note in pages/home.njk. The wrapping <a>
                already carries an aria-label, so alt stays descriptive here. #}
             {% if project.grid.images %}
@@ -58,7 +58,7 @@
             </div>
             {% endif %}
             <div class="flex flex-wrap gap-1.5 mb-6 font-mono">
-                {% for tag in project.tags %}{% if tag not in nonTech %}<span class="text-[10.5px] px-2.5 py-1 rounded bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
+                {% for tag in project.tags %}{% if tag not in nonTech %}<span class="text-[10.5px] px-2.5 py-1 rounded-sm bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
             </div>
             <div class="flex flex-wrap items-center gap-4">
                 <a href="{{ (base + '/' + project.slug + '/') | url }}" class="inline-flex items-center gap-2 bg-rt-accent text-rt-btn-text font-semibold px-5 py-2.5 rounded-[10px] hover:brightness-110 hover:-translate-y-0.5 transition-all">{{ 'اقرأ دراسة الحالة' if isRtl else 'Read case study' }} <span class="font-mono">{{ '←' if isRtl else '→' }}</span></a>
@@ -80,7 +80,7 @@
             <a data-reveal href="{{ (base + '/' + project.slug + '/') | url }}" class="rt-card group flex flex-col h-full border border-rt-border rounded-2xl bg-rt-surface p-6 transition-all duration-300">
                 <div class="flex items-baseline justify-between gap-3 mb-2">
                     <h3 class="text-lg sm:text-xl font-bold tracking-tight group-hover:text-rt-accent transition-colors">{{ project['title_' + locale] }}</h3>
-                    {% if project.year %}<span class="font-mono text-[11px] tracking-[0.1em] text-rt-muted shrink-0"><bdi>{{ project.year | locNum(locale) }}</bdi></span>{% endif %}
+                    {% if project.year %}<span class="font-mono text-[11px] tracking-widest text-rt-muted shrink-0"><bdi>{{ project.year | locNum(locale) }}</bdi></span>{% endif %}
                 </div>
                 <p class="text-sm text-rt-muted leading-relaxed">{{ project['description_' + locale] }}</p>
                 {% if project['card_impact_' + locale] %}
@@ -88,7 +88,7 @@
                 {% endif %}
                 <div class="flex items-center justify-between gap-3 mt-auto pt-4">
                     <div class="flex flex-wrap gap-1.5 font-mono">
-                        {% for tag in project.tags %}{% if tag not in nonTech and loop.index <= 4 %}<span class="text-[10px] px-2 py-0.5 rounded bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
+                        {% for tag in project.tags %}{% if tag not in nonTech and loop.index <= 4 %}<span class="text-[10px] px-2 py-0.5 rounded-sm bg-rt-subtle text-rt-muted border border-rt-border">{{ tag }}</span>{% endif %}{% endfor %}
                     </div>
                     <span class="font-mono text-xs text-rt-muted group-hover:text-rt-accent transition-colors shrink-0">{{ 'عرض' if isRtl else 'View' }} {{ '←' if isRtl else '→' }}</span>
                 </div>

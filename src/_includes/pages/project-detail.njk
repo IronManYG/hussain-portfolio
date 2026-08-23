@@ -23,8 +23,8 @@
         <!-- Meta strip — only rows that exist -->
         {% set typeTag = null %}{% for tag in project.tags %}{% if tag in nonTech and not typeTag %}{% set typeTag = tag %}{% endif %}{% endfor %}
         <dl class="flex flex-wrap gap-x-10 gap-y-4 mt-8 pt-6 border-t border-rt-border">
-            {% if project.year %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">{{ 'السنة' if isRtl else 'Year' }}</dt><dd class="text-sm text-rt-text mt-1"><bdi>{{ project.year | locNum(locale) }}</bdi></dd></div>{% endif %}
-            {% if typeTag %}<div><dt class="font-mono text-[10px] uppercase tracking-[0.1em] text-rt-muted">{{ 'النوع' if isRtl else 'Type' }}</dt><dd class="text-sm text-rt-text mt-1">{{ typeTag }}</dd></div>{% endif %}
+            {% if project.year %}<div><dt class="font-mono text-[10px] uppercase tracking-widest text-rt-muted">{{ 'السنة' if isRtl else 'Year' }}</dt><dd class="text-sm text-rt-text mt-1"><bdi>{{ project.year | locNum(locale) }}</bdi></dd></div>{% endif %}
+            {% if typeTag %}<div><dt class="font-mono text-[10px] uppercase tracking-widest text-rt-muted">{{ 'النوع' if isRtl else 'Type' }}</dt><dd class="text-sm text-rt-text mt-1">{{ typeTag }}</dd></div>{% endif %}
         </dl>
     </header>
 
