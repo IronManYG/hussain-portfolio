@@ -7,8 +7,19 @@
 // it removes itself: clears every cache, unregisters, and reloads open tabs
 // so they detach from the worker immediately.
 //
-// Keep this file deployed for a few releases, then it can be deleted along
-// with its passthrough copy in .eleventy.js.
+// Do NOT delete this file to tidy up — deleting it is what breaks the repair.
+// A 404 on a worker script does not unregister the registration: the proposal
+// to make 404/410 unregister (w3c/ServiceWorker#204) was closed wontfix, and
+// Chrome's "Removing buggy service workers" guide only ever offers deploying a
+// replacement worker, never deleting one. This file at this URL is therefore
+// the only thing that can still repair a browser holding the old v3 worker.
+// Removing it strands those visitors on a stale cached deploy permanently,
+// with no signal to us that it happened.
+//
+// Release count is the wrong metric for retiring it — the swap only fires when
+// a visitor actually returns, so what matters is elapsed time, not how many
+// deploys shipped. Live since 2026-07-04; revisit around July 2027. It costs
+// 1KB and is never fetched by a visitor who has no worker registered.
 
 self.addEventListener('install', () => self.skipWaiting());
 
