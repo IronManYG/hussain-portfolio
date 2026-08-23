@@ -101,7 +101,7 @@
 </head>
 <body class="bg-rt-bg text-rt-text font-display antialiased selection:bg-rt-accent/25 selection:text-rt-text">
 
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[110] focus:bg-rt-accent focus:text-rt-btn-text focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg">{{ t.skip_to_content }}</a>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:inset-s-4 focus:z-110 focus:bg-rt-accent focus:text-rt-btn-text focus:font-semibold focus:px-4 focus:py-2 focus:rounded-lg">{{ t.skip_to_content }}</a>
 
     <!-- Whole-page green ambiance: several soft accent glows spread across the
          page, behind the content (opaque facts/cards/footer cover them, so the
@@ -117,7 +117,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             {% if isHome %}
             <a href="{{ (base + '/') | url }}" class="flex items-center gap-2.5 group" aria-label="{{ t.home_aria }}">
-                <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]" aria-hidden="true">HG</span>
+                <span class="w-7 h-7 rounded-lg bg-linear-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]" aria-hidden="true">HG</span>
                 <span class="font-semibold text-rt-text">{{ t.brand_name }}</span>
             </a>
 
@@ -164,9 +164,9 @@
                    muted and brightens on hover, so the toggle reads as state,
                    not just a button. #}
                 {% if isRtl %}
-                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span lang="en" class="group-hover:text-rt-text transition-colors">EN</span> / <span lang="ar" class="font-bold text-rt-text">ع</span></a>
+                <a href="{{ enUrl | url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded-sm" aria-label="{{ t.lang_toggle_aria }}"><span lang="en" class="group-hover:text-rt-text transition-colors">EN</span> / <span lang="ar" class="font-bold text-rt-text">ع</span></a>
                 {% else %}
-                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded" aria-label="{{ t.lang_toggle_aria }}"><span lang="en" class="font-bold text-rt-text">EN</span> / <span lang="ar" class="group-hover:text-rt-text transition-colors">ع</span></a>
+                <a href="{{ '/ar' | url }}{{ page.url }}" id="lang-toggle" class="group font-mono text-xs whitespace-nowrap border border-rt-border px-2 py-1 rounded-sm" aria-label="{{ t.lang_toggle_aria }}"><span lang="en" class="font-bold text-rt-text">EN</span> / <span lang="ar" class="group-hover:text-rt-text transition-colors">ع</span></a>
                 {% endif %}
                 <button id="mobile-menu-btn" class="rt-tap text-2xl hover:text-rt-text transition-colors p-1 md:hidden" aria-label="{{ t.menu_open }}" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="ph ph-list" aria-hidden="true"></i>
@@ -185,7 +185,7 @@
             <h2 id="mobile-menu-title" class="sr-only">{{ t.menu_title }}</h2>
             <div class="flex justify-between items-center mb-8">
                 <span class="flex items-center gap-2.5" aria-hidden="true">
-                    <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]">HG</span>
+                    <span class="w-7 h-7 rounded-lg bg-linear-to-br from-rt-accent to-rt-accent-2 flex items-center justify-center font-mono font-bold text-xs text-[#0e1014]">HG</span>
                 </span>
                 <button id="mobile-menu-close" class="rt-tap text-2xl text-rt-muted hover:text-rt-text transition-colors p-1" aria-label="{{ t.menu_close }}">
                     <i class="ph ph-x" aria-hidden="true"></i>
