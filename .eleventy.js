@@ -44,7 +44,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/manifest.ar.json");
   // sw.js must keep shipping even though nothing registers it anymore:
   // returning visitors still have the old v3 worker installed, and the
-  // self-destruct version at the same URL is what removes it.
+  // self-destruct version at the same URL is what removes it. Dropping this
+  // line does not retire the worker — a 404 leaves the old registration in
+  // place. See the comment at the top of src/sw.js before touching either.
   eleventyConfig.addPassthroughCopy("src/sw.js");
 
   return {
